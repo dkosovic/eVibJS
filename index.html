@@ -1,18 +1,48 @@
-<html>
-
-	<!--This file created 29/3/04 11:58 AM by Claris Home Page version 3.0-->
-
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
-		<title>intro</title>
-		<meta name="GENERATOR" content="Claris Home Page 3.0">
-		<x-claris-window top="42" bottom="833" left="4" right="991">
-		<x-claris-tagview mode="minimal">
-	</head>
-
-	<body bgcolor="#000000">
-		<center>
-			<embed height="600" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" src="intro.swf" type="application/x-shockwave-flash" width="800" quality="high" bgcolor="#000000"></center>
-	</body>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>eVib Introduction</title>
+	<style>
+		body {
+			margin: 1;
+			padding: 1;
+			background-color: #000000;
+			font-family: Arial, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+		.flash-container {
+			text-align: center;
+		}
+		.flash-fallback {
+			color: #FFFFFF;
+			padding: 20px;
+		}
+		.flash-fallback a {
+			color: #00AAFF;
+			text-decoration: none;
+		}
+		.flash-fallback a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div class="flash-container">
+		<object data="intro.swf" type="application/x-shockwave-flash" width="800" height="600">
+			<param name="movie" value="intro.swf">
+			<param name="quality" value="high">
+			<param name="bgcolor" value="#000000">
+			<div class="flash-fallback">
+				<h2>Flash Player Required</h2>
+				<p>This content requires Adobe Flash Player.</p>
+				<p><a href="intro.swf">Download the Flash file directly</a></p>
+			</div>
+		</object>
+	</div>
+</body>
 </html>

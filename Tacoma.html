@@ -1,95 +1,130 @@
-<html>
-<!--This file created 25/2/05 12:42 PM by Claris Home Page version 3.0-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <title>Trial</title>
-   <meta name=GENERATOR content="Claris Home Page 3.0">
-   <x-claris-window top=42 bottom=718 left=4 right=1189>
-   <x-claris-tagview mode=minimal>
-<!doctype html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><csscriptdict import><script type="text/javascript" src="CSScriptLib.js"></script></csscriptdict><csactiondict><script type="text/javascript"><!--
-var preloadFlag = false;
-function preloadImages() {
-	if (document.images) {
-		pre_button01 = newImage('Home_info/Vib_over/button01.jpg');
-		pre_button04 = newImage('Home_info/Vib_over/button04.jpg');
-		pre_button05 = newImage('Home_info/Vib_over/button05.jpg');
-		pre_button06 = newImage('Home_info/Vib_over/button06.jpg');
-		pre_button07 = newImage('Home_info/Vib_over/button07.jpg');
-		pre_button08 = newImage('Home_info/Vib_over/button08.jpg');
-		pre_button09 = newImage('Home_info/Vib_over/button09.jpg');
-		pre_button10 = newImage('Home_info/Vib_over/button10.jpg');
-		pre_button11 = newImage('Home_info/Vib_over/button11.jpg');
-		pre_button02 = newImage('Home_info/Vib_over/button02.jpg');
-		pre_button03 = newImage('Home_info/Vib_over/button03.jpg');
-		preloadFlag = true;
-	}
-}
-CSAct[/*CMP*/ 'BE37BA130'] = new Array(CSGotoLink,/*URL*/ 'eVib.pdf','');
-CSAct[/*CMP*/ 'BE37BA453'] = new Array(CSGotoLink,/*URL*/ 'TwoDOF.pdf','');
-CSAct[/*CMP*/ 'BE37BA4F4'] = new Array(CSGotoLink,/*URL*/ 'Beam.pdf','');
-CSAct[/*CMP*/ 'BE37BA5D5'] = new Array(CSGotoLink,/*URL*/ 'Methods.pdf','');
-CSAct[/*CMP*/ 'BE37BA6A6'] = new Array(CSGotoLink,/*URL*/ 'MultiDOF.pdf','');
-CSAct[/*CMP*/ 'BE37BA787'] = new Array(CSGotoLink,/*URL*/ 'Modal.pdf','');
-CSAct[/*CMP*/ 'BE37BA868'] = new Array(CSGotoLink,/*URL*/ 'Continuous.pdf','');
-CSAct[/*CMP*/ 'BE37BA919'] = new Array(CSGotoLink,/*URL*/ 'Transverse.pdf','');
-CSAct[/*CMP*/ 'BE37BA9E10'] = new Array(CSGotoLink,/*URL*/ 'Receptances.pdf','');
-CSAct[/*CMP*/ 'BE37C73C0'] = new Array(CSGotoLink,/*URL*/ 'OneDOF.pdf','');
-CSAct[/*CMP*/ 'BE3895961'] = new Array(CSGotoLink,/*URL*/ 'Introduction.pdf','');
-CSAct[/*CMP*/ 'BE3895EE2'] = new Array(CSGotoLink,/*URL*/ 'Introduction.pdf','');
-
-// --></script></csactiondict><csactions><csaction name="BE37BA130" class="Goto Link" type="onevent" val0="eVib.pdf" val1="" urlparams="1"></csaction><csaction name="BE37BA453" class="Goto Link" type="onevent" val0="TwoDOF.pdf" val1="" urlparams="1"></csaction><csaction name="BE37BA4F4" class="Goto Link" type="onevent" val0="Beam.pdf" val1="" urlparams="1"></csaction><csaction name="BE37BA5D5" class="Goto Link" type="onevent" val0="Methods.pdf" val1="" urlparams="1"></csaction><csaction name="BE37BA6A6" class="Goto Link" type="onevent" val0="MultiDOF.pdf" val1="" urlparams="1"></csaction><csaction name="BE37BA787" class="Goto Link" type="onevent" val0="Modal.pdf" val1="" urlparams="1"></csaction><csaction name="BE37BA868" class="Goto Link" type="onevent" val0="Continuous.pdf" val1="" urlparams="1"></csaction><csaction name="BE37BA919" class="Goto Link" type="onevent" val0="Transverse.pdf" val1="" urlparams="1"></csaction><csaction name="BE37BA9E10" class="Goto Link" type="onevent" val0="Receptances.pdf" val1="" urlparams="1"></csaction><csaction name="BE37C73C0" class="Goto Link" type="onevent" val0="OneDOF.pdf" val1="" urlparams="1"></csaction><csaction name="BE3895961" class="Goto Link" type="onevent" val0="Introduction.pdf" val1="" urlparams="1"></csaction><csaction name="BE3895EE2" class="Goto Link" type="onevent" val0="Introduction.pdf" val1="" urlparams="1"></csaction></csactions>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tacoma Bridge - Vibration and Noise</title>
+   <style>
+      body {
+         margin: 0;
+         padding: 0;
+         background-color: #FFFFFF;
+         font-family: "Times New Roman", Times, serif;
+      }
+      .navigation {
+         width: 150px;
+         vertical-align: top;
+         padding: 0;
+      }
+      .content {
+         vertical-align: top;
+         padding-left: 20px;
+      }
+      .nav-button {
+         display: block;
+         margin-bottom: 0px;
+      }
+      .nav-button img {
+         border: 0;
+         display: block;
+      }
+      .nav-button:hover img {
+         opacity: 0.8;
+      }
+      .main-title {
+         font-size: 2em;
+         color: #003333;
+         font-weight: bold;
+         margin-bottom: 20px;
+      }
+      .section-title {
+         color: #003333;
+         font-weight: bold;
+         margin-bottom: 15px;
+      }
+      .description {
+         font-size: 0.9em;
+         margin-bottom: 15px;
+         line-height: 1.4;
+      }
+      .video-container {
+         margin: 20px 0;
+      }
+      table {
+         border-collapse: collapse;
+         width: 100%;
+         border: 0;
+      }
+      td {
+         padding: 0;
+      }
+   </style>
 </head>
-<body bgcolor="#FFFFFF" onload="preloadImages();" leftmargin=0 marginheight=0 marginwidth=0 topmargin=0>
-<p><table border=0 cellspacing=0 cellpadding=0>
-   <tr>
-      <td valign=top width=150>
-         <p><a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA130'));return true;" onmouseup="changeImages('button01','Home_info/Vib_up/button01.jpg');return true" onmouseover="changeImages('button01','Home_info/Vib_over/button01.jpg');return true" onmouseout="changeImages('button01','Home_info/Vib_up/button01.jpg');return true" csmdown=BE37BA130><img src="Home_info/Vib_up/button01.jpg" width=118 height=119 border=0 align=bottom id=button01 name=button01></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE3895EE2'));return true;" onmouseup="CSAction(new Array(/*CMP*/'BE3895961'));changeImages('button02','Home_info/Vib_up/button02.jpg');return true" onmouseover="changeImages('button02','Home_info/Vib_over/button02.jpg');return true" onmouseout="changeImages('button02','Home_info/Vib_up/button02.jpg');return true" csmup=BE3895961 csmdown=BE3895EE2><img src="Home_info/Vib_up/button02.jpg" width=118 height=27 border=0 align=bottom id=button02 name=button02></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37C73C0'));return true;" onmouseup="changeImages('button03','Home_info/Vib_up/button03.jpg');return true" onmouseover="changeImages('button03','Home_info/Vib_over/button03.jpg');return true" onmouseout="changeImages('button03','Home_info/Vib_up/button03.jpg');return true" csmdown=BE37C73C0><img src="Home_info/Vib_up/button03.jpg" width=118 height=40 border=0 align=bottom id=button03 name=button03></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA453'));return true;" onmouseup="changeImages('button04','Home_info/Vib_up/button04.jpg');return true" onmouseover="changeImages('button04','Home_info/Vib_over/button04.jpg');return true" onmouseout="changeImages('button04','Home_info/Vib_up/button04.jpg');return true" csmdown=BE37BA453><img src="Home_info/Vib_up/button04.jpg" width=118 height=42 border=0 align=bottom id=button04 name=button04></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA4F4'));return true;" onmouseup="changeImages('button05','Home_info/Vib_up/button05.jpg');return true" onmouseover="changeImages('button05','Home_info/Vib_over/button05.jpg');return true" onmouseout="changeImages('button05','Home_info/Vib_up/button05.jpg');return true" csmdown=BE37BA4F4><img src="Home_info/Vib_up/button05.jpg" width=118 height=42 border=0 align=bottom id=button05 name=button05></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA5D5'));return true;" onmouseup="changeImages('button06','Home_info/Vib_up/button06.jpg');return true" onmouseover="changeImages('button06','Home_info/Vib_over/button06.jpg');return true" onmouseout="changeImages('button06','Home_info/Vib_up/button06.jpg');return true" csmdown=BE37BA5D5><img src="Home_info/Vib_up/button06.jpg" width=118 height=54 border=0 align=bottom id=button06 name=button06></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA6A6'));return true;" onmouseup="changeImages('button07','Home_info/Vib_up/button07.jpg');return true" onmouseover="changeImages('button07','Home_info/Vib_over/button07.jpg');return true" onmouseout="changeImages('button07','Home_info/Vib_up/button07.jpg');return true" csmdown=BE37BA6A6><img src="Home_info/Vib_up/button07.jpg" width=118 height=42 border=0 align=bottom id=button07 name=button07></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA787'));return true;" onmouseup="changeImages('button08','Home_info/Vib_up/button08.jpg');return true" onmouseover="changeImages('button08','Home_info/Vib_over/button08.jpg');return true" onmouseout="changeImages('button08','Home_info/Vib_up/button08.jpg');return true" csmdown=BE37BA787><img src="Home_info/Vib_up/button08.jpg" width=118 height=42 border=0 align=bottom id=button08 name=button08></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA868'));return true;" onmouseup="changeImages('button09','Home_info/Vib_up/button09.jpg');return true" onmouseover="changeImages('button09','Home_info/Vib_over/button09.jpg');return true" onmouseout="changeImages('button09','Home_info/Vib_up/button09.jpg');return true" csmdown=BE37BA868><img src="Home_info/Vib_up/button09.jpg" width=118 height=42 border=0 align=bottom id=button09 name=button09></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA919'));return true;" onmouseup="changeImages('button10','Home_info/Vib_up/button10.jpg');return true" onmouseover="changeImages('button10','Home_info/Vib_over/button10.jpg');return true" onmouseout="changeImages('button10','Home_info/Vib_up/button10.jpg');return true" csmdown=BE37BA919><img src="Home_info/Vib_up/button10.jpg" width=118 height=42 border=0 align=bottom id=button10 name=button10></a><br>
-         <a href="#" onmousedown="CSAction(new Array(/*CMP*/'BE37BA9E10'));return true;" onmouseup="changeImages('button11','Home_info/Vib_up/button11.jpg');return true" onmouseover="changeImages('button11','Home_info/Vib_over/button11.jpg');return true" onmouseout="changeImages('button11','Home_info/Vib_up/button11.jpg');return true" csmdown=BE37BA9E10><img src="Home_info/Vib_up/button11.jpg" width=118 height=42 border=0 align=bottom id=button11 name=button11></a><br>
-         <img src="Home_info/Vib_up/space.jpg" width=118 height=117 border=0 align=bottom><br>
-         <img src="Home_info/Vib_up/space.jpg" width=118 height=117 border=0 align=bottom><br>
-         <img src="Home_info/Vib_up/space.jpg" width=118 height=117 border=0 align=bottom></p>
-      </td>
-      <td valign=top>
-         <p><br>
-         <font size="+3" color="#003333"><b>Vibration and
-         Noise</b></font></p>
+<body>
+   <table>
+      <tr>
+         <td class="navigation">
+            <a href="eVib.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button01.jpg" width="118" height="119" alt="eVib">
+            </a>
+            <a href="Introduction.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button02.jpg" width="118" height="27" alt="Introduction">
+            </a>
+            <a href="OneDOF.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button03.jpg" width="118" height="40" alt="One DOF">
+            </a>
+            <a href="TwoDOF.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button04.jpg" width="118" height="42" alt="Two DOF">
+            </a>
+            <a href="Beam.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button05.jpg" width="118" height="42" alt="Beam">
+            </a>
+            <a href="Methods.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button06.jpg" width="118" height="54" alt="Methods">
+            </a>
+            <a href="MultiDOF.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button07.jpg" width="118" height="42" alt="Multi DOF">
+            </a>
+            <a href="Modal.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button08.jpg" width="118" height="42" alt="Modal">
+            </a>
+            <a href="Continuous.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button09.jpg" width="118" height="42" alt="Continuous">
+            </a>
+            <a href="Transverse.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button10.jpg" width="118" height="42" alt="Transverse">
+            </a>
+            <a href="Receptances.pdf" class="nav-button">
+               <img src="Home_info/Vib_up/button11.jpg" width="118" height="42" alt="Receptances">
+            </a>
+            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
+            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
+            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
+         </td>
+         <td class="content">
+            <div class="main-title">Vibration and Noise</div>
 
-         <p><font color="#003333">TACOMA BRIDGE</font></p>
+            <div class="section-title">TACOMA BRIDGE</div>
 
-         <p><font size="-1">The movie is of the vibration of the
-         Tacoma Bridge in the final stages before collpse. The movie
-         is looped.</font></p>
+            <div class="description">
+               The movie is of the vibration of the Tacoma Bridge in the final stages before collapse.
+               The movie is looped.
+            </div>
 
-         <p><font size="-1">The bridge collapsed on November 7, 1940
-         after being open to traffic for just a few months</font></p>
+            <div class="description">
+               The bridge collapsed on November 7, 1940 after being open to traffic for just a few months.
+            </div>
 
-         <p><embed src="Tacoma.mov" pluginspage="http://quicktime.apple.com" width=159 height=119 controller=false loop=true autoplay=true></p>
-
-         <p>&nbsp;</p>
-
-         <p></p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<p></p>
+            <div class="video-container">
+               <video width="159" height="119" controls loop autoplay muted>
+                  <source src="Tacoma.mpg" type="video/mpeg">
+                  <source src="Tacoma.mov" type="video/quicktime">
+                  Your browser does not support the video tag. You can <a href="Tacoma.mpg">download the video</a> instead.
+               </video>
+            </div>
+         </td>
+      </tr>
+   </table>
 </body>
 </html>
 

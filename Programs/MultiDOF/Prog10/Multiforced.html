@@ -1,34 +1,72 @@
-<HTML>
-<!--This file created 24/12/04 11:59 AM by Claris Home Page version 3.0-->
-<HEAD>
-   <TITLE>Response of 5DOF</TITLE>
-   <META NAME=GENERATOR CONTENT="Claris Home Page 3.0">
-   <X-CLARIS-WINDOW TOP=69 BOTTOM=857 LEFT=683 RIGHT=1213>
-   <X-CLARIS-TAGVIEW MODE=minimal>
-</HEAD>
-<BODY BGCOLOR="#FFFFFF">
-<P><IMG SRC="../heading.jpg" WIDTH=520 HEIGHT=37 BORDER=0 ALIGN=bottom></P>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Response of 5DOF System</title>
+   <style>
+      body {
+         margin: 0;
+         padding: 0;
+         background-color: #FFFFFF;
+         font-family: Arial, sans-serif;
+      }
+      .container {
+         max-width: 720px;
+         margin: 0 auto;
+         padding: 20px;
+      }
+      .header-image {
+         display: block;
+         margin-bottom: 20px;
+      }
+      .title {
+         font-size: 1.2em;
+         color: #003333;
+         font-weight: bold;
+         margin-bottom: 15px;
+      }
+      .description {
+         margin-bottom: 15px;
+         line-height: 1.4;
+      }
+      .applet-container {
+         text-align: center;
+         margin: 20px 0;
+      }
+      .applet-fallback {
+         background: #f0f0f0;
+         padding: 40px;
+         border: 1px solid #ccc;
+         color: #666;
+         text-align: center;
+      }
+   </style>
+</head>
+<body>
+   <div class="container">
+      <img src="../heading.jpg" width="520" height="37" alt="Multi DOF Header" class="header-image">
 
-<P><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=720>
-   <TR>
-      <TD>
-         <P><FONT SIZE="+1" COLOR="#003333">Forced
-         Response.</FONT></P>
-         
-         <P>The graph shows the magnitude of the forced response.</P>
-         
-         <P>The animation is at the frequency shown in blue.</P>
-         
-         <P><APPLET CODE="Multiforced.class" CODEBASE="Multiforced.out/" WIDTH=700 HEIGHT=480 ALIGN=bottom>
-         </APPLET><BR>
-         </P>
-      </TD>
-   </TR>
-</TABLE>
-</P>
+      <div class="title">Forced Response</div>
 
-<P>&nbsp;</P>
+      <div class="description">
+         The graph shows the magnitude of the forced response.
+      </div>
 
-<P></P>
-</BODY>
-</HTML>
+      <div class="description">
+         The animation is at the frequency shown in blue.
+      </div>
+
+      <div class="applet-container">
+         <object data="Multiforced.out/Multiforced.class" type="application/x-java-applet" width="700" height="480">
+            <param name="code" value="Multiforced.class">
+            <param name="codebase" value="Multiforced.out/">
+            <div class="applet-fallback">
+               <strong>Java Applet: Multi-DOF Forced Response</strong><br>
+               <small>This content requires Java to be enabled in your browser.</small>
+            </div>
+         </object>
+      </div>
+   </div>
+</body>
+</html>
