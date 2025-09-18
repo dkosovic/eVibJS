@@ -1,0 +1,97 @@
+import java.applet.Applet;
+import java.awt.BorderLayout;
+import java.awt.Image;
+import java.awt.Label;
+import java.awt.Panel;
+
+public class Eigen2DOF extends Applet implements Runnable {
+   static final double kMink1 = 0.1;
+   static final double kMaxk1 = 40.0;
+   static final double kMinm1 = 0.1;
+   static final double kMaxm1 = 10.0;
+   static final double kMinc1 = 0.001;
+   static final double kMaxc1 = 5.0;
+   static final double kMink2 = 0.1;
+   static final double kMaxk2 = 40.0;
+   static final double kMinm2 = 0.1;
+   static final double kMaxm2 = 10.0;
+   static final double kMinc2 = 0.001;
+   static final double kMaxc2 = 5.0;
+   static final String kRunString = "Run";
+   CFramePanel mFramePanel;
+   CFrameAnimation mAnimFrame;
+   Thread mThread = null;
+
+   public void init() {
+      this.setLayout(new BorderLayout());
+      Panel var1 = new Panel();
+      this.add("North", var1);
+      Character var2 = new Character('©');
+      Label var3 = new Label("  This program is copyright, you need permission to use it. " + var2 + " 2005 B J Stone, bjs@mech.uwa.edu.au.");
+      this.add("South", var3);
+      this.mFramePanel = new CFramePanel(this);
+      this.add("Center", this.mFramePanel);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.size().width, this.size().height);
+      CFrameSmallControl var4 = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 2, 70, 10, 0.1, 1.0, 10.0, "kg");
+      var4.SetLabelOffset(20, 10);
+      var4.SetTextEditable(true);
+      Image var5 = this.getImage(this.getCodeBase(), "m1.gif");
+      new CFramePicture(this.mFramePanel, 95, 26, 0, 0, var5, false);
+      CFrameSmallControl var7 = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 1, 140, 10, 0.1, 10.0, 40.0, "N/m");
+      var7.SetLabelOffset(20, 10);
+      var7.SetTextEditable(true);
+      Image var8 = this.getImage(this.getCodeBase(), "k1.gif");
+      new CFramePicture(this.mFramePanel, 165, 26, 0, 0, var8, false);
+      CFrameSmallControl var10 = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 3, 220, 10, 0.001, 0.4, 5.0, "Ns/m");
+      var10.SetLabelOffset(20, 10);
+      var10.SetTextEditable(true);
+      Image var11 = this.getImage(this.getCodeBase(), "c1.gif");
+      new CFramePicture(this.mFramePanel, 245, 26, 0, 0, var11, false);
+      CFrameSmallControl var13 = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 5, 310, 10, 0.1, 1.0, 10.0, "kg");
+      var13.SetLabelOffset(20, 10);
+      var13.SetTextEditable(true);
+      Image var14 = this.getImage(this.getCodeBase(), "m2.gif");
+      new CFramePicture(this.mFramePanel, 335, 26, 0, 0, var14, false);
+      CFrameSmallControl var16 = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 4, 380, 10, 0.1, 10.0, 40.0, "N/m");
+      var16.SetLabelOffset(20, 10);
+      var16.SetTextEditable(true);
+      Image var17 = this.getImage(this.getCodeBase(), "k2.gif");
+      new CFramePicture(this.mFramePanel, 405, 26, 0, 0, var17, false);
+      CFrameSmallControl var19 = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 6, 460, 10, 0.001, 0.08, 5.0, "Ns/m");
+      var19.SetLabelOffset(20, 10);
+      var19.SetTextEditable(true);
+      Image var20 = this.getImage(this.getCodeBase(), "c2.gif");
+      new CFramePicture(this.mFramePanel, 485, 26, 0, 0, var20, false);
+      Image var22 = this.getImage(this.getCodeBase(), "Diagram.gif");
+      new CFramePicture(this.mFramePanel, 590, 15, 0, 0, var22, false);
+      Image var24 = this.getImage(this.getCodeBase(), "Key.gif");
+      new CFramePicture(this.mFramePanel, 600, 280, 0, 0, var24, false);
+      Image var26 = this.getImage(this.getCodeBase(), "response.gif");
+      new CFramePicture(this.mFramePanel, 14, 45, 0, 0, var26, false);
+      Image var28 = this.getImage(this.getCodeBase(), "phase.gif");
+      new CFramePicture(this.mFramePanel, 540, 83, 0, 0, var28, false);
+      Image var30 = this.getImage(this.getCodeBase(), "Wlable.gif");
+      new CFramePicture(this.mFramePanel, 56, 346, 0, 0, var30, false);
+      Image var32 = this.getImage(this.getCodeBase(), "wn1.gif");
+      Image var33 = this.getImage(this.getCodeBase(), "Xi1.gif");
+      Image var34 = this.getImage(this.getCodeBase(), "wn2.gif");
+      Image var35 = this.getImage(this.getCodeBase(), "Xi2.gif");
+      Image var36 = this.getImage(this.getCodeBase(), "undamped.gif");
+      this.validate();
+   }
+
+   public void start() {
+      this.mThread = new Thread(this);
+      this.mThread.start();
+   }
+
+   public void run() {
+      while (true) {
+         try {
+            Thread.sleep(20L);
+         } catch (InterruptedException var1) {
+            return;
+         }
+      }
+   }
+}

@@ -1,0 +1,627 @@
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
+
+class CFrameAnimation extends CFrame {
+   public static final int kDeltaTimeCode = 0;
+   public static final int kChangeRunCode = 1;
+   public static final int km1Code = 2;
+   public static final int kk1Code = 3;
+   public static final int kc1Code = 4;
+   public static final int km2Code = 5;
+   public static final int kk2Code = 6;
+   public static final int kc2Code = 7;
+   public static final int kxEdge = 500;
+   public static final int kyTopAbutment = 19;
+   public static final int kyAbutmentDepth = 20;
+   public static final int kMassWidth = 35;
+   public static final int kMassDepth = 20;
+   public static final int kyTopMass1 = 110;
+   public static final int kyTopMass2 = 201;
+   static double dt = 0.01;
+   static double yscale = 3400.0;
+   public static final double kStartm1 = 0.4;
+   public static final double kStartk1 = 20.0;
+   public static final double kStartc1 = 0.5;
+   public static final double kStartm2 = 0.3;
+   public static final double kStartk2 = 20.0;
+   public static final double kStartc2 = 0.0;
+   public static final double mTimedelay = 2.0;
+   public static final double mP1 = 0.1;
+   public static final double Fscale = 150.0;
+   static final int kTraceHeight = 200;
+   static final int kTraceWidth = 400;
+   static final int kTracePaperWidth = 3200;
+   static final int kGraphPoints = 1600;
+   static final int kBold = 3;
+   static final int kScaleThumbnail = 8;
+   public static final int kStopped = 0;
+   public static final int kRunning = 1;
+   public static final int kPaused = 2;
+   public int mState;
+   boolean mFirstTime;
+   double mTime;
+   double mViewTime;
+   double mm1 = 0.4;
+   double mk1 = 20.0;
+   double mc1 = 0.5;
+   double mm2 = 0.3;
+   double mk2 = 20.0;
+   double mc2 = 0.0;
+   double mWin = Math.sqrt(this.mk2 / this.mm2) / 2.0 / Math.PI;
+   double mWinrads;
+   double mT;
+   double[] mDisplacement1;
+   double[] mDisplacement2;
+   double[] mX1;
+   double[] mY1;
+   double[] mF1;
+   double[] mX2;
+   double[] mY2;
+   double[] mF2;
+   double[] mF1in;
+   public Button mStartButton;
+   public Button mPauseButton;
+   public Button mStopButton;
+   Image mTraceImage;
+   Graphics mTraceGC;
+   Image mTraceThumbnailImage;
+   Graphics mTraceThumbnailGC;
+   Rectangle mTraceClip;
+   Rectangle mTraceThumbnail;
+   Rectangle mThumbRect;
+   boolean mDragMain;
+   boolean mDragThumb;
+   boolean mDragThumbnail;
+   public CFrameSmallControl m2Control;
+
+   public CFrameAnimation(CFramePanel var1, int var2, int var3, int var4, int var5) {
+      super(var1, var2, var3, var4, var5);
+      this.mFirstTime = true;
+      this.mTraceClip = new Rectangle(90, 60, 400, 200);
+      this.mTraceThumbnail = new Rectangle(
+         this.mTraceClip.x, this.mTraceClip.y + this.mTraceClip.height + 20, this.mTraceClip.width, this.mTraceClip.height / 8
+      );
+      new CFrameHelp(
+         super.mFramePanel,
+         this.mTraceThumbnail.x,
+         this.mTraceThumbnail.y,
+         this.mTraceThumbnail.width,
+         this.mTraceThumbnail.height,
+         "This is a control for the plot above.\nTry dragging the cursor."
+      );
+      new CFrameHelp(
+         super.mFramePanel,
+         this.mTraceClip.x,
+         this.mTraceClip.y,
+         this.mTraceClip.width,
+         this.mTraceClip.height,
+         "This shows a plot of the motion of the system.\nTo animate the motion, click the Start button."
+      );
+      new CFrameHelp(super.mFramePanel, 500, 19, 35, 20, "This represents a rigid abutment,\ni.e. a solid block fixed to Earth.");
+   }
+
+   public void Frame(Graphics var1) {
+      if (this.mTraceGC == null) {
+         this.mTraceImage = super.mFramePanel.createImage(3290, 200);
+         this.mTraceGC = this.mTraceImage.getGraphics();
+         this.DrawTraceGrid();
+         this.DrawForceGraph();
+      }
+
+      if (this.mTraceThumbnailGC == null) {
+         this.mTraceThumbnailImage = super.mFramePanel.createImage(this.mTraceClip.width, this.mTraceClip.height / 8);
+         this.mTraceThumbnailGC = this.mTraceThumbnailImage.getGraphics();
+      }
+
+      if (this.mFirstTime) {
+         this.mFirstTime = false;
+         this.mTime = 0.0;
+         this.mViewTime = 0.0;
+      }
+
+      int var2;
+      int var3;
+      if (this.mDisplacement1 == null) {
+         var2 = 0;
+         var3 = 0;
+      } else {
+         int var4 = (int)(1.0 + this.mTime / 2.0 / dt);
+         var2 = (int)(yscale * this.mDisplacement1[var4]);
+         var3 = (int)(yscale * this.mDisplacement2[var4]);
+      }
+
+      int var15 = (int)(20.0 * Math.sin(this.mWin * 2.0 * Math.PI * (this.mTime - 2.0)));
+      if (this.mTime < 2.0) {
+         var15 = 0;
+      }
+
+      var1.setPaintMode();
+      var1.setColor(Color.white);
+      var1.fillRect(0, 0, super.width, super.height);
+      var1.setColor(Color.orange);
+      var1.fillRect(500, 19, 35, 20);
+      var1.setColor(Color.black);
+      double var6 = (110 + var2 - 19 - 20) / 10.0;
+      var1.drawLine(508, 39, 514, (int)(39.0 + var6 / 2.0));
+
+      for (int var5 = 1; var5 < 10; var5++) {
+         if (var5 % 2 == 0) {
+            var1.drawLine(502, (int)(39.0 + (2 * var5 - 1) * var6 / 2.0), 514, (int)(39.0 + (2 * var5 + 1) * var6 / 2.0));
+         } else {
+            var1.drawLine(514, (int)(39.0 + (2 * var5 - 1) * var6 / 2.0), 502, (int)(39.0 + (2 * var5 + 1) * var6 / 2.0));
+         }
+      }
+
+      var1.drawLine(502, (int)(39.0 + 19.0 * var6 / 2.0), 508, 110 + var2);
+      var1.setColor(Color.black);
+      var1.drawLine(522, 39, 522, 86);
+      var1.drawLine(530, 39, 530, 86);
+      var1.drawLine(522, 86, 530, 86);
+      var1.drawLine(526, 110 + var2 - 48, 526, 110 + var2);
+      var1.drawLine(523, 110 + var2 - 48, 529, 110 + var2 - 48);
+      Color var8 = new Color(0.18F, 0.58F, 0.58F);
+      var1.setColor(var8);
+      var1.fillRect(500, 110 + var2, 35, 20);
+      var1.drawLine(500, 110 + var2 + 10, 480, 110 + var2 + 10);
+      Color var9 = new Color(0.77F, 0.38F, 0.0F);
+      var1.setColor(var9);
+      var1.drawLine(535, 110 + var2 + 10, 549, 110 + var2 + 10);
+      if (var15 != 0) {
+         if (var15 > 0) {
+            var1.drawLine(541, 110 + var2 + 10, 541, 110 + var2 + 10 + var15 - 1);
+            var1.drawLine(542, 110 + var2 + 10, 542, 110 + var2 + 10 + var15);
+            var1.drawLine(543, 110 + var2 + 10, 543, 110 + var2 + 10 + var15 - 1);
+         }
+
+         if (var15 < 0) {
+            var1.drawLine(541, 110 + var2 + 10, 541, 110 + var2 + 10 + var15 + 1);
+            var1.drawLine(542, 110 + var2 + 10, 542, 110 + var2 + 10 + var15);
+            var1.drawLine(543, 110 + var2 + 10, 543, 110 + var2 + 10 + var15 + 1);
+         }
+      }
+
+      var1.setColor(Color.black);
+      var6 = (201 + var3 - 110 - 20 - var2) / 10.0;
+      var1.drawLine(517, 130 + var2, 523, (int)(130 + var2 + var6 / 2.0));
+
+      for (int var16 = 1; var16 < 10; var16++) {
+         if (var16 % 2 == 0) {
+            var1.drawLine(511, (int)(130 + var2 + (2 * var16 - 1) * var6 / 2.0), 523, (int)(130 + var2 + (2 * var16 + 1) * var6 / 2.0));
+         } else {
+            var1.drawLine(523, (int)(130 + var2 + (2 * var16 - 1) * var6 / 2.0), 511, (int)(130 + var2 + (2 * var16 + 1) * var6 / 2.0));
+         }
+      }
+
+      var1.drawLine(511, (int)(130 + var2 + 19.0 * var6 / 2.0), 517, 201 + var3);
+      var1.setColor(var8);
+      var1.fillRect(500, 201 + var3, 35, 20);
+      var1.drawLine(500, 201 + var3 + 10, 480, 201 + var3 + 10);
+      var1.setColor(Color.black);
+      var1.drawImage(
+         this.mTraceThumbnailImage, this.mTraceThumbnail.x, this.mTraceThumbnail.y, this.mTraceThumbnail.width, this.mTraceThumbnail.height, super.mFramePanel
+      );
+      double var10 = this.mViewTime / dt / 3200.0;
+      this.mThumbRect = new Rectangle(
+         this.mTraceThumbnail.x + (int)(var10 * this.mTraceThumbnail.width),
+         this.mTraceThumbnail.y - 3,
+         this.mTraceThumbnail.width * this.mTraceThumbnail.width / 3200,
+         this.mTraceThumbnail.height + 6
+      );
+      var10 = this.mTime / dt / 3200.0;
+      int var12 = (int)(var10 * this.mTraceThumbnail.width);
+      var1.setColor(Color.white);
+      var1.fillRect(
+         this.mTraceThumbnail.x + var12 + this.mThumbRect.width,
+         this.mTraceThumbnail.y,
+         this.mTraceThumbnail.width - var12 - this.mThumbRect.width,
+         this.mTraceThumbnail.height
+      );
+      var1.setColor(var9);
+      int var13 = (int)(this.mTraceThumbnail.x + (400.0 + 2.0 / dt) / 8.0);
+      var1.drawLine(
+         this.mTraceThumbnail.x + 50, this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3, var13, this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3
+      );
+      this.mWinrads = this.mWin * 2.0 * Math.PI;
+
+      for (int var17 = 0; var17 < 1600 - var13 - 144; var17++) {
+         var1.drawLine(
+            var17 * 2 / 8 + var13,
+            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3 + 15.0 * Math.sin(this.mWinrads * 2.0 * var17 * dt) / 8.0),
+            var13 + 2 * (var17 + 1) / 8,
+            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3 + 15.0 * Math.sin(this.mWinrads * 2.0 * (var17 + 1) * dt) / 8.0)
+         );
+      }
+
+      var1.setColor(Color.black);
+      var1.drawRect(this.mTraceThumbnail.x - 1, this.mTraceThumbnail.y - 1, this.mTraceThumbnail.width + 1, this.mTraceThumbnail.height + 2);
+      var1.drawRect(this.mThumbRect.x, this.mThumbRect.y, this.mThumbRect.width, this.mThumbRect.height);
+      var1.drawRect(this.mThumbRect.x + 1, this.mThumbRect.y + 1, this.mThumbRect.width - 2, this.mThumbRect.height - 2);
+      var1.drawRect(this.mThumbRect.x + 2, this.mThumbRect.y + 2, this.mThumbRect.width - 4, this.mThumbRect.height - 4);
+      var1.drawString(" Detuned frequency", 395, 20);
+      var1.drawString(CUtility.nns(Math.sqrt(this.mk2 / this.mm2) / 2.0 / Math.PI) + " Hz", 398, 36);
+      Graphics var14 = var1.create();
+      var14.clipRect(this.mTraceClip.x, this.mTraceClip.y, this.mTraceClip.width, this.mTraceClip.height);
+      var14.drawImage(this.mTraceImage, -((int)(this.mViewTime / dt)), this.mTraceClip.y, super.mFramePanel);
+      var1.drawRect(90, 60, 400, 200);
+   }
+
+   public void Response() {
+      this.mDisplacement1 = new double[1600];
+      this.mDisplacement2 = new double[1600];
+      this.mX1 = new double[1605];
+      this.mY1 = new double[1605];
+      this.mF1 = new double[1605];
+      this.mX2 = new double[1605];
+      this.mY2 = new double[1605];
+      this.mF2 = new double[1605];
+      this.mF1in = new double[1605];
+      this.mDisplacement1[0] = 0.0;
+      this.mX1[0] = this.mDisplacement1[0];
+      this.mY1[0] = 0.0;
+      this.mDisplacement2[0] = 0.0;
+      this.mX2[0] = this.mDisplacement2[0];
+      this.mY2[0] = 0.0;
+      this.mWinrads = this.mWin * 2.0 * Math.PI;
+      double var2 = 2.0 * dt;
+      this.mT = 0.0;
+
+      for (int var1 = 0; var1 < 1599; var1++) {
+         this.mF1in[var1] = 0.1 * Math.sin(this.mWinrads * (this.mT - 2.0));
+         if (this.mT < 2.0) {
+            this.mF1in[var1] = 0.0;
+         }
+
+         this.mT += var2;
+      }
+
+      for (int var6 = 0; var6 < 1599; var6++) {
+         this.mF1[var6] = (
+               this.mF1in[var6]
+                  - this.mk1 * this.mX1[var6]
+                  - this.mc1 * this.mY1[var6]
+                  + this.mk2 * (this.mX2[var6] - this.mX1[var6])
+                  + this.mc2 * (this.mY2[var6] - this.mY1[var6])
+            )
+            / this.mm1;
+         this.mF2[var6] = (-this.mk2 * (this.mX2[var6] - this.mX1[var6]) - this.mc2 * (this.mY2[var6] - this.mY1[var6])) / this.mm2;
+         this.mX1[var6 + 1] = this.mX1[var6] + this.mY1[var6] * var2 / 2.0;
+         this.mX2[var6 + 1] = this.mX2[var6] + this.mY2[var6] * var2 / 2.0;
+         this.mY1[var6 + 1] = this.mY1[var6] + this.mF1[var6] * var2 / 2.0;
+         this.mY2[var6 + 1] = this.mY2[var6] + this.mF2[var6] * var2 / 2.0;
+         this.mF1[var6 + 1] = (
+               this.mF1in[var6 + 1]
+                  - this.mk1 * this.mX1[var6 + 1]
+                  - this.mc1 * this.mY1[var6 + 1]
+                  + this.mk2 * (this.mX2[var6 + 1] - this.mX1[var6 + 1])
+                  + this.mc2 * (this.mY2[var6 + 1] - this.mY1[var6 + 1])
+            )
+            / this.mm1;
+         this.mF2[var6 + 1] = (-this.mk2 * (this.mX2[var6 + 1] - this.mX1[var6 + 1]) - this.mc2 * (this.mY2[var6 + 1] - this.mY1[var6 + 1])) / this.mm2;
+         this.mX1[var6 + 2] = this.mX1[var6] + this.mY1[var6 + 1] * var2 / 2.0;
+         this.mX2[var6 + 2] = this.mX2[var6] + this.mY2[var6 + 1] * var2 / 2.0;
+         this.mY1[var6 + 2] = this.mY1[var6] + this.mF1[var6 + 1] * var2 / 2.0;
+         this.mY2[var6 + 2] = this.mY2[var6] + this.mF2[var6 + 1] * var2 / 2.0;
+         this.mF1[var6 + 2] = (
+               this.mF1in[var6 + 2]
+                  - this.mk1 * this.mX1[var6 + 2]
+                  - this.mc1 * this.mY1[var6 + 2]
+                  + this.mk2 * (this.mX2[var6 + 2] - this.mX1[var6 + 2])
+                  + this.mc2 * (this.mY2[var6 + 2] - this.mY1[var6 + 2])
+            )
+            / this.mm1;
+         this.mF2[var6 + 2] = (-this.mk2 * (this.mX2[var6 + 2] - this.mX1[var6 + 2]) - this.mc2 * (this.mY2[var6 + 2] - this.mY1[var6 + 2])) / this.mm2;
+         this.mX1[var6 + 3] = this.mX1[var6] + this.mY1[var6 + 2] * var2;
+         this.mX2[var6 + 3] = this.mX2[var6] + this.mY2[var6 + 2] * var2;
+         this.mY1[var6 + 3] = this.mY1[var6] + this.mF1[var6 + 2] * var2;
+         this.mY2[var6 + 3] = this.mY2[var6] + this.mF2[var6 + 2] * var2;
+         this.mF1[var6 + 3] = (
+               this.mF1in[var6 + 3]
+                  - this.mk1 * this.mX1[var6 + 3]
+                  - this.mc1 * this.mY1[var6 + 3]
+                  + this.mk2 * (this.mX2[var6 + 3] - this.mX1[var6 + 3])
+                  + this.mc2 * (this.mY2[var6 + 3] - this.mY1[var6 + 3])
+            )
+            / this.mm1;
+         this.mF2[var6 + 3] = (-this.mk2 * (this.mX2[var6 + 3] - this.mX1[var6 + 3]) - this.mc2 * (this.mY2[var6 + 3] - this.mY1[var6 + 3])) / this.mm2;
+         this.mX1[var6 + 1] = this.mX1[var6] + (this.mY1[var6] + 2.0 * this.mY1[var6 + 1] + 2.0 * this.mY1[var6 + 2] + this.mY1[var6 + 3]) * var2 / 6.0;
+         this.mX2[var6 + 1] = this.mX2[var6] + (this.mY2[var6] + 2.0 * this.mY2[var6 + 1] + 2.0 * this.mY2[var6 + 2] + this.mY2[var6 + 3]) * var2 / 6.0;
+         this.mY1[var6 + 1] = this.mY1[var6] + (this.mF1[var6] + 2.0 * this.mF1[var6 + 1] + 2.0 * this.mF1[var6 + 2] + this.mF1[var6 + 3]) * var2 / 6.0;
+         this.mY2[var6 + 1] = this.mY2[var6] + (this.mF2[var6] + 2.0 * this.mF2[var6 + 1] + 2.0 * this.mF2[var6 + 2] + this.mF2[var6 + 3]) * var2 / 6.0;
+         this.mDisplacement1[var6 + 1] = this.mX1[var6 + 1];
+         this.mDisplacement2[var6 + 1] = this.mX2[var6 + 1];
+         double var4 = this.mDisplacement2[var6 + 1] - this.mDisplacement1[var6 + 1];
+         if (this.mDisplacement1[var6 + 1] > 0.0073) {
+            this.mDisplacement1[var6 + 1] = 0.007;
+            this.mX1[var6 + 1] = this.mDisplacement1[var6 + 1];
+            this.mY1[var6 + 1] = 0.0;
+         }
+
+         if (this.mDisplacement1[var6 + 1] < -0.0073) {
+            this.mDisplacement1[var6 + 1] = -0.007;
+            this.mX1[var6 + 1] = this.mDisplacement1[var6 + 1];
+            this.mY1[var6 + 1] = 0.0;
+         }
+
+         this.mT += var2;
+      }
+   }
+
+   public void DrawTraceGrid() {
+      this.mTraceGC.setPaintMode();
+      this.mTraceGC.setColor(Color.white);
+      this.mTraceGC.fillRect(0, 0, 3290, 200);
+      this.mTraceGC.setColor(Color.black);
+
+      for (byte var1 = 0; var1 < 3290; var1 += 50) {
+         this.mTraceGC.drawLine(var1, 0, var1, 200);
+      }
+
+      this.mTraceGC.drawLine(0, 60, 3290, 60);
+      this.mTraceGC.drawLine(0, 151, 3290, 151);
+   }
+
+   public void DrawForceGraph() {
+      Color var1 = new Color(0.77F, 0.38F, 0.0F);
+      this.mTraceGC.setColor(var1);
+      this.mWinrads = this.mWin * 2.0 * Math.PI;
+
+      for (int var2 = (int)(1.0 / dt); var2 < 1598; var2++) {
+         this.mTraceGC
+            .drawLine(
+               var2 * 2 + 400 + 90,
+               60 + (int)(15.0 * Math.sin(this.mWinrads * (2 * var2 * dt - 2.0))),
+               (var2 + 1) * 2 + 400 + 90,
+               60 + (int)(15.0 * Math.sin(this.mWinrads * (2 * (var2 + 1) * dt - 2.0)))
+            );
+      }
+   }
+
+   public void ThumbnailSketch() {
+      this.mTraceThumbnailGC.setPaintMode();
+      this.mTraceThumbnailGC.setColor(Color.white);
+      this.mTraceThumbnailGC.fillRect(0, 0, this.mTraceClip.width, this.mTraceClip.height / 8);
+      Color var2 = new Color(0.18F, 0.58F, 0.58F);
+      this.mTraceThumbnailGC.setColor(var2);
+
+      for (int var1 = 0; var1 < 1598; var1++) {
+         this.mTraceThumbnailGC
+            .drawLine(
+               (var1 * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 / 3.0 + this.mDisplacement1[var1] * yscale / 8.0),
+               ((var1 + 1) * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 / 3.0 + this.mDisplacement1[var1 + 1] * yscale / 8.0)
+            );
+      }
+
+      for (int var3 = 0; var3 < 1598; var3++) {
+         this.mTraceThumbnailGC
+            .drawLine(
+               (var3 * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 * 2.0 / 3.0 + this.mDisplacement2[var3] * yscale / 8.0),
+               ((var3 + 1) * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 * 2.0 / 3.0 + this.mDisplacement2[var3 + 1] * yscale / 8.0)
+            );
+      }
+   }
+
+   public void DrawTraceShape() {
+      this.DrawTraceGrid();
+      Color var2 = new Color(0.18F, 0.58F, 0.58F);
+      this.mTraceGC.setColor(var2);
+
+      for (int var1 = 0; var1 < 1598; var1++) {
+         this.mTraceGC
+            .drawLine(
+               var1 * 2 + 400 + 90,
+               60 + (int)(yscale * this.mDisplacement1[var1]),
+               (var1 + 1) * 2 + 400 + 90,
+               60 + (int)(yscale * this.mDisplacement1[var1 + 1])
+            );
+      }
+
+      for (int var3 = 0; var3 < 1598; var3++) {
+         this.mTraceGC
+            .drawLine(
+               var3 * 2 + 400 + 90,
+               151 + (int)(yscale * this.mDisplacement2[var3]),
+               (var3 + 1) * 2 + 400 + 90,
+               151 + (int)(yscale * this.mDisplacement2[var3 + 1])
+            );
+      }
+
+      this.DrawForceGraph();
+   }
+
+   public void ControlMessage(CFrame var1, int var2, double var3) {
+      boolean var5 = false;
+      switch (var2) {
+         case 0:
+            if (this.mState == 1) {
+               this.mTime += var3;
+               this.mViewTime = this.mTime;
+            }
+
+            this.LimitTimeValue();
+            var5 = true;
+            break;
+         case 1:
+            this.ChangeRunState((int)var3);
+            break;
+         case 2:
+            this.ChangeRunState(0);
+            this.mTime = 0.0;
+            this.mViewTime = 0.0;
+            this.mDisplacement1 = null;
+            this.mDisplacement2 = null;
+            this.mm1 = var3;
+            if (this.m2Control != null) {
+               this.m2Control.mMax = var3;
+               this.m2Control.NewValue();
+               this.m2Control.repaint();
+            }
+            break;
+         case 3:
+            this.ChangeRunState(0);
+            this.mTime = 0.0;
+            this.mViewTime = 0.0;
+            this.mDisplacement1 = null;
+            this.mDisplacement2 = null;
+            this.mk1 = var3;
+            break;
+         case 4:
+            this.ChangeRunState(0);
+            this.mTime = 0.0;
+            this.mViewTime = 0.0;
+            this.mDisplacement1 = null;
+            this.mDisplacement2 = null;
+            this.mc1 = var3;
+            break;
+         case 5:
+            this.ChangeRunState(0);
+            this.mTime = 0.0;
+            this.mViewTime = 0.0;
+            this.mDisplacement1 = null;
+            this.mDisplacement2 = null;
+            this.mm2 = var3;
+            this.mWin = Math.sqrt(this.mk2 / this.mm2) / 2.0 / Math.PI;
+            break;
+         case 6:
+            this.ChangeRunState(0);
+            this.mTime = 0.0;
+            this.mViewTime = 0.0;
+            this.mDisplacement1 = null;
+            this.mDisplacement2 = null;
+            this.mk2 = var3;
+            this.mWin = Math.sqrt(this.mk2 / this.mm2) / 2.0 / Math.PI;
+            break;
+         case 7:
+            this.ChangeRunState(0);
+            this.mTime = 0.0;
+            this.mViewTime = 0.0;
+            this.mDisplacement1 = null;
+            this.mDisplacement2 = null;
+            this.mc2 = var3;
+      }
+
+      if (var5) {
+         this.repaint();
+      }
+   }
+
+   public void ChangeRunState(int var1) {
+      switch (this.mState) {
+         case 0:
+            if (var1 == 1) {
+               this.Response();
+               this.DrawTraceShape();
+               this.ThumbnailSketch();
+               this.mTime = 0.0;
+               this.mViewTime = 0.0;
+               this.mFirstTime = true;
+               this.mState = 1;
+            }
+            break;
+         case 1:
+            if (var1 == 2 || var1 == 0) {
+               this.mState = var1;
+            }
+            break;
+         case 2:
+            if (var1 == 0 || var1 == 1) {
+               this.mState = var1;
+            }
+      }
+
+      this.UpdateButtonAppearance();
+   }
+
+   public void UpdateButtonAppearance() {
+      super.mFramePanel.repaint();
+   }
+
+   public boolean MouseEvent(int var1, boolean var2) {
+      boolean var3 = this.mTraceClip.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+      boolean var4 = this.mTraceThumbnail.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+      boolean var5 = this.mThumbRect.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+      super.mWasHit = var3 || var4;
+      int var6 = 0;
+      switch (var1) {
+         case 0:
+            this.mDragMain = false;
+            this.mDragThumb = false;
+            this.mDragThumbnail = false;
+            if (!super.mWasHit) {
+               return false;
+            } else {
+               if (var2) {
+                  return false;
+               }
+
+               if (var3) {
+                  this.mDragMain = true;
+               } else if (var5) {
+                  this.mDragThumb = true;
+               } else if (var4) {
+                  this.mDragThumbnail = true;
+               }
+
+               if (this.mDragThumbnail) {
+                  var6 = -((int)(3200.0 / this.mTraceClip.width)) * (super.mFramePanel.mThisPt.x - this.mThumbRect.x);
+                  this.UserDrag(var6);
+               }
+
+               return true;
+            }
+         case 1:
+            if (!super.mWasHit) {
+               return false;
+            }
+
+            if (this.mDragMain) {
+               var6 = super.mFramePanel.mThisPt.x - super.mFramePanel.mLastPt.x;
+            } else if (this.mDragThumb) {
+               var6 = -((int)(3200.0 / this.mTraceClip.width)) * (super.mFramePanel.mThisPt.x - super.mFramePanel.mLastPt.x);
+            } else if (this.mDragThumbnail) {
+               var6 = -((int)(3200.0 / this.mTraceClip.width)) * (super.mFramePanel.mThisPt.x - this.mThumbRect.x);
+            }
+
+            this.UserDrag(var6);
+            return true;
+         case 2:
+            this.mDragMain = false;
+            this.mDragThumb = false;
+            this.mDragThumbnail = false;
+            return true;
+         default:
+            return false;
+      }
+   }
+
+   public void UserDrag(int var1) {
+      if (this.mState == 1) {
+         this.ChangeRunState(2);
+      }
+
+      this.mViewTime = this.mViewTime - var1 * dt;
+      this.LimitTimeValue();
+      this.repaint();
+   }
+
+   public void LimitTimeValue() {
+      double var1 = 2800.0 * dt;
+      if (this.mTime < 0.0) {
+         this.mTime = 0.0;
+      } else if (this.mTime > var1) {
+         this.mTime = var1;
+      }
+
+      if (this.mViewTime < 0.0) {
+         this.mViewTime = 0.0;
+      } else if (this.mViewTime > this.mTime) {
+         this.mViewTime = this.mTime;
+      }
+   }
+}
