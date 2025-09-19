@@ -192,7 +192,7 @@ public class CBrianControl extends CPicturePanel {
          this.mLabel.setText(nns(this.mValue));
       }
 
-      Event e = new Event(this.mApplet, 605, this);
+      Event e = new Event(this.mApplet, Event.SCROLL_ABSOLUTE, this);
       this.postEvent(e);
    }
 
