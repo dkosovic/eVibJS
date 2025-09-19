@@ -1,3 +1,5 @@
+package MultiDOF.Prog1.Modes;
+
 import jama.EigenvalueDecomposition;
 import jama.Matrix;
 import java.awt.Button;

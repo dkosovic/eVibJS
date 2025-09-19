@@ -1,3 +1,5 @@
+package Modal.Prog8.Vibration;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;

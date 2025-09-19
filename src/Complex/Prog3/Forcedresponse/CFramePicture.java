@@ -1,3 +1,5 @@
+package Complex.Prog3.Forcedresponse;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;

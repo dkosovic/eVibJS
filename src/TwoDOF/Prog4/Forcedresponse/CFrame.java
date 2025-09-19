@@ -1,3 +1,5 @@
+package TwoDOF.Prog4.Forcedresponse;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

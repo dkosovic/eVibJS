@@ -1,3 +1,5 @@
+package TwoDOF.Prog13.Detuned;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

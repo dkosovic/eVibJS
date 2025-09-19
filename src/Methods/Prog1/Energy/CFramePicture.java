@@ -1,3 +1,5 @@
+package Methods.Prog1.Energy;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;

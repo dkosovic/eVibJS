@@ -1,3 +1,5 @@
+package Complex.Prog10.Transverse;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Frame;

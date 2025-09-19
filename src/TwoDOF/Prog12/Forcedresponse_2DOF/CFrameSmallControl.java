@@ -1,3 +1,5 @@
+package TwoDOF.Prog12.Forcedresponse_2DOF;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

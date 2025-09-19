@@ -1,3 +1,5 @@
+package OneDOF.Prog8.OOB;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;

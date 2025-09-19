@@ -1,3 +1,5 @@
+package Continuous.Prog9.Vibration;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.util.Date;

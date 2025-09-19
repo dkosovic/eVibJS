@@ -1,3 +1,5 @@
+package Continuous.Prog6.Multiforced;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

@@ -1,3 +1,5 @@
+package OneDOF.Forced.Forced;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

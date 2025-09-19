@@ -1,3 +1,5 @@
+package OneDOF.Prog5.ForcedSin;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;

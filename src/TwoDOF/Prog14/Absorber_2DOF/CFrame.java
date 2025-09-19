@@ -1,3 +1,5 @@
+package TwoDOF.Prog14.Absorber_2DOF;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

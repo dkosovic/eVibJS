@@ -1,3 +1,5 @@
+package Complex.Prog7.Forcedresponse;
+
 import java.awt.Color;
 import java.awt.Graphics;
 

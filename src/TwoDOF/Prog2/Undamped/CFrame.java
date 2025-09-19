@@ -1,3 +1,5 @@
+package TwoDOF.Prog2.Undamped;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

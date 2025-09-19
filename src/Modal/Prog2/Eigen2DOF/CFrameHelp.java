@@ -1,3 +1,5 @@
+package Modal.Prog2.Eigen2DOF;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;

@@ -1,3 +1,5 @@
+package Modal.Prog2.Eigen2DOF;
+
 import jama.EigenvalueDecomposition;
 import jama.Matrix;
 import java.awt.Color;

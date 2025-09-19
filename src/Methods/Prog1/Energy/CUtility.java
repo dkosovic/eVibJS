@@ -1,3 +1,5 @@
+package Methods.Prog1.Energy;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

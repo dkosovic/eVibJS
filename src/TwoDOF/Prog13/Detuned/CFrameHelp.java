@@ -1,3 +1,5 @@
+package TwoDOF.Prog13.Detuned;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;

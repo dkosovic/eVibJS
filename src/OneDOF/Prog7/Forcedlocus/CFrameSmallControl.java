@@ -1,3 +1,5 @@
+package OneDOF.Prog7.Forcedlocus;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

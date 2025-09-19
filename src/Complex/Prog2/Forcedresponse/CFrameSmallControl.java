@@ -1,3 +1,5 @@
+package Complex.Prog2.Forcedresponse;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

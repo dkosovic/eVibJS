@@ -1,3 +1,5 @@
+package Complex.Prog7.Forcedresponse;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;

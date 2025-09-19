@@ -1,3 +1,5 @@
+package OneDOF.Prog1.Undamped;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

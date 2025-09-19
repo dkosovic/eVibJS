@@ -1,3 +1,5 @@
+package Modal.Prog6.Qfactor;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Frame;

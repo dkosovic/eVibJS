@@ -1,3 +1,5 @@
+package Modal.Prog6.Qfactor;
+
 class CFrameAnimation extends CFrame {
    static final int kYanimate = 10;
    CFrameGraph mFrameGraph;

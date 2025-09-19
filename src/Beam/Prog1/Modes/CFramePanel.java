@@ -1,3 +1,5 @@
+package Beam.Prog1.Modes;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;

@@ -1,3 +1,5 @@
+package Continuous.Prog11.Vibration;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

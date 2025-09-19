@@ -1,3 +1,5 @@
+package Beam.Prog4.Forced;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

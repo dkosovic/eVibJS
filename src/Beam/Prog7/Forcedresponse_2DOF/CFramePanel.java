@@ -1,3 +1,5 @@
+package Beam.Prog7.Forcedresponse_2DOF;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;

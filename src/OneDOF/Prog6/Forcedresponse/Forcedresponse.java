@@ -1,3 +1,5 @@
+package OneDOF.Prog6.Forcedresponse;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Image;

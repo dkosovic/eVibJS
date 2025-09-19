@@ -1,3 +1,5 @@
+package Beam.Prog1.Modes;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

@@ -1,3 +1,5 @@
+package Modal.Prog7.Eigen2DOF;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;

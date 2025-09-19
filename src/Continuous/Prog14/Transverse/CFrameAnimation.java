@@ -1,3 +1,5 @@
+package Continuous.Prog14.Transverse;
+
 class CFrameAnimation extends CFrame {
    static final int kYanimate = 10;
    CFrameGraph mFrameGraph;

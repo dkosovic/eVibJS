@@ -1,3 +1,5 @@
+package OneDOF.Prog9.OOB;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;

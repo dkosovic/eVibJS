@@ -1,3 +1,5 @@
+package OneDOF.Prog3.Damped;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

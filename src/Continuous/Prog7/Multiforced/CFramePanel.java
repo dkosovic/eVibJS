@@ -1,3 +1,5 @@
+package Continuous.Prog7.Multiforced;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;

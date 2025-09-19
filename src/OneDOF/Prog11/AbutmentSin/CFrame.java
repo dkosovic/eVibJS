@@ -1,3 +1,5 @@
+package OneDOF.Prog11.AbutmentSin;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

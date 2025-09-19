@@ -1,3 +1,5 @@
+package OneDOF.Prog2.Damped;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;

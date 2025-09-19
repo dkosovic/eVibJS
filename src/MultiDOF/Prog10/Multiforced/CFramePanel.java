@@ -1,3 +1,5 @@
+package MultiDOF.Prog10.Multiforced;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;

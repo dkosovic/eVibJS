@@ -1,3 +1,5 @@
+package Continuous.Prog5.Multiforced;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Frame;

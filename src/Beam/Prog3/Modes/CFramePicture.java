@@ -1,3 +1,5 @@
+package Beam.Prog3.Modes;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;

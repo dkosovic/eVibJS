@@ -1,3 +1,5 @@
+package TwoDOF.Forced_2DOF.Forced;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;

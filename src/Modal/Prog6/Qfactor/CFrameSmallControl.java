@@ -1,3 +1,5 @@
+package Modal.Prog6.Qfactor;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

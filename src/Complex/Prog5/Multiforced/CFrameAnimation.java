@@ -1,3 +1,5 @@
+package Complex.Prog5.Multiforced;
+
 import java.awt.Graphics;
 
 class CFrameAnimation extends CFrame {

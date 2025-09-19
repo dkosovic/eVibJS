@@ -1,3 +1,5 @@
+package Modal.Qhysteretic.Qfactor;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Frame;

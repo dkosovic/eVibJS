@@ -1,3 +1,5 @@
+package Beam.Prog5.Forcedresponse_2DOF;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;

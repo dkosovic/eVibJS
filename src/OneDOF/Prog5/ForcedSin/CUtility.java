@@ -1,3 +1,5 @@
+package OneDOF.Prog5.ForcedSin;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

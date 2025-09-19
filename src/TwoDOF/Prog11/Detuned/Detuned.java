@@ -1,3 +1,5 @@
+package TwoDOF.Prog11.Detuned;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;

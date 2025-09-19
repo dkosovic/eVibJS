@@ -1,3 +1,5 @@
+package TwoDOF.Prog14.Absorber_2DOF;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Image;

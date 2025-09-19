@@ -1,3 +1,5 @@
+package Modal.Qhysteretic.Qfactor;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

@@ -1,3 +1,5 @@
+package OneDOF.Prog11.AbutmentSin;
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Graphics;

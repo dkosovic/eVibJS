@@ -1,3 +1,5 @@
+package Complex.Prog5.Multiforced;
+
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Checkbox;

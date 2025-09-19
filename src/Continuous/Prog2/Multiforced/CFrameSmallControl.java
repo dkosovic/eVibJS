@@ -1,3 +1,5 @@
+package Continuous.Prog2.Multiforced;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

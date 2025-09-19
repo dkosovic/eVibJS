@@ -1,3 +1,5 @@
+package TwoDOF.Prog7.Abutmentresponse_2DOF;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

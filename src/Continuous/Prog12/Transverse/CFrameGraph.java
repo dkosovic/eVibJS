@@ -1,3 +1,5 @@
+package Continuous.Prog12.Transverse;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;

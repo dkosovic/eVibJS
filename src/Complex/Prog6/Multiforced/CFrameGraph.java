@@ -1,3 +1,5 @@
+package Complex.Prog6.Multiforced;
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Graphics;

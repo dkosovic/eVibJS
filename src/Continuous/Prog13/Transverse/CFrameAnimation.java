@@ -1,3 +1,5 @@
+package Continuous.Prog13.Transverse;
+
 import java.awt.Graphics;
 
 class CFrameAnimation extends CFrame {

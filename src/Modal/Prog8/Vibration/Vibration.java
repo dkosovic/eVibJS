@@ -1,3 +1,5 @@
+package Modal.Prog8.Vibration;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.util.Date;

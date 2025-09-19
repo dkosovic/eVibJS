@@ -1,3 +1,5 @@
+package TwoDOF.Prog5.Damped;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

@@ -1,3 +1,5 @@
+package Beam.Prog4.Forced;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

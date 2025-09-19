@@ -1,3 +1,5 @@
+package Methods.Prog1.Energy;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Image;

@@ -1,3 +1,5 @@
+package Beam.Prog6.Forced;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;

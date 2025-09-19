@@ -1,3 +1,5 @@
+package General.Prog1.Tension;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Event;

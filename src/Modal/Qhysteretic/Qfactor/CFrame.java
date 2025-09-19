@@ -1,3 +1,5 @@
+package Modal.Qhysteretic.Qfactor;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

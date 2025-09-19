@@ -1,3 +1,5 @@
+package Continuous.Prog7.Multiforced;
+
 import java.awt.Graphics;
 
 class CFrameAnimation extends CFrame {

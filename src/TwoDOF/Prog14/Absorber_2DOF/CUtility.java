@@ -1,3 +1,5 @@
+package TwoDOF.Prog14.Absorber_2DOF;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

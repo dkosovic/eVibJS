@@ -1,3 +1,5 @@
+package MultiDOF.Prog9.Multiforced;
+
 import java.awt.Graphics;
 
 class CFrameAnimation extends CFrame {

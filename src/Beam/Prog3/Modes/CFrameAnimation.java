@@ -1,3 +1,5 @@
+package Beam.Prog3.Modes;
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Graphics;

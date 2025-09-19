@@ -1,3 +1,5 @@
+package TwoDOF.Prog9.Forcedresponse_2DOF;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Image;

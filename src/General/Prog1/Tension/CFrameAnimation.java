@@ -1,3 +1,5 @@
+package General.Prog1.Tension;
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Graphics;

@@ -1,3 +1,5 @@
+package Modal.Prog6.Qfactor;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

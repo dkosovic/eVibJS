@@ -1,3 +1,5 @@
+package TwoDOF.Prog5.Damped;
+
 import java.awt.Button;
 import java.awt.Color;
 import java.awt.Graphics;
