@@ -1,5 +1,5 @@
-import Jama.EigenvalueDecomposition;
-import Jama.Matrix;
+import jama.EigenvalueDecomposition;
+import jama.Matrix;
 import java.awt.Color;
 import java.awt.Graphics;
 
