@@ -52,7 +52,6 @@ public class CAnimationPanel extends Panel {
 
       int ww = this.mOffScrImage.getWidth(this);
       int hh = this.mOffScrImage.getHeight(this);
-      new Character('©');
       double mWnt = this.mWn * 2.0 * Math.PI * 2.0 * (this.mTime - 2.0);
       this.y1real = 0.0;
       this.y2real = 2.0 * this.mXo * Math.sin(this.mWn * this.mTime * 2.0 * Math.PI);

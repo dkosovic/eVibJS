@@ -30,8 +30,7 @@ public class Qfactor extends Applet implements Runnable {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Character copyrightSym = new Character('©');
-      Label copyright = new Label("  This program is copyright, you need permission to use it. " + copyrightSym + " 2005 B J Stone, bjs@mech.uwa.edu.au.");
+      Label copyright = new Label("  This program is copyright, you need permission to use it. © 2005 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);

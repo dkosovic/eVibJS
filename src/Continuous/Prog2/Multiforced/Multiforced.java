@@ -24,9 +24,8 @@ public class Multiforced extends Applet implements Runnable {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Character var1 = new Character('©');
-      Label var2 = new Label("  This program is copyright, you need permission to use it. " + var1 + " 2004 B J Stone, bjs@mech.uwa.edu.au.");
-      this.add("South", var2);
+      Label copyright = new Label("  This program is copyright, you need permission to use it. © 2004 B J Stone, bjs@mech.uwa.edu.au.");
+      this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
       this.mFrameGraph = new CFrameGraph(this.mFramePanel, 0, 20, 441, 365);

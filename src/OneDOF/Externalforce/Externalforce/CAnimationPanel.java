@@ -49,7 +49,6 @@ public class CAnimationPanel extends Panel {
 
       int ww = this.mOffScrImage.getWidth(this);
       int hh = this.mOffScrImage.getHeight(this);
-      new Character('©');
       Color mass = new Color(0.18F, 0.58F, 0.58F);
       Color force = new Color(0.77F, 0.38F, 0.0F);
       if (this.mTime < 1.0) {

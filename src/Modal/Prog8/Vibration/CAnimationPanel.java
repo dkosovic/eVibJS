@@ -85,10 +85,9 @@ public class CAnimationPanel extends Panel {
             this.mOffScreenGC.fillArc(40 + 500 * var10 / 9 - 6, (int)(2.0 + 60.0 * (var8 - 0.5) + this.yp[var10] + var8 * 2) - 6, 13, 13, 0, 360);
          }
 
-         Character copyrightSym = new Character('©');
          this.mOffScreenGC.setColor(Color.black);
          this.mOffScreenGC
-            .drawString("This program is copyright, you need permission to use it. " + copyrightSym + " 2003 B J Stone, bjs@mech.uwa.edu.au.", 50, 508);
+            .drawString("This program is copyright, you need permission to use it. © 2003 B J Stone, bjs@mech.uwa.edu.au.", 50, 508);
       }
 
       g.drawImage(this.mOffScrImage, 0, 0, null);

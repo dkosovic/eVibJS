@@ -58,7 +58,6 @@ public class CAnimationPanel extends Panel {
 
       int ww = this.mOffScrImage.getWidth(this);
       int hh = this.mOffScrImage.getHeight(this);
-      new Character('©');
       this.mOffScreenGC.setColor(Color.white);
       this.mOffScreenGC.fillRect(0, 0, ww, hh);
       int offset = 20;

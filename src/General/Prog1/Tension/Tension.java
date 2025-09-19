@@ -31,8 +31,7 @@ public class Tension extends Applet implements Runnable {
       this.setLayout(new BorderLayout());
       Panel buttonPanel = new Panel();
       this.add("North", buttonPanel);
-      Character copyrightSym = new Character('©');
-      Label copyright = new Label(" This program is copyright, you need permission to use it. " + copyrightSym + " 2004 B J Stone, bjs@mech.uwa.edu.au.");
+      Label copyright = new Label(" This program is copyright, you need permission to use it. © 2004 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);

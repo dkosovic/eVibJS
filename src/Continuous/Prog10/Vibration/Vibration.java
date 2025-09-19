@@ -15,8 +15,7 @@ public class Vibration extends Applet implements Runnable {
       this.setLayout(new BorderLayout());
       this.mAnimPanel = new CAnimationPanel();
       this.add("Center", this.mAnimPanel);
-      Character copyrightSym = new Character('©');
-      Label copyright = new Label("You need permission to use this program. " + copyrightSym + " 2005 B J Stone, bjs@mech.uwa.edu.au.");
+      Label copyright = new Label("You need permission to use this program. © 2005 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.validate();
    }
