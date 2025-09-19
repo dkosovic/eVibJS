@@ -41,7 +41,7 @@ public class CUtility {
             power = Math.pow(10.0, -sig);
 
             try {
-               arg = new Double(result);
+               arg = java.lang.Double.parseDouble(result);
             } catch (NumberFormatException var16) {
             }
          } else if (result.indexOf("E") > -1) {
@@ -62,9 +62,9 @@ public class CUtility {
 
             String shortStr = new String(result.substring(0, lastChar));
 
-            Double newNum;
+            double newNum;
             try {
-               newNum = new Double(shortStr);
+               newNum = java.lang.Double.parseDouble(shortStr);
             } catch (NumberFormatException var17) {
                break;
             }

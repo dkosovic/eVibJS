@@ -41,7 +41,7 @@ public class CUtility {
             var5 = Math.pow(10.0, -var2);
 
             try {
-               var0 = new Double(var9);
+               var0 = java.lang.Double.parseDouble(var9);
             } catch (NumberFormatException var16) {
             }
          } else if (var9.indexOf("E") > -1) {
@@ -62,9 +62,9 @@ public class CUtility {
 
             String var14 = new String(var9.substring(0, var13));
 
-            Double var15;
+            double var15;
             try {
-               var15 = new Double(var14);
+               var15 = java.lang.Double.parseDouble(var14);
             } catch (NumberFormatException var17) {
                break;
             }

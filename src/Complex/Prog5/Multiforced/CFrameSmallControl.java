@@ -112,9 +112,9 @@ public class CFrameSmallControl extends CFramePicture implements Runnable {
 
             String var12 = new String(var9.substring(0, var11));
 
-            Double var13;
+            double var13;
             try {
-               var13 = new Double(var12);
+               var13 = java.lang.Double.parseDouble(var12);
             } catch (NumberFormatException var14) {
                break;
             }

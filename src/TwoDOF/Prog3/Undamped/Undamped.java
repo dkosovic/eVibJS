@@ -158,9 +158,9 @@ public class Undamped extends Applet implements Runnable {
 
             String shortStr = new String(result.substring(0, lastChar));
 
-            Double newNum;
+            double newNum;
             try {
-               newNum = new Double(shortStr);
+               newNum = java.lang.Double.parseDouble(shortStr);
             } catch (NumberFormatException var15) {
                break;
             }

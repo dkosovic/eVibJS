@@ -108,9 +108,9 @@ class CFrameGraph extends CFrame {
 
             String var13 = new String(var10.substring(0, var12));
 
-            Double var14;
+            double var14;
             try {
-               var14 = new Double(var13);
+               var14 = java.lang.Double.parseDouble(var13);
             } catch (NumberFormatException var15) {
                break;
             }

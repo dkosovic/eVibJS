@@ -114,7 +114,7 @@ class CInputDialog extends Frame {
 
             if (this.mDampingText != null) {
                try {
-                  Double var8 = new Double(this.mDampingText.getText());
+                  double var8 = java.lang.Double.parseDouble(this.mDampingText.getText());
                   if (var8 >= 0.0) {
                      this.mSMD.mDampingConstant = var8;
                   }
@@ -124,7 +124,7 @@ class CInputDialog extends Frame {
 
             if (this.mSpringText != null) {
                try {
-                  Double var9 = new Double(this.mSpringText.getText());
+                  double var9 = java.lang.Double.parseDouble(this.mSpringText.getText());
                   if (var9 > 0.0) {
                      this.mSMD.mSpringConstant = var9;
                   }
@@ -133,7 +133,7 @@ class CInputDialog extends Frame {
             }
 
             try {
-               Double var10 = new Double(this.mMassText.getText());
+               double var10 = java.lang.Double.parseDouble(this.mMassText.getText());
                if (var10 > 0.0) {
                   this.mSMD.mMass = var10;
                }

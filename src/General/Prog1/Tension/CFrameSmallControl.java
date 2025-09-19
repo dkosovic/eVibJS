@@ -71,7 +71,7 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
             String numStr = text.substring(0, end);
 
             try {
-               Double newVal = new Double(numStr);
+               double newVal = java.lang.Double.parseDouble(numStr);
                this.mValue = newVal;
                break;
             } catch (NumberFormatException var6) {
@@ -171,9 +171,9 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
 
             String shortStr = new String(result.substring(0, lastChar));
 
-            Double newNum;
+            double newNum;
             try {
-               newNum = new Double(shortStr);
+               newNum = java.lang.Double.parseDouble(shortStr);
             } catch (NumberFormatException var14) {
                break;
             }
