@@ -66,7 +66,7 @@ public class CFrameSmallControl extends CFramePicture implements Runnable {
             return 0;
          }
 
-         if (var3.inside(var1.x, var1.y)) {
+         if (var3.contains(var1.x, var1.y)) {
             return var2;
          }
       }

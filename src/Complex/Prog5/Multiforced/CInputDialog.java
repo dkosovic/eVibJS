@@ -79,9 +79,9 @@ class CInputDialog extends Frame {
 
    public void SetAbutmentState(boolean var1) {
       if (var1) {
-         this.mMassPanel.hide();
+         this.mMassPanel.setVisible(false);
       } else {
-         this.mMassPanel.show();
+         this.mMassPanel.setVisible(true);
       }
 
       this.validate();

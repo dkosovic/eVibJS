@@ -45,7 +45,7 @@ public class Transverse extends Applet implements Runnable {
       new CFramePicture(this.mFramePanel, 470, 125, 0, 0, var13, false);
       Image var15 = this.getImage(this.getCodeBase(), "Diagram.gif");
       new CFramePicture(this.mFramePanel, 470, 225, 0, 0, var15, false);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.size().width, 60);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
       this.validate();
    }
 

@@ -58,7 +58,7 @@ public class CBrianControl extends CPicturePanel {
             return 0;
          }
 
-         if (r.inside(p.x, p.y)) {
+         if (r.contains(p.x, p.y)) {
             return i;
          }
       }

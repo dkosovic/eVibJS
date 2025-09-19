@@ -46,7 +46,7 @@ public class CAnimationPanel extends Panel {
    public void paint(Graphics g) {
       this.mScreenGC = g;
       if (this.mOffScreenGC == null) {
-         this.mOffScrImage = this.createImage(this.size().width, this.size().height);
+         this.mOffScrImage = this.createImage(this.getSize().width, this.getSize().height);
          this.mOffScreenGC = this.mOffScrImage.getGraphics();
       }
 

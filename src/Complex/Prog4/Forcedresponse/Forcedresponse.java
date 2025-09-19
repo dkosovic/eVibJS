@@ -28,7 +28,7 @@ public class Forcedresponse extends Applet implements Runnable {
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.size().width, this.size().height);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.getSize().width, this.getSize().height);
       CFrameSmallControl LbControl = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 1, 430, 330, 0.2, 0.4, 1.5, "m");
       LbControl.SetLabelOffset(20, 10);
       LbControl.SetTextEditable(true);

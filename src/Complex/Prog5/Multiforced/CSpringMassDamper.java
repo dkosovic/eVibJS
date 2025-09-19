@@ -105,9 +105,9 @@ public class CSpringMassDamper extends CFrame {
       switch (var2) {
          case 1:
             this.mInputFrame = new CInputDialog(this, "Edit subsystem " + (this.mIndex - 1));
-            this.mInputFrame.move(100, 100);
-            this.mInputFrame.resize(200, 130);
-            this.mInputFrame.show();
+            this.mInputFrame.setLocation(100, 100);
+            this.mInputFrame.setSize(200, 130);
+            this.mInputFrame.setVisible(true);
          case 2:
          case 3:
          case 4:
@@ -124,7 +124,7 @@ public class CSpringMassDamper extends CFrame {
    }
 
    public boolean MouseEvent(int var1, boolean var2) {
-      super.mWasHit = this.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+      super.mWasHit = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       if (!super.mWasHit) {
          return false;
       } else {

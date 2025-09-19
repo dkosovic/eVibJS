@@ -28,7 +28,7 @@ public class Absorber_2DOF extends Applet implements Runnable {
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.size().width, this.size().height);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.getSize().width, this.getSize().height);
       CFrameSmallControl m1Control = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 1, 10, 10, 0.1, 1.0, 2.0, "kg");
       m1Control.SetLabelOffset(20, 10);
       m1Control.SetTextEditable(true);

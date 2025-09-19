@@ -69,7 +69,7 @@ public class CFramePanel extends Panel {
    public void paint(Graphics var1) {
       this.mScreenGC = var1;
       if (this.mOffScreenGC == null) {
-         this.mOffScrImage = this.createImage(this.size().width, this.size().height);
+         this.mOffScrImage = this.createImage(this.getSize().width, this.getSize().height);
          this.mOffScreenGC = this.mOffScrImage.getGraphics();
       }
 

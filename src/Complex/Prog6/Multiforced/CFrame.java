@@ -29,7 +29,7 @@ class CFrame extends Rectangle {
    }
 
    public boolean MouseEvent(int var1, boolean var2) {
-      this.mWasHit = this.inside(this.mFramePanel.mThisPt.x, this.mFramePanel.mThisPt.y);
+      this.mWasHit = this.contains(this.mFramePanel.mThisPt.x, this.mFramePanel.mThisPt.y);
       return false;
    }
 

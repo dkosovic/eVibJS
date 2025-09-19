@@ -602,7 +602,7 @@ class CFrameGraph extends CFrame {
       if (var2) {
          return false;
       } else {
-         boolean var3 = this.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+         boolean var3 = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
          if (!var3) {
             return this.MouseEventOutside(var1, var2);
          } else {

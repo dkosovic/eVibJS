@@ -125,7 +125,7 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
             return 0;
          }
 
-         if (r.inside(p.x, p.y)) {
+         if (r.contains(p.x, p.y)) {
             return i;
          }
       }

@@ -29,7 +29,7 @@ public class Multiforced extends Applet implements Runnable {
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
       this.mFrameGraph = new CFrameGraph(this.mFramePanel, 40, 70, 602, 280);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.size().width, 60);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
       Button var4 = new Button("Instructions");
       var1.add(var4);
       Button var5 = new Button("Edit");

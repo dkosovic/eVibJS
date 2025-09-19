@@ -22,7 +22,7 @@ public class Abutmentresponse extends Applet implements Runnable {
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.size().width, this.size().height);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.getSize().width, this.getSize().height);
       CFrameSmallControl var4 = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 1, 100, 10, 0.001, 0.05, 3.0, " ");
       var4.SetLabelOffset(20, 10);
       var4.SetTextEditable(true);

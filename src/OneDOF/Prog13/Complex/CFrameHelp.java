@@ -33,8 +33,8 @@ class CFrameHelp extends CFrame implements Runnable {
             mArrow = this.mArrowHead;
          }
 
-         int wid = super.mFramePanel.size().width;
-         int hei = super.mFramePanel.size().height;
+         int wid = super.mFramePanel.getSize().width;
+         int hei = super.mFramePanel.getSize().height;
          int kLineSpacing = 12;
          int kLineGap = 5;
          int gap1 = 10;
@@ -107,7 +107,7 @@ class CFrameHelp extends CFrame implements Runnable {
       this.mThread = null;
       if (code != 3) {
          return false;
-      } else if (!this.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
+      } else if (!this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
          return false;
       } else {
          this.mThread = new Thread(this);

@@ -33,8 +33,8 @@ class CFrameHelp extends CFrame implements Runnable {
             var2 = this.mArrowHead;
          }
 
-         int var3 = super.mFramePanel.size().width;
-         int var4 = super.mFramePanel.size().height;
+         int var3 = super.mFramePanel.getSize().width;
+         int var4 = super.mFramePanel.getSize().height;
          byte var5 = 12;
          byte var6 = 5;
          byte var7 = 10;
@@ -107,7 +107,7 @@ class CFrameHelp extends CFrame implements Runnable {
       this.mThread = null;
       if (var1 != 3) {
          return false;
-      } else if (!this.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
+      } else if (!this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
          return false;
       } else {
          this.mThread = new Thread(this);

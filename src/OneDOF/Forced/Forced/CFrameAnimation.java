@@ -436,9 +436,9 @@ class CFrameAnimation extends CFrame {
    }
 
    public boolean MouseEvent(int code, boolean prevHit) {
-      boolean hitMain = this.mTraceClip.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
-      boolean hitThumbnail = this.mTraceThumbnail.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
-      boolean hitThumb = this.mThumbRect.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+      boolean hitMain = this.mTraceClip.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+      boolean hitThumbnail = this.mTraceThumbnail.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+      boolean hitThumb = this.mThumbRect.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       super.mWasHit = hitMain || hitThumbnail;
       int offset = 0;
       switch (code) {

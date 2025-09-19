@@ -54,7 +54,7 @@ public class CAnimationPanel extends Panel {
       Color force = new Color(0.77F, 0.38F, 0.0F);
       Color shade = new Color(1.0F, 1.0F, 0.4F);
       if (this.mOffScreenGC == null) {
-         this.mOffScrImage = this.createImage(this.size().width, this.size().height);
+         this.mOffScrImage = this.createImage(this.getSize().width, this.getSize().height);
          this.mOffScreenGC = this.mOffScrImage.getGraphics();
       }
 

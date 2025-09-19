@@ -50,7 +50,7 @@ public class Qfactor extends Applet implements Runnable {
       new CFramePicture(this.mFramePanel, 13, 13, 0, 0, YaxisImage, false);
       Image DiagramImage = this.getImage(this.getCodeBase(), "Diagram.gif");
       new CFramePicture(this.mFramePanel, 470, 135, 0, 0, DiagramImage, false);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.size().width, 60);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
       this.validate();
    }
 

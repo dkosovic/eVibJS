@@ -31,7 +31,7 @@ public class Abutment extends Applet implements Runnable {
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.size().width, this.size().height);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, 0, 0, this.getSize().width, this.getSize().height);
       CFrameSmallControl WnControl = new CFrameSmallControl(this.mFramePanel, this.mAnimFrame, 2, 10, 10, 0.1, 1.5, 2.0, "Hz");
       WnControl.SetLabelOffset(20, 10);
       WnControl.SetTextEditable(true);

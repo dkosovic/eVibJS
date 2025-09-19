@@ -44,7 +44,7 @@ class CInputDialog extends Frame {
       this.mAbutmentCheckbox.setState(var1.IsAbutment());
       var7.add(this.mAbutmentCheckbox);
       if (!var1.AtEnd()) {
-         this.mAbutmentCheckbox.disable();
+         this.mAbutmentCheckbox.setEnabled(false);
       }
 
       this.mMassPanel = new Panel();
@@ -94,9 +94,9 @@ class CInputDialog extends Frame {
 
    public void SetAbutmentState(boolean var1) {
       if (var1) {
-         this.mMassPanel.hide();
+         this.mMassPanel.setVisible(false);
       } else {
-         this.mMassPanel.show();
+         this.mMassPanel.setVisible(true);
       }
 
       this.validate();
@@ -107,7 +107,7 @@ class CInputDialog extends Frame {
       if (var1.target instanceof Button) {
          if (var2.equals("OK")) {
             if (this.mViscCheckboxGroup != null) {
-               Checkbox var3 = this.mViscCheckboxGroup.getCurrent();
+               Checkbox var3 = this.mViscCheckboxGroup.getSelectedCheckbox();
                String var4 = var3.getLabel();
                this.mSMD.mViscous = var4 == "Viscous";
             }
