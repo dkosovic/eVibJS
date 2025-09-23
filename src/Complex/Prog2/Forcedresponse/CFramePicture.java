@@ -15,12 +15,17 @@ class CFramePicture extends CFrame {
    }
 
    public void LoadImage(Image img) {
-      // Use ImageIcon to ensure synchronous loading
+      // Use ImageIcon to ensure synchronous loading, with Java2script error handling
       if (img != null) {
-         ImageIcon icon = new ImageIcon(img);
-         this.mImage = icon.getImage();
+         try {
+            ImageIcon icon = new ImageIcon(img);
+            this.mImage = icon.getImage();
+         } catch (Exception e) {
+            // Fallback to original image if ImageIcon fails
+            this.mImage = img;
+         }
       } else {
-         this.mImage = img;
+         this.mImage = null;
       }
    }
 

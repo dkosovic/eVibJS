@@ -15,20 +15,27 @@ class CFramePicture extends CFrame {
    }
 
    public void LoadImage(Image img) {
-      // Use ImageIcon to ensure synchronous loading
+      // Use ImageIcon to ensure synchronous loading, with Java2script error handling
       if (img != null) {
-         ImageIcon icon = new ImageIcon(img);
-         this.mImage = icon.getImage();
+         try {
+            ImageIcon icon = new ImageIcon(img);
+            this.mImage = icon.getImage();
+         } catch (Exception e) {
+            // Fallback to original image if ImageIcon fails
+            this.mImage = img;
+         }
       } else {
-         this.mImage = img;
+         this.mImage = null;
       }
    }
 
    public void Frame(Graphics g) {
-      if (this.mScaleImage) {
-         g.drawImage(this.mImage, super.x, super.y, super.width, super.height, super.mFramePanel);
-      } else {
-         g.drawImage(this.mImage, super.x, super.y, super.mFramePanel);
+      if (this.mImage != null) {
+         if (this.mScaleImage) {
+            g.drawImage(this.mImage, super.x, super.y, super.width, super.height, super.mFramePanel);
+         } else {
+            g.drawImage(this.mImage, super.x, super.y, super.mFramePanel);
+         }
       }
    }
 }
