@@ -2,11 +2,10 @@ package Continuous.Prog12.Transverse;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
+import javax.swing.ImageIcon;
 
 class CFramePicture extends CFrame {
    public Image mImage;
-   MediaTracker mTracker;
    public boolean mScaleImage;
 
    public CFramePicture(CFramePanel var1, int var2, int var3, int var4, int var5, Image var6, boolean var7) {
@@ -16,13 +15,12 @@ class CFramePicture extends CFrame {
    }
 
    public void LoadImage(Image var1) {
-      this.mImage = var1;
-      this.mTracker = new MediaTracker(super.mFramePanel);
-      this.mTracker.addImage(this.mImage, 0);
-
-      try {
-         this.mTracker.waitForAll();
-      } catch (InterruptedException var2) {
+      // Use ImageIcon to ensure synchronous loading
+      if (var1 != null) {
+         ImageIcon icon = new ImageIcon(var1);
+         this.mImage = icon.getImage();
+      } else {
+         this.mImage = var1;
       }
    }
 

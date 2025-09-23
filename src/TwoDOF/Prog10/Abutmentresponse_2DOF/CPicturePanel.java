@@ -3,28 +3,25 @@ package TwoDOF.Prog10.Abutmentresponse_2DOF;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
+import javax.swing.ImageIcon;
 import java.awt.Panel;
 
 class CPicturePanel extends Panel {
    public Image mImage;
-   MediaTracker mTracker;
-
    public CPicturePanel() {
    }
 
-   public CPicturePanel(Image var1) {
-      this.LoadImage(var1);
+   public CPicturePanel(Image img) {
+      this.LoadImage(img);
    }
 
-   public void LoadImage(Image var1) {
-      this.mImage = var1;
-      this.mTracker = new MediaTracker(this);
-      this.mTracker.addImage(this.mImage, 0);
-
-      try {
-         this.mTracker.waitForAll();
-      } catch (InterruptedException var2) {
+   public void LoadImage(Image img) {
+      // Use ImageIcon to ensure synchronous loading
+      if (img != null) {
+         ImageIcon icon = new ImageIcon(img);
+         this.mImage = icon.getImage();
+      } else {
+         this.mImage = img;
       }
    }
 
@@ -43,11 +40,10 @@ class CPicturePanel extends Panel {
    }
 
    public void paint(Graphics var1) {
-      if (!this.mTracker.checkAll()) {
-         var1.drawString("...", 0, 20);
-         this.repaint(200L);
-      } else {
+      if (this.mImage != null) {
          var1.drawImage(this.mImage, 0, 0, this);
+      } else {
+         var1.drawString("...", 0, 20);
       }
    }
 }

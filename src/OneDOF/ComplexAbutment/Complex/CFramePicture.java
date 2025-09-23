@@ -2,11 +2,10 @@ package OneDOF.ComplexAbutment.Complex;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
+import javax.swing.ImageIcon;
 
 class CFramePicture extends CFrame {
    public Image mImage;
-   MediaTracker mTracker;
    public boolean mScaleImage;
 
    public CFramePicture(CFramePanel thePanel, int xx, int yy, int ww, int hh, Image img, boolean scale) {
@@ -16,13 +15,12 @@ class CFramePicture extends CFrame {
    }
 
    public void LoadImage(Image img) {
-      this.mImage = img;
-      this.mTracker = new MediaTracker(super.mFramePanel);
-      this.mTracker.addImage(this.mImage, 0);
-
-      try {
-         this.mTracker.waitForAll();
-      } catch (InterruptedException var2) {
+      // Use ImageIcon to ensure synchronous loading
+      if (img != null) {
+         ImageIcon icon = new ImageIcon(img);
+         this.mImage = icon.getImage();
+      } else {
+         this.mImage = img;
       }
    }
 

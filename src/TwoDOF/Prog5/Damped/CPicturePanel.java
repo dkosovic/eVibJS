@@ -3,12 +3,11 @@ package TwoDOF.Prog5.Damped;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.Panel;
+import javax.swing.ImageIcon;
 
 class CPicturePanel extends Panel {
    public Image mImage;
-   MediaTracker mTracker;
 
    public CPicturePanel() {
    }
@@ -18,13 +17,12 @@ class CPicturePanel extends Panel {
    }
 
    public void LoadImage(Image img) {
-      this.mImage = img;
-      this.mTracker = new MediaTracker(this);
-      this.mTracker.addImage(this.mImage, 0);
-
-      try {
-         this.mTracker.waitForAll();
-      } catch (InterruptedException var2) {
+      // Use ImageIcon to ensure synchronous loading
+      if (img != null) {
+         ImageIcon icon = new ImageIcon(img);
+         this.mImage = icon.getImage();
+      } else {
+         this.mImage = img;
       }
    }
 
@@ -43,11 +41,10 @@ class CPicturePanel extends Panel {
    }
 
    public void paint(Graphics g) {
-      if (!this.mTracker.checkAll()) {
-         g.drawString("...", 0, 20);
-         this.repaint(200L);
-      } else {
+      if (this.mImage != null) {
          g.drawImage(this.mImage, 0, 0, this);
+      } else {
+         g.drawString("...", 0, 20);
       }
    }
 }
