@@ -9,8 +9,11 @@ import java.awt.TextField;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Date;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
-public class CFrameSmallControl extends CFramePicture implements Runnable, KeyListener {
+public class CFrameSmallControl extends CFramePicture implements ActionListener, KeyListener {
    public CFrame mControlledFrame;
    int mSelection;
    int mCode;
@@ -27,7 +30,7 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
    TextField mTextField;
    public boolean mTextEditable;
    public boolean mIntegerMode;
-   Thread mThread;
+   Timer mTimer;
    static final int kNoSelection = 0;
    static final int kUpSelection = 1;
    static final int kDownSelection = 2;
@@ -307,8 +310,8 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
 
                   this.BroadcastValue();
                } else {
-                  this.mThread = new Thread(this);
-                  this.mThread.start();
+                  this.mTimer = new Timer(100, this);
+                  this.mTimer.start();
                }
 
                return true;
@@ -382,15 +385,9 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
       }
    }
 
-   public void run() {
-      while (this.mSelection != 0) {
+   public void actionPerformed(ActionEvent e) {
+      if (this.mSelection != 0) {
          this.NewValue();
-
-         try {
-            Thread.sleep(100L);
-         } catch (InterruptedException var1) {
-            return;
-         }
       }
    }
 }

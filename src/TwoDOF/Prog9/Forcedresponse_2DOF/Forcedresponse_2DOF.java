@@ -5,8 +5,11 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
-public class Forcedresponse_2DOF extends Applet implements Runnable {
+public class Forcedresponse_2DOF extends Applet implements ActionListener {
    static final double kMinm1 = 0.1;
    static final double kMaxm1 = 2.0;
    static final double kMink1 = 1.0;
@@ -22,7 +25,7 @@ public class Forcedresponse_2DOF extends Applet implements Runnable {
    static final String kRunString = "Run";
    CFramePanel mFramePanel;
    CFrameAnimation mAnimFrame;
-   Thread mThread = null;
+   Timer mTimer = null;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -73,17 +76,11 @@ public class Forcedresponse_2DOF extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer(20, this);
+      this.mTimer.start();
    }
 
-   public void run() {
-      while (true) {
-         try {
-            Thread.sleep(20L);
-         } catch (InterruptedException var1) {
-            return;
-         }
-      }
+   public void actionPerformed(ActionEvent e) {
+      // Timer tick handler - equivalent to the old run() method loop body
    }
 }

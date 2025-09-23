@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.StringTokenizer;
+import javax.swing.Timer;
 
-class CFrameHelp extends CFrame implements Runnable {
-   Thread mThread;
+class CFrameHelp extends CFrame implements ActionListener {
+   Timer mTimer;
    boolean mShowtime;
    public String mMessage;
    public double mDelay = 1.5;
@@ -104,30 +107,24 @@ class CFrameHelp extends CFrame implements Runnable {
       }
 
       this.mShowtime = false;
-      this.mThread = null;
+      if (this.mTimer != null) {
+         this.mTimer.stop();
+         this.mTimer = null;
+      }
       if (var1 != 3) {
          return false;
       } else if (!this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
          return false;
       } else {
-         this.mThread = new Thread(this);
-         this.mThread.start();
+         this.mTimer = new Timer((int)(this.mDelay * 1000), this);
+         this.mTimer.setRepeats(false);
+         this.mTimer.start();
          return true;
       }
    }
 
-   public void run() {
-      Thread var1 = this.mThread;
-
-      try {
-         Thread.sleep((long)this.mDelay * 1000L);
-      } catch (InterruptedException var2) {
-         return;
-      }
-
-      if (this.mThread == var1) {
-         this.mShowtime = true;
-         this.repaint();
-      }
+   public void actionPerformed(ActionEvent e) {
+      this.mShowtime = true;
+      this.repaint();
    }
 }

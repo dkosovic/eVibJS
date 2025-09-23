@@ -3,12 +3,16 @@ package Modal.Prog1.Vibration;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.util.Date;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
-public class Vibration extends Applet implements Runnable {
+public class Vibration extends Applet implements ActionListener {
    static final String kRunString = "Run";
    CFramePanel mFramePanel;
    CAnimationPanel mAnimPanel;
-   Thread mThread = null;
+   Timer mTimer = null;
+   long mLastTime = 0;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -18,26 +22,23 @@ public class Vibration extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer(20, this);
+      this.mTimer.start();
    }
 
-   public void run() {
-      Date ddd = new Date();
-      long thisTime = ddd.getTime();
-
-      while (true) {
-         try {
-            Thread.sleep(20L);
-         } catch (InterruptedException var8) {
-            return;
+   public void actionPerformed(ActionEvent e) {
+      if (this.mTimer != null) {
+         Date ddd = new Date();
+         long thisTime = ddd.getTime();
+         
+         if (this.mLastTime == 0) {
+            this.mLastTime = thisTime;
          }
-
-         ddd = new Date();
-         long lastTime = thisTime;
-         thisTime = ddd.getTime();
-         double realSeconds = (thisTime - lastTime) / 1000.0;
+         double realSeconds = (thisTime - this.mLastTime) / 1000.0;
+         this.mLastTime = thisTime;
+         
          this.mAnimPanel.SetRealParameter(0, realSeconds);
       }
    }
+
 }

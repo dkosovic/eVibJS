@@ -5,14 +5,19 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import javax.swing.Timer;
 
-public class Forcedresponse extends Applet implements Runnable {
+public class Forcedresponse extends Applet implements ActionListener {
    static final double kMinXi = 0.001;
    static final double kMaxXi = 3.0;
    static final String kRunString = "Run";
    CFramePanel mFramePanel;
    CFrameAnimation mAnimFrame;
-   Thread mThread = null;
+   Timer mTimer = null;
+   long mLastTime = 0;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -44,17 +49,22 @@ public class Forcedresponse extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer(20, this);
+      this.mTimer.start();
    }
 
-   public void run() {
-      while (true) {
-         try {
-            Thread.sleep(20L);
-         } catch (InterruptedException var1) {
-            return;
+   public void actionPerformed(ActionEvent e) {
+      if (this.mTimer != null) {
+         Date ddd = new Date();
+         long thisTime = ddd.getTime();
+         
+         if (this.mLastTime == 0) {
+            this.mLastTime = thisTime;
          }
+         double realSeconds = (thisTime - this.mLastTime) / 1000.0;
+         this.mLastTime = thisTime;
+         
+         //this.mAnimFrame.ControlMessage(0, realSeconds);
       }
    }
 }

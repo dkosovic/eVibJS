@@ -12,14 +12,18 @@ import java.awt.TextField;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
-public class Multiforced extends Applet implements Runnable {
+public class Multiforced extends Applet implements ActionListener {
    public Frame mFeedbackWindow = null;
    public TextField answer1;
    CFramePanel mFramePanel;
    CFrameGraph mFrameGraph;
    CFrameAnimation mAnimFrame;
-   Thread mThread = null;
+   Timer mTimer = null;
+   long mLastTime = 0;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -45,8 +49,8 @@ public class Multiforced extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer(50, this);
+      this.mTimer.start();
    }
 
    public boolean action(Event var1, Object var2) {
@@ -69,27 +73,22 @@ public class Multiforced extends Applet implements Runnable {
       return true;
    }
 
-   public void run() {
-      Date var1 = new Date();
-      long var4 = var1.getTime();
-
-      while (true) {
-         try {
-            Thread.sleep(50L);
-         } catch (InterruptedException var8) {
-            return;
+   public void actionPerformed(ActionEvent e) {
+      if (this.mTimer != null) {
+         Date ddd = new Date();
+         long thisTime = ddd.getTime();
+         
+         if (this.mLastTime == 0) {
+            this.mLastTime = thisTime;
          }
-
-         var1 = new Date();
-         long var2 = var4;
-         var4 = var1.getTime();
-         double var6 = (var4 - var2) / 1000.0;
-         this.mFrameGraph.ControlMessage(3, var6);
+         double realSeconds = (thisTime - this.mLastTime) / 1000.0;
+         this.mLastTime = thisTime;
+         
+         this.mFrameGraph.ControlMessage(3, realSeconds);
       }
    }
 
    public void stop() {
-      this.mThread.stop();
-      this.mThread = null;
+      if (this.mTimer != null) { this.mTimer.stop(); this.mTimer = null; }
    }
 }

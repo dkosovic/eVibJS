@@ -8,8 +8,11 @@ import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
 import java.util.Date;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
-public class AbutmentSin extends Applet implements Runnable {
+public class AbutmentSin extends Applet implements ActionListener {
    static final double kMinWn = 0.1;
    static final double kMaxWn = 1.5;
    static final double kMinXi = 0.001;
@@ -21,7 +24,8 @@ public class AbutmentSin extends Applet implements Runnable {
    static final String kRunString = "Run";
    CFramePanel mFramePanel;
    CFrameAnimation mAnimFrame;
-   Thread mThread = null;
+   Timer mTimer = null;
+   long mLastTime = 0;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -67,8 +71,8 @@ public class AbutmentSin extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer(20, this);
+      this.mTimer.start();
    }
 
    public boolean action(Event var1, Object var2) {
@@ -85,27 +89,22 @@ public class AbutmentSin extends Applet implements Runnable {
       return true;
    }
 
-   public void run() {
-      Date var1 = new Date();
-      long var4 = var1.getTime();
-
-      while (true) {
-         try {
-            Thread.sleep(20L);
-         } catch (InterruptedException var8) {
-            return;
+   public void actionPerformed(ActionEvent e) {
+      if (this.mTimer != null) {
+         Date ddd = new Date();
+         long thisTime = ddd.getTime();
+         
+         if (this.mLastTime == 0) {
+            this.mLastTime = thisTime;
          }
-
-         var1 = new Date();
-         long var2 = var4;
-         var4 = var1.getTime();
-         double var6 = (var4 - var2) / 1000.0;
-         this.mAnimFrame.ControlMessage(0, var6);
+         double realSeconds = (thisTime - this.mLastTime) / 1000.0;
+         this.mLastTime = thisTime;
+         
+         this.mAnimFrame.ControlMessage(0, realSeconds);
       }
    }
 
    public void stop() {
-      this.mThread.stop();
-      this.mThread = null;
+      if (this.mTimer != null) { this.mTimer.stop(); this.mTimer = null; }
    }
 }

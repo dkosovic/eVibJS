@@ -7,8 +7,11 @@ import java.awt.Image;
 import java.awt.Label;
 import java.awt.TextField;
 import java.util.Date;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
-public class Qfactor extends Applet implements Runnable {
+public class Qfactor extends Applet implements ActionListener {
    public Frame mFeedbackWindow = null;
    public TextField answer1;
    static final double kMinm1 = 0.1;
@@ -26,7 +29,8 @@ public class Qfactor extends Applet implements Runnable {
    CFramePanel mFramePanel;
    CFrameGraph mFrameGraph;
    CFrameAnimation mAnimFrame;
-   Thread mThread = null;
+   Timer mTimer = null;
+   long mLastTime = 0;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -77,30 +81,28 @@ public class Qfactor extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer(50, this);
+      this.mTimer.start();
    }
 
-   public void run() {
-      Date ddd = new Date();
-      long th1sTime = ddd.getTime();
-
-      while (true) {
-         try {
-            Thread.sleep(50L);
-         } catch (InterruptedException var8) {
-            return;
+   public void actionPerformed(ActionEvent e) {
+      if (this.mTimer != null) {
+         Date ddd = new Date();
+         long thisTime = ddd.getTime();
+         
+         if (this.mLastTime == 0) {
+            this.mLastTime = thisTime;
          }
-
-         ddd = new Date();
-         long lastTime = th1sTime;
-         th1sTime = ddd.getTime();
-         double realSeconds = (th1sTime - lastTime) / 1000.0;
+         double realSeconds = (thisTime - this.mLastTime) / 1000.0;
+         this.mLastTime = thisTime;
+         
+         //this.mAnimFrame.ControlMessage(0, realSeconds);
       }
    }
 
+
+
    public void stop() {
-      this.mThread.stop();
-      this.mThread = null;
+      if (this.mTimer != null) { this.mTimer.stop(); this.mTimer = null; }
    }
 }

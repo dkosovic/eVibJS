@@ -7,9 +7,12 @@ import java.awt.Event;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
+import javax.swing.Timer;
 
-public class Forced extends Applet implements Runnable {
+public class Forced extends Applet implements ActionListener {
    static final double kMinm1 = 0.1;
    static final double kMaxm1 = 2.0;
    static final double kMink1 = 1.0;
@@ -29,7 +32,8 @@ public class Forced extends Applet implements Runnable {
    static final String kRunString = "Run";
    CFramePanel mFramePanel;
    CFrameAnimation mAnimFrame;
-   Thread mThread = null;
+   Timer mTimer = null;
+   private long lastTime;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -99,8 +103,10 @@ public class Forced extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      Date ddd = new Date();
+      this.lastTime = ddd.getTime();
+      this.mTimer = new Timer(20, this);
+      this.mTimer.start();
    }
 
    public boolean action(Event evt, Object arg) {
@@ -117,27 +123,18 @@ public class Forced extends Applet implements Runnable {
       return true;
    }
 
-   public void run() {
+   public void actionPerformed(ActionEvent e) {
       Date ddd = new Date();
       long thisTime = ddd.getTime();
-
-      while (true) {
-         try {
-            Thread.sleep(20L);
-         } catch (InterruptedException var8) {
-            return;
-         }
-
-         ddd = new Date();
-         long lastTime = thisTime;
-         thisTime = ddd.getTime();
-         double realSeconds = (thisTime - lastTime) / 1000.0;
-         this.mAnimFrame.ControlMessage(0, realSeconds);
-      }
+      double realSeconds = (thisTime - this.lastTime) / 1000.0;
+      this.lastTime = thisTime;
+      this.mAnimFrame.ControlMessage(0, realSeconds);
    }
 
    public void stop() {
-      this.mThread.stop();
-      this.mThread = null;
+      if (this.mTimer != null) {
+         this.mTimer.stop();
+         this.mTimer = null;
+      }
    }
 }
