@@ -1,5 +1,6 @@
 package Modal.Prog5.Qfactor;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    static final int kYanimate = 10;
    CFrameGraph mFrameGraph;

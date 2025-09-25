@@ -10,6 +10,7 @@ import java.awt.Point;
 import java.util.Date;
 import java.util.Vector;
 
+@SuppressWarnings("serial")
 public class CFramePanel extends Panel {
    public Applet mApplet;
    Vector mFrames;

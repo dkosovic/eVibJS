@@ -2,6 +2,7 @@ package Continuous.Prog5.Multiforced;
 
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    static final int kYanimate = 10;
    CFrameGraph mFrameGraph;

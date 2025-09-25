@@ -3,6 +3,7 @@ package Complex.Prog7.Forcedresponse;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    public static final int kLCode = 1;
    public static final int kDCode = 2;

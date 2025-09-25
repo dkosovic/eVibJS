@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Energy extends Applet implements ActionListener {
    static final double kMink1 = 1.0;
    static final double kMaxk1 = 5.0;

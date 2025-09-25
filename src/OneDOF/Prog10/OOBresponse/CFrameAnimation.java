@@ -3,6 +3,7 @@ package OneDOF.Prog10.OOBresponse;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    public static final int kXiCode = 1;
    public static final int kmrdivMCode = 2;

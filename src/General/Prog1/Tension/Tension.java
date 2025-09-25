@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Tension extends Applet implements ActionListener {
    static final double kMinMass = 0.5;
    static final double kMaxMass = 50.0;

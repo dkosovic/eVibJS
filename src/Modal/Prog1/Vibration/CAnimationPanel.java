@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Panel;
 
+@SuppressWarnings("serial")
 public class CAnimationPanel extends Panel {
    public static final int kDeltaTimeCode = 0;
    public static final int kxEdge = 100;

@@ -1,5 +1,6 @@
 package Continuous.Prog2.Multiforced;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    static final int kYanimate = 10;
    CFrameGraph mFrameGraph;

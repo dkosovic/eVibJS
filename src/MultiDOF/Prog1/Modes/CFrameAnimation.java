@@ -6,6 +6,7 @@ import java.awt.Button;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    public static final int kDeltaTimeCode = 0;
    public static final int kChangeRunCode = 1;

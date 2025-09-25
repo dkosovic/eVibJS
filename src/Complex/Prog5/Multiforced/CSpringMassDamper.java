@@ -3,6 +3,7 @@ package Complex.Prog5.Multiforced;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 public class CSpringMassDamper extends CFrame {
    public static final int kMassWidth = 15;
    public static final int kMassDepth = 30;

@@ -3,6 +3,7 @@ package TwoDOF.Prog4.Forcedresponse;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    public static final int kK2divK1Code = 1;
    public static final int kM2divM1Code = 2;

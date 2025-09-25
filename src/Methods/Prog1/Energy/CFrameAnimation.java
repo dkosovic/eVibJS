@@ -3,6 +3,7 @@ package Methods.Prog1.Energy;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    public static final int kk1Code = 1;
    public static final int km1Code = 2;

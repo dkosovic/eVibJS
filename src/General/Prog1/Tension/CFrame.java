@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+@SuppressWarnings("serial")
 class CFrame extends Rectangle {
    public static final int kMouseDown = 0;
    public static final int kMouseDrag = 1;

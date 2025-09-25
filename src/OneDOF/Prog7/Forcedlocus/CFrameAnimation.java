@@ -3,6 +3,7 @@ package OneDOF.Prog7.Forcedlocus;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    public static final int kXiCode = 1;
    public static final int kWCode = 2;

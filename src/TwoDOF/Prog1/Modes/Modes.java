@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Modes extends Applet implements ActionListener {
    static final double kMinm1 = 1.0;
    static final double kMaxm1 = 10.0;

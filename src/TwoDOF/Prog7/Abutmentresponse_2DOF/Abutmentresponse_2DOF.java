@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Abutmentresponse_2DOF extends Applet implements ActionListener {
    static final double kMinm1 = 0.1;
    static final double kMaxm1 = 2.0;

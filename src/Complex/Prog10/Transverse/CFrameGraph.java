@@ -3,6 +3,7 @@ package Complex.Prog10.Transverse;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
    public static final int kLCode = 1;
    public static final int kD1Code = 2;

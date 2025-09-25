@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.StringTokenizer;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 class CFrameHelp extends CFrame implements ActionListener {
    Timer mTimer;
    boolean mShowtime;

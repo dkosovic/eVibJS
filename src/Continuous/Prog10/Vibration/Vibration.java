@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Vibration extends Applet implements ActionListener {
    static final String kRunString = "Run";
    CFramePanel mFramePanel;

@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Panel;
 import javax.swing.ImageIcon;
 
+@SuppressWarnings("serial")
 class CPicturePanel extends Panel {
    public Image mImage;
 

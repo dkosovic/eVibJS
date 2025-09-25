@@ -3,6 +3,7 @@ package Beam.Prog5.Forcedresponse_2DOF;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {
    public static final int kmCode = 1;
    public static final int kk1Code = 2;

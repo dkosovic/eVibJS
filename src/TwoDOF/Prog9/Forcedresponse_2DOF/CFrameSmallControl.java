@@ -13,6 +13,7 @@ import java.awt.event.KeyListener;
 import java.util.Date;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class CFrameSmallControl extends CFramePicture implements ActionListener, KeyListener {
    public CFrame mControlledFrame;
    int mSelection;

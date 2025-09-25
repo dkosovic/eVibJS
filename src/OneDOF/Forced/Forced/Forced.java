@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Forced extends Applet implements ActionListener {
    static final double kMinWn = 0.1;
    static final double kMaxWn = 2.0;

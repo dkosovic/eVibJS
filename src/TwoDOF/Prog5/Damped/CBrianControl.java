@@ -9,6 +9,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class CBrianControl extends CPicturePanel {
    Applet mApplet;
    int mSelection;

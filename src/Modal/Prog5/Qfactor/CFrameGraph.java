@@ -3,6 +3,7 @@ package Modal.Prog5.Qfactor;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
    public static final int kkCode = 1;
    public static final int kmCode = 2;

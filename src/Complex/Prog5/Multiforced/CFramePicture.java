@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
+@SuppressWarnings("serial")
 class CFramePicture extends CFrame {
    public Image mImage;
    public boolean mScaleImage;

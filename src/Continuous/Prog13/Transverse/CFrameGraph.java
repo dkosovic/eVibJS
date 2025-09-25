@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Polygon;
 import java.util.Vector;
 
+@SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
    public static final int kLCode = 1;
    public static final int kBCode = 2;

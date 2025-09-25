@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Multiforced extends Applet implements ActionListener {
    public Frame mFeedbackWindow = null;
    public TextField answer1;

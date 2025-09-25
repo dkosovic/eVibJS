@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Eigen2DOF extends Applet implements ActionListener {
    static final double kMink1 = 0.1;
    static final double kMaxk1 = 40.0;

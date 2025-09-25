@@ -11,6 +11,7 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
 
+@SuppressWarnings("serial")
 class CInputDialog extends Frame {
    public static final String kAbutmentLabel = "Abutment";
    public static final String kViscousDampingLabel = "Viscous";

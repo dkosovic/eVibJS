@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.Timer;
 
+@SuppressWarnings("serial")
 public class Forcedresponse extends Applet implements ActionListener {
    static final double kMinLb = 0.2;
    static final double kMaxLb = 1.5;

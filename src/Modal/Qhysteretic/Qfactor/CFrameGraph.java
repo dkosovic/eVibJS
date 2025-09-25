@@ -3,6 +3,7 @@ package Modal.Qhysteretic.Qfactor;
 import java.awt.Color;
 import java.awt.Graphics;
 
+@SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
    public static final int km1Code = 1;
    public static final int kk1Code = 2;
