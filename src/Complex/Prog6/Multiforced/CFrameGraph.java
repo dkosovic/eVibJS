@@ -35,7 +35,7 @@ class CFrameGraph extends CFrame {
    int mFPos;
    int mDisplayXPos;
    int mDisplayFPos;
-   public Vector mElements;
+   public Vector<CSpringMassDamper> mElements;
    public CSpringMassDamper mSelectedSMD;
    double mWanimate = 0.2;
    double mMax;
@@ -446,7 +446,7 @@ class CFrameGraph extends CFrame {
 
    public CSpringMassDamper AddElement(int var1, double var2, double var4, double var6, boolean var8, boolean var9) {
       if (this.mElements == null) {
-         this.mElements = new Vector();
+         this.mElements = new Vector<CSpringMassDamper>();
       }
 
       int var10 = this.mElements.size();
@@ -487,7 +487,7 @@ class CFrameGraph extends CFrame {
             var1 = var2;
          }
 
-         CSpringMassDamper var3 = (CSpringMassDamper)this.mElements.elementAt(var1 - 1);
+         CSpringMassDamper var3 = this.mElements.elementAt(var1 - 1);
          if (var3 == this.mSelectedSMD) {
             this.mSelectedSMD = null;
          }
@@ -576,7 +576,7 @@ class CFrameGraph extends CFrame {
       if (this.mElements == null) {
          return null;
       } else {
-         return var1 >= 1 && this.mElements.size() >= var1 ? (CSpringMassDamper)this.mElements.elementAt(var1 - 1) : null;
+         return var1 >= 1 && this.mElements.size() >= var1 ? this.mElements.elementAt(var1 - 1) : null;
       }
    }
 

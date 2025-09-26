@@ -12,7 +12,7 @@ import java.util.Vector;
 @SuppressWarnings("serial")
 public class CFramePanel extends Panel {
    public Applet mApplet;
-   Vector mFrames;
+   Vector<CFrame> mFrames;
    Image mOffScrImage;
    Graphics mScreenGC;
    Graphics mOffScreenGC;
@@ -43,14 +43,14 @@ public class CFramePanel extends Panel {
       }
 
       for (int i = 0; i < count; i++) {
-         CFrame thisFrame = (CFrame)this.mFrames.elementAt(i);
+         CFrame thisFrame = this.mFrames.elementAt(i);
          thisFrame.Frame(g);
       }
    }
 
    public void AddFrame(CFrame f) {
       if (this.mFrames == null) {
-         this.mFrames = new Vector();
+         this.mFrames = new Vector<CFrame>();
       } else if (this.mFrames.contains(f)) {
          this.mFrames.removeElement(f);
       }
@@ -148,7 +148,7 @@ public class CFramePanel extends Panel {
       boolean prevHit = false;
 
       for (int i = count - 1; i >= 0; i--) {
-         CFrame thisFrame = (CFrame)this.mFrames.elementAt(i);
+         CFrame thisFrame = this.mFrames.elementAt(i);
          if (thisFrame.MouseEvent(code, prevHit)) {
             result = true;
          }

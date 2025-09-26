@@ -3,7 +3,6 @@ package Continuous.Prog12.Transverse;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
-import java.util.Vector;
 
 @SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
@@ -26,7 +25,6 @@ class CFrameGraph extends CFrame {
    double[] mRec = new double[401];
    double[] mxp = new double[31];
    double[] mAmp = new double[31];
-   public Vector mElements;
    double mL = 1.5;
    double mB = 0.12;
    double mH = 0.12;
