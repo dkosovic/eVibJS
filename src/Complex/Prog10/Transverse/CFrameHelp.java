@@ -19,7 +19,7 @@ class CFrameHelp extends CFrame implements ActionListener {
 
    public CFrameHelp(CFramePanel var1, int var2, int var3, int var4, int var5, String var6) {
       super(var1, var2, var3, var4, var5);
-      this.mMessage = new String(var6);
+      this.mMessage = var6;
       this.DefaultArrowPos();
    }
 

@@ -32,7 +32,7 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
       super(var1, var4, var5, 0, 0, var1.mApplet.getImage(var1.mApplet.getCodeBase(), "BrianControl.gif"), false);
       this.mControlledFrame = var2;
       this.mCode = var3;
-      this.mUnits = new String(var12);
+      this.mUnits = var12;
       super.width = super.mImage.getWidth(var1);
       super.height = super.mImage.getHeight(var1);
       this.mMin = var6;
@@ -93,14 +93,14 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
       }
 
       if (NearlyEqual(var0, 0.0)) {
-         return new String("0");
+         return "0";
       } else if (var0 < 0.0) {
-         return new String("-" + nns(-var0, var2));
+         return "-" + nns(-var0, var2);
       } else {
          double var3 = Math.floor(log10(var0));
          double var5 = Math.pow(10.0, var3 - var2 + 1.0);
          long var7 = Math.round(var0 / var5);
-         String var9 = new String(String.valueOf(var7 * var5));
+         String var9 = String.valueOf(var7 * var5);
 
          while (var9.length() > 1 && var9.indexOf(46) > -1) {
             boolean var10 = false;
@@ -111,10 +111,10 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
             }
 
             if (var10) {
-               var9 = new String(var9.substring(0, var11 + 1));
+               var9 = var9.substring(0, var11 + 1);
             }
 
-            String var12 = new String(var9.substring(0, var11));
+            String var12 = var9.substring(0, var11);
 
             double var13;
             try {
