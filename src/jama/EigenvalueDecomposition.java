@@ -27,42 +27,42 @@ public class EigenvalueDecomposition implements java.io.Serializable
 
 	/**
 	 * Row and column dimension (square matrix).
-	 * 
+	 *
 	 * @serial matrix dimension.
 	 */
 	private int n;
 
 	/**
 	 * Symmetry flag.
-	 * 
+	 *
 	 * @serial internal symmetry flag.
 	 */
 	private boolean issymmetric;
 
 	/**
 	 * Arrays for internal storage of eigenvalues.
-	 * 
+	 *
 	 * @serial internal storage of eigenvalues.
 	 */
 	private double[] d, e;
 
 	/**
 	 * Array for internal storage of eigenvectors.
-	 * 
+	 *
 	 * @serial internal storage of eigenvectors.
 	 */
 	private double[][] V;
 
 	/**
 	 * Array for internal storage of nonsymmetric Hessenberg form.
-	 * 
+	 *
 	 * @serial internal storage of nonsymmetric Hessenberg form.
 	 */
 	private double[][] H;
 
 	/**
 	 * Working storage for nonsymmetric algorithm.
-	 * 
+	 *
 	 * @serial working storage for nonsymmetric algorithm.
 	 */
 	private double[] ort;
@@ -880,7 +880,7 @@ public class EigenvalueDecomposition implements java.io.Serializable
 	/**
 	 * Check for symmetry, then construct the eigenvalue decomposition Structure
 	 * to access D and V.
-	 * 
+	 *
 	 * @param Arg
 	 *            Square matrix
 	 */
@@ -937,7 +937,7 @@ public class EigenvalueDecomposition implements java.io.Serializable
 
 	/**
 	 * Return the eigenvector matrix
-	 * 
+	 *
 	 * @return V
 	 */
 
@@ -948,7 +948,7 @@ public class EigenvalueDecomposition implements java.io.Serializable
 
 	/**
 	 * Return the real parts of the eigenvalues
-	 * 
+	 *
 	 * @return real(diag(D))
 	 */
 
@@ -959,7 +959,7 @@ public class EigenvalueDecomposition implements java.io.Serializable
 
 	/**
 	 * Return the imaginary parts of the eigenvalues
-	 * 
+	 *
 	 * @return imag(diag(D))
 	 */
 
@@ -970,7 +970,7 @@ public class EigenvalueDecomposition implements java.io.Serializable
 
 	/**
 	 * Return the block diagonal eigenvalue matrix
-	 * 
+	 *
 	 * @return D
 	 */
 

@@ -34,7 +34,7 @@ import jama.util.Maths;
  * <P>
  * <DD>Solve a linear system A x = b and compute the residual norm, ||b - A x||.
  * <P>
- * 
+ *
  * <PRE>
  * double[][] vals = { { 1., 2., 3 }, { 4., 5., 6. }, { 7., 8., 10. } };
  * Matrix A = new Matrix(vals);
@@ -43,10 +43,10 @@ import jama.util.Maths;
  * Matrix r = A.times(x).minus(b);
  * double rnorm = r.normInf();
  * </PRE>
- * 
+ *
  * </DD>
  * </DL>
- * 
+ *
  * @author The MathWorks, Inc. and the National Institute of Standards and
  *         Technology.
  * @version 5 August 1998
@@ -61,14 +61,14 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Array for internal storage of elements.
-	 * 
+	 *
 	 * @serial internal array storage.
 	 */
 	private double[][] A;
 
 	/**
 	 * Row and column dimensions.
-	 * 
+	 *
 	 * @serial row dimension.
 	 * @serial column dimension.
 	 */
@@ -80,7 +80,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Construct an m-by-n matrix of zeros.
-	 * 
+	 *
 	 * @param m
 	 *            Number of rows.
 	 * @param n
@@ -96,7 +96,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Construct an m-by-n constant matrix.
-	 * 
+	 *
 	 * @param m
 	 *            Number of rows.
 	 * @param n
@@ -119,7 +119,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Construct a matrix from a 2-D array.
-	 * 
+	 *
 	 * @param A
 	 *            Two-dimensional array of doubles.
 	 * @exception IllegalArgumentException
@@ -142,7 +142,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Construct a matrix quickly without checking arguments.
-	 * 
+	 *
 	 * @param A
 	 *            Two-dimensional array of doubles.
 	 * @param m
@@ -160,7 +160,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Construct a matrix from a one-dimensional packed array
-	 * 
+	 *
 	 * @param vals
 	 *            One-dimensional array of doubles, packed by columns (ala
 	 *            Fortran).
@@ -192,7 +192,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Construct a matrix from a copy of a 2-D array.
-	 * 
+	 *
 	 * @param A
 	 *            Two-dimensional array of doubles.
 	 * @exception IllegalArgumentException
@@ -245,7 +245,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Access the internal two-dimensional array.
-	 * 
+	 *
 	 * @return Pointer to the two-dimensional array of matrix elements.
 	 */
 
@@ -256,7 +256,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Copy the internal two-dimensional array.
-	 * 
+	 *
 	 * @return Two-dimensional array copy of matrix elements.
 	 */
 
@@ -273,7 +273,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Make a one-dimensional column packed copy of the internal array.
-	 * 
+	 *
 	 * @return Matrix elements packed in a one-dimensional array by columns.
 	 */
 
@@ -290,7 +290,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Make a one-dimensional row packed copy of the internal array.
-	 * 
+	 *
 	 * @return Matrix elements packed in a one-dimensional array by rows.
 	 */
 
@@ -307,7 +307,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Get row dimension.
-	 * 
+	 *
 	 * @return m, the number of rows.
 	 */
 
@@ -318,7 +318,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Get column dimension.
-	 * 
+	 *
 	 * @return n, the number of columns.
 	 */
 
@@ -329,7 +329,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Get a single element.
-	 * 
+	 *
 	 * @param i
 	 *            Row index.
 	 * @param j
@@ -345,7 +345,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Get a submatrix.
-	 * 
+	 *
 	 * @param i0
 	 *            Initial row index
 	 * @param i1
@@ -377,7 +377,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Get a submatrix.
-	 * 
+	 *
 	 * @param r
 	 *            Array of row indices.
 	 * @param c
@@ -405,7 +405,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Get a submatrix.
-	 * 
+	 *
 	 * @param i0
 	 *            Initial row index
 	 * @param i1
@@ -435,7 +435,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Get a submatrix.
-	 * 
+	 *
 	 * @param r
 	 *            Array of row indices.
 	 * @param j0
@@ -465,7 +465,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Set a single element.
-	 * 
+	 *
 	 * @param i
 	 *            Row index.
 	 * @param j
@@ -482,7 +482,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Set a submatrix.
-	 * 
+	 *
 	 * @param i0
 	 *            Initial row index
 	 * @param i1
@@ -512,7 +512,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Set a submatrix.
-	 * 
+	 *
 	 * @param r
 	 *            Array of row indices.
 	 * @param c
@@ -538,7 +538,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Set a submatrix.
-	 * 
+	 *
 	 * @param r
 	 *            Array of row indices.
 	 * @param j0
@@ -566,7 +566,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Set a submatrix.
-	 * 
+	 *
 	 * @param i0
 	 *            Initial row index
 	 * @param i1
@@ -594,7 +594,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Matrix transpose.
-	 * 
+	 *
 	 * @return A'
 	 */
 
@@ -612,7 +612,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * One norm
-	 * 
+	 *
 	 * @return maximum column sum.
 	 */
 
@@ -631,7 +631,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Two norm
-	 * 
+	 *
 	 * @return maximum singular value.
 	 */
 
@@ -642,7 +642,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Infinity norm
-	 * 
+	 *
 	 * @return maximum row sum.
 	 */
 
@@ -661,7 +661,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Frobenius norm
-	 * 
+	 *
 	 * @return sqrt of sum of squares of all elements.
 	 */
 
@@ -678,7 +678,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Unary minus
-	 * 
+	 *
 	 * @return -A
 	 */
 
@@ -696,7 +696,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * C = A + B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A + B
@@ -717,7 +717,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * A = A + B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A + B
@@ -736,7 +736,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * C = A - B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A - B
@@ -757,7 +757,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * A = A - B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A - B
@@ -776,7 +776,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Element-by-element multiplication, C = A.*B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A.*B
@@ -797,7 +797,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Element-by-element multiplication in place, A = A.*B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A.*B
@@ -816,7 +816,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Element-by-element right division, C = A./B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A./B
@@ -837,7 +837,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Element-by-element right division in place, A = A./B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A./B
@@ -856,7 +856,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Element-by-element left division, C = A.\B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A.\B
@@ -877,7 +877,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Element-by-element left division in place, A = A.\B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return A.\B
@@ -896,7 +896,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Multiply a matrix by a scalar, C = s*A
-	 * 
+	 *
 	 * @param s
 	 *            scalar
 	 * @return s*A
@@ -916,7 +916,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Multiply a matrix by a scalar in place, A = s*A
-	 * 
+	 *
 	 * @param s
 	 *            scalar
 	 * @return replace A by s*A
@@ -934,7 +934,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Linear algebraic matrix multiplication, A * B
-	 * 
+	 *
 	 * @param B
 	 *            another matrix
 	 * @return Matrix product, A * B
@@ -969,7 +969,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * LU Decomposition
-	 * 
+	 *
 	 * @return LUDecomposition
 	 * @see LUDecomposition
 	 */
@@ -981,7 +981,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * QR Decomposition
-	 * 
+	 *
 	 * @return QRDecomposition
 	 * @see QRDecomposition
 	 */
@@ -993,7 +993,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Cholesky Decomposition
-	 * 
+	 *
 	 * @return CholeskyDecomposition
 	 * @see CholeskyDecomposition
 	 */
@@ -1005,7 +1005,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Singular Value Decomposition
-	 * 
+	 *
 	 * @return SingularValueDecomposition
 	 * @see SingularValueDecomposition
 	 */
@@ -1017,7 +1017,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Eigenvalue Decomposition
-	 * 
+	 *
 	 * @return EigenvalueDecomposition
 	 * @see EigenvalueDecomposition
 	 */
@@ -1029,7 +1029,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Solve A*X = B
-	 * 
+	 *
 	 * @param B
 	 *            right hand side
 	 * @return solution if A is square, least squares solution otherwise
@@ -1043,7 +1043,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Solve X*A = B, which is also A'*X' = B'
-	 * 
+	 *
 	 * @param B
 	 *            right hand side
 	 * @return solution if A is square, least squares solution otherwise.
@@ -1056,7 +1056,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Matrix inverse or pseudoinverse
-	 * 
+	 *
 	 * @return inverse(A) if A is square, pseudoinverse otherwise.
 	 */
 
@@ -1067,7 +1067,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Matrix determinant
-	 * 
+	 *
 	 * @return determinant
 	 */
 
@@ -1078,7 +1078,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Matrix rank
-	 * 
+	 *
 	 * @return effective numerical rank, obtained from SVD.
 	 */
 
@@ -1089,7 +1089,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Matrix condition (2 norm)
-	 * 
+	 *
 	 * @return ratio of largest to smallest singular value.
 	 */
 
@@ -1100,7 +1100,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Matrix trace.
-	 * 
+	 *
 	 * @return sum of the diagonal elements.
 	 */
 
@@ -1115,7 +1115,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Generate matrix with random elements
-	 * 
+	 *
 	 * @param m
 	 *            Number of rows.
 	 * @param n
@@ -1137,7 +1137,7 @@ public class Matrix implements Cloneable, java.io.Serializable
 
 	/**
 	 * Generate identity matrix
-	 * 
+	 *
 	 * @param m
 	 *            Number of rows.
 	 * @param n

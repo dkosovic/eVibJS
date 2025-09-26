@@ -23,14 +23,14 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Array for internal storage of decomposition.
-	 * 
+	 *
 	 * @serial internal array storage.
 	 */
 	private double[][] LU;
 
 	/**
 	 * Row and column dimensions, and pivot sign.
-	 * 
+	 *
 	 * @serial column dimension.
 	 * @serial row dimension.
 	 * @serial pivot sign.
@@ -39,7 +39,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Internal storage of pivot vector.
-	 * 
+	 *
 	 * @serial pivot vector.
 	 */
 	private int[] piv;
@@ -50,7 +50,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * LU Decomposition Structure to access L, U and piv.
-	 * 
+	 *
 	 * @param A
 	 *            Rectangular matrix
 	 */
@@ -194,7 +194,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Is the matrix nonsingular?
-	 * 
+	 *
 	 * @return true if U, and hence A, is nonsingular.
 	 */
 
@@ -210,7 +210,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Return lower triangular factor
-	 * 
+	 *
 	 * @return L
 	 */
 
@@ -234,7 +234,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Return upper triangular factor
-	 * 
+	 *
 	 * @return U
 	 */
 
@@ -256,7 +256,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Return pivot permutation vector
-	 * 
+	 *
 	 * @return piv
 	 */
 
@@ -271,7 +271,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Return pivot permutation vector as a one-dimensional double array
-	 * 
+	 *
 	 * @return (double) piv
 	 */
 
@@ -286,7 +286,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Determinant
-	 * 
+	 *
 	 * @return det(A)
 	 * @exception IllegalArgumentException
 	 *                Matrix must be square
@@ -306,7 +306,7 @@ public class LUDecomposition implements java.io.Serializable
 
 	/**
 	 * Solve A*X = B
-	 * 
+	 *
 	 * @param B
 	 *            A Matrix with as many rows as A and any number of columns.
 	 * @return X so that L*U*X = B(piv,:)
