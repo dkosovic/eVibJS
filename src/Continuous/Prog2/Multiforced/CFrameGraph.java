@@ -176,7 +176,7 @@ class CFrameGraph extends CFrame {
       if (prevh1t) {
          return false;
       } else {
-         boolean hit = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+         // boolean hit = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
          switch (code) {
             case 0:
             case 1:
