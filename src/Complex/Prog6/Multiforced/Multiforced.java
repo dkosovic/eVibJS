@@ -35,12 +35,18 @@ public class Multiforced extends Applet implements ActionListener {
       this.add("Center", this.mFramePanel);
       this.mFrameGraph = new CFrameGraph(this.mFramePanel, 40, 70, 602, 280);
       this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
-      Button var4 = new Button("Instructions");
-      var1.add(var4);
-      Button var5 = new Button("Edit");
-      var1.add(var5);
-      var1.add(new Button("Add"));
-      var1.add(new Button("Delete"));
+      Button var10 = new Button("Instructions");
+      var10.addActionListener(this);
+      var1.add(var10);
+      Button var11 = new Button("Edit");
+      var11.addActionListener(this);
+      var1.add(var11);
+      Button addButton = new Button("Add");
+      addButton.addActionListener(this);
+      var1.add(addButton);
+      Button deleteButton = new Button("Delete");
+      deleteButton.addActionListener(this);
+      var1.add(deleteButton);
       this.validate();
    }
 
@@ -49,15 +55,18 @@ public class Multiforced extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public boolean action(Event var1, Object var2) {
-      if (var1.target instanceof Button) {
-         if (var2.equals("Edit")) {
+   public void actionPerformed(ActionEvent e) {
+      // Handle button clicks
+      if (e.getSource() instanceof Button) {
+         Button source = (Button) e.getSource();
+         String label = source.getLabel();
+         if (label.equals("Edit")) {
             this.mFrameGraph.ControlMessage(null, 1, 0.0);
-         } else if (var2.equals("Add")) {
+         } else if (label.equals("Add")) {
             this.mFrameGraph.ControlMessage(null, 5, 0.0);
-         } else if (var2.equals("Delete")) {
+         } else if (label.equals("Delete")) {
             this.mFrameGraph.DeleteSelected();
-         } else if (var2.equals("Instructions")) {
+         } else if (label.equals("Instructions")) {
             String var3 = this.getCodeBase().toString() + "instructions.html";
             Object var4 = null;
 
@@ -68,21 +77,10 @@ public class Multiforced extends Applet implements ActionListener {
                System.out.println("Malformed URL exception");
             }
          }
+         return;
       }
 
-      return true;
-   }
-
-   public boolean keyDown(Event var1, int var2) {
-      switch (var2) {
-         case 8:
-            this.mFrameGraph.DeleteSelected();
-         default:
-            return true;
-      }
-   }
-
-   public void actionPerformed(ActionEvent e) {
+      // Handle timer events
       if (this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
@@ -94,6 +92,15 @@ public class Multiforced extends Applet implements ActionListener {
          this.mLastTime = thisTime;
          
          this.mFrameGraph.ControlMessage(3, realSeconds);
+      }
+   }
+
+   public boolean keyDown(Event var1, int var2) {
+      switch (var2) {
+         case 8:
+            this.mFrameGraph.DeleteSelected();
+         default:
+            return true;
       }
    }
 
