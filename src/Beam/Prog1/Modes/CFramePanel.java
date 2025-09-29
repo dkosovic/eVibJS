@@ -2,15 +2,18 @@ package Beam.Prog1.Modes;
 
 import java.applet.Applet;
 import java.awt.Color;
-import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Panel;
 import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.Date;
 import java.util.Vector;
 
 @SuppressWarnings("serial")
-public class CFramePanel extends Panel {
+public class CFramePanel extends Panel implements MouseListener, MouseMotionListener {
    public Applet mApplet;
    Vector<CFrame> mFrames;
    Image mOffScrImage;
@@ -20,13 +23,17 @@ public class CFramePanel extends Panel {
    public Point mStartPt;
    public Point mLastPt;
    public Point mThisPt;
-   public Event mMouseEvent;
+   long mLastClickTime;
 
    CFramePanel(Applet app) {
       this.mApplet = app;
       this.mStartPt = new Point(0, 0);
       this.mLastPt = new Point(0, 0);
       this.mThisPt = new Point(0, 0);
+
+      // Add modern mouse listeners
+      this.addMouseListener(this);
+      this.addMouseMotionListener(this);
    }
 
    public void update(Graphics g) {
@@ -84,58 +91,77 @@ public class CFramePanel extends Panel {
       g.drawImage(this.mOffScrImage, 0, 0, null);
    }
 
-   public boolean mouseDown(Event evt, int xx, int yy) {
-      this.mMouseEvent = evt;
+   // Modern MouseListener implementation
+   @Override
+   public void mousePressed(MouseEvent e) {
       this.mButton = true;
-      this.mStartPt.x = xx;
-      this.mStartPt.y = yy;
-      this.mLastPt.x = xx;
-      this.mLastPt.y = yy;
-      this.mThisPt.x = xx;
-      this.mThisPt.y = yy;
-      if (this.SendMouseEvent(0)) {
-         this.repaint();
+      this.mStartPt.x = e.getX();
+      this.mStartPt.y = e.getY();
+      this.mLastPt.x = e.getX();
+      this.mLastPt.y = e.getY();
+      this.mThisPt.x = e.getX();
+      this.mThisPt.y = e.getY();
+
+      Date currentTime = new Date();
+      long currentTimeMs = currentTime.getTime();
+      int eventType;
+      if (currentTimeMs - this.mLastClickTime < 500L) {
+         eventType = 4; // Double click
+      } else {
+         eventType = 0; // Mouse down
       }
 
-      return true;
-   }
-
-   public boolean mouseDrag(Event evt, int xx, int yy) {
-      this.mMouseEvent = evt;
-      this.mLastPt.x = this.mThisPt.x;
-      this.mLastPt.y = this.mThisPt.y;
-      this.mThisPt.x = xx;
-      this.mThisPt.y = yy;
-      if (this.SendMouseEvent(1)) {
+      this.mLastClickTime = currentTimeMs;
+      if (this.SendMouseEvent(eventType)) {
          this.repaint();
       }
-
-      return true;
    }
 
-   public boolean mouseUp(Event evt, int xx, int yy) {
-      this.mMouseEvent = evt;
+   @Override
+   public void mouseReleased(MouseEvent e) {
       this.mButton = false;
       if (this.SendMouseEvent(2)) {
          this.repaint();
       }
-
-      this.mMouseEvent = null;
-      return true;
    }
 
-   public boolean mouseMove(Event evt, int xx, int yy) {
-      this.mMouseEvent = evt;
+   @Override
+   public void mouseClicked(MouseEvent e) {
+      // Handled in mousePressed for double-click detection
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e) {
+      // Not used
+   }
+
+   // Modern MouseMotionListener implementation
+   @Override
+   public void mouseDragged(MouseEvent e) {
       this.mLastPt.x = this.mThisPt.x;
       this.mLastPt.y = this.mThisPt.y;
-      this.mThisPt.x = xx;
-      this.mThisPt.y = yy;
+      this.mThisPt.x = e.getX();
+      this.mThisPt.y = e.getY();
+      if (this.SendMouseEvent(1)) {
+         this.repaint();
+      }
+   }
+
+   @Override
+   public void mouseMoved(MouseEvent e) {
+      this.mLastPt.x = this.mThisPt.x;
+      this.mLastPt.y = this.mThisPt.y;
+      this.mThisPt.x = e.getX();
+      this.mThisPt.y = e.getY();
       this.mButton = false;
       if (this.SendMouseEvent(3)) {
          this.repaint();
       }
-
-      return true;
    }
 
    boolean SendMouseEvent(int code) {
@@ -159,3 +185,4 @@ public class CFramePanel extends Panel {
       return result;
    }
 }
+
