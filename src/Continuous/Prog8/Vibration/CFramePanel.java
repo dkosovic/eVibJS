@@ -175,7 +175,29 @@ public class CFramePanel extends Panel implements MouseListener, MouseMotionList
 
       for (int i = count - 1; i >= 0; i--) {
          CFrame thisFrame = this.mFrames.elementAt(i);
-         if (thisFrame.MouseEvent(code, prevHit)) {
+
+         // Create a MouseEvent for the CFrame
+         MouseEvent frameEvent = new MouseEvent(this, MouseEvent.MOUSE_PRESSED,
+            System.currentTimeMillis(), 0, this.mThisPt.x, this.mThisPt.y, 1, false);
+
+         // Dispatch appropriate MouseListener event based on code
+         switch (code) {
+            case 0: // Mouse down
+               thisFrame.mousePressed(frameEvent);
+               break;
+            case 1: // Mouse drag (treat as mouse moved while pressed)
+               thisFrame.mousePressed(frameEvent);
+               break;
+            case 2: // Mouse up
+               thisFrame.mouseReleased(frameEvent);
+               break;
+            case 3: // Mouse move
+               // For mouse move, we don't call mouse pressed/released
+               thisFrame.mWasHit = thisFrame.contains(this.mThisPt.x, this.mThisPt.y);
+               break;
+         }
+
+         if (thisFrame.mWasHit) {
             result = true;
          }
 
