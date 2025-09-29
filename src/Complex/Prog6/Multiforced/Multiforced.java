@@ -3,7 +3,6 @@ package Complex.Prog6.Multiforced;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Event;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
@@ -13,10 +12,12 @@ import java.net.URL;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Multiforced extends Applet implements ActionListener {
+public class Multiforced extends Applet implements ActionListener, KeyListener {
    public Frame mFeedbackWindow = null;
    public TextField answer1;
    CFramePanel mFramePanel;
@@ -47,6 +48,11 @@ public class Multiforced extends Applet implements ActionListener {
       Button deleteButton = new Button("Delete");
       deleteButton.addActionListener(this);
       var1.add(deleteButton);
+
+      // Register KeyListener to handle keyboard input
+      this.addKeyListener(this);
+      this.setFocusable(true);
+
       this.validate();
    }
 
@@ -84,27 +90,44 @@ public class Multiforced extends Applet implements ActionListener {
       if (this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
-         
+
          if (this.mLastTime == 0) {
             this.mLastTime = thisTime;
          }
          double realSeconds = (thisTime - this.mLastTime) / 1000.0;
          this.mLastTime = thisTime;
-         
+
          this.mFrameGraph.ControlMessage(3, realSeconds);
       }
    }
 
-   public boolean keyDown(Event var1, int var2) {
-      switch (var2) {
-         case 8:
+   // Modern KeyListener implementation
+   @Override
+   public void keyPressed(KeyEvent e) {
+      int keyCode = e.getKeyCode();
+      switch (keyCode) {
+         case KeyEvent.VK_BACK_SPACE:
+         case KeyEvent.VK_DELETE:
             this.mFrameGraph.DeleteSelected();
+            break;
          default:
-            return true;
+            // Other keys ignored
+            break;
       }
+   }
+
+   @Override
+   public void keyReleased(KeyEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void keyTyped(KeyEvent e) {
+      // Not used
    }
 
    public void stop() {
       if (this.mTimer != null) { this.mTimer.stop(); this.mTimer = null; }
    }
 }
+
