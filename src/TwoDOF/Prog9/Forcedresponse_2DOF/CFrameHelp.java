@@ -4,128 +4,156 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
+import java.util.StringTokenizer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.StringTokenizer;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-class CFrameHelp extends CFrame implements ActionListener {
+public class CFrameHelp extends CFrame implements ActionListener, MouseListener {
    Timer mTimer;
    boolean mShowtime;
    public String mMessage;
    public double mDelay = 1.5;
    public Point mArrowHead;
 
-   public CFrameHelp(CFramePanel var1, int var2, int var3, int var4, int var5, String var6) {
-      super(var1, var2, var3, var4, var5);
-      this.mMessage = var6;
+   public CFrameHelp(CFramePanel thePanel, int xx, int yy, int ww, int hh, String message) {
+      super(thePanel, xx, yy, ww, hh);
+      this.mMessage = message;
       this.DefaultArrowPos();
+
+      // Register modern mouse event listeners for direct, responsive mouse handling
+      thePanel.addMouseListener(this);
    }
 
    public void DefaultArrowPos() {
       this.mArrowHead = new Point(super.x + super.width / 2, super.y + super.height / 2);
    }
 
-   public void Frame(Graphics var1) {
-      var1.setPaintMode();
+   public void Frame(Graphics g) {
+      g.setPaintMode();
       if (this.mShowtime) {
-         Point var2;
+         Point mArrow;
          if (this.mArrowHead == null) {
-            var2 = super.mFramePanel.mLastPt;
+            mArrow = super.mFramePanel.mLastPt;
          } else {
-            var2 = this.mArrowHead;
+            mArrow = this.mArrowHead;
          }
 
-         int var3 = super.mFramePanel.getSize().width;
-         int var4 = super.mFramePanel.getSize().height;
-         byte var5 = 12;
-         byte var6 = 5;
-         byte var7 = 10;
-         byte var8 = 20;
-         int var9 = 0;
-         int var10 = 2 * var6;
-         StringTokenizer var11 = new StringTokenizer(this.mMessage, "\n");
+         int wid = super.mFramePanel.getSize().width;
+         int hei = super.mFramePanel.getSize().height;
+         int kLineSpacing = 12;
+         int kLineGap = 5;
+         int gap1 = 10;
+         int gap2 = 20;
+         int ww = 0;
+         int hh = 2 * kLineGap;
+         StringTokenizer st = new StringTokenizer(this.mMessage, "\n");
 
-         while (var11.hasMoreTokens()) {
-            var10 += var5;
-            int var12 = var1.getFontMetrics().stringWidth(var11.nextToken());
-            if (var12 > var9) {
-               var9 = var12;
+         while (st.hasMoreTokens()) {
+            hh += kLineSpacing;
+            int thisWidth = g.getFontMetrics().stringWidth(st.nextToken());
+            if (thisWidth > ww) {
+               ww = thisWidth;
             }
          }
 
-         var9 += 2 * var7;
-         byte var20 = 1;
-         byte var13 = 1;
-         if (var2.x + var7 + var9 > var3) {
-            var20 = -1;
+         ww += 2 * gap1;
+         int xMult = 1;
+         int yMult = 1;
+         if (mArrow.x + gap1 + ww > wid) {
+            xMult = -1;
          }
 
-         if (var2.y + var7 + var10 > var4) {
-            var13 = -1;
+         if (mArrow.y + gap1 + hh > hei) {
+            yMult = -1;
          }
 
-         Polygon var14 = new Polygon();
-         var14.addPoint(var2.x, var2.y);
-         var14.addPoint(var2.x + var20 * var7, var2.y + var13 * var8);
-         var14.addPoint(var2.x + var20 * var7, var2.y + var13 * (var7 + var10));
-         var14.addPoint(var2.x + var20 * (var7 + var9), var2.y + var13 * (var7 + var10));
-         var14.addPoint(var2.x + var20 * (var7 + var9), var2.y + var13 * var7);
-         var14.addPoint(var2.x + var20 * var8, var2.y + var13 * var7);
-         var14.addPoint(var2.x, var2.y);
-         var1.setColor(Color.white);
-         var1.fillPolygon(var14);
-         var1.setColor(Color.black);
-         var1.drawPolygon(var14);
-         int var15;
-         if (var20 > 0) {
-            var15 = var2.x + 2 * var7;
+         Polygon p = new Polygon();
+         p.addPoint(mArrow.x, mArrow.y);
+         p.addPoint(mArrow.x + xMult * gap1, mArrow.y + yMult * gap2);
+         p.addPoint(mArrow.x + xMult * gap1, mArrow.y + yMult * (gap1 + hh));
+         p.addPoint(mArrow.x + xMult * (gap1 + ww), mArrow.y + yMult * (gap1 + hh));
+         p.addPoint(mArrow.x + xMult * (gap1 + ww), mArrow.y + yMult * gap1);
+         p.addPoint(mArrow.x + xMult * gap2, mArrow.y + yMult * gap1);
+         p.addPoint(mArrow.x, mArrow.y);
+         g.setColor(Color.white);
+         g.fillPolygon(p);
+         g.setColor(Color.black);
+         g.drawPolygon(p);
+         int tx;
+         if (xMult > 0) {
+            tx = mArrow.x + 2 * gap1;
          } else {
-            var15 = var2.x - var9;
+            tx = mArrow.x - ww;
          }
 
-         int var16;
-         if (var13 > 0) {
-            var16 = var2.y + var7 + var6 + var5;
+         int ty;
+         if (yMult > 0) {
+            ty = mArrow.y + gap1 + kLineGap + kLineSpacing;
          } else {
-            var16 = var2.y - var7 - var10 + var6 + var5;
+            ty = mArrow.y - gap1 - hh + kLineGap + kLineSpacing;
          }
 
-         int var17 = -1;
-         var11 = new StringTokenizer(this.mMessage, "\n");
+         int tokenNo = -1;
+         st = new StringTokenizer(this.mMessage, "\n");
 
-         while (var11.hasMoreTokens()) {
-            var1.drawString(var11.nextToken(), var15, var16 + ++var17 * var5);
+         while (st.hasMoreTokens()) {
+            g.drawString(st.nextToken(), tx, ty + ++tokenNo * kLineSpacing);
          }
       }
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
+   @Override
+   public void mousePressed(MouseEvent e) {
       super.mWasHit = false;
       if (this.mShowtime) {
          this.repaint();
       }
 
       this.mShowtime = false;
-      if (this.mTimer != null) {
-         this.mTimer.stop();
-         this.mTimer = null;
+      this.mTimer = null;
+
+      // Check if this is a left mouse button click (button 1)
+      if (e.getButton() != MouseEvent.BUTTON1) {
+         return;
       }
-      if (var1 != 3) {
-         return false;
-      } else if (!this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
-         return false;
-      } else {
-         this.mTimer = new Timer((int)(this.mDelay * 1000), this);
-         this.mTimer.setRepeats(false);
-         this.mTimer.start();
-         return true;
+
+      // Check if click is within component bounds
+      if (!this.contains(e.getX(), e.getY())) {
+         return;
       }
+
+      this.mTimer = new Timer((int)(this.mDelay * 1000), this);
+      this.mTimer.start();
+   }
+
+   @Override
+   public void mouseClicked(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseReleased(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e) {
+      // Not used
    }
 
    public void actionPerformed(ActionEvent e) {
-      this.mShowtime = true;
-      this.repaint();
+      if (this.mTimer != null) {
+         this.mShowtime = true;
+         this.repaint();
+      }
    }
 }

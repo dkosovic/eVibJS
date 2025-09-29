@@ -7,10 +7,12 @@ import java.awt.Polygon;
 import java.util.StringTokenizer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-class CFrameHelp extends CFrame implements ActionListener {
+public class CFrameHelp extends CFrame implements ActionListener, MouseListener {
    Timer mTimer;
    boolean mShowtime;
    public String mMessage;
@@ -21,6 +23,9 @@ class CFrameHelp extends CFrame implements ActionListener {
       super(thePanel, xx, yy, ww, hh);
       this.mMessage = message;
       this.DefaultArrowPos();
+
+      // Register modern mouse event listeners for direct, responsive mouse handling
+      thePanel.addMouseListener(this);
    }
 
    public void DefaultArrowPos() {
@@ -101,7 +106,8 @@ class CFrameHelp extends CFrame implements ActionListener {
       }
    }
 
-   public boolean MouseEvent(int code, boolean prevHit) {
+   @Override
+   public void mousePressed(MouseEvent e) {
       super.mWasHit = false;
       if (this.mShowtime) {
          this.repaint();
@@ -109,19 +115,45 @@ class CFrameHelp extends CFrame implements ActionListener {
 
       this.mShowtime = false;
       this.mTimer = null;
-      if (code != 3) {
-         return false;
-      } else if (!this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
-         return false;
-      } else {
-         this.mTimer = new Timer((int)(this.mDelay * 1000), this);
-         this.mTimer.start();
-         return true;
+
+      // Check if this is a left mouse button click (button 1)
+      if (e.getButton() != MouseEvent.BUTTON1) {
+         return;
       }
+
+      // Check if click is within component bounds
+      if (!this.contains(e.getX(), e.getY())) {
+         return;
+      }
+
+      this.mTimer = new Timer((int)(this.mDelay * 1000), this);
+      this.mTimer.start();
+   }
+
+   @Override
+   public void mouseClicked(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseReleased(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e) {
+      // Not used
    }
 
    public void actionPerformed(ActionEvent e) {
-      this.mShowtime = true;
-      this.repaint();
+      if (this.mTimer != null) {
+         this.mShowtime = true;
+         this.repaint();
+      }
    }
 }
