@@ -3,9 +3,11 @@ package OneDOF.Prog4.Damped;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 @SuppressWarnings("serial")
-class CFrame extends Rectangle {
+class CFrame extends Rectangle implements MouseListener {
    public static final int kMouseDown = 0;
    public static final int kMouseDrag = 1;
    public static final int kMouseUp = 2;
@@ -17,20 +19,42 @@ class CFrame extends Rectangle {
       super(0, 0, 0, 0);
       this.mFramePanel = thePanel;
       this.mFramePanel.AddFrame(this);
+      this.mFramePanel.addMouseListener(this);
    }
 
    public CFrame(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
       super(xx, yy, ww, hh);
       this.mFramePanel = thePanel;
       this.mFramePanel.AddFrame(this);
+      this.mFramePanel.addMouseListener(this);
    }
 
    public void Frame(Graphics g) {
    }
 
-   public boolean MouseEvent(int code, boolean prevHit) {
-      this.mWasHit = this.contains(this.mFramePanel.mThisPt.x, this.mFramePanel.mThisPt.y);
-      return false;
+   @Override
+   public void mousePressed(MouseEvent e) {
+      this.mWasHit = this.contains(e.getX(), e.getY());
+   }
+
+   @Override
+   public void mouseReleased(MouseEvent e) {
+      // Default implementation - can be overridden by subclasses
+   }
+
+   @Override
+   public void mouseClicked(MouseEvent e) {
+      // Default implementation - can be overridden by subclasses
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e) {
+      // Default implementation - can be overridden by subclasses
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e) {
+      // Default implementation - can be overridden by subclasses
    }
 
    public Point GlobalToLocal(Point glob) {
