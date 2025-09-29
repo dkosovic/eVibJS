@@ -2,9 +2,11 @@ package MultiDOF.Prog9.Multiforced;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 @SuppressWarnings("serial")
-public class CSpringMassDamper extends CFrame {
+public class CSpringMassDamper extends CFrame implements MouseListener {
    public static final int kMassWidth = 15;
    public static final int kMassDepth = 30;
    public static final int kSpringWidth = 40;
@@ -29,6 +31,7 @@ public class CSpringMassDamper extends CFrame {
       this.mDampingConstant = var7;
       this.mViscous = var9;
       this.mAbutment = var10;
+      var1.addMouseListener(this);
    }
 
    public boolean IsAbutment() {
@@ -124,25 +127,41 @@ public class CSpringMassDamper extends CFrame {
       }
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
-      super.mWasHit = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+   @Override
+   public void mousePressed(MouseEvent e) {
+      super.mWasHit = this.contains(e.getX(), e.getY());
       if (!super.mWasHit) {
-         return false;
-      } else {
-         switch (var1) {
-            case 0:
-               this.mFrameGraph.SetSelection(this);
-            case 1:
-            case 2:
-            case 3:
-            default:
-               break;
-            case 4:
-               this.ControlMessage(this, 1, 0.0);
-         }
-
-         return true;
+         return;
       }
+
+      // Handle mouse press (equivalent to legacy case 0)
+      this.mFrameGraph.SetSelection(this);
+   }
+
+   @Override
+   public void mouseReleased(MouseEvent e) {
+      super.mWasHit = this.contains(e.getX(), e.getY());
+      if (!super.mWasHit) {
+         return;
+      }
+
+      // Handle mouse release (equivalent to legacy case 4)
+      this.ControlMessage(this, 1, 0.0);
+   }
+
+   @Override
+   public void mouseClicked(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e) {
+      // Not used
    }
 
    public boolean InVerticalBand(int var1) {
