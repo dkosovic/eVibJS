@@ -4,15 +4,18 @@ import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
-import java.awt.Event;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 @SuppressWarnings("serial")
-class CInputDialog extends Frame {
+class CInputDialog extends Frame implements ActionListener, ItemListener {
    public static final String kAbutmentLabel = "Abutment";
    public static final String kViscousDampingLabel = "Viscous";
    public static final String kHystereticDampingLabel = "Hysteretic";
@@ -32,8 +35,10 @@ class CInputDialog extends Frame {
       Panel var3 = new Panel();
       this.add("South", var3);
       Button var4 = new Button("OK");
+      var4.addActionListener(this);
       var3.add(var4);
       Button var5 = new Button("Cancel");
+      var5.addActionListener(this);
       var3.add(var5);
       Panel var6 = new Panel();
       var6.setLayout(new GridLayout(0, 1));
@@ -43,6 +48,7 @@ class CInputDialog extends Frame {
       var6.add(var7);
       this.mAbutmentCheckbox = new Checkbox("Abutment");
       this.mAbutmentCheckbox.setState(var1.IsAbutment());
+      this.mAbutmentCheckbox.addItemListener(this);
       var7.add(this.mAbutmentCheckbox);
       if (!var1.AtEnd()) {
          this.mAbutmentCheckbox.setEnabled(false);
@@ -72,9 +78,11 @@ class CInputDialog extends Frame {
          Checkbox var9 = new Checkbox("Viscous");
          var8.add(var9);
          var9.setCheckboxGroup(this.mViscCheckboxGroup);
+         var9.addItemListener(this);
          Checkbox var10 = new Checkbox("Hysteretic");
          var8.add(var10);
          var10.setCheckboxGroup(this.mViscCheckboxGroup);
+         var10.addItemListener(this);
          var9.setState(var1.mViscous);
          var10.setState(var1.mViscous ^ true);
       }
@@ -104,9 +112,11 @@ class CInputDialog extends Frame {
       this.repaint();
    }
 
-   public boolean action(Event var1, Object var2) {
-      if (var1.target instanceof Button) {
-         if (var2.equals("OK")) {
+   public void actionPerformed(ActionEvent e) {
+      if (e.getSource() instanceof Button) {
+         Button source = (Button) e.getSource();
+         String label = source.getLabel();
+         if (label.equals("OK")) {
             if (this.mViscCheckboxGroup != null) {
                Checkbox var3 = this.mViscCheckboxGroup.getSelectedCheckbox();
                String var4 = var3.getLabel();
@@ -144,20 +154,23 @@ class CInputDialog extends Frame {
             this.mSMD.SetAbutment(this.mAbutmentCheckbox.getState());
             this.mSMD.ControlMessage(null, 6, 0.0);
             this.dispose();
-         } else if (var2.equals("Cancel")) {
+         } else if (label.equals("Cancel")) {
             this.dispose();
          }
-      } else if (var1.target instanceof Checkbox) {
-         Checkbox var11 = (Checkbox)var1.target;
-         if (var11.getLabel() == "Viscous") {
+      }
+   }
+
+   public void itemStateChanged(ItemEvent e) {
+      if (e.getSource() instanceof Checkbox) {
+         Checkbox checkbox = (Checkbox) e.getSource();
+         String label = checkbox.getLabel();
+         if (label.equals("Viscous")) {
             this.SetViscousState(true);
-         } else if (var11.getLabel() == "Hysteretic") {
+         } else if (label.equals("Hysteretic")) {
             this.SetViscousState(false);
-         } else if (var11.getLabel() == "Abutment") {
-            this.SetAbutmentState(var11.getState());
+         } else if (label.equals("Abutment")) {
+            this.SetAbutmentState(checkbox.getState());
          }
       }
-
-      return true;
    }
 }

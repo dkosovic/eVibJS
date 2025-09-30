@@ -4,15 +4,16 @@ import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
-import java.awt.Event;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
-class CInputDialog extends Frame {
+class CInputDialog extends Frame implements ActionListener {
    public CSpringMassDamper mSMD;
    CheckboxGroup mViscCheckboxGroup;
    TextField mDampingText;
@@ -31,8 +32,10 @@ class CInputDialog extends Frame {
       Panel var3 = new Panel();
       this.add("South", var3);
       Button var4 = new Button("OK");
+      var4.addActionListener(this);
       var3.add(var4);
       Button var5 = new Button("Cancel");
+      var5.addActionListener(this);
       var3.add(var5);
       Panel var6 = new Panel();
       var6.setLayout(new GridLayout(0, 1));
@@ -89,9 +92,11 @@ class CInputDialog extends Frame {
       this.repaint();
    }
 
-   public boolean action(Event var1, Object var2) {
-      if (var1.target instanceof Button) {
-         if (var2.equals("OK")) {
+   public void actionPerformed(ActionEvent e) {
+      if (e.getSource() instanceof Button) {
+         Button source = (Button) e.getSource();
+         String label = source.getLabel();
+         if (label.equals("OK")) {
             if (this.mDampingText != null) {
                try {
                   double var3 = java.lang.Double.parseDouble(this.mDampingText.getText());
@@ -122,11 +127,9 @@ class CInputDialog extends Frame {
 
             this.mSMD.ControlMessage(null, 6, 0.0);
             this.dispose();
-         } else if (var2.equals("Cancel")) {
+         } else if (label.equals("Cancel")) {
             this.dispose();
          }
       }
-
-      return true;
    }
 }

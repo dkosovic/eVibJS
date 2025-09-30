@@ -3,7 +3,6 @@ package Complex.Prog5.Multiforced;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Event;
 import java.awt.Frame;
 import java.awt.Image;
 import java.awt.Label;
@@ -43,8 +42,10 @@ public class Multiforced extends Applet implements ActionListener {
       this.mFrameGraph = new CFrameGraph(this.mFramePanel, 40, 70, 602, 280);
       this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
       Button var10 = new Button("Instructions");
+      var10.addActionListener(this);
       var1.add(var10);
       Button var11 = new Button("Edit");
+      var11.addActionListener(this);
       var1.add(var11);
       this.validate();
    }
@@ -54,11 +55,14 @@ public class Multiforced extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public boolean action(Event var1, Object var2) {
-      if (var1.target instanceof Button) {
-         if (var2.equals("Edit")) {
+   public void actionPerformed(ActionEvent e) {
+      // Handle button clicks
+      if (e.getSource() instanceof Button) {
+         Button source = (Button) e.getSource();
+         String label = source.getLabel();
+         if (label.equals("Edit")) {
             this.mFrameGraph.ControlMessage(null, 1, 0.0);
-         } else if (var2.equals("Instructions")) {
+         } else if (label.equals("Instructions")) {
             String var3 = this.getCodeBase().toString() + "instructions.html";
             Object var4 = null;
 
@@ -69,22 +73,20 @@ public class Multiforced extends Applet implements ActionListener {
                System.out.println("Malformed URL exception");
             }
          }
+         return;
       }
 
-      return true;
-   }
-
-   public void actionPerformed(ActionEvent e) {
+      // Handle timer events
       if (this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
-         
+
          if (this.mLastTime == 0) {
             this.mLastTime = thisTime;
          }
          double realSeconds = (thisTime - this.mLastTime) / 1000.0;
          this.mLastTime = thisTime;
-         
+
          this.mFrameGraph.ControlMessage(3, realSeconds);
       }
    }
