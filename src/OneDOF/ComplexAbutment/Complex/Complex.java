@@ -1,18 +1,18 @@
 package OneDOF.ComplexAbutment.Complex;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.Panel;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Complex extends Applet implements ActionListener {
+public class Complex extends JApplet implements ActionListener {
    static final double kMinW = 0.2;
    static final double kMaxW = 2.0;
    static final double kMinXo = 20.0;
@@ -29,9 +29,9 @@ public class Complex extends Applet implements ActionListener {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Panel var1 = new Panel();
+      JPanel var1 = new JPanel();
       this.add("North", var1);
-      Label copyright = new Label("  This program is copyright, you need permission to use it. © 1999 B J Stone, bjs@mech.uwa.edu.au.");
+      JLabel copyright = new JLabel("  This program is copyright, you need permission to use it. © 1999 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
@@ -56,10 +56,10 @@ public class Complex extends Applet implements ActionListener {
       var13.SetTextEditable(true);
       Image var14 = this.getImage(this.getCodeBase(), "Phi.gif");
       new CFramePicture(this.mFramePanel, 304, 25, 0, 0, var14, false);
-      this.mAnimFrame.mStartButton = new Button("Start");
+      this.mAnimFrame.mStartButton = new JButton("Start");
       this.mAnimFrame.mStartButton.addActionListener(this);
       var1.add(this.mAnimFrame.mStartButton);
-      this.mAnimFrame.mStopButton = new Button("Stop");
+      this.mAnimFrame.mStopButton = new JButton("Stop");
       this.mAnimFrame.mStopButton.addActionListener(this);
       var1.add(this.mAnimFrame.mStopButton);
       this.validate();
@@ -73,9 +73,9 @@ public class Complex extends Applet implements ActionListener {
 
    public void actionPerformed(ActionEvent e) {
       // Handle button clicks
-      if (e.getSource() instanceof Button) {
-         Button source = (Button) e.getSource();
-         String label = source.getLabel();
+      if (e.getSource() instanceof JButton) {
+         JButton source = (JButton) e.getSource();
+         String label = source.getText();
          if (label.equals("Start")) {
             this.mAnimFrame.ControlMessage(1, 1.0);
          } else if (label.equals("Stop")) {

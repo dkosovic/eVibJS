@@ -1,6 +1,6 @@
 package OneDOF.ComplexAbutment.Complex;
 
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -32,8 +32,8 @@ class CFrameAnimation extends CFrame {
    double mXo = 85.0;
    double mX = 40.0;
    double mPhi = -60.0;
-   public Button mStartButton;
-   public Button mStopButton;
+   public JButton mStartButton;
+   public JButton mStopButton;
    CFrameHelp mSpringHelp;
    CFrameHelp mDamperHelp;
    CFrameHelp mMassHelp;

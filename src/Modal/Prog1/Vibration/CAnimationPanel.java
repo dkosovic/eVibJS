@@ -3,10 +3,10 @@ package Modal.Prog1.Vibration;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Panel;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class CAnimationPanel extends Panel {
+public class CAnimationPanel extends JPanel {
    public static final int kDeltaTimeCode = 0;
    public static final int kxEdge = 100;
    public static final int kyTopAbutment = 2;

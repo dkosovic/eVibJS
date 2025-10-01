@@ -2,7 +2,7 @@ package MultiDOF.Prog1.Modes;
 
 import jama.EigenvalueDecomposition;
 import jama.Matrix;
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -51,9 +51,9 @@ class CFrameAnimation extends CFrame {
    double mm3 = 0.5;
    double mk3 = 10.0;
    double mW;
-   public Button mStartButton;
-   public Button mPauseButton;
-   public Button mStopButton;
+   public JButton mStartButton;
+   public JButton mPauseButton;
+   public JButton mStopButton;
    Matrix M;
    Matrix K;
    Matrix D;

@@ -1,18 +1,18 @@
 package TwoDOF.Forced_2DOF.Forced;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.Panel;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Forced extends Applet implements ActionListener {
+public class Forced extends JApplet implements ActionListener {
    static final double kMinm1 = 0.1;
    static final double kMaxm1 = 2.0;
    static final double kMink1 = 1.0;
@@ -37,9 +37,9 @@ public class Forced extends Applet implements ActionListener {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Panel buttonPanel = new Panel();
+      JPanel buttonPanel = new JPanel();
       this.add("North", buttonPanel);
-      Label copyright = new Label("This program is copyright, you need permission to use it. © 2000 B J Stone, bjs@mech.uwa.edu.au.");
+      JLabel copyright = new JLabel("This program is copyright, you need permission to use it. © 2000 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
@@ -92,13 +92,13 @@ public class Forced extends Applet implements ActionListener {
       new CFrameHelp(this.mFramePanel, 380, 0, 60, 50, "This is the bottom damper.");
       new CFrameHelp(this.mFramePanel, 0, 55, 60, 50, "This is the force step\non the top mass.");
       new CFrameHelp(this.mFramePanel, 0, 105, 60, 50, "This is the time duration \nof the step.");
-      this.mAnimFrame.mStartButton = new Button("Start");
+      this.mAnimFrame.mStartButton = new JButton("Start");
       this.mAnimFrame.mStartButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStartButton);
-      this.mAnimFrame.mPauseButton = new Button("Pause");
+      this.mAnimFrame.mPauseButton = new JButton("Pause");
       this.mAnimFrame.mPauseButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mPauseButton);
-      this.mAnimFrame.mStopButton = new Button("Stop");
+      this.mAnimFrame.mStopButton = new JButton("Stop");
       this.mAnimFrame.mStopButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStopButton);
       this.validate();
@@ -112,9 +112,9 @@ public class Forced extends Applet implements ActionListener {
 
    public void actionPerformed(ActionEvent e) {
       // Handle button clicks
-      if (e.getSource() instanceof Button) {
-         Button source = (Button) e.getSource();
-         String label = source.getLabel();
+      if (e.getSource() instanceof JButton) {
+         JButton source = (JButton) e.getSource();
+         String label = source.getText();
          if (label.equals("Start") || label.equals("Cont.")) {
             this.mAnimFrame.ControlMessage(1, 1.0);
          } else if (label.equals("Pause")) {

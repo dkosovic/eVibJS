@@ -1,6 +1,6 @@
 package TwoDOF.Prog1.Modes;
 
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -46,9 +46,9 @@ class CFrameAnimation extends CFrame {
    double mmode1;
    double mmode2;
    int mxEdge;
-   public Button mStartButton;
-   public Button mPauseButton;
-   public Button mStopButton;
+   public JButton mStartButton;
+   public JButton mPauseButton;
+   public JButton mStopButton;
    boolean mDragMain;
    boolean mDragThumb;
    boolean mDragThumbnail;

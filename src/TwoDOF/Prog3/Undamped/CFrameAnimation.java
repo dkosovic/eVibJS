@@ -1,6 +1,6 @@
 package TwoDOF.Prog3.Undamped;
 
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -65,9 +65,9 @@ class CFrameAnimation extends CFrame {
    double mwn2;
    double mu1;
    double mu2;
-   public Button mStartButton;
-   public Button mPauseButton;
-   public Button mStopButton;
+   public JButton mStartButton;
+   public JButton mPauseButton;
+   public JButton mStopButton;
    Image mTraceImage;
    Graphics mTraceGC;
    Image mTraceThumbnailImage;

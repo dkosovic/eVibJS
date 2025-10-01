@@ -8,11 +8,10 @@ import java.util.StringTokenizer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class CFrameHelp extends CFrame implements ActionListener, MouseListener {
+public class CFrameHelp extends CFrame implements ActionListener {
    Timer mTimer;
    boolean mShowtime;
    public String mMessage;

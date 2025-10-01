@@ -1,13 +1,13 @@
 package Complex.Prog5.Multiforced;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Frame;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
@@ -16,9 +16,9 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Multiforced extends Applet implements ActionListener {
-   public Frame mFeedbackWindow = null;
-   public TextField answer1;
+public class Multiforced extends JApplet implements ActionListener {
+   public JFrame mFeedbackWindow = null;
+   public JTextField answer1;
    CFramePanel mFramePanel;
    CFrameGraph mFrameGraph;
    CFrameAnimation mAnimFrame;
@@ -27,9 +27,9 @@ public class Multiforced extends Applet implements ActionListener {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Panel var1 = new Panel();
+      JPanel var1 = new JPanel();
       this.add("North", var1);
-      Label copyright = new Label("  This program is copyright, you need permission to use it. © 1999 B J Stone, bjs@mech.uwa.edu.au.");
+      JLabel copyright = new JLabel("  This program is copyright, you need permission to use it. © 1999 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
@@ -41,10 +41,10 @@ public class Multiforced extends Applet implements ActionListener {
       new CFramePicture(this.mFramePanel, 530, 355, 0, 0, var8, false);
       this.mFrameGraph = new CFrameGraph(this.mFramePanel, 40, 70, 602, 280);
       this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
-      Button var10 = new Button("Instructions");
+      JButton var10 = new JButton("Instructions");
       var10.addActionListener(this);
       var1.add(var10);
-      Button var11 = new Button("Edit");
+      JButton var11 = new JButton("Edit");
       var11.addActionListener(this);
       var1.add(var11);
       this.validate();
@@ -57,9 +57,9 @@ public class Multiforced extends Applet implements ActionListener {
 
    public void actionPerformed(ActionEvent e) {
       // Handle button clicks
-      if (e.getSource() instanceof Button) {
-         Button source = (Button) e.getSource();
-         String label = source.getLabel();
+      if (e.getSource() instanceof JButton) {
+         JButton source = (JButton) e.getSource();
+         String label = source.getText();
          if (label.equals("Edit")) {
             this.mFrameGraph.ControlMessage(null, 1, 0.0);
          } else if (label.equals("Instructions")) {

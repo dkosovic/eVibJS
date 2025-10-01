@@ -1,6 +1,6 @@
 package OneDOF.Prog1.Undamped;
 
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -44,9 +44,9 @@ class CFrameAnimation extends CFrame {
    double[] mX;
    double[] mY;
    double[] mF;
-   public Button mStartButton;
-   public Button mPauseButton;
-   public Button mStopButton;
+   public JButton mStartButton;
+   public JButton mPauseButton;
+   public JButton mStopButton;
    Image mTraceImage;
    Graphics mTraceGC;
    Image mTraceThumbnailImage;

@@ -1,6 +1,6 @@
 package MultiDOF.Prog10.Multiforced;
 
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
@@ -41,8 +41,8 @@ class CFrameGraph extends CFrame {
    double mMax;
    double mMin;
    double mScale;
-   public Button mInstructionButton;
-   public Button mInputButton;
+   public JButton mInstructionButton;
+   public JButton mInputButton;
    double mTime = 0.0;
    public double mMaxMassAmp;
    boolean mClickedAboveSystem;

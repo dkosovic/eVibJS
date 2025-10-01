@@ -1,10 +1,10 @@
 package Beam.Prog2.Forced;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Panel;
+import javax.swing.JPanel;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -13,8 +13,8 @@ import java.util.Date;
 import java.util.Vector;
 
 @SuppressWarnings("serial")
-public class CFramePanel extends Panel implements MouseListener, MouseMotionListener {
-   public Applet mApplet;
+public class CFramePanel extends JPanel implements MouseListener, MouseMotionListener {
+   public JApplet mApplet;
    Vector<CFrame> mFrames;
    Image mOffScrImage;
    Graphics mScreenGC;
@@ -25,7 +25,7 @@ public class CFramePanel extends Panel implements MouseListener, MouseMotionList
    public Point mThisPt;
    long mLastClickTime;
 
-   CFramePanel(Applet app) {
+   CFramePanel(JApplet app) {
       this.mApplet = app;
       this.mStartPt = new Point(0, 0);
       this.mLastPt = new Point(0, 0);

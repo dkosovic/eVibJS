@@ -5,18 +5,17 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.TextField;
+import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.Date;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class CFrameSmallControl extends CFramePicture implements ActionListener, KeyListener, MouseListener {
+public class CFrameSmallControl extends CFramePicture implements ActionListener, KeyListener {
    public CFrame mControlledFrame;
    int mSelection;
    int mCode;
@@ -30,7 +29,7 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener,
    public String mUnits;
    int mLabelWidth;
    int mLabelHeight;
-   TextField mTextField;
+   JTextField mTextField;
    public boolean mTextEditable;
    public boolean mIntegerMode;
    Timer mTimer;
@@ -354,7 +353,7 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener,
          this.NewSelection(this.GetSelection(localPt.x, localPt.y));
          if (this.mSelection == 3 && this.mTextField == null) {
             if (this.mTextEditable) {
-               this.mTextField = new TextField();
+               this.mTextField = new JTextField();
                super.mFramePanel.add(this.mTextField);
                this.mTextField.addKeyListener(this);
                Insets insets = super.mFramePanel.getInsets();

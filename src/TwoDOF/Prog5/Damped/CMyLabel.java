@@ -2,10 +2,10 @@ package TwoDOF.Prog5.Damped;
 
 import java.awt.Dimension;
 import java.awt.FontMetrics;
-import java.awt.Label;
+import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-public class CMyLabel extends Label {
+public class CMyLabel extends JLabel {
    Dimension mMinDim;
 
    public CMyLabel() {

@@ -1,6 +1,6 @@
 package General.Prog1.Tension;
 
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -51,9 +51,9 @@ class CFrameAnimation extends CFrame {
    double[] mXspring;
    double[] mYspring;
    int mspringpoints;
-   public Button mStartButton;
-   public Button mPauseButton;
-   public Button mStopButton;
+   public JButton mStartButton;
+   public JButton mPauseButton;
+   public JButton mStopButton;
 
    public CFrameAnimation(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
       super(thePanel, xx, yy, ww, hh);

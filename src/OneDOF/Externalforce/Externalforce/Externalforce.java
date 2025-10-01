@@ -1,6 +1,6 @@
 package OneDOF.Externalforce.Externalforce;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
 import java.util.Date;
 import java.awt.event.ActionEvent;
@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Externalforce extends Applet implements ActionListener {
+public class Externalforce extends JApplet implements ActionListener {
    static final String kRunString = "Run";
    CAnimationPanel mAnimPanel;
    Timer mTimer = null;

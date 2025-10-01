@@ -1,13 +1,12 @@
 package TwoDOF.Prog10.Abutmentresponse_2DOF;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Label;
+import javax.swing.JLabel;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.Date;
 
@@ -15,9 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import java.awt.event.MouseListener;
 @SuppressWarnings("serial")
 public class CBrianControl extends CPicturePanel implements MouseListener, MouseMotionListener {
-   Applet mApplet;
+   JApplet mApplet;
    int mSelection;
    Date mSelStart;
    public double mMin;
@@ -25,14 +25,14 @@ public class CBrianControl extends CPicturePanel implements MouseListener, Mouse
    public double mMax;
    public double mOldValue;
    public double mDeltaPerSec;
-   Label mLabel;
+   JLabel mLabel;
    private List<ChangeListener> changeListeners = new ArrayList<>();
    static final int kNoSelection = 0;
    static final int kUpSelection = 1;
    static final int kDownSelection = 2;
    static final double kNearlyZero = 1.0E-10;
 
-   public CBrianControl(Applet var1, Label var2, double var3, double var5, double var7) {
+   public CBrianControl(JApplet var1, JLabel var2, double var3, double var5, double var7) {
       this.mApplet = var1;
       this.mLabel = var2;
       this.LoadImage(this.mApplet.getImage(this.mApplet.getCodeBase(), "BrianControl.gif"));
@@ -207,7 +207,6 @@ public class CBrianControl extends CPicturePanel implements MouseListener, Mouse
       if (this.mLabel != null) {
          this.mLabel.setText(nns(this.mValue));
       }
-
 
       // Fire change event to registered listeners (modern approach)
       fireChangeEvent();

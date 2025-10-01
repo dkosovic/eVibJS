@@ -1,18 +1,18 @@
 package General.Prog1.Tension;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.Panel;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Tension extends Applet implements ActionListener {
+public class Tension extends JApplet implements ActionListener {
    static final double kMinMass = 0.5;
    static final double kMaxMass = 50.0;
    static final double kMinK = 10.0;
@@ -33,9 +33,9 @@ public class Tension extends Applet implements ActionListener {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Panel buttonPanel = new Panel();
+      JPanel buttonPanel = new JPanel();
       this.add("North", buttonPanel);
-      Label copyright = new Label(" This program is copyright, you need permission to use it. © 2004 B J Stone, bjs@mech.uwa.edu.au.");
+      JLabel copyright = new JLabel(" This program is copyright, you need permission to use it. © 2004 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
@@ -71,13 +71,13 @@ public class Tension extends Applet implements ActionListener {
       OnOffControl.SetIntegerMode(true);
       Image OnOffImage = this.getImage(this.getCodeBase(), "OnOff.gif");
       new CFramePicture(this.mFramePanel, 484, 25, 0, 0, OnOffImage, false);
-      this.mAnimFrame.mStartButton = new Button("Start");
+      this.mAnimFrame.mStartButton = new JButton("Start");
       this.mAnimFrame.mStartButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStartButton);
-      this.mAnimFrame.mPauseButton = new Button("Pause");
+      this.mAnimFrame.mPauseButton = new JButton("Pause");
       this.mAnimFrame.mPauseButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mPauseButton);
-      this.mAnimFrame.mStopButton = new Button("Stop");
+      this.mAnimFrame.mStopButton = new JButton("Stop");
       this.mAnimFrame.mStopButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStopButton);
       this.validate();
@@ -91,9 +91,9 @@ public class Tension extends Applet implements ActionListener {
 
    public void actionPerformed(ActionEvent e) {
       // Handle button clicks
-      if (e.getSource() instanceof Button) {
-         Button source = (Button) e.getSource();
-         String label = source.getLabel();
+      if (e.getSource() instanceof JButton) {
+         JButton source = (JButton) e.getSource();
+         String label = source.getText();
          if (label.equals("Start") || label.equals("Cont.")) {
             this.mAnimFrame.ControlMessage(1, 1.0);
          } else if (label.equals("Pause")) {
@@ -118,8 +118,6 @@ public class Tension extends Applet implements ActionListener {
          this.mAnimFrame.ControlMessage(0, realSeconds);
       }
    }
-
-
 
    public void stop() {
       if (this.mTimer != null) { this.mTimer.stop(); this.mTimer = null; }

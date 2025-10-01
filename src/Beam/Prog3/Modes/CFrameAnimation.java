@@ -1,6 +1,6 @@
 package Beam.Prog3.Modes;
 
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -57,9 +57,9 @@ class CFrameAnimation extends CFrame {
    double[] mX2;
    double[] mY2;
    double[] mF2;
-   public Button mStartButton;
-   public Button mPauseButton;
-   public Button mStopButton;
+   public JButton mStartButton;
+   public JButton mPauseButton;
+   public JButton mStopButton;
    boolean mDragMain;
    boolean mDragThumb;
    boolean mDragThumbnail;

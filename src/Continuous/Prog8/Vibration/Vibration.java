@@ -1,6 +1,6 @@
 package Continuous.Prog8.Vibration;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
 import java.util.Date;
 import java.awt.event.ActionEvent;
@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Vibration extends Applet implements ActionListener {
+public class Vibration extends JApplet implements ActionListener {
    static final String kRunString = "Run";
    CFramePanel mFramePanel;
    CAnimationPanel mAnimPanel;

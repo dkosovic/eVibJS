@@ -3,10 +3,10 @@ package Continuous.Prog11.Vibration;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.Label;
+import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-class CMyLabel extends Label {
+class CMyLabel extends JLabel {
    int mPrefWidth;
 
    CMyLabel(String lab, int align, Graphics g) {

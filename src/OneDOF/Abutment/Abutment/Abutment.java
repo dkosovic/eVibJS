@@ -1,18 +1,18 @@
 package OneDOF.Abutment.Abutment;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import java.awt.Button;
+import javax.swing.JButton;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.Panel;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Abutment extends Applet implements ActionListener {
+public class Abutment extends JApplet implements ActionListener {
    static final double kMinWn = 0.1;
    static final double kMaxWn = 2.0;
    static final double kMinXi = 0.001;
@@ -29,9 +29,9 @@ public class Abutment extends Applet implements ActionListener {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Panel buttonPanel = new Panel();
+      JPanel buttonPanel = new JPanel();
       this.add("North", buttonPanel);
-      Label copyright = new Label("This program is copyright, you need permission to use it. © 1999 B J Stone, bjs@mech.uwa.edu.au.");
+      JLabel copyright = new JLabel("This program is copyright, you need permission to use it. © 1999 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
@@ -60,13 +60,13 @@ public class Abutment extends Applet implements ActionListener {
       new CFrameHelp(this.mFramePanel, 90, 0, 80, 80, "This is the damping\nratio for the system.");
       new CFrameHelp(this.mFramePanel, 180, 0, 80, 80, "This is the magnitude of \nthe input step.");
       new CFrameHelp(this.mFramePanel, 270, 0, 80, 80, "This is duration of the pulse");
-      this.mAnimFrame.mStartButton = new Button("Start");
+      this.mAnimFrame.mStartButton = new JButton("Start");
       this.mAnimFrame.mStartButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStartButton);
-      this.mAnimFrame.mPauseButton = new Button("Pause");
+      this.mAnimFrame.mPauseButton = new JButton("Pause");
       this.mAnimFrame.mPauseButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mPauseButton);
-      this.mAnimFrame.mStopButton = new Button("Stop");
+      this.mAnimFrame.mStopButton = new JButton("Stop");
       this.mAnimFrame.mStopButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStopButton);
       this.validate();
@@ -80,9 +80,9 @@ public class Abutment extends Applet implements ActionListener {
 
    public void actionPerformed(ActionEvent e) {
       // Handle button clicks
-      if (e.getSource() instanceof Button) {
-         Button source = (Button) e.getSource();
-         String label = source.getLabel();
+      if (e.getSource() instanceof JButton) {
+         JButton source = (JButton) e.getSource();
+         String label = source.getText();
          if (label.equals("Start") || label.equals("Cont.")) {
             this.mAnimFrame.ControlMessage(1, 1.0);
          } else if (label.equals("Pause")) {

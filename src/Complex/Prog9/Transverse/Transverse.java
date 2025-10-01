@@ -1,20 +1,20 @@
 package Complex.Prog9.Transverse;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import java.awt.Frame;
+import javax.swing.JFrame;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.TextField;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Transverse extends Applet implements ActionListener {
-   public Frame mFeedbackWindow = null;
-   public TextField answer1;
+public class Transverse extends JApplet implements ActionListener {
+   public JFrame mFeedbackWindow = null;
+   public JTextField answer1;
    static final double kMinL = 0.5;
    static final double kMaxL = 2.0;
    static final double kMinD1 = 0.05;
@@ -33,7 +33,7 @@ public class Transverse extends Applet implements ActionListener {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Label copyright = new Label("  This program is copyright, you need permission to use it. © 2005 B J Stone, bjs@mech.uwa.edu.au.");
+      JLabel copyright = new JLabel("  This program is copyright, you need permission to use it. © 2005 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
@@ -72,13 +72,13 @@ public class Transverse extends Applet implements ActionListener {
       if (this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
-         
+
          if (this.mLastTime == 0) {
             this.mLastTime = thisTime;
          }
          // double realSeconds = (thisTime - this.mLastTime) / 1000.0;
          this.mLastTime = thisTime;
-         
+
          // this.mAnimFrame.ControlMessage(0, realSeconds);
       }
    }

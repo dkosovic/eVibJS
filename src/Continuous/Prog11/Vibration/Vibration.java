@@ -1,15 +1,15 @@
 package Continuous.Prog11.Vibration;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import java.awt.Label;
+import javax.swing.JLabel;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Vibration extends Applet implements ActionListener {
+public class Vibration extends JApplet implements ActionListener {
    static final String kRunString = "Run";
    CFramePanel mFramePanel;
    CAnimationPanel mAnimPanel;
@@ -20,7 +20,7 @@ public class Vibration extends Applet implements ActionListener {
       this.setLayout(new BorderLayout());
       this.mAnimPanel = new CAnimationPanel();
       this.add("Center", this.mAnimPanel);
-      Label copyright = new Label("You need permission to use this program. © 2005 B J Stone, bjs@mech.uwa.edu.au.");
+      JLabel copyright = new JLabel("You need permission to use this program. © 2005 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.validate();
    }

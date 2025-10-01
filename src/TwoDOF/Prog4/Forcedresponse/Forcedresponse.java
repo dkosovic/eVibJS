@@ -1,17 +1,17 @@
 package TwoDOF.Prog4.Forcedresponse;
 
-import java.applet.Applet;
+import javax.swing.JApplet;
 import java.awt.BorderLayout;
 import java.awt.Image;
-import java.awt.Label;
-import java.awt.Panel;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Forcedresponse extends Applet implements ActionListener {
+public class Forcedresponse extends JApplet implements ActionListener {
    static final double kMinK2divK1 = 0.2;
    static final double kMaxK2divK1 = 5.0;
    static final double kMinM2divM1 = 0.2;
@@ -24,9 +24,9 @@ public class Forcedresponse extends Applet implements ActionListener {
 
    public void init() {
       this.setLayout(new BorderLayout());
-      Panel buttonPanel = new Panel();
+      JPanel buttonPanel = new JPanel();
       this.add("North", buttonPanel);
-      Label copyright = new Label("  This program is copyright, you need permission to use it. © 2004 B J Stone, bjs@mech.uwa.edu.au.");
+      JLabel copyright = new JLabel("  This program is copyright, you need permission to use it. © 2004 B J Stone, bjs@mech.uwa.edu.au.");
       this.add("South", copyright);
       this.mFramePanel = new CFramePanel(this);
       this.add("Center", this.mFramePanel);
@@ -65,13 +65,13 @@ public class Forcedresponse extends Applet implements ActionListener {
       if (this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
-         
+
          if (this.mLastTime == 0) {
             this.mLastTime = thisTime;
          }
          // double realSeconds = (thisTime - this.mLastTime) / 1000.0;
          this.mLastTime = thisTime;
-         
+
          // this.mAnimFrame.ControlMessage(0, realSeconds);
       }
    }

@@ -4,10 +4,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import java.awt.Panel;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-class CPicturePanel extends Panel {
+class CPicturePanel extends JPanel {
    public Image mImage;
    public CPicturePanel() {
    }
