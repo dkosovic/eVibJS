@@ -190,6 +190,7 @@ class CFrameAnimation extends CFrame {
       Graphics fudge = g.create();
       fudge.clipRect(this.mTraceClip.x, this.mTraceClip.y, this.mTraceClip.width, this.mTraceClip.height);
       fudge.drawImage(this.mTraceImage, -((int)(this.mViewTime / dt)), this.mTraceClip.y, super.mFramePanel);
+      fudge.dispose();
       g.drawRect(80, 160, 400, 120);
    }
 

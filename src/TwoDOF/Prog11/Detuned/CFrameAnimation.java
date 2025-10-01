@@ -108,7 +108,7 @@ class CFrameAnimation extends CFrame {
       new CFrameHelp(super.mFramePanel, 500, this.kyTopAbutment, 35, 20, "This represents a rigid abutment,\ni.e. a solid block fixed to Earth.");
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       if (this.mTraceGC == null) {
          this.mTraceImage = super.mFramePanel.createImage(3290, 200);
          this.mTraceGC = this.mTraceImage.getGraphics();
@@ -139,56 +139,56 @@ class CFrameAnimation extends CFrame {
          this.kyTopAbutment = 19 + (int)(this.mInput[var4] * 1000.0);
       }
 
-      var1.setPaintMode();
-      var1.setColor(Color.white);
-      var1.fillRect(0, 0, super.width, super.height);
-      var1.setColor(Color.orange);
-      var1.fillRect(500, this.kyTopAbutment, 35, 20);
-      var1.setColor(Color.black);
+      g.setPaintMode();
+      g.setColor(Color.white);
+      g.fillRect(0, 0, super.width, super.height);
+      g.setColor(Color.orange);
+      g.fillRect(500, this.kyTopAbutment, 35, 20);
+      g.setColor(Color.black);
       double var5 = (110 + var2 - this.kyTopAbutment - 20) / 10.0;
-      var1.drawLine(508, this.kyTopAbutment + 20, 514, (int)(this.kyTopAbutment + 20 + var5 / 2.0));
+      g.drawLine(508, this.kyTopAbutment + 20, 514, (int)(this.kyTopAbutment + 20 + var5 / 2.0));
 
       for (int var13 = 1; var13 < 10; var13++) {
          if (var13 % 2 == 0) {
-            var1.drawLine(
+            g.drawLine(
                502, (int)(this.kyTopAbutment + 20 + (2 * var13 - 1) * var5 / 2.0), 514, (int)(this.kyTopAbutment + 20 + (2 * var13 + 1) * var5 / 2.0)
             );
          } else {
-            var1.drawLine(
+            g.drawLine(
                514, (int)(this.kyTopAbutment + 20 + (2 * var13 - 1) * var5 / 2.0), 502, (int)(this.kyTopAbutment + 20 + (2 * var13 + 1) * var5 / 2.0)
             );
          }
       }
 
-      var1.drawLine(502, (int)(this.kyTopAbutment + 20 + 19.0 * var5 / 2.0), 508, 110 + var2);
-      var1.setColor(Color.black);
-      var1.drawLine(522, this.kyTopAbutment + 20, 522, this.kyTopAbutment + 20 + 47);
-      var1.drawLine(530, this.kyTopAbutment + 20, 530, this.kyTopAbutment + 20 + 47);
-      var1.drawLine(522, this.kyTopAbutment + 20 + 47, 530, this.kyTopAbutment + 20 + 47);
-      var1.drawLine(526, 110 + var2 - 48, 526, 110 + var2);
-      var1.drawLine(523, 110 + var2 - 48, 529, 110 + var2 - 48);
+      g.drawLine(502, (int)(this.kyTopAbutment + 20 + 19.0 * var5 / 2.0), 508, 110 + var2);
+      g.setColor(Color.black);
+      g.drawLine(522, this.kyTopAbutment + 20, 522, this.kyTopAbutment + 20 + 47);
+      g.drawLine(530, this.kyTopAbutment + 20, 530, this.kyTopAbutment + 20 + 47);
+      g.drawLine(522, this.kyTopAbutment + 20 + 47, 530, this.kyTopAbutment + 20 + 47);
+      g.drawLine(526, 110 + var2 - 48, 526, 110 + var2);
+      g.drawLine(523, 110 + var2 - 48, 529, 110 + var2 - 48);
       Color var7 = new Color(0.18F, 0.58F, 0.58F);
-      var1.setColor(var7);
-      var1.fillRect(500, 110 + var2, 35, 20);
-      var1.drawLine(500, 110 + var2 + 10, 480, 110 + var2 + 10);
-      var1.setColor(Color.black);
+      g.setColor(var7);
+      g.fillRect(500, 110 + var2, 35, 20);
+      g.drawLine(500, 110 + var2 + 10, 480, 110 + var2 + 10);
+      g.setColor(Color.black);
       var5 = (201 + var3 - 110 - 20 - var2) / 10.0;
-      var1.drawLine(517, 130 + var2, 523, (int)(130 + var2 + var5 / 2.0));
+      g.drawLine(517, 130 + var2, 523, (int)(130 + var2 + var5 / 2.0));
 
       for (int var14 = 1; var14 < 10; var14++) {
          if (var14 % 2 == 0) {
-            var1.drawLine(511, (int)(130 + var2 + (2 * var14 - 1) * var5 / 2.0), 523, (int)(130 + var2 + (2 * var14 + 1) * var5 / 2.0));
+            g.drawLine(511, (int)(130 + var2 + (2 * var14 - 1) * var5 / 2.0), 523, (int)(130 + var2 + (2 * var14 + 1) * var5 / 2.0));
          } else {
-            var1.drawLine(523, (int)(130 + var2 + (2 * var14 - 1) * var5 / 2.0), 511, (int)(130 + var2 + (2 * var14 + 1) * var5 / 2.0));
+            g.drawLine(523, (int)(130 + var2 + (2 * var14 - 1) * var5 / 2.0), 511, (int)(130 + var2 + (2 * var14 + 1) * var5 / 2.0));
          }
       }
 
-      var1.drawLine(511, (int)(130 + var2 + 19.0 * var5 / 2.0), 517, 201 + var3);
-      var1.setColor(var7);
-      var1.fillRect(500, 201 + var3, 35, 20);
-      var1.drawLine(500, 201 + var3 + 10, 480, 201 + var3 + 10);
-      var1.setColor(Color.black);
-      var1.drawImage(
+      g.drawLine(511, (int)(130 + var2 + 19.0 * var5 / 2.0), 517, 201 + var3);
+      g.setColor(var7);
+      g.fillRect(500, 201 + var3, 35, 20);
+      g.drawLine(500, 201 + var3 + 10, 480, 201 + var3 + 10);
+      g.setColor(Color.black);
+      g.drawImage(
          this.mTraceThumbnailImage, this.mTraceThumbnail.x, this.mTraceThumbnail.y, this.mTraceThumbnail.width, this.mTraceThumbnail.height, super.mFramePanel
       );
       double var8 = this.mViewTime / dt / 3200.0;
@@ -200,22 +200,22 @@ class CFrameAnimation extends CFrame {
       );
       var8 = this.mTime / dt / 3200.0;
       int var10 = (int)(var8 * this.mTraceThumbnail.width);
-      var1.setColor(Color.white);
-      var1.fillRect(
+      g.setColor(Color.white);
+      g.fillRect(
          this.mTraceThumbnail.x + var10 + this.mThumbRect.width,
          this.mTraceThumbnail.y,
          this.mTraceThumbnail.width - var10 - this.mThumbRect.width,
          this.mTraceThumbnail.height
       );
-      var1.setColor(Color.orange);
+      g.setColor(Color.orange);
       int var11 = (int)(this.mTraceThumbnail.x + (400.0 + 1.0 / dt) / 8.0);
-      var1.drawLine(
+      g.drawLine(
          this.mTraceThumbnail.x + 50, this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3, var11, this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3
       );
       this.mWinrads = this.mWin * 2.0 * Math.PI;
 
       for (int var15 = 0; var15 < 1600 - var11 - 144; var15++) {
-         var1.drawLine(
+         g.drawLine(
             var15 * 2 / 8 + var11,
             (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3 + yscale * this.mXo / 1000.0 * Math.sin(this.mWinrads * 2.0 * var15 * dt) / 8.0),
             var11 + 2 * (var15 + 1) / 8,
@@ -223,17 +223,18 @@ class CFrameAnimation extends CFrame {
          );
       }
 
-      var1.setColor(Color.black);
-      var1.drawRect(this.mTraceThumbnail.x - 1, this.mTraceThumbnail.y - 1, this.mTraceThumbnail.width + 1, this.mTraceThumbnail.height + 2);
-      var1.drawRect(this.mThumbRect.x, this.mThumbRect.y, this.mThumbRect.width, this.mThumbRect.height);
-      var1.drawRect(this.mThumbRect.x + 1, this.mThumbRect.y + 1, this.mThumbRect.width - 2, this.mThumbRect.height - 2);
-      var1.drawRect(this.mThumbRect.x + 2, this.mThumbRect.y + 2, this.mThumbRect.width - 4, this.mThumbRect.height - 4);
-      var1.drawString(" Detuned frequency", 395, 20);
-      var1.drawString(CUtility.nns(Math.sqrt(this.mk2 / this.mm2) / 2.0 / Math.PI) + " Hz", 398, 36);
-      Graphics var12 = var1.create();
-      var12.clipRect(this.mTraceClip.x, this.mTraceClip.y, this.mTraceClip.width, this.mTraceClip.height);
-      var12.drawImage(this.mTraceImage, -((int)(this.mViewTime / dt)), this.mTraceClip.y, super.mFramePanel);
-      var1.drawRect(90, 60, 400, 200);
+      g.setColor(Color.black);
+      g.drawRect(this.mTraceThumbnail.x - 1, this.mTraceThumbnail.y - 1, this.mTraceThumbnail.width + 1, this.mTraceThumbnail.height + 2);
+      g.drawRect(this.mThumbRect.x, this.mThumbRect.y, this.mThumbRect.width, this.mThumbRect.height);
+      g.drawRect(this.mThumbRect.x + 1, this.mThumbRect.y + 1, this.mThumbRect.width - 2, this.mThumbRect.height - 2);
+      g.drawRect(this.mThumbRect.x + 2, this.mThumbRect.y + 2, this.mThumbRect.width - 4, this.mThumbRect.height - 4);
+      g.drawString(" Detuned frequency", 395, 20);
+      g.drawString(CUtility.nns(Math.sqrt(this.mk2 / this.mm2) / 2.0 / Math.PI) + " Hz", 398, 36);
+      Graphics fudge = g.create();
+      fudge.clipRect(this.mTraceClip.x, this.mTraceClip.y, this.mTraceClip.width, this.mTraceClip.height);
+      fudge.drawImage(this.mTraceImage, -((int)(this.mViewTime / dt)), this.mTraceClip.y, super.mFramePanel);
+      fudge.dispose();
+      g.drawRect(90, 60, 400, 200);
    }
 
    public void Response() {

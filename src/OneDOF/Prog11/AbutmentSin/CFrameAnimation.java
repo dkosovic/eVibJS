@@ -99,7 +99,7 @@ class CFrameAnimation extends CFrame {
       this.mMassHelp = new CFrameHelp(super.mFramePanel, 0, 0, 0, 0, "This represents a rigid mass.");
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       Color var2 = new Color(0.18F, 0.58F, 0.58F);
       if (this.mTraceGC == null) {
          this.mTraceImage = super.mFramePanel.createImage(3280, 120);
@@ -129,51 +129,51 @@ class CFrameAnimation extends CFrame {
          var4 = (int)(yscale * this.mInput[var5]);
       }
 
-      var1.setPaintMode();
-      var1.setColor(Color.lightGray);
-      var1.setColor(Color.white);
-      var1.fillRect(0, 0, super.width, super.height);
-      var1.setColor(Color.orange);
-      var1.fillRect(500, 39 + var4, 70, 20);
-      var1.setColor(Color.black);
+      g.setPaintMode();
+      g.setColor(Color.lightGray);
+      g.setColor(Color.white);
+      g.fillRect(0, 0, super.width, super.height);
+      g.setColor(Color.orange);
+      g.fillRect(500, 39 + var4, 70, 20);
+      g.setColor(Color.black);
       double var6 = (230 + var3 - var4 - 39 - 20) / 10.0;
-      var1.drawLine(517, 59 + var4, 529, (int)(59 + var4 + var6 / 2.0));
+      g.drawLine(517, 59 + var4, 529, (int)(59 + var4 + var6 / 2.0));
 
       for (int var13 = 1; var13 < 10; var13++) {
          if (var13 % 2 == 0) {
-            var1.drawLine(505, (int)(59 + var4 + (2 * var13 - 1) * var6 / 2.0), 529, (int)(59 + var4 + (2 * var13 + 1) * var6 / 2.0));
+            g.drawLine(505, (int)(59 + var4 + (2 * var13 - 1) * var6 / 2.0), 529, (int)(59 + var4 + (2 * var13 + 1) * var6 / 2.0));
          } else {
-            var1.drawLine(529, (int)(59 + var4 + (2 * var13 - 1) * var6 / 2.0), 505, (int)(59 + var4 + (2 * var13 + 1) * var6 / 2.0));
+            g.drawLine(529, (int)(59 + var4 + (2 * var13 - 1) * var6 / 2.0), 505, (int)(59 + var4 + (2 * var13 + 1) * var6 / 2.0));
          }
       }
 
-      var1.drawLine(505, (int)(59 + var4 + 19.0 * var6 / 2.0), 517, 230 + var3);
+      g.drawLine(505, (int)(59 + var4 + 19.0 * var6 / 2.0), 517, 230 + var3);
       this.mSpringHelp.x = 505;
       this.mSpringHelp.y = 59 + var4;
       this.mSpringHelp.width = 24;
       this.mSpringHelp.height = 230 + var3 - var4 - 39 - 20 - 1;
       this.mSpringHelp.DefaultArrowPos();
-      var1.setColor(Color.black);
-      var1.drawLine(545, 59 + var4, 545, 59 + var4 + 113);
-      var1.drawLine(559, 59 + var4, 559, 59 + var4 + 113);
-      var1.drawLine(545, 59 + var4 + 113, 559, 59 + var4 + 113);
-      var1.drawLine(552, 230 + var3 - 114, 552, 230 + var3);
-      var1.drawLine(547, 230 + var3 - 114, 557, 230 + var3 - 114);
+      g.setColor(Color.black);
+      g.drawLine(545, 59 + var4, 545, 59 + var4 + 113);
+      g.drawLine(559, 59 + var4, 559, 59 + var4 + 113);
+      g.drawLine(545, 59 + var4 + 113, 559, 59 + var4 + 113);
+      g.drawLine(552, 230 + var3 - 114, 552, 230 + var3);
+      g.drawLine(547, 230 + var3 - 114, 557, 230 + var3 - 114);
       this.mDamperHelp.x = 545;
       this.mDamperHelp.y = 59 + var4;
       this.mDamperHelp.width = 14;
       this.mDamperHelp.height = 230 + var3 - 39 - 20 - 1;
       this.mDamperHelp.DefaultArrowPos();
-      var1.setColor(var2);
-      var1.fillRect(500, 230 + var3, 70, 40);
-      var1.drawLine(500, 230 + var3 + 20, 480, 230 + var3 + 20);
+      g.setColor(var2);
+      g.fillRect(500, 230 + var3, 70, 40);
+      g.drawLine(500, 230 + var3 + 20, 480, 230 + var3 + 20);
       this.mMassHelp.x = 500;
       this.mMassHelp.y = 230 + var3;
       this.mMassHelp.width = 70;
       this.mMassHelp.height = 40;
       this.mMassHelp.DefaultArrowPos();
-      var1.setColor(Color.black);
-      var1.drawImage(
+      g.setColor(Color.black);
+      g.drawImage(
          this.mTraceThumbnailImage, this.mTraceThumbnail.x, this.mTraceThumbnail.y, this.mTraceThumbnail.width, this.mTraceThumbnail.height, super.mFramePanel
       );
       double var8 = this.mViewTime / dt / 3200.0;
@@ -185,22 +185,22 @@ class CFrameAnimation extends CFrame {
       );
       var8 = this.mTime / dt / 3200.0;
       int var10 = (int)(var8 * this.mTraceThumbnail.width);
-      var1.setColor(Color.white);
-      var1.fillRect(
+      g.setColor(Color.white);
+      g.fillRect(
          this.mTraceThumbnail.x + var10 + this.mThumbRect.width,
          this.mTraceThumbnail.y,
          this.mTraceThumbnail.width - var10 - this.mThumbRect.width,
          this.mTraceThumbnail.height
       );
-      var1.setColor(Color.orange);
+      g.setColor(Color.orange);
       int var11 = (int)(this.mTraceThumbnail.x + (400.0 + 2.0 / dt) / 8.0);
-      var1.drawLine(
+      g.drawLine(
          this.mTraceThumbnail.x + 50, this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 2, var11, this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 2
       );
       this.mWinrads = this.mWin * 2.0 * Math.PI;
 
       for (int var14 = 0; var14 < 1600 - var11 - 144; var14++) {
-         var1.drawLine(
+         g.drawLine(
             var14 * 2 / 8 + var11,
             (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 2 + yscale * this.mXin * Math.sin(this.mWinrads * 2.0 * var14 * dt) / 8.0),
             var11 + 2 * (var14 + 1) / 8,
@@ -208,15 +208,16 @@ class CFrameAnimation extends CFrame {
          );
       }
 
-      var1.setColor(Color.black);
-      var1.drawRect(this.mTraceThumbnail.x - 1, this.mTraceThumbnail.y - 1, this.mTraceThumbnail.width + 1, this.mTraceThumbnail.height + 1);
-      var1.drawRect(this.mThumbRect.x - 1, this.mThumbRect.y + 1, this.mThumbRect.width, this.mThumbRect.height - 3);
-      var1.drawRect(this.mThumbRect.x, this.mThumbRect.y + 2, this.mThumbRect.width - 2, this.mThumbRect.height - 4);
-      var1.setPaintMode();
-      Graphics var12 = var1.create();
-      var12.clipRect(this.mTraceClip.x, this.mTraceClip.y, this.mTraceClip.width, this.mTraceClip.height);
-      var12.drawImage(this.mTraceImage, -((int)(this.mViewTime / dt)), this.mTraceClip.y, super.mFramePanel);
-      var1.drawRect(80, 190, 400, 120);
+      g.setColor(Color.black);
+      g.drawRect(this.mTraceThumbnail.x - 1, this.mTraceThumbnail.y - 1, this.mTraceThumbnail.width + 1, this.mTraceThumbnail.height + 1);
+      g.drawRect(this.mThumbRect.x - 1, this.mThumbRect.y + 1, this.mThumbRect.width, this.mThumbRect.height - 3);
+      g.drawRect(this.mThumbRect.x, this.mThumbRect.y + 2, this.mThumbRect.width - 2, this.mThumbRect.height - 4);
+      g.setPaintMode();
+      Graphics fudge = g.create();
+      fudge.clipRect(this.mTraceClip.x, this.mTraceClip.y, this.mTraceClip.width, this.mTraceClip.height);
+      fudge.drawImage(this.mTraceImage, -((int)(this.mViewTime / dt)), this.mTraceClip.y, super.mFramePanel);
+      fudge.dispose();
+      g.drawRect(80, 190, 400, 120);
    }
 
    public void Response() {
