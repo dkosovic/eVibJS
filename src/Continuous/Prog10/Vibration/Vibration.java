@@ -1,11 +1,12 @@
 package Continuous.Prog10.Vibration;
 
-import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
+
+import javax.swing.JApplet;
+import javax.swing.JLabel;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")

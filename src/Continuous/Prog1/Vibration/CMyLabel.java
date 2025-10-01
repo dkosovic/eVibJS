@@ -3,6 +3,7 @@ package Continuous.Prog1.Vibration;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
+
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")

@@ -1,14 +1,15 @@
 package TwoDOF.Prog2.Undamped;
 
-import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import javax.swing.JButton;
 import java.awt.Image;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
+
+import javax.swing.JApplet;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")

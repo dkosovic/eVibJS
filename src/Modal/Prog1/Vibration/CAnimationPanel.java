@@ -3,6 +3,7 @@ package Modal.Prog1.Vibration;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")

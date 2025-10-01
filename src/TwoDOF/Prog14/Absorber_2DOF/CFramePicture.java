@@ -2,6 +2,7 @@ package TwoDOF.Prog14.Absorber_2DOF;
 
 import java.awt.Graphics;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")

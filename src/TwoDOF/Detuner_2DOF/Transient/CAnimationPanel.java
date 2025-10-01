@@ -3,6 +3,7 @@ package TwoDOF.Detuner_2DOF.Transient;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")

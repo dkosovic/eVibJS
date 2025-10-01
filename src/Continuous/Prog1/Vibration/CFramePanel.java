@@ -1,16 +1,17 @@
 package Continuous.Prog1.Vibration;
 
-import javax.swing.JApplet;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import javax.swing.JPanel;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.Date;
 import java.util.Vector;
-import java.awt.event.MouseListener;
+
+import javax.swing.JApplet;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class CFramePanel extends JPanel implements MouseListener, MouseMotionListener {

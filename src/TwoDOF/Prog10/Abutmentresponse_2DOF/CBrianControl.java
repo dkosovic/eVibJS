@@ -1,20 +1,20 @@
 package TwoDOF.Prog10.Abutmentresponse_2DOF;
 
-import javax.swing.JApplet;
 import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JLabel;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.Date;
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import javax.swing.JApplet;
+import javax.swing.JLabel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.event.MouseListener;
 @SuppressWarnings("serial")
 public class CBrianControl extends CPicturePanel implements MouseListener, MouseMotionListener {
    JApplet mApplet;

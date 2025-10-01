@@ -2,6 +2,7 @@ package TwoDOF.Prog12.Forcedresponse_2DOF;
 
 import java.awt.Dimension;
 import java.awt.FontMetrics;
+
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")

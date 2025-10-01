@@ -1,8 +1,9 @@
 package Beam.Prog3.Modes;
 
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
+
+import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

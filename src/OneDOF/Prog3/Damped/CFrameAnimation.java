@@ -1,10 +1,11 @@
 package OneDOF.Prog3.Damped;
 
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
+
+import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

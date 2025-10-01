@@ -1,9 +1,10 @@
 package OneDOF.Prog11.AbutmentSin;
 
-import javax.swing.JApplet;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+
+import javax.swing.JApplet;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")

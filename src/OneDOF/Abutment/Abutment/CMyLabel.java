@@ -2,6 +2,7 @@ package OneDOF.Abutment.Abutment;
 
 import java.awt.Dimension;
 import java.awt.FontMetrics;
+
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")

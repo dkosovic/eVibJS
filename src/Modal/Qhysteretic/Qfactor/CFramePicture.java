@@ -2,6 +2,7 @@ package Modal.Qhysteretic.Qfactor;
 
 import java.awt.Graphics;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")

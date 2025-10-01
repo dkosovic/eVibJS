@@ -1,10 +1,12 @@
 package MultiDOF.Prog1.Modes;
 
-import jama.EigenvalueDecomposition;
-import jama.Matrix;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
+
+import javax.swing.JButton;
+
+import jama.EigenvalueDecomposition;
+import jama.Matrix;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

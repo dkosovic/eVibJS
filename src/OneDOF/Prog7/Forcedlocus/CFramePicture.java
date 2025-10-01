@@ -2,6 +2,7 @@ package OneDOF.Prog7.Forcedlocus;
 
 import java.awt.Graphics;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")

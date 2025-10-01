@@ -1,9 +1,10 @@
 package TwoDOF.Prog5.Damped;
 
-import javax.swing.JApplet;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+
+import javax.swing.JApplet;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")

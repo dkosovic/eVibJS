@@ -3,8 +3,9 @@ package OneDOF.Prog11.AbutmentSin;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import javax.swing.JPanel;
+
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 class CPicturePanel extends JPanel {

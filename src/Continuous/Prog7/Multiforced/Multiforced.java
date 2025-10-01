@@ -1,14 +1,15 @@
 package Continuous.Prog7.Multiforced;
 
-import javax.swing.JApplet;
 import java.awt.BorderLayout;
-import javax.swing.JFrame;
 import java.awt.Image;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
+
+import javax.swing.JApplet;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")

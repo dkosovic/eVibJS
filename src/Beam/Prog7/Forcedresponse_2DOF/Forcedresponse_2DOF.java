@@ -1,13 +1,14 @@
 package Beam.Prog7.Forcedresponse_2DOF;
 
-import javax.swing.JApplet;
 import java.awt.BorderLayout;
 import java.awt.Image;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
+
+import javax.swing.JApplet;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")

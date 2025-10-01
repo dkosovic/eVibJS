@@ -1,10 +1,11 @@
 package Complex.Prog6.Multiforced;
 
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.Vector;
+
+import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 class CFrameGraph extends CFrame {

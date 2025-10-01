@@ -1,9 +1,10 @@
 package Modal.Prog7.Eigen2DOF;
 
-import jama.EigenvalueDecomposition;
-import jama.Matrix;
 import java.awt.Color;
 import java.awt.Graphics;
+
+import jama.EigenvalueDecomposition;
+import jama.Matrix;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

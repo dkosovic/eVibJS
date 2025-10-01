@@ -2,6 +2,7 @@ package Beam.Prog7.Forcedresponse_2DOF;
 
 import java.awt.Graphics;
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")
