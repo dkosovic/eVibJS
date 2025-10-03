@@ -292,7 +292,6 @@ public class CUtility {
                return null;
             } else {
                int var8 = var6[0];
-               int var9 = var8 >> 24 & 0xFF;
                int var10 = var8 >> 16 & 0xFF;
                int var11 = var8 >> 8 & 0xFF;
                int var12 = var8 & 0xFF;

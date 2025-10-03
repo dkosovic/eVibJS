@@ -131,12 +131,10 @@ class CFrameGraph extends CFrame {
    }
 
    public void DrawModeShape(Graphics var1, int var2, int var3) {
-      double var7 = this.GetTime();
       var1.setColor(Color.white);
       var1.fillRect(0, 390, 600, 190);
       var1.fillRect(0, 0, 450, 20);
       byte var9 = 20;
-      byte var10 = 20;
       byte var11 = 80;
       byte var12 = 30;
       double var13 = 1.0472;

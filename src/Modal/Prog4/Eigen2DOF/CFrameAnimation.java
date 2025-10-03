@@ -146,14 +146,6 @@ class CFrameAnimation extends CFrame {
       this.store = this.lambda_imag[2] / this.lambda_real[2];
       this.Xi2 = Math.sqrt(1.0 / (1.0 + this.store * this.store));
       this.wn2 = this.lambda_imag[2] / Math.sqrt(1.0 - this.Xi2 * this.Xi2);
-      short var5 = 50;
-      short var6 = 189;
-      var5 = (byte)34;
-      var6 = 211;
-      var5 = 270;
-      var6 = 189;
-      var5 = 254;
-      var6 = 211;
       this.Eigenvalues(this.M, this.K);
 
       for (int var3 = 0; var3 < 2; var3++) {

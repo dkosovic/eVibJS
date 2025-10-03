@@ -221,8 +221,6 @@ class CFrameGraph extends CFrame {
             var102 = -(var50 * var76 - var48 * var78) * var20;
             var104 = var40 * (var72 - var68) * var20;
             double var106 = -(var36 * var72 * (var72 / var28 - var22) + var38 * var68 * (var68 / var26 - var24)) * var20;
-            double var108 = -var104;
-            double var110 = -(var50 * var68 / var26 - var48 * var72 / var28) * (var68 - var72) * var20;
             var112 = var98;
             var114 = -var100;
             var116 = var106;
@@ -260,8 +258,6 @@ class CFrameGraph extends CFrame {
             var102 = (var52 * var144 + var132 * var148) * var120;
             var104 = -var131 * (var140 - var138) * var120;
             double var152 = (var129 * var140 * (var122 - var140 / var125) + var130 * var138 * (var123 - var138 / var124)) * var120;
-            double var153 = -var104;
-            double var154 = (var52 * (var123 * var138 - var122 * var139 / var124) + var132 * (var122 * var140 - var123 * var141 / var125)) * var120;
             var112 = var150;
             var114 = -var151;
             var116 = var152;

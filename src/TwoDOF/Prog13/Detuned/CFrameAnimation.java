@@ -335,7 +335,6 @@ class CFrameAnimation extends CFrame {
          this.mY2[var6 + 1] = this.mY2[var6] + (this.mF2[var6] + 2.0 * this.mF2[var6 + 1] + 2.0 * this.mF2[var6 + 2] + this.mF2[var6 + 3]) * var2 / 6.0;
          this.mDisplacement1[var6 + 1] = this.mX1[var6 + 1];
          this.mDisplacement2[var6 + 1] = this.mX2[var6 + 1];
-         double var4 = this.mDisplacement2[var6 + 1] - this.mDisplacement1[var6 + 1];
          if (this.mDisplacement1[var6 + 1] > 0.0073) {
             this.mDisplacement1[var6 + 1] = 0.007;
             this.mX1[var6 + 1] = this.mDisplacement1[var6 + 1];

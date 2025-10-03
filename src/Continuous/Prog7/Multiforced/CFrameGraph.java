@@ -132,7 +132,6 @@ class CFrameGraph extends CFrame {
    }
 
    public void DrawModeShape(Graphics var1, int var2, int var3) {
-      double var10 = this.GetTime();
       var1.setColor(Color.white);
       var1.fillRect(0, 390, 600, 190);
       var1.fillRect(0, 0, 450, 20);
@@ -144,7 +143,6 @@ class CFrameGraph extends CFrame {
       var1.setColor(var17);
       this.setOmegaDisp(this.mWanimate);
       double var5 = 0.0;
-      double var7 = 0.0;
 
       for (int var4 = 0; var4 < 31; var4++) {
          var5 = this.mxp[var4] * Math.cos(0.7 * this.mTime * 2.0 * Math.PI);

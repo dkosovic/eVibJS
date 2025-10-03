@@ -79,11 +79,6 @@ public class Eigen2DOF extends Applet implements ActionListener {
       new CFramePicture(this.mFramePanel, 540, 83, 0, 0, var28, false);
       Image var30 = this.getImage(this.getCodeBase(), "Wlable.gif");
       new CFramePicture(this.mFramePanel, 56, 346, 0, 0, var30, false);
-      Image var32 = this.getImage(this.getCodeBase(), "wn1.gif");
-      Image var33 = this.getImage(this.getCodeBase(), "Xi1.gif");
-      Image var34 = this.getImage(this.getCodeBase(), "wn2.gif");
-      Image var35 = this.getImage(this.getCodeBase(), "Xi2.gif");
-      Image var36 = this.getImage(this.getCodeBase(), "undamped.gif");
       this.validate();
    }
 
