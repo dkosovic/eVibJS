@@ -24,14 +24,14 @@ public class CUtility {
       }
 
       if (var0 == 0.0) {
-         return new String("0");
+         return "0";
       } else if (var0 < 0.0) {
-         return new String("-" + nns(-var0, var2));
+         return "-" + nns(-var0, var2);
       } else {
          double var3 = Math.floor(log10(var0));
          double var5 = Math.pow(10.0, var3 - var2 + 1.0);
          long var7 = Math.round(var0 / var5);
-         String var9 = new String(String.valueOf(var7 * var5));
+         String var9 = String.valueOf(var7 * var5);
          String var10 = "";
          int var11 = var9.indexOf("E-");
          if (var11 > -1) {
@@ -56,10 +56,10 @@ public class CUtility {
             }
 
             if (var12) {
-               var9 = new String(var9.substring(0, var13 + 1));
+               var9 = var9.substring(0, var13 + 1);
             }
 
-            String var14 = new String(var9.substring(0, var13));
+            String var14 = var9.substring(0, var13);
 
             double var15;
             try {
@@ -75,7 +75,7 @@ public class CUtility {
             var9 = var14;
          }
 
-         return new String(var9 + var10);
+         return var9 + var10;
       }
    }
 

@@ -84,14 +84,14 @@ class CFrameGraph extends CFrame {
       }
 
       if (var1 == 0.0) {
-         return new String("0");
+         return "0";
       } else if (var1 < 0.0) {
-         return new String("-" + this.nns(-var1, var3));
+         return "-" + this.nns(-var1, var3);
       } else {
          double var4 = Math.floor(this.log10(var1));
          double var6 = Math.pow(10.0, var4 - var3 + 1.0);
          long var8 = Math.round(var1 / var6);
-         String var10 = new String(String.valueOf(var8 * var6));
+         String var10 = String.valueOf(var8 * var6);
 
          while (var10.length() > 1 && var10.indexOf(46) > -1) {
             boolean var11 = false;
@@ -102,10 +102,10 @@ class CFrameGraph extends CFrame {
             }
 
             if (var11) {
-               var10 = new String(var10.substring(0, var12 + 1));
+               var10 = var10.substring(0, var12 + 1);
             }
 
-            String var13 = new String(var10.substring(0, var12));
+            String var13 = var10.substring(0, var12);
 
             double var14;
             try {
