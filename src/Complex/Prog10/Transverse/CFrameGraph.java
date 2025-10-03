@@ -214,21 +214,21 @@ class CFrameGraph extends CFrame {
       return this.mTime;
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
-      if (var2) {
+   public boolean MouseEvent(int code, boolean prevh1t) {
+      if (prevh1t) {
          return false;
       } else {
-         boolean var3 = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
-         switch (var1) {
+         boolean hit = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+         switch (code) {
             case 0:
             case 1:
-               double var4 = (super.mFramePanel.mThisPt.x - 40) * 200.0 / 400.0;
-               if (var4 > 5000.0) {
-                  var4 = 5000.0;
+               double newOmega = (super.mFramePanel.mThisPt.x - 40) * 200.0 / 400.0;
+               if (newOmega > 5000.0) {
+                  newOmega = 5000.0;
                }
 
-               if (var4 < 50.0) {
-                  var4 = 50.0;
+               if (newOmega < 50.0) {
+                  newOmega = 50.0;
                }
             default:
                return true;
