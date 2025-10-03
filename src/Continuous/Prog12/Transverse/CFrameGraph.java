@@ -135,15 +135,15 @@ class CFrameGraph extends CFrame {
       var1.setColor(Color.white);
       var1.fillRect(0, 390, 600, 190);
       var1.fillRect(0, 0, 450, 20);
-      byte var8 = 20;
-      byte var10 = 30;
+      int var8 = 20;
+      int var10 = 30;
       double var11 = 1.0472;
       short var13 = 470;
       Color var15 = new Color(0.18F, 0.58F, 0.58F);
       Color var16 = new Color(0.52F, 0.82F, 0.82F);
       Color var17 = new Color(0.77F, 0.38F, 0.0F);
       new Color(1.0F, 1.0F, 0.4F);
-      byte var20 = 90;
+      int var20 = 90;
       int var21 = (int)(var20 * Math.cos(var11) / 2.0);
       this.setOmegaDisp(this.mWanimate);
       this.mAmp[0] = 0.0;

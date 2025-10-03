@@ -39,10 +39,10 @@ class CFrameHelp extends CFrame implements ActionListener {
 
          int var3 = super.mFramePanel.getSize().width;
          int var4 = super.mFramePanel.getSize().height;
-         byte var5 = 12;
-         byte var6 = 5;
-         byte var7 = 10;
-         byte var8 = 20;
+         int var5 = 12;
+         int var6 = 5;
+         int var7 = 10;
+         int var8 = 20;
          int var9 = 0;
          int var10 = 2 * var6;
          StringTokenizer var11 = new StringTokenizer(this.mMessage, "\n");
@@ -56,8 +56,8 @@ class CFrameHelp extends CFrame implements ActionListener {
          }
 
          var9 += 2 * var7;
-         byte var20 = 1;
-         byte var13 = 1;
+         int var20 = 1;
+         int var13 = 1;
          if (var2.x + var7 + var9 > var3) {
             var20 = -1;
          }

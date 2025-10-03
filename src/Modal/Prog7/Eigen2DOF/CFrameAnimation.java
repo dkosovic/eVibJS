@@ -245,7 +245,7 @@ class CFrameAnimation extends CFrame {
 
       var1.setColor(Color.red);
 
-      for (byte var42 = 2; var42 < 481; var42 += 2) {
+      for (int var42 = 2; var42 < 481; var42 += 2) {
          var1.drawLine(
             30 + (var42 - 1),
             (int)(301.0 - (this.mx11[var42] + this.mx12[var42]) * this.myscale),
@@ -276,7 +276,7 @@ class CFrameAnimation extends CFrame {
 
       var1.setColor(Color.red);
 
-      for (byte var45 = 0; var45 < 481; var45 += 2) {
+      for (int var45 = 0; var45 < 481; var45 += 2) {
          var1.drawLine(
             30 + (var45 - 1),
             (int)(401.0 - (this.mx21[var45] + this.mx22[var45]) * this.myscale),

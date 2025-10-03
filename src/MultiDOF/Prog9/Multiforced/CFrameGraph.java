@@ -61,7 +61,7 @@ class CFrameGraph extends CFrame {
    }
 
    public void Frame(Graphics var1) {
-      byte var2 = 7;
+      int var2 = 7;
       var1.setPaintMode();
       var1.setColor(Color.black);
       CSpringMassDamper var4 = this.GetSMD(this.mDisplayXPos);
@@ -77,7 +77,7 @@ class CFrameGraph extends CFrame {
       var1.setColor(Color.lightGray);
       var1.drawRect(super.x, super.y, super.width, super.height);
       var1.setColor(Color.black);
-      byte var6 = 3;
+      int var6 = 3;
       if (this.mMax == this.mMin) {
          var1.drawString("Please wait, calculating...", super.x + 10, super.y + 10);
       } else {
@@ -529,7 +529,7 @@ class CFrameGraph extends CFrame {
       }
 
       int var3 = 40;
-      byte var4 = 15;
+      int var4 = 15;
 
       for (int var1 = 1; var1 <= var2; var1++) {
          CSpringMassDamper var5 = this.GetSMD(var1);

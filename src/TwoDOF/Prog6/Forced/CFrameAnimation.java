@@ -357,7 +357,7 @@ class CFrameAnimation extends CFrame {
       this.mTraceGC.fillRect(0, 0, 3290, 200);
       this.mTraceGC.setColor(Color.black);
 
-      for (byte var1 = 0; var1 < 3290; var1 += 50) {
+      for (int var1 = 0; var1 < 3290; var1 += 50) {
          this.mTraceGC.drawLine(var1, 0, var1, 200);
       }
 

@@ -134,10 +134,10 @@ public class CUtility {
 
    public static void DrawHelp(Graphics var0, Point var1, int var2, int var3, String var4) {
       var0.setPaintMode();
-      byte var5 = 12;
-      byte var6 = 5;
-      byte var7 = 10;
-      byte var8 = 20;
+      int var5 = 12;
+      int var6 = 5;
+      int var7 = 10;
+      int var8 = 20;
       int var9 = 0;
       int var10 = 2 * var6;
       StringTokenizer var11 = new StringTokenizer(var4, "\n");
@@ -151,8 +151,8 @@ public class CUtility {
       }
 
       var9 += 2 * var7;
-      byte var20 = 1;
-      byte var13 = 1;
+      int var20 = 1;
+      int var13 = 1;
       if (var1.x + var7 + var9 > var2) {
          var20 = -1;
       }

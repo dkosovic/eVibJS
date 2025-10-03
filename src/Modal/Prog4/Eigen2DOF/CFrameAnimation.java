@@ -227,7 +227,7 @@ class CFrameAnimation extends CFrame {
 
       var1.setColor(Color.red);
 
-      for (byte var33 = 2; var33 < 481; var33 += 4) {
+      for (int var33 = 2; var33 < 481; var33 += 4) {
          double var41 = (Math.PI * 2) * var33 / this.mxscale;
          double var42 = this.wn1 * this.wn1 - var41 * var41;
          double var43 = 2.0 * this.Xi1 * this.wn1 * var41;
@@ -254,7 +254,7 @@ class CFrameAnimation extends CFrame {
 
       var1.setColor(Color.blue);
 
-      for (byte var34 = 2; var34 < 481; var34 += 4) {
+      for (int var34 = 2; var34 < 481; var34 += 4) {
          this.mPhase[var34] = 180.0 * Math.atan(this.mQuadAmp[var34] / this.mRealAmp[var34]) / Math.PI;
          if (this.mPhase[var34] >= 0.0) {
             this.mPhase[var34] = this.mPhase[var34] - 180.0;

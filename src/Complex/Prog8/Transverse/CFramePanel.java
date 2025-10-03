@@ -95,7 +95,7 @@ public class CFramePanel extends Panel {
       this.mThisPt.y = var3;
       Date var4 = new Date();
       long var5 = var4.getTime();
-      byte var7;
+      int var7;
       if (var5 - this.mLastClickTime < 500L) {
          var7 = 4;
       } else {

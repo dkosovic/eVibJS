@@ -135,8 +135,8 @@ class CFrameGraph extends CFrame {
       var1.setColor(Color.white);
       var1.fillRect(0, 390, 600, 190);
       var1.fillRect(0, 0, 450, 20);
-      byte var8 = 20;
-      byte var10 = 30;
+      int var8 = 20;
+      int var10 = 30;
       double var11 = 1.0472;
       short var13 = 470;
       Color var15 = new Color(0.18F, 0.58F, 0.58F);
@@ -145,7 +145,7 @@ class CFrameGraph extends CFrame {
       Color var18 = new Color(0.77F, 0.38F, 0.0F);
       Color var19 = new Color(1.0F, 1.0F, 0.4F);
       Color var20 = new Color(1.0F, 0.89F, 0.2F);
-      byte var22 = 90;
+      int var22 = 90;
       var1.setColor(var19);
       int var23 = (int)(var22 * Math.cos(var11) / 2.0);
       int var24 = (int)(var22 * Math.sin(var11) / 2.0);
