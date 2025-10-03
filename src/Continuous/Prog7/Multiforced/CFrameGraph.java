@@ -2,7 +2,6 @@ package Continuous.Prog7.Multiforced;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Vector;
 
 @SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
@@ -25,7 +24,6 @@ class CFrameGraph extends CFrame {
    public static final int kResponsePoints = 401;
    double[] mRec = new double[401];
    double[] mxp = new double[31];
-   public Vector mElements;
    double mL = 2.0;
    double mDo = 0.05;
    double mDL = 0.2;

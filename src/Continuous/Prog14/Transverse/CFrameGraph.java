@@ -2,7 +2,6 @@ package Continuous.Prog14.Transverse;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Vector;
 
 @SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
@@ -21,7 +20,6 @@ class CFrameGraph extends CFrame {
    public static final int kResponsePoints = 401;
    double[] mRec1 = new double[401];
    double[] mRec2 = new double[401];
-   public Vector mElements;
    double mL = 0.7;
    double mD = 0.15;
    double mlambda;
