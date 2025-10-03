@@ -1,7 +1,6 @@
 package TwoDOF.Prog9.Forcedresponse_2DOF;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -98,7 +97,6 @@ public class CUtility {
    }
 
    public static int DrawString(Graphics g, String theString, int x, int y) {
-      Font font = g.getFont();
       FontMetrics fm = g.getFontMetrics();
       int wid = fm.stringWidth(theString);
       g.drawString(theString, x, y);

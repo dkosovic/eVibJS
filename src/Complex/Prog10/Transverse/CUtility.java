@@ -1,7 +1,6 @@
 package Complex.Prog10.Transverse;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -98,7 +97,6 @@ public class CUtility {
    }
 
    public static int DrawString(Graphics var0, String var1, int var2, int var3) {
-      Font var4 = var0.getFont();
       FontMetrics var5 = var0.getFontMetrics();
       int var6 = var5.stringWidth(var1);
       var0.drawString(var1, var2, var3);
