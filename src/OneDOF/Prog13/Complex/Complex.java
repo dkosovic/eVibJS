@@ -3,7 +3,6 @@ package OneDOF.Prog13.Complex;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Event;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
@@ -58,8 +57,10 @@ public class Complex extends Applet implements ActionListener {
       Image PhiImage = this.getImage(this.getCodeBase(), "Phi.gif");
       new CFramePicture(this.mFramePanel, 304, 25, 0, 0, PhiImage, false);
       this.mAnimFrame.mStartButton = new Button("Start");
+      this.mAnimFrame.mStartButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStartButton);
       this.mAnimFrame.mStopButton = new Button("Stop");
+      this.mAnimFrame.mStopButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStopButton);
       this.validate();
       this.mAnimFrame.UpdateButtonAppearance();
@@ -70,32 +71,35 @@ public class Complex extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public boolean action(Event evt, Object arg) {
-      if (evt.target instanceof Button) {
-         if (arg.equals("Start")) {
+   public void actionPerformed(ActionEvent e) {
+      // Handle button clicks
+      if (e.getSource() instanceof Button) {
+         Button source = (Button) e.getSource();
+         String label = source.getLabel();
+         if (label.equals("Start")) {
             this.mAnimFrame.ControlMessage(1, 1.0);
-         } else if (arg.equals("Stop")) {
+         } else if (label.equals("Stop")) {
             this.mAnimFrame.ControlMessage(1, 0.0);
          }
+         return;
       }
 
-      return true;
-   }
-
-   public void actionPerformed(ActionEvent e) {
+      // Handle timer events
       if (this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
-         
+
          if (this.mLastTime == 0) {
             this.mLastTime = thisTime;
          }
          double realSeconds = (thisTime - this.mLastTime) / 1000.0;
          this.mLastTime = thisTime;
-         
+
          this.mAnimFrame.ControlMessage(0, realSeconds);
       }
    }
+
+
 
 
 

@@ -3,7 +3,6 @@ package Beam.Prog6.Forced;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Event;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
@@ -79,10 +78,13 @@ public class Forced extends Applet implements ActionListener {
       Image A2Image = this.getImage(this.getCodeBase(), "A2.gif");
       new CFramePicture(this.mFramePanel, 475, 26, 0, 0, A2Image, false);
       this.mAnimFrame.mStartButton = new Button("Start");
+      this.mAnimFrame.mStartButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStartButton);
       this.mAnimFrame.mPauseButton = new Button("Pause");
+      this.mAnimFrame.mPauseButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mPauseButton);
       this.mAnimFrame.mStopButton = new Button("Stop");
+      this.mAnimFrame.mStopButton.addActionListener(this);
       buttonPanel.add(this.mAnimFrame.mStopButton);
       this.validate();
       this.mAnimFrame.UpdateButtonAppearance();
@@ -93,31 +95,32 @@ public class Forced extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public boolean action(Event evt, Object arg) {
-      if (evt.target instanceof Button) {
-         if (arg.equals("Start") || arg.equals("Cont.")) {
+   public void actionPerformed(ActionEvent e) {
+      // Handle button clicks
+      if (e.getSource() instanceof Button) {
+         Button source = (Button) e.getSource();
+         String label = source.getLabel();
+         if (label.equals("Start") || label.equals("Cont.")) {
             this.mAnimFrame.ControlMessage(1, 1.0);
-         } else if (arg.equals("Pause")) {
+         } else if (label.equals("Pause")) {
             this.mAnimFrame.ControlMessage(1, 2.0);
-         } else if (arg.equals("Stop")) {
+         } else if (label.equals("Stop")) {
             this.mAnimFrame.ControlMessage(1, 0.0);
          }
+         return;
       }
 
-      return true;
-   }
-
-   public void actionPerformed(ActionEvent e) {
+      // Handle timer events
       if (this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
-         
+
          if (this.mLastTime == 0) {
             this.mLastTime = thisTime;
          }
          double realSeconds = (thisTime - this.mLastTime) / 1000.0;
          this.mLastTime = thisTime;
-         
+
          this.mAnimFrame.ControlMessage(0, realSeconds);
       }
    }

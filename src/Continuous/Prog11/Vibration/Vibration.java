@@ -34,13 +34,13 @@ public class Vibration extends Applet implements ActionListener {
       if (this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
-         
+
          if (this.mLastTime == 0) {
             this.mLastTime = thisTime;
          }
          double realSeconds = (thisTime - this.mLastTime) / 1000.0;
          this.mLastTime = thisTime;
-         
+
          this.mAnimPanel.SetRealParameter(0, realSeconds);
       }
    }
