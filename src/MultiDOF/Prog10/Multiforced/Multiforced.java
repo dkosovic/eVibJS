@@ -3,7 +3,6 @@ package MultiDOF.Prog10.Multiforced;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Event;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.Panel;
@@ -13,10 +12,12 @@ import java.net.URL;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Multiforced extends Applet implements ActionListener {
+public class Multiforced extends Applet implements ActionListener, KeyListener {
    public Frame mFeedbackWindow = null;
    public TextField answer1;
    CFramePanel mFramePanel;
@@ -36,11 +37,22 @@ public class Multiforced extends Applet implements ActionListener {
       this.mFrameGraph = new CFrameGraph(this.mFramePanel, 40, 70, 602, 280);
       this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
       Button var4 = new Button("Instructions");
+      var4.addActionListener(this);
       var1.add(var4);
       Button var5 = new Button("Edit");
+      var5.addActionListener(this);
       var1.add(var5);
-      var1.add(new Button("Add"));
-      var1.add(new Button("Delete"));
+      Button addButton = new Button("Add");
+      addButton.addActionListener(this);
+      var1.add(addButton);
+      Button deleteButton = new Button("Delete");
+      deleteButton.addActionListener(this);
+      var1.add(deleteButton);
+
+      // Register KeyListener to handle keyboard input
+      this.addKeyListener(this);
+      this.setFocusable(true);
+
       this.validate();
    }
 
@@ -49,41 +61,55 @@ public class Multiforced extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public boolean action(Event var1, Object var2) {
-      if (var1.target instanceof Button) {
-         if (var2.equals("Edit")) {
-            this.mFrameGraph.ControlMessage(null, 1, 0.0);
-         } else if (var2.equals("Add")) {
-            this.mFrameGraph.ControlMessage(null, 5, 0.0);
-         } else if (var2.equals("Delete")) {
+   // Modern KeyListener implementation
+   @Override
+   public void keyPressed(KeyEvent e) {
+      int keyCode = e.getKeyCode();
+      switch (keyCode) {
+         case KeyEvent.VK_BACK_SPACE:
+         case KeyEvent.VK_DELETE:
             this.mFrameGraph.DeleteSelected();
-         } else if (var2.equals("Instructions")) {
-            String var3 = this.getCodeBase().toString() + "instructions.html";
-            Object var4 = null;
+            break;
+         default:
+            // Other keys ignored
+            break;
+      }
+   }
 
+   @Override
+   public void keyReleased(KeyEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void keyTyped(KeyEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void actionPerformed(ActionEvent e) {
+      // Handle button clicks
+      Object source = e.getSource();
+      if (source instanceof Button) {
+         String command = e.getActionCommand();
+         if ("Edit".equals(command)) {
+            this.mFrameGraph.ControlMessage(null, 1, 0.0);
+         } else if ("Add".equals(command)) {
+            this.mFrameGraph.ControlMessage(null, 5, 0.0);
+         } else if ("Delete".equals(command)) {
+            this.mFrameGraph.DeleteSelected();
+         } else if ("Instructions".equals(command)) {
+            String url = this.getCodeBase().toString() + "instructions.html";
             try {
-               var4 = new URL(var3);
-               this.getAppletContext().showDocument((URL)var4, "_blank");
-            } catch (MalformedURLException var5) {
+               URL instructionsUrl = new URL(url);
+               this.getAppletContext().showDocument(instructionsUrl, "_blank");
+            } catch (MalformedURLException ex) {
                System.out.println("Malformed URL exception");
             }
          }
       }
-
-      return true;
-   }
-
-   public boolean keyDown(Event var1, int var2) {
-      switch (var2) {
-         case 8:
-            this.mFrameGraph.DeleteSelected();
-         default:
-            return true;
-      }
-   }
-
-   public void actionPerformed(ActionEvent e) {
-      if (this.mTimer != null) {
+      // Handle timer events
+      else if (source == this.mTimer && this.mTimer != null) {
          Date ddd = new Date();
          long thisTime = ddd.getTime();
 
@@ -101,3 +127,4 @@ public class Multiforced extends Applet implements ActionListener {
       if (this.mTimer != null) { this.mTimer.stop(); this.mTimer = null; }
    }
 }
+

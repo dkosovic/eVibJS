@@ -2,15 +2,21 @@ package TwoDOF.Prog5.Damped;
 
 import java.applet.Applet;
 import java.awt.Color;
-import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Label;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.Date;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 @SuppressWarnings("serial")
-public class CBrianControl extends CPicturePanel {
+public class CBrianControl extends CPicturePanel implements MouseListener, MouseMotionListener {
    Applet mApplet;
    int mSelection;
    Date mSelStart;
@@ -20,6 +26,7 @@ public class CBrianControl extends CPicturePanel {
    public double mOldValue;
    public double mDeltaPerSec;
    Label mLabel;
+   private List<ChangeListener> changeListeners = new ArrayList<>();
    static final int kNoSelection = 0;
    static final int kUpSelection = 1;
    static final int kDownSelection = 2;
@@ -33,6 +40,10 @@ public class CBrianControl extends CPicturePanel {
       this.mValue = val;
       this.mMax = max;
       this.BroadcastValue();
+
+      // Add modern mouse listeners
+      this.addMouseListener(this);
+      this.addMouseMotionListener(this);
    }
 
    public Rectangle GridToRect(int which) {
@@ -176,6 +187,10 @@ public class CBrianControl extends CPicturePanel {
          }
 
          this.BroadcastValue();
+
+      // Add modern mouse listeners
+      this.addMouseListener(this);
+      this.addMouseMotionListener(this);
       }
    }
 
@@ -193,29 +208,76 @@ public class CBrianControl extends CPicturePanel {
          this.mLabel.setText(nns(this.mValue));
       }
 
-      Event e = new Event(this.mApplet, Event.SCROLL_ABSOLUTE, this);
-      this.postEvent(e);
+
+      // Fire change event to registered listeners (modern approach)
+      fireChangeEvent();
+
+   }
+   // Modern change listener support
+   public void addChangeListener(ChangeListener listener) {
+      changeListeners.add(listener);
    }
 
-   public boolean mouseDown(Event evt, int xx, int yy) {
-      this.NewSelection(this.GetSelection(xx, yy));
-      return true;
+   public void removeChangeListener(ChangeListener listener) {
+      changeListeners.remove(listener);
    }
 
-   public boolean mouseDrag(Event evt, int xx, int yy) {
-      int newSel = this.GetSelection(xx, yy);
+   private void fireChangeEvent() {
+      ChangeEvent event = new ChangeEvent(this);
+      for (ChangeListener listener : changeListeners) {
+         listener.stateChanged(event);
+      }
+   }
+
+   // Getter for current value - useful for change listeners
+   public double getValue() {
+      return mValue;
+   }
+
+   public void setValue(double value) {
+      if (value >= mMin && value <= mMax && value != mValue) {
+         mValue = value;
+         BroadcastValue();
+      }
+   }   // Modern MouseListener implementation
+   @Override
+   public void mousePressed(MouseEvent e) {
+      this.NewSelection(this.GetSelection(e.getX(), e.getY()));
+   }
+
+   @Override
+   public void mouseReleased(MouseEvent e) {
+      this.NewSelection(0);
+   }
+
+   @Override
+   public void mouseClicked(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e) {
+      // Not used
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e) {
+      // Not used
+   }
+
+   // Modern MouseMotionListener implementation
+   @Override
+   public void mouseDragged(MouseEvent e) {
+      int newSel = this.GetSelection(e.getX(), e.getY());
       if (newSel != this.mSelection) {
          this.NewSelection(newSel);
       }
-
-      return true;
    }
 
-   public boolean mouseUp(Event evt, int xx, int yy) {
-      this.NewSelection(0);
-      return true;
+   @Override
+   public void mouseMoved(MouseEvent e) {
+      // Not used
    }
-
    public void paint(Graphics g) {
       super.paint(g);
       if (this.mSelection != 0) {
