@@ -10,11 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Date;
 import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class CFrameSmallControl extends CFramePicture implements ActionListener, KeyListener {
+public class CFrameSmallControl extends CFramePicture implements ActionListener, KeyListener, MouseListener {
    public CFrame mControlledFrame;
    int mSelection;
    int mCode;
@@ -48,6 +50,10 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener,
       this.mMin = min;
       this.mValue = val;
       this.mMax = max;
+
+      // Register modern mouse event listeners for direct, responsive mouse handling
+      thePanel.addMouseListener(this);
+
       this.BroadcastValue();
    }
 
@@ -286,60 +292,6 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener,
       this.repaint();
    }
 
-   public boolean MouseEvent(int code, boolean prevHit) {
-      super.MouseEvent(code, prevHit);
-      Point thisPt = this.GlobalToLocal(super.mFramePanel.mThisPt);
-      switch (code) {
-         case 0:
-            if (!super.mWasHit) {
-               return false;
-            } else if (prevHit) {
-               return false;
-            } else {
-               this.NewSelection(this.GetSelection(thisPt.x, thisPt.y));
-               if (this.mSelection == 3 && this.mTextField == null) {
-                  if (this.mTextEditable) {
-                     this.mTextField = new TextField();
-                     super.mFramePanel.add(this.mTextField);
-                     this.mTextField.addKeyListener(this);
-                     Insets insets = super.mFramePanel.getInsets();
-                     this.mTextField.setBounds(insets.left + super.x + this.mDLabelPos.x, insets.top + super.y - 2, this.mLabelWidth + 8, 20);
-                     this.mTextField.setText(this.GetLabelString());
-                  } else {
-                     this.mTextField = null;
-                  }
-
-                  this.BroadcastValue();
-               } else {
-                  this.mTimer = new Timer(100, this);
-                  this.mTimer.start();
-               }
-
-               return true;
-            }
-         case 1:
-            if (!super.mWasHit) {
-               this.NewSelection(0);
-               return true;
-            } else if (this.mSelection == 0) {
-               return false;
-            } else {
-               int newSel = this.GetSelection(thisPt.x, thisPt.y);
-               if (newSel == this.mSelection) {
-                  return false;
-               }
-
-               this.NewSelection(newSel);
-               return true;
-            }
-         case 2:
-            this.NewSelection(0);
-            return true;
-         default:
-            return false;
-      }
-   }
-
    public void Frame(Graphics g) {
       super.Frame(g);
       Rectangle downRect = this.LocalToGlobalR(this.GridToRect(2));
@@ -389,11 +341,57 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener,
    public void actionPerformed(ActionEvent e) {
       if (this.mSelection != 0) {
          this.NewValue();
-      } else {
-         if (this.mTimer != null) {
-            this.mTimer.stop();
-            this.mTimer = null;
+      }
+   }
+
+   // Modern mouse event handling methods for direct, responsive interaction
+   @Override
+   public void mousePressed(MouseEvent e) {
+      // Check if the click is within this control's bounds
+      if (e.getX() >= super.x && e.getX() < super.x + super.width &&
+          e.getY() >= super.y && e.getY() < super.y + super.height) {
+         Point localPt = new Point(e.getX() - super.x, e.getY() - super.y);
+         this.NewSelection(this.GetSelection(localPt.x, localPt.y));
+         if (this.mSelection == 3 && this.mTextField == null) {
+            if (this.mTextEditable) {
+               this.mTextField = new TextField();
+               super.mFramePanel.add(this.mTextField);
+               this.mTextField.addKeyListener(this);
+               Insets insets = super.mFramePanel.getInsets();
+               this.mTextField.setBounds(insets.left + super.x + this.mDLabelPos.x, insets.top + super.y - 2, this.mLabelWidth + 8, 20);
+               this.mTextField.setText(this.GetLabelString());
+            } else {
+               this.mTextField = null;
+            }
+            this.BroadcastValue();
+         } else {
+            this.mTimer = new Timer(100, this);
+            this.mTimer.start();
          }
       }
+   }
+
+   @Override
+   public void mouseReleased(MouseEvent e) {
+      if (this.mTimer != null) {
+         this.mTimer.stop();
+         this.mTimer = null;
+      }
+      this.NewSelection(0);
+   }
+
+   @Override
+   public void mouseClicked(MouseEvent e) {
+      // Handled in mousePressed
+   }
+
+   @Override
+   public void mouseEntered(MouseEvent e) {
+      // No specific action required
+   }
+
+   @Override
+   public void mouseExited(MouseEvent e) {
+      // No specific action required
    }
 }
