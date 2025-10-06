@@ -31,10 +31,20 @@ class CFramePicture extends CFrame {
    }
 
    public void Frame(Graphics var1) {
-      if (this.mScaleImage) {
-         var1.drawImage(this.mImage, super.x, super.y, super.width, super.height, super.mFramePanel);
-      } else {
-         var1.drawImage(this.mImage, super.x, super.y, super.mFramePanel);
+      if (this.mImage != null) {
+         // Check if image is fully loaded before drawing
+         int width = this.mImage.getWidth(super.mFramePanel);
+         int height = this.mImage.getHeight(super.mFramePanel);
+
+         // If width/height are -1, image is still loading
+         if (width > 0 && height > 0) {
+            if (this.mScaleImage) {
+               var1.drawImage(this.mImage, super.x, super.y, super.width, super.height, super.mFramePanel);
+            } else {
+               var1.drawImage(this.mImage, super.x, super.y, super.mFramePanel);
+            }
+         }
+         // If image is still loading, do nothing - it will repaint when ready
       }
    }
 }
