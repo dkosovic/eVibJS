@@ -75,21 +75,31 @@ public class CFramePanel extends JPanel implements MouseListener, MouseMotionLis
       }
    }
 
-   public void paint(Graphics g) {
+   @Override
+   protected void paintComponent(Graphics g) {
+      super.paintComponent(g);
       this.mScreenGC = g;
-      if (this.mOffScreenGC == null) {
-         this.mOffScrImage = this.createImage(this.getSize().width, this.getSize().height);
-         this.mOffScreenGC = this.mOffScrImage.getGraphics();
+
+      // Create off-screen image if needed using BufferedImage
+      if (this.mOffScrImage == null ||
+          this.mOffScrImage.getWidth(null) != getWidth() ||
+          this.mOffScrImage.getHeight(null) != getHeight()) {
+         java.awt.image.BufferedImage bufferedImage = new java.awt.image.BufferedImage(
+             getWidth(), getHeight(), java.awt.image.BufferedImage.TYPE_INT_RGB);
+         this.mOffScrImage = bufferedImage;
+         this.mOffScreenGC = bufferedImage.createGraphics();
       }
 
-      int ww = this.mOffScrImage.getWidth(this);
-      int hh = this.mOffScrImage.getHeight(this);
-      this.mOffScreenGC.setPaintMode();
-      this.mOffScreenGC.setColor(Color.white);
-      this.mOffScreenGC.fillRect(0, 0, ww, hh);
-      this.mOffScreenGC.setColor(Color.black);
-      this.DrawAllFrames(this.mOffScreenGC);
-      g.drawImage(this.mOffScrImage, 0, 0, null);
+      if (this.mOffScreenGC != null) {
+         int ww = getWidth();
+         int hh = getHeight();
+         this.mOffScreenGC.setPaintMode();
+         this.mOffScreenGC.setColor(Color.white);
+         this.mOffScreenGC.fillRect(0, 0, ww, hh);
+         this.mOffScreenGC.setColor(Color.black);
+         this.DrawAllFrames(this.mOffScreenGC);
+         g.drawImage(this.mOffScrImage, 0, 0, null);
+      }
    }
 
    // Modern MouseListener implementation
