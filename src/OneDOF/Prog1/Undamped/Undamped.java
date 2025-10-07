@@ -53,10 +53,13 @@ public class Undamped extends Applet implements ActionListener {
       new CFrameHelp(this.mFramePanel, 90, 0, 80, 80, "This is the initial\ndisplacement of the mass.");
       new CFrameHelp(this.mFramePanel, 180, 0, 80, 80, "This is the initial\nvelocity of the mass.");
       this.mAnimFrame.mStartButton = new Button("Start");
+      this.mAnimFrame.mStartButton.addActionListener(this);
       var1.add(this.mAnimFrame.mStartButton);
       this.mAnimFrame.mPauseButton = new Button("Pause");
+      this.mAnimFrame.mPauseButton.addActionListener(this);
       var1.add(this.mAnimFrame.mPauseButton);
       this.mAnimFrame.mStopButton = new Button("Stop");
+      this.mAnimFrame.mStopButton.addActionListener(this);
       var1.add(this.mAnimFrame.mStopButton);
       this.validate();
       this.mAnimFrame.UpdateButtonAppearance();
