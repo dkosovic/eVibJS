@@ -2,9 +2,26 @@
 <html lang="en">
 
 <head>
+   <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Natural frequencies</title>
 
+   <script src="../../../site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info = {
+   code: "Complex.Prog3.Forcedresponse.Forcedresponse",
+   main: null,
+   core: "NONE",
+   width: 800,
+   height: 400,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: '../../../site/swingjs/j2s',
+   console: null,
+   allowjavascript: true
+   }
+   </script>
 </head>
 <body style="background-color: #FFFFFF;">
 <p><img style="vertical-align: bottom;" src="../heading.jpg" width=520 height=37></p>
@@ -21,11 +38,11 @@
          intersections give the natural frequencies of the
          system.</p>
 
-         <p><object type="application/x-java-applet" width="800" height="400" style="vertical-align: bottom;">
-            <param name="code" value="Forcedresponse.class">
-            <param name="codebase" value="Forcedresponse/">
-            <p>Your browser does not support Java applets. Please ensure Java is installed and enabled.</p>
-         </object><br>
+         <p>
+         <script>
+         SwingJS.getApplet('ForcedresponseApplet', Info)
+         </script>
+         <div id="ForcedresponseApplet" style="width: 800px; height: 400px; vertical-align: bottom;"/><br>
          </p>
       </td>
    </tr>

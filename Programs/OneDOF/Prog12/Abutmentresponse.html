@@ -2,9 +2,26 @@
 <html lang="en">
 
 <head>
+   <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Abutment Response</title>
 
+   <script src="../../../site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info = {
+   code: "OneDOF.Prog12.Abutmentresponse.Abutmentresponse",
+   main: null,
+   core: "NONE",
+   width: 700,
+   height: 400,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: '../../../site/swingjs/j2s',
+   console: null,
+   allowjavascript: true
+   }
+   </script>
 </head>
 <body style="background-color: #FFFFFF;">
 <p><img style="vertical-align: bottom;" src="../heading.jpg" width=520 height=37></p>
@@ -18,11 +35,11 @@
          <p>The graphs show the magnitude and phase of the forced
          abutment response of a one degree of freedom system.</p>
 
-         <p><object type="application/x-java-applet" width="700" height="400" style="vertical-align: bottom;">
-            <param name="code" value="Abutmentresponse.class">
-            <param name="codebase" value="Abutmentresponse/">
-            <p>Your browser does not support Java applets. Please ensure Java is installed and enabled.</p>
-         </object><br>
+         <p>
+         <script>
+         SwingJS.getApplet('AbutmentresponseApplet', Info)
+         </script>
+         <div id="AbutmentresponseApplet" style="width: 700px; height: 400px; vertical-align: bottom;"/><br>
          </p>
       </td>
    </tr>

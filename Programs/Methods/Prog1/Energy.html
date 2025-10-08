@@ -2,9 +2,26 @@
 <html lang="en">
 
 <head>
+   <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Energy method</title>
 
+   <script src="../../../site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info = {
+   code: "Methods.Prog1.Energy.Energy",
+   main: null,
+   core: "NONE",
+   width: 610,
+   height: 400,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: '../../../site/swingjs/j2s',
+   console: null,
+   allowjavascript: true
+   }
+   </script>
 </head>
 <body style="background-color: #FFFFFF;">
 <p>
@@ -20,11 +37,10 @@ assumed mode shape </span></div></h3>
 
 <hr>
 
-<object type="application/x-java-applet" width="610" height="400" style="vertical-align: bottom;">
-            <param name="code" value="Energy.class">
-            <param name="codebase" value="Energy/">
-            <p>Your browser does not support Java applets. Please ensure Java is installed and enabled.</p>
-         </object>
+         <script>
+         SwingJS.getApplet('EnergyApplet', Info)
+         </script>
+         <div id="EnergyApplet" style="width: 610px; height: 400px; vertical-align: bottom;"/>
 
 <hr>
 

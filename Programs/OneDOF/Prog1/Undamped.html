@@ -4,66 +4,44 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Undamped Vibration Simulation</title>
-   <style>
-      body {
-         margin: 0;
-         padding: 0;
-         background-color: #FFFFFF;
-         font-family: Arial, sans-serif;
-      }
-      .container {
-         max-width: 720px;
-         margin: 0 auto;
-         padding: 20px;
-      }
-      .header-image {
-         display: block;
-         margin-bottom: 20px;
-      }
-      .title {
-         font-size: 1.2em;
-         color: #003333;
-         font-weight: bold;
-         margin-bottom: 15px;
-      }
-      .description {
-         margin-bottom: 20px;
-         line-height: 1.4;
-      }
-      .applet-container {
-         text-align: center;
-         margin: 20px 0;
-      }
-      .applet-fallback {
-         background: #f0f0f0;
-         padding: 40px;
-         border: 1px solid #ccc;
-         color: #666;
-         text-align: center;
-      }
-   </style>
+   <script src="../../../site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info = {
+   code: "OneDOF.Prog1.Undamped.Undamped",
+   main: null,
+   core: "NONE",
+   width: 700,
+   height: 400,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: '../../../site/swingjs/j2s',
+   console: null,
+   allowjavascript: true
+   }
+   </script>
 </head>
-<body>
-   <div class="container">
-      <img src="../heading.jpg" width="520" height="37" alt="One DOF Header" class="header-image">
+<body style="background-color: #FFFFFF;">
+<p><img style="vertical-align: bottom;" src="../heading.jpg" width=520 height=37></p>
 
-      <div class="title">Simulation of undamped vibration</div>
+<p><table width=720 style="border-collapse: collapse;">
+   <tr>
+      <td>
+         <p><span style="color: #003333; font-size: larger">Simulation of undamped
+         vibration</span></p>
 
-      <div class="description">
-         This simulation is of the transient vibration of a spring/mass system without damping.
-      </div>
+         <p>This simulation is of the transient vibration of a
+         spring/mass system without damping.</p>
 
-      <div class="applet-container">
-         <object data="Undamped/Undamped.class" type="application/x-java-applet" width="700" height="400">
-            <param name="code" value="Undamped.class">
-            <param name="codebase" value="Undamped/">
-            <div class="applet-fallback">
-               <strong>Java Applet: Undamped Vibration Simulation</strong><br>
-               <small>This content requires Java to be enabled in your browser.</small>
-            </div>
-         </object>
-      </div>
-   </div>
+         <p>
+         <script>
+         SwingJS.getApplet('UndampedApplet', Info)
+         </script>
+         <div id="UndampedApplet" style="width: 700px; height: 400px; vertical-align: bottom;"/><br>
+         </p>
+      </td>
+   </tr>
+</table>
+</p>
 </body>
 </html>
-

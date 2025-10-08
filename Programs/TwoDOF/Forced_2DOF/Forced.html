@@ -1,8 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Damped Vibration</title>
+   <script src="../../../site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info = {
+   code: "TwoDOF.Forced_2DOF.Forced.Forced",
+   main: null,
+   core: "NONE",
+   width: 570,
+   height: 370,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: '../../../site/swingjs/j2s',
+   console: null,
+   allowjavascript: true
+   }
+   </script>
 </head>
 <body>
 <hr>
@@ -14,11 +31,11 @@ Forced excitation of<br> a Two degree of freedom system
 </h1></p>
 <hr>
 <align=center>
-<object type="application/x-java-applet" width="570" height="370">
-            <param name="code" value="Forced.class">
-            <param name="codebase" value="forced.out">
-            <p>Your browser does not support Java applets. Please ensure Java is installed and enabled.</p>
-         </object>
+
+         <script>
+         SwingJS.getApplet('ForcedApplet', Info)
+         </script>
+         <div id="ForcedApplet" style="width: 570px; height: 370px; vertical-align: bottom;"/>
 <hr>
 </body>
 </html>

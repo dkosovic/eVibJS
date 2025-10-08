@@ -2,9 +2,26 @@
 <html lang="en">
 
 <head>
+   <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Tip response</title>
 
+   <script src="../../../site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info = {
+   code: "Continuous.Prog3.Multiforced.Multiforced",
+   main: null,
+   core: "NONE",
+   width: 700,
+   height: 500,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: '../../../site/swingjs/j2s',
+   console: null,
+   allowjavascript: true
+   }
+   </script>
 </head>
 <body style="background-color: #FFFFFF;">
 <p><img style="vertical-align: bottom;" src="../heading.jpg" width=520 height=37></p>
@@ -18,11 +35,11 @@
          <p>The graph shows the magnitude of the response. The
          animation is at the frequency shown in blue.</p>
 
-         <p><object type="application/x-java-applet" width="700" height="500" style="vertical-align: bottom;">
-            <param name="code" value="Multiforced.class">
-            <param name="codebase" value="Multiforced/">
-            <p>Your browser does not support Java applets. Please ensure Java is installed and enabled.</p>
-         </object><br>
+         <p>
+         <script>
+         SwingJS.getApplet('MultiforcedApplet', Info)
+         </script>
+         <div id="MultiforcedApplet" style="width: 700px; height: 500px; vertical-align: bottom;"/><br>
          </p>
       </td>
    </tr>

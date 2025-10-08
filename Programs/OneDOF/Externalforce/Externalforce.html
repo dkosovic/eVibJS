@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>External Force</title>
+   <script src="../../../site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info = {
+   code: "OneDOF.Externalforce.Externalforce.Externalforce",
+   main: null,
+   core: "NONE",
+   width: 115,
+   height: 330,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: '../../../site/swingjs/j2s',
+   console: null,
+   allowjavascript: true
+   }
+   </script>
 </head>
 <body>
 
 <align=center>
-<object type="application/x-java-applet" width="115" height="330">
-            <param name="code" value="Externalforce.class">
-            <param name="codebase" value="externalforce.out">
-            <p>Your browser does not support Java applets. Please ensure Java is installed and enabled.</p>
-         </object>
+
+         <script>
+         SwingJS.getApplet('ExternalforceApplet', Info)
+         </script>
+         <div id="ExternalforceApplet" style="width: 115px; height: 330px; vertical-align: bottom;"/>
 </body>
 </html>
