@@ -1,90 +1,92 @@
 package MultiDOF.Prog10.Multiforced;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Checkbox;
-import java.awt.CheckboxGroup;
-import java.awt.Frame;
 import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 @SuppressWarnings("serial")
-class CInputDialog extends Frame implements ActionListener, ItemListener {
+class CInputDialog extends JFrame implements ActionListener, ItemListener {
    public static final String kAbutmentLabel = "Abutment";
    public static final String kViscousDampingLabel = "Viscous";
    public static final String kHystereticDampingLabel = "Hysteretic";
    public CSpringMassDamper mSMD;
-   CheckboxGroup mViscCheckboxGroup;
-   TextField mDampingText;
-   TextField mMassText;
-   TextField mSpringText;
-   Label mDampingUnitLabel;
-   Checkbox mAbutmentCheckbox;
-   Panel mMassPanel;
+   ButtonGroup mViscCheckboxGroup;
+   JTextField mDampingText;
+   JTextField mMassText;
+   JTextField mSpringText;
+   JLabel mDampingUnitLabel;
+   JCheckBox mAbutmentCheckbox;
+   JPanel mMassPanel;
 
    public CInputDialog(CSpringMassDamper var1, String var2) {
       super(var2);
       this.mSMD = var1;
       this.setLayout(new BorderLayout());
-      Panel var3 = new Panel();
+      JPanel var3 = new JPanel();
       this.add("South", var3);
-      Button var4 = new Button("OK");
+      JButton var4 = new JButton("OK");
       var4.addActionListener(this);
       var3.add(var4);
-      Button var5 = new Button("Cancel");
+      JButton var5 = new JButton("Cancel");
       var5.addActionListener(this);
       var3.add(var5);
-      Panel var6 = new Panel();
+      JPanel var6 = new JPanel();
       var6.setLayout(new GridLayout(0, 1));
       this.add("North", var6);
-      Panel var7 = new Panel();
+      JPanel var7 = new JPanel();
       var7.setLayout(new GridLayout(0, 2));
       var6.add(var7);
-      this.mAbutmentCheckbox = new Checkbox("Abutment");
-      this.mAbutmentCheckbox.setState(var1.IsAbutment());
+      this.mAbutmentCheckbox = new JCheckBox("Abutment");
+      this.mAbutmentCheckbox.setSelected(var1.IsAbutment());
       this.mAbutmentCheckbox.addItemListener(this);
       var7.add(this.mAbutmentCheckbox);
       if (!var1.AtEnd()) {
          this.mAbutmentCheckbox.setEnabled(false);
       }
 
-      this.mMassPanel = new Panel();
+      this.mMassPanel = new JPanel();
       var7.add(this.mMassPanel);
-      this.mMassPanel.add(new Label("Mass:"));
-      this.mMassText = new TextField(String.valueOf(var1.mMass), 10);
+      this.mMassPanel.add(new JLabel("Mass:"));
+      this.mMassText = new JTextField(String.valueOf(var1.mMass), 10);
       this.mMassPanel.add(this.mMassText);
-      this.mMassPanel.add(new Label("kg"));
+      this.mMassPanel.add(new JLabel("kg"));
       if (var1.mIndex > 1) {
-         Panel var8 = new Panel();
+         JPanel var8 = new JPanel();
          var8.setLayout(new GridLayout(0, 3));
          var6.add(var8);
-         var8.add(new Label("Spring constant:"));
-         this.mSpringText = new TextField(String.valueOf(var1.mSpringConstant), 10);
+         var8.add(new JLabel("Spring constant:"));
+         this.mSpringText = new JTextField(String.valueOf(var1.mSpringConstant), 10);
          var8.add(this.mSpringText);
-         var8.add(new Label("N/m"));
-         var8.add(new Label("Damping constant:"));
-         this.mDampingText = new TextField(String.valueOf(var1.mDampingConstant), 10);
+         var8.add(new JLabel("N/m"));
+         var8.add(new JLabel("Damping constant:"));
+         this.mDampingText = new JTextField(String.valueOf(var1.mDampingConstant), 10);
          var8.add(this.mDampingText);
-         this.mDampingUnitLabel = new Label("units not set");
+         this.mDampingUnitLabel = new JLabel("units not set");
          var8.add(this.mDampingUnitLabel);
-         this.mViscCheckboxGroup = new CheckboxGroup();
-         var8.add(new Label("Damping type:"));
-         Checkbox var9 = new Checkbox("Viscous");
+         this.mViscCheckboxGroup = new ButtonGroup();
+         var8.add(new JLabel("Damping type:"));
+         JCheckBox var9 = new JCheckBox("Viscous");
          var8.add(var9);
-         var9.setCheckboxGroup(this.mViscCheckboxGroup);
+         this.mViscCheckboxGroup.add(var9);
          var9.addItemListener(this);
-         Checkbox var10 = new Checkbox("Hysteretic");
+         JCheckBox var10 = new JCheckBox("Hysteretic");
          var8.add(var10);
-         var10.setCheckboxGroup(this.mViscCheckboxGroup);
+         this.mViscCheckboxGroup.add(var10);
          var10.addItemListener(this);
-         var9.setState(var1.mViscous);
-         var10.setState(var1.mViscous ^ true);
+         var9.setSelected(var1.mViscous);
+         var10.setSelected(var1.mViscous ^ true);
       }
 
       this.SetViscousState(var1.mViscous);
@@ -113,13 +115,13 @@ class CInputDialog extends Frame implements ActionListener, ItemListener {
    }
 
    public void actionPerformed(ActionEvent e) {
-      if (e.getSource() instanceof Button) {
-         Button source = (Button) e.getSource();
-         String label = source.getLabel();
+      if (e.getSource() instanceof JButton) {
+         JButton source = (JButton) e.getSource();
+         String label = source.getText();
          if (label.equals("OK")) {
             if (this.mViscCheckboxGroup != null) {
-               Checkbox var3 = this.mViscCheckboxGroup.getSelectedCheckbox();
-               String var4 = var3.getLabel();
+               JCheckBox var3 = this.getSelectedCheckboxFromGroup(mViscCheckboxGroup);
+               String var4 = var3.getText();
                this.mSMD.mViscous = var4 == "Viscous";
             }
 
@@ -151,7 +153,7 @@ class CInputDialog extends Frame implements ActionListener, ItemListener {
             } catch (NumberFormatException var5) {
             }
 
-            this.mSMD.SetAbutment(this.mAbutmentCheckbox.getState());
+            this.mSMD.SetAbutment(this.mAbutmentCheckbox.isSelected());
             this.mSMD.ControlMessage(null, 6, 0.0);
             this.dispose();
          } else if (label.equals("Cancel")) {
@@ -161,16 +163,29 @@ class CInputDialog extends Frame implements ActionListener, ItemListener {
    }
 
    public void itemStateChanged(ItemEvent e) {
-      if (e.getSource() instanceof Checkbox) {
-         Checkbox checkbox = (Checkbox) e.getSource();
-         String label = checkbox.getLabel();
+      if (e.getSource() instanceof JCheckBox) {
+         JCheckBox checkbox = (JCheckBox) e.getSource();
+         String label = checkbox.getText();
          if (label.equals("Viscous")) {
             this.SetViscousState(true);
          } else if (label.equals("Hysteretic")) {
             this.SetViscousState(false);
          } else if (label.equals("Abutment")) {
-            this.SetAbutmentState(checkbox.getState());
+            this.SetAbutmentState(checkbox.isSelected());
          }
       }
    }
+
+    /**
+     * Helper method to get selected checkbox from ButtonGroup
+     * (ButtonGroup doesn't have direct equivalent to AWT getSelectedCheckboxFromGroup(CheckboxGroup))
+     */
+    private JCheckBox getSelectedCheckboxFromGroup(ButtonGroup group) {
+        for (AbstractButton button : java.util.Collections.list(group.getElements())) {
+            if (button.getModel() == group.getSelection()) {
+                return (JCheckBox) button;
+            }
+        }
+        return null;
+    }
 }

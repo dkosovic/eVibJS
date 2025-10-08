@@ -1,73 +1,74 @@
 package Complex.Prog5.Multiforced;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.Checkbox;
-import java.awt.CheckboxGroup;
-import java.awt.Frame;
 import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 @SuppressWarnings("serial")
-class CInputDialog extends Frame implements ActionListener {
+class CInputDialog extends JFrame implements ActionListener {
    public CSpringMassDamper mSMD;
-   CheckboxGroup mViscCheckboxGroup;
-   TextField mDampingText;
-   TextField mMassText;
-   TextField mSpringText;
-   Label mDampingUnitLabel;
-   Checkbox mAbutmentCheckbox;
-   Panel mMassPanel;
-   Panel mSpringPanel;
-   Panel mDampingPanel;
+   ButtonGroup mViscCheckboxGroup;
+   JTextField mDampingText;
+   JTextField mMassText;
+   JTextField mSpringText;
+   JLabel mDampingUnitLabel;
+   JCheckBox mAbutmentCheckbox;
+   JPanel mMassPanel;
+   JPanel mSpringPanel;
+   JPanel mDampingPanel;
 
    public CInputDialog(CSpringMassDamper var1, String var2) {
       super(var2);
       this.mSMD = var1;
       this.setLayout(new BorderLayout());
-      Panel var3 = new Panel();
+      JPanel var3 = new JPanel();
       this.add("South", var3);
-      Button var4 = new Button("OK");
+      JButton var4 = new JButton("OK");
       var4.addActionListener(this);
       var3.add(var4);
-      Button var5 = new Button("Cancel");
+      JButton var5 = new JButton("Cancel");
       var5.addActionListener(this);
       var3.add(var5);
-      Panel var6 = new Panel();
+      JPanel var6 = new JPanel();
       var6.setLayout(new GridLayout(0, 1));
       this.add("North", var6);
-      Panel var7 = new Panel();
+      JPanel var7 = new JPanel();
       var7.setLayout(new GridLayout(0, 1));
       var6.add(var7);
-      this.mMassPanel = new Panel();
+      this.mMassPanel = new JPanel();
       var7.add(this.mMassPanel);
-      this.mMassPanel.add(new Label("Mass:"));
-      this.mMassText = new TextField(String.valueOf(var1.mMass), 10);
+      this.mMassPanel.add(new JLabel("Mass:"));
+      this.mMassText = new JTextField(String.valueOf(var1.mMass), 10);
       this.mMassPanel.add(this.mMassText);
-      this.mMassPanel.add(new Label("kg"));
-      Panel var8 = new Panel();
+      this.mMassPanel.add(new JLabel("kg"));
+      JPanel var8 = new JPanel();
       var8.setLayout(new GridLayout(0, 1));
       var6.add(var8);
-      Panel var9 = new Panel();
+      JPanel var9 = new JPanel();
       var9.setLayout(new GridLayout(0, 1));
       var6.add(var9);
       if (var1.mIndex > 1) {
-         this.mSpringPanel = new Panel();
+         this.mSpringPanel = new JPanel();
          var8.add(this.mSpringPanel);
-         this.mSpringPanel.add(new Label("Spring:"));
-         this.mSpringText = new TextField(String.valueOf(var1.mSpringConstant), 10);
+         this.mSpringPanel.add(new JLabel("Spring:"));
+         this.mSpringText = new JTextField(String.valueOf(var1.mSpringConstant), 10);
          this.mSpringPanel.add(this.mSpringText);
-         this.mSpringPanel.add(new Label("N/m"));
-         this.mDampingPanel = new Panel();
+         this.mSpringPanel.add(new JLabel("N/m"));
+         this.mDampingPanel = new JPanel();
          var9.add(this.mDampingPanel);
-         this.mDampingPanel.add(new Label("Damper:"));
-         this.mDampingText = new TextField(String.valueOf(var1.mDampingConstant), 10);
+         this.mDampingPanel.add(new JLabel("Damper:"));
+         this.mDampingText = new JTextField(String.valueOf(var1.mDampingConstant), 10);
          this.mDampingPanel.add(this.mDampingText);
-         this.mDampingPanel.add(new Label("Ns/m"));
+         this.mDampingPanel.add(new JLabel("Ns/m"));
       }
    }
 
@@ -93,9 +94,9 @@ class CInputDialog extends Frame implements ActionListener {
    }
 
    public void actionPerformed(ActionEvent e) {
-      if (e.getSource() instanceof Button) {
-         Button source = (Button) e.getSource();
-         String label = source.getLabel();
+      if (e.getSource() instanceof JButton) {
+         JButton source = (JButton) e.getSource();
+         String label = source.getText();
          if (label.equals("OK")) {
             if (this.mDampingText != null) {
                try {
