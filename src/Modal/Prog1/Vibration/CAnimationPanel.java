@@ -39,11 +39,14 @@ public class CAnimationPanel extends JPanel {
    public void update(Graphics g) {
       if (g != null) {
          this.mScreenGC = g;
-         this.paint(this.mScreenGC);
+         // Recursive paint call removed
       }
    }
 
-   public void paint(Graphics g) {
+   @Override
+   public void paintComponent(Graphics g) {
+      super.paintComponent(g);
+
       this.mScreenGC = g;
       if (this.mOffScreenGC == null) {
          this.mOffScrImage = this.createImage(this.getSize().width, this.getSize().height);

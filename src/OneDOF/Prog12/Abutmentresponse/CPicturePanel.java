@@ -42,11 +42,14 @@ class CPicturePanel extends JPanel {
       return this.minimumSize();
    }
 
-   public void paint(Graphics var1) {
+   @Override
+   public void paintComponent(Graphics g) {
+      super.paintComponent(g);
+
       if (this.mImage != null) {
-         var1.drawImage(this.mImage, 0, 0, this);
+         g.drawImage(this.mImage, 0, 0, this);
       } else {
-         var1.drawString("...", 0, 20);
+         g.drawString("...", 0, 20);
       }
    }
 }

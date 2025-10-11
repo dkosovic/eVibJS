@@ -281,14 +281,16 @@ public class CBrianControl extends CPicturePanel implements MouseListener, Mouse
       // Not used
    }
 
-   public void paint(Graphics var1) {
-      super.paint(var1);
+   @Override
+   public void paintComponent(Graphics g) {
+      super.paintComponent(g);
+
       if (this.mSelection != 0) {
          this.NewValue();
-         var1.setXORMode(Color.black);
+         g.setXORMode(Color.black);
          Rectangle var2 = this.GridToRect(this.mSelection);
-         var1.fillRect(var2.x, var2.y, var2.width, var2.height);
-         var1.setPaintMode();
+         g.fillRect(var2.x, var2.y, var2.width, var2.height);
+         g.setPaintMode();
          this.repaint(100L);
       }
    }

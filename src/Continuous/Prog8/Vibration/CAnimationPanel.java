@@ -45,11 +45,14 @@ public class CAnimationPanel extends JPanel {
    public void update(Graphics g) {
       if (g != null) {
          this.mScreenGC = g;
-         this.paint(this.mScreenGC);
+         // Recursive paint call removed
       }
    }
 
-   public void paint(Graphics g) {
+   @Override
+   public void paintComponent(Graphics g) {
+      super.paintComponent(g);
+
       this.mtheta = new double[45];
       this.mScreenGC = g;
       Color mass = new Color(0.18F, 0.58F, 0.58F);

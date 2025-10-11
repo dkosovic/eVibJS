@@ -278,8 +278,10 @@ public class CBrianControl extends CPicturePanel implements MouseListener, Mouse
       // Not used
    }
 
-   public void paint(Graphics g) {
-      super.paint(g);
+   @Override
+   public void paintComponent(Graphics g) {
+      super.paintComponent(g);
+
       if (this.mSelection != 0) {
          this.NewValue();
          g.setXORMode(Color.black);
