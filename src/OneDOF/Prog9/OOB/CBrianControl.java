@@ -283,7 +283,6 @@ public class CBrianControl extends CPicturePanel implements MouseListener, Mouse
 
       super.paintComponent(g);
 
-
       if (this.mSelection != 0) {
          this.NewValue();
          g.setXORMode(Color.black);

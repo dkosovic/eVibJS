@@ -35,13 +35,6 @@ public class CAnimationPanel extends JPanel {
    CAnimationPanel() {
    }
 
-   public void update(Graphics g) {
-      if (g != null) {
-         this.mScreenGC = g;
-         // Recursive paint call removed
-      }
-   }
-
    @Override
    public void paintComponent(Graphics g) {
       super.paintComponent(g);

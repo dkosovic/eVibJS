@@ -37,13 +37,6 @@ public class CFramePanel extends JPanel implements MouseListener, MouseMotionLis
       this.addMouseMotionListener(this);
    }
 
-   public void update(Graphics g) {
-      if (g != null) {
-         this.mScreenGC = g;
-         this.paintComponent(this.mScreenGC);
-      }
-   }
-
    public void DrawAllFrames(Graphics g) {
       int count = 0;
       if (this.mFrames != null) {
