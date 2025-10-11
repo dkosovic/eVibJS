@@ -2,8 +2,10 @@ package OneDOF.Prog11.AbutmentSin;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JButton;
 
@@ -104,13 +106,13 @@ class CFrameAnimation extends CFrame {
       Color var2 = new Color(0.18F, 0.58F, 0.58F);
       if (this.mTraceGC == null) {
          this.mTraceImage = super.mFramePanel.createImage(3280, 120);
-         this.mTraceGC = this.mTraceImage.getGraphics();
+         this.mTraceGC = (Graphics2D) this.mTraceImage.getGraphics();
          this.DrawTraceGrid();
          this.DrawForceGraph();
       }
 
       if (this.mTraceThumbnailGC == null) {
-         this.mTraceThumbnailImage = super.mFramePanel.createImage(this.mTraceClip.width, this.mTraceClip.height / 8);
+         this.mTraceThumbnailImage = new BufferedImage(this.mTraceClip.width, this.mTraceClip.height / 8, BufferedImage.TYPE_INT_RGB);
          this.mTraceThumbnailGC = this.mTraceThumbnailImage.getGraphics();
       }
 
