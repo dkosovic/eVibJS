@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="swingjs/j2s.core.jar"/>
+	<classpathentry kind="lib" path="swingjs/net.sf.j2s.core-j11.jar"/>
+	<classpathentry kind="lib" path="tools/ant-contrib.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
