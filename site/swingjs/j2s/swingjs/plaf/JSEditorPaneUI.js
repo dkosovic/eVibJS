@@ -448,7 +448,7 @@ this.$finals$.fn.scrollTop.apply(this.$finals$.fn, [0]);
 this.$finals$.fn.scrollTop.apply(this.$finals$.fn, [this.$finals$.r.offset.apply(this.$finals$.r, []).top - this.$finals$.fn.offset.apply(this.$finals$.fn, []).top]);
 });
 })()
-), Clazz.new_(P$.JSEditorPaneUI$lambda1.$init$,[this, {fn:fn,r:r}]))]);
+), Clazz.new_(P$.JSEditorPaneUI$lambda1.$init$,[this, {r:r,fn:fn}]))]);
 }});
 
 Clazz.newMeth(C$, 'setJSSelection$I$I$Z',  function (mark, dot, andScroll) {
@@ -834,4 +834,4 @@ C$.$fields$=[['I',['length'],'S',['tagName','innerText','textContent'],'O',['chi
 Clazz.newMeth(C$);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:19:12 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:38:29 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

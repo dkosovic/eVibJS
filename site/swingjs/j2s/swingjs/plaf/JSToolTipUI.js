@@ -30,4 +30,4 @@ Clazz.newMeth(C$, 'setVisible$Z',  function (b) {
 C$.superclazz.prototype.setVisible$Z.apply(this, [b]);
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:19:19 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:38:35 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

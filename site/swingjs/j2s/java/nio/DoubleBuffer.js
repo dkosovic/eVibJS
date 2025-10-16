@@ -142,4 +142,4 @@ return ((x < y ) ? -1 : (x > y ) ? 1 : (x == y ) ? 0 : Double.isNaN$D(x) ? (Doub
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:16:47 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:25 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

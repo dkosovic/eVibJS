@@ -64,4 +64,4 @@ Clazz.newMeth(C$, 'toString',  function () {
 return String.format$S$OA("%s{count=%d, sum=%f, min=%f, average=%f, max=%f}", Clazz.array(java.lang.Object, -1, [this.getClass$().getSimpleName$(), Long.valueOf$J(this.getCount$()), Double.valueOf$D(this.getSum$()), Double.valueOf$D(this.getMin$()), Double.valueOf$D(this.getAverage$()), Double.valueOf$D(this.getMax$())]));
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:01 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:40 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

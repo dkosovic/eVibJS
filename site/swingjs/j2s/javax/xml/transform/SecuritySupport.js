@@ -83,7 +83,7 @@ ris=this.$finals$.cl.getResourceAsStream$S(this.$finals$.name);
 }return ris;
 });
 })()
-), Clazz.new_(P$.SecuritySupport$4.$init$,[this, {name:name,cl:cl}]))]);
+), Clazz.new_(P$.SecuritySupport$4.$init$,[this, {cl:cl,name:name}]))]);
 });
 
 Clazz.newMeth(C$, 'doesFileExist$java_io_File',  function (f) {
@@ -104,4 +104,4 @@ return  Boolean.from(this.$finals$.f.exists$());
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:18:15 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:44 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

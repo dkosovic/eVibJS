@@ -34,4 +34,4 @@ C$.superclazz.prototype.setBackground$java_awt_Color.apply(this, [c]);
 C$.superclazz.prototype.setOpaque$Z.apply(this, [c != null ]);
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:19:06 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:38:23 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

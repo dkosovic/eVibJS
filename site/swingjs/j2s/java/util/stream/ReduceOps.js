@@ -25,10 +25,10 @@ Clazz.newMeth(C$, '$init$', function () {
 },1);
 
 Clazz.newMeth(C$, 'makeSink$',  function () {
-return Clazz.new_($I$(3,1),[this, {reducer:this.$finals$.reducer,combiner:this.$finals$.combiner,seed:this.$finals$.seed}],P$.ReduceOps$1ReducingSink);
+return Clazz.new_($I$(3,1),[this, {combiner:this.$finals$.combiner,seed:this.$finals$.seed,reducer:this.$finals$.reducer}],P$.ReduceOps$1ReducingSink);
 });
 })()
-), Clazz.new_([this, {reducer:reducer,combiner:combiner,seed:seed}, $I$(5).REFERENCE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$1));
+), Clazz.new_([this, {combiner:combiner,seed:seed,reducer:reducer}, $I$(5).REFERENCE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$1));
 }, 1);
 
 Clazz.newMeth(C$, 'makeRef$java_util_function_BinaryOperator',  function (operator) {
@@ -61,14 +61,14 @@ Clazz.newMeth(C$, '$init$', function () {
 },1);
 
 Clazz.newMeth(C$, 'makeSink$',  function () {
-return Clazz.new_($I$(3,1),[this, {accumulator:this.$finals$.accumulator,combiner:this.$finals$.combiner,supplier:this.$finals$.supplier}],P$.ReduceOps$3ReducingSink);
+return Clazz.new_($I$(3,1),[this, {supplier:this.$finals$.supplier,accumulator:this.$finals$.accumulator,combiner:this.$finals$.combiner}],P$.ReduceOps$3ReducingSink);
 });
 
 Clazz.newMeth(C$, 'getOpFlags$',  function () {
 return this.$finals$.collector.characteristics$().contains$O($I$(7).UNORDERED) ? $I$(8).NOT_ORDERED : 0;
 });
 })()
-), Clazz.new_([this, {accumulator:accumulator,collector:collector,combiner:combiner,supplier:supplier}, $I$(5).REFERENCE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$3));
+), Clazz.new_([this, {supplier:supplier,accumulator:accumulator,collector:collector,combiner:combiner}, $I$(5).REFERENCE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$3));
 }, 1);
 
 Clazz.newMeth(C$, 'makeRef$java_util_function_Supplier$java_util_function_BiConsumer$java_util_function_BiConsumer',  function (seedFactory, accumulator, reducer) {
@@ -84,10 +84,10 @@ Clazz.newMeth(C$, '$init$', function () {
 },1);
 
 Clazz.newMeth(C$, 'makeSink$',  function () {
-return Clazz.new_($I$(3,1),[this, {reducer:this.$finals$.reducer,accumulator:this.$finals$.accumulator,seedFactory:this.$finals$.seedFactory}],P$.ReduceOps$4ReducingSink);
+return Clazz.new_($I$(3,1),[this, {seedFactory:this.$finals$.seedFactory,reducer:this.$finals$.reducer,accumulator:this.$finals$.accumulator}],P$.ReduceOps$4ReducingSink);
 });
 })()
-), Clazz.new_([this, {reducer:reducer,accumulator:accumulator,seedFactory:seedFactory}, $I$(5).REFERENCE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$4));
+), Clazz.new_([this, {seedFactory:seedFactory,reducer:reducer,accumulator:accumulator}, $I$(5).REFERENCE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$4));
 }, 1);
 
 Clazz.newMeth(C$, 'makeInt$I$java_util_function_IntBinaryOperator',  function (identity, operator) {
@@ -101,10 +101,10 @@ Clazz.newMeth(C$, '$init$', function () {
 },1);
 
 Clazz.newMeth(C$, 'makeSink$',  function () {
-return Clazz.new_(P$.ReduceOps$5ReducingSink.$init$,[this, {identity:this.$finals$.identity,operator:this.$finals$.operator}]);
+return Clazz.new_(P$.ReduceOps$5ReducingSink.$init$,[this, {operator:this.$finals$.operator,identity:this.$finals$.identity}]);
 });
 })()
-), Clazz.new_([this, {identity:identity,operator:operator}, $I$(5).INT_VALUE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$5));
+), Clazz.new_([this, {operator:operator,identity:identity}, $I$(5).INT_VALUE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$5));
 }, 1);
 
 Clazz.newMeth(C$, 'makeInt$java_util_function_IntBinaryOperator',  function (operator) {
@@ -190,10 +190,10 @@ Clazz.newMeth(C$, '$init$', function () {
 },1);
 
 Clazz.newMeth(C$, 'makeSink$',  function () {
-return Clazz.new_($I$(3,1),[this, {combiner:this.$finals$.combiner,accumulator:this.$finals$.accumulator,supplier:this.$finals$.supplier}],P$.ReduceOps$10ReducingSink);
+return Clazz.new_($I$(3,1),[this, {accumulator:this.$finals$.accumulator,supplier:this.$finals$.supplier,combiner:this.$finals$.combiner}],P$.ReduceOps$10ReducingSink);
 });
 })()
-), Clazz.new_([this, {combiner:combiner,accumulator:accumulator,supplier:supplier}, $I$(5).LONG_VALUE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$10));
+), Clazz.new_([this, {accumulator:accumulator,supplier:supplier,combiner:combiner}, $I$(5).LONG_VALUE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$10));
 }, 1);
 
 Clazz.newMeth(C$, 'makeDouble$D$java_util_function_DoubleBinaryOperator',  function (identity, operator) {
@@ -207,10 +207,10 @@ Clazz.newMeth(C$, '$init$', function () {
 },1);
 
 Clazz.newMeth(C$, 'makeSink$',  function () {
-return Clazz.new_(P$.ReduceOps$11ReducingSink.$init$,[this, {identity:this.$finals$.identity,operator:this.$finals$.operator}]);
+return Clazz.new_(P$.ReduceOps$11ReducingSink.$init$,[this, {operator:this.$finals$.operator,identity:this.$finals$.identity}]);
 });
 })()
-), Clazz.new_([this, {identity:identity,operator:operator}, $I$(5).DOUBLE_VALUE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$11));
+), Clazz.new_([this, {operator:operator,identity:identity}, $I$(5).DOUBLE_VALUE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$11));
 }, 1);
 
 Clazz.newMeth(C$, 'makeDouble$java_util_function_DoubleBinaryOperator',  function (operator) {
@@ -243,10 +243,10 @@ Clazz.newMeth(C$, '$init$', function () {
 },1);
 
 Clazz.newMeth(C$, 'makeSink$',  function () {
-return Clazz.new_($I$(3,1),[this, {combiner:this.$finals$.combiner,accumulator:this.$finals$.accumulator,supplier:this.$finals$.supplier}],P$.ReduceOps$13ReducingSink);
+return Clazz.new_($I$(3,1),[this, {supplier:this.$finals$.supplier,combiner:this.$finals$.combiner,accumulator:this.$finals$.accumulator}],P$.ReduceOps$13ReducingSink);
 });
 })()
-), Clazz.new_([this, {combiner:combiner,accumulator:accumulator,supplier:supplier}, $I$(5).DOUBLE_VALUE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$13));
+), Clazz.new_([this, {supplier:supplier,combiner:combiner,accumulator:accumulator}, $I$(5).DOUBLE_VALUE],$I$(4,1).c$$java_util_stream_StreamShape,P$.ReduceOps$13));
 }, 1);
 ;
 (function(){/*l*/var C$=Clazz.newClass(P$, "ReduceOps$1ReducingSink", function(){
@@ -720,4 +720,4 @@ this.setLocalResult$O(leftResult);
 Clazz.newMeth(C$);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:16 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:56 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

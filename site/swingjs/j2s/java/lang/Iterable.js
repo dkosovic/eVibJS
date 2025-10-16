@@ -13,4 +13,4 @@ Clazz.newMeth(C$, 'spliterator$',  function () {
 return $I$(2,"spliteratorUnknownSize$java_util_Iterator$I",[this.iterator$(), 0]);
 });
 };})();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:16:42 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:20 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

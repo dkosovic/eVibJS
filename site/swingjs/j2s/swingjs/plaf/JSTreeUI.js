@@ -2700,8 +2700,8 @@ Clazz.newMeth(C$, 'run$',  function () {
 this.$finals$.ui.ensureRowsAreVisible$I$I(this.$finals$.rowCount - 1, this.$finals$.rowCount - 1);
 });
 })()
-), Clazz.new_(P$.JSTreeUI$Actions$1.$init$,[this, {rowCount:rowCount,ui:ui}]))]);
+), Clazz.new_(P$.JSTreeUI$Actions$1.$init$,[this, {ui:ui,rowCount:rowCount}]))]);
 }}}}, p$2);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:19:19 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:38:35 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

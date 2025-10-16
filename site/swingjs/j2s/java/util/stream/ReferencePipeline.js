@@ -408,7 +408,7 @@ if (result != null ) result.sequential$().forEach$java_util_function_LongConsume
 ), Clazz.new_($I$(9,1).c$$java_util_stream_Sink,[this, {mapper:this.$finals$.mapper}, this.$finals$.sink],P$.ReferencePipeline$10$1));
 });
 })()
-), Clazz.new_([this, {sink:sink,mapper:mapper}, this, $I$(1).REFERENCE, $I$(7).NOT_SORTED | $I$(7).NOT_DISTINCT | $I$(7).NOT_SIZED ],$I$(11,1).c$$java_util_stream_AbstractPipeline$java_util_stream_StreamShape$I,P$.ReferencePipeline$10));
+), Clazz.new_([this, {mapper:mapper,sink:sink}, this, $I$(1).REFERENCE, $I$(7).NOT_SORTED | $I$(7).NOT_DISTINCT | $I$(7).NOT_SIZED ],$I$(11,1).c$$java_util_stream_AbstractPipeline$java_util_stream_StreamShape$I,P$.ReferencePipeline$10));
 });
 
 Clazz.newMeth(C$, 'peek$java_util_function_Consumer',  function (action) {
@@ -539,7 +539,7 @@ Clazz.newMeth(C$, '$init$', function () {
 /*lambda_E*/
 Clazz.newMeth(C$, 'accept$O',  function (u) { return (this.$finals$.accumulator.accept$O$O.apply(this.$finals$.accumulator, [this.$finals$.container, u]));});
 })()
-), Clazz.new_(P$.ReferencePipeline$lambda2.$init$,[this, {container:container,accumulator:accumulator}])));
+), Clazz.new_(P$.ReferencePipeline$lambda2.$init$,[this, {accumulator:accumulator,container:container}])));
 } else {
 container=this.evaluate$java_util_stream_TerminalOp($I$(20).makeRef$java_util_stream_Collector(collector));
 }return collector.characteristics$().contains$O($I$(21).IDENTITY_FINISH) ? container : collector.finisher$().apply$O(container);
@@ -665,4 +665,4 @@ Clazz.newMeth(C$);
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:16 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:56 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

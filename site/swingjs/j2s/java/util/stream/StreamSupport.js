@@ -44,4 +44,4 @@ Clazz.newMeth(C$, 'doubleStream$java_util_function_Supplier$I$Z',  function (sup
 return Clazz.new_([supplier, $I$(3).fromCharacteristics$I(characteristics), parallel],$I$(6,1).c$$java_util_function_Supplier$I$Z);
 }, 1);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:17 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:57 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

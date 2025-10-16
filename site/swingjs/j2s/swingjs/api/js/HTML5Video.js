@@ -172,7 +172,7 @@ if (this.$finals$.whenReady != null ) this.$finals$.whenReady.apply$O(this.$fina
 $I$(12,"removeActionListener",[this.$finals$.jsvideo, $I$(12).getProperty(this.$finals$.jsvideo, "j2sListener")]);
 });
 })()
-), Clazz.new_(P$.HTML5Video$2.$init$,[this, {jsvideo:jsvideo,maxWidth:maxWidth,dialog:dialog,whenReady:whenReady,label:label}])), ["canplaythrough"]);
+), Clazz.new_(P$.HTML5Video$2.$init$,[this, {jsvideo:jsvideo,dialog:dialog,maxWidth:maxWidth,whenReady:whenReady,label:label}])), ["canplaythrough"]);
 C$.setProperty(jsvideo, "j2sListener", j2sListener);
 C$.setCurrentTime(jsvideo, 0);
 return dialog;
@@ -312,4 +312,4 @@ Clazz.newMeth(C$, 'c$',  function (parent) {
 }, 1);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:19:08 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:38:24 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

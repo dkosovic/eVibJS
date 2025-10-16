@@ -42,4 +42,4 @@ C$.$static$=function(){C$.$static$=0;
 C$.attachmentUpdater=$I$(1,"newUpdater$Class$Class$S",[Clazz.getClass(C$), Clazz.getClass(java.lang.Object), "attachment"]);
 };
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:16:48 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:27 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

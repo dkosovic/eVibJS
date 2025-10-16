@@ -292,4 +292,4 @@ Clazz.newMeth(C$, 'translateScale$F$F$F',  function (x, y, scale) {
 this.g$S(new Float(scale).toString() + " 0 0 " + new Float(scale).toString() + " " + new Float(x).toString() + " " + new Float(y).toString() + " cm" );
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:19 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:58 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

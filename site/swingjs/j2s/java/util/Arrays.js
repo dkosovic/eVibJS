@@ -1293,7 +1293,7 @@ Clazz.newMeth(C$, ['accept$I','accept$O'],  function (i) /*block*/{
 this.$finals$.array[i]=this.$finals$.generator.apply$I.apply(this.$finals$.generator, [i]);
 });
 })()
-), Clazz.new_(P$.Arrays$lambda1.$init$,[this, {generator:generator,array:array}])));
+), Clazz.new_(P$.Arrays$lambda1.$init$,[this, {array:array,generator:generator}])));
 }, 1);
 
 Clazz.newMeth(C$, 'setAll$IA$java_util_function_IntUnaryOperator',  function (array, generator) {
@@ -1339,7 +1339,7 @@ Clazz.newMeth(C$, ['accept$I','accept$O'],  function (i) /*block*/{
 this.$finals$.array[i]=this.$finals$.generator.applyAsLong$I.apply(this.$finals$.generator, [i]);
 });
 })()
-), Clazz.new_(P$.Arrays$lambda3.$init$,[this, {generator:generator,array:array}])));
+), Clazz.new_(P$.Arrays$lambda3.$init$,[this, {array:array,generator:generator}])));
 }, 1);
 
 Clazz.newMeth(C$, 'setAll$DA$java_util_function_IntToDoubleFunction',  function (array, generator) {
@@ -1362,7 +1362,7 @@ Clazz.newMeth(C$, ['accept$I','accept$O'],  function (i) /*block*/{
 this.$finals$.array[i]=this.$finals$.generator.applyAsDouble$I.apply(this.$finals$.generator, [i]);
 });
 })()
-), Clazz.new_(P$.Arrays$lambda4.$init$,[this, {array:array,generator:generator}])));
+), Clazz.new_(P$.Arrays$lambda4.$init$,[this, {generator:generator,array:array}])));
 }, 1);
 
 Clazz.newMeth(C$, 'spliterator$OA',  function (array) {
@@ -1558,4 +1558,4 @@ $I$(2).sort$OA$java_util_Comparator(this.a, c);
 Clazz.newMeth(C$);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:00 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:39 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

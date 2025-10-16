@@ -57,7 +57,7 @@ C$.$clinit$=2;
 Clazz.newMeth(C$, '$init$', function () {
 },1);
 /*lambda_C*/
-Clazz.newMeth(C$, 'get$',  function () { return Clazz.new_($I$(8,1),[this,{predicate:predicate,matchKind:matchKind}])});
+Clazz.newMeth(C$, 'get$',  function () { return Clazz.new_($I$(8,1),[this,{matchKind:matchKind,predicate:predicate}])});
 })()
 ), Clazz.new_(P$.MatchOps$lambda3.$init$,[this, null]))],$I$(4,1).c$$java_util_stream_StreamShape$java_util_stream_MatchOps_MatchKind$java_util_function_Supplier);
 }, 1);
@@ -73,7 +73,7 @@ C$.$clinit$=2;
 Clazz.newMeth(C$, '$init$', function () {
 },1);
 /*lambda_C*/
-Clazz.newMeth(C$, 'get$',  function () { return Clazz.new_($I$(9,1),[this,{matchKind:matchKind,predicate:predicate}])});
+Clazz.newMeth(C$, 'get$',  function () { return Clazz.new_($I$(9,1),[this,{predicate:predicate,matchKind:matchKind}])});
 })()
 ), Clazz.new_(P$.MatchOps$lambda4.$init$,[this, null]))],$I$(4,1).c$$java_util_stream_StreamShape$java_util_stream_MatchOps_MatchKind$java_util_function_Supplier);
 }, 1);
@@ -290,4 +290,4 @@ return Boolean.valueOf$Z(!this.op.matchKind.shortCircuitResult);
 Clazz.newMeth(C$);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:15 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:55 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

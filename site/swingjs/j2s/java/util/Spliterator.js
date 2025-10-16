@@ -177,4 +177,4 @@ Clazz.newMeth(C$, ['accept$D','accept$O'],  function (t) { return $$.accept$O.ap
 /*$synth$*/C$.prototype['tryAdvance$java_util_function_DoubleConsumer']=C$.prototype['tryAdvance$O'];
 };})()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:06 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:45 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

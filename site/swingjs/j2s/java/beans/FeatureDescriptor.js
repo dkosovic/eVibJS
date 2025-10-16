@@ -140,4 +140,4 @@ Clazz.newMeth(C$, 'getParameterTypes$Class$java_lang_reflect_Method',  function 
 return Clazz.array(Class, [0]);
 }, 1);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:16:38 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:15 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

@@ -166,7 +166,7 @@ Clazz.newMeth(C$, 'run$',  function () {
 return this.$finals$.tclass.getDeclaredField$S(this.$finals$.fieldName);
 });
 })()
-), Clazz.new_(P$.AtomicLongFieldUpdater$CASUpdater$1.$init$,[this, {fieldName:fieldName,tclass:tclass}]))]);
+), Clazz.new_(P$.AtomicLongFieldUpdater$CASUpdater$1.$init$,[this, {tclass:tclass,fieldName:fieldName}]))]);
 modifiers=field.getModifiers$();
 $I$(3).ensureMemberAccess$Class$Class$O$I($caller, tclass, null, modifiers);
 var cl=tclass.getClassLoader$();
@@ -375,4 +375,4 @@ C$.unsafe=$I$(1).getUnsafe$();
 Clazz.newMeth(C$);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:10 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:50 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

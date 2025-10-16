@@ -14,4 +14,4 @@ Clazz.newMeth(C$, 'evaluateParallel$java_util_stream_PipelineHelper$java_util_Sp
 return this.evaluateSequential$java_util_stream_PipelineHelper$java_util_Spliterator(helper, spliterator);
 });
 };})();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:17 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:57 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

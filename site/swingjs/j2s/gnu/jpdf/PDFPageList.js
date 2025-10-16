@@ -33,4 +33,4 @@ $I$(2).write$java_io_OutputStream$S(os, "\n");
 this.writeEnd$java_io_OutputStream(os);
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:16:21 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:00 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

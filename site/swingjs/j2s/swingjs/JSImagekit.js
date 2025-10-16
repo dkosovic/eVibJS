@@ -204,7 +204,7 @@ $I$(9).mediaInfoLoaded=true;
 $I$(9).getMediaInfoAsync$BA$S$S$java_util_function_Consumer$java_util_function_Consumer(this.$finals$.data, null, this.$finals$.trackType, this.$finals$.success, this.$finals$.onError);
 });
 })()
-), Clazz.new_(P$.JSImagekit$lambda1.$init$,[this, {onError:onError,trackType:trackType,success:success,data:data}]))]);
+), Clazz.new_(P$.JSImagekit$lambda1.$init$,[this, {success:success,onError:onError,data:data,trackType:trackType}]))]);
 return;
 }var f;
 if (C$.mediaInfoObject == null ) {
@@ -221,7 +221,7 @@ $I$(9).mediaInfoObject=mediainfo;
 $I$(9).getMediaInfoAsync$BA$S$S$java_util_function_Consumer$java_util_function_Consumer(this.$finals$.data, null, this.$finals$.trackType, this.$finals$.success, this.$finals$.onError);
 });
 })()
-), Clazz.new_(P$.JSImagekit$1.$init$,[this, {onError:onError,trackType:trackType,success:success,data:data}]));
+), Clazz.new_(P$.JSImagekit$1.$init$,[this, {success:success,onError:onError,data:data,trackType:trackType}]));
 
 MediaInfo.mediaInfoFactory( { format: 'JSON' }, function(mediainfo){ f.accept$O(mediainfo) } );
 return;
@@ -256,7 +256,7 @@ throw e;
 }
 });
 })()
-), Clazz.new_(P$.JSImagekit$2.$init$,[this, {onError:onError,trackType:trackType,success:success}]));
+), Clazz.new_(P$.JSImagekit$2.$init$,[this, {success:success,onError:onError,trackType:trackType}]));
 
 C$.mediaInfoObject.analyzeData(data.length, function(chunkSize, offset){ return new Uint8Array(data.slice(offset, offset + chunkSize));
 } ).then( function(result){f.accept$O(result)}, function(error){onError ? onError.accept$O(error) : console.log(error)} );
@@ -270,4 +270,4 @@ C$.mediaInfoURL="https://unpkg.com/mediainfo.js@0.3.1/dist/umd/index.min.js";
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:19:02 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:38:19 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

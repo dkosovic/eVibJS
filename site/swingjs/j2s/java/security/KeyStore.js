@@ -531,7 +531,7 @@ throw Clazz.new_(Clazz.load('IllegalStateException').c$$S,["getKeyStore() must b
 }return this.$finals$.protectionParameter;
 });
 })()
-), Clazz.new_(C$,[this, {protectionParameter:protectionParameter,keyStore:keyStore}],P$.KeyStore$Builder$1));
+), Clazz.new_(C$,[this, {keyStore:keyStore,protectionParameter:protectionParameter}],P$.KeyStore$Builder$1));
 }, 1);
 
 Clazz.newMeth(C$, 'newInstance$S$java_security_Provider$java_io_File$java_security_KeyStore_ProtectionParameter',  function (type, provider, file, protection) {
@@ -597,7 +597,7 @@ throw e;
 return ks;
 });
 })()
-), Clazz.new_(P$.KeyStore$Builder$2$1.$init$,[this, {type:type,protection:protection,provider:provider}]));
+), Clazz.new_(P$.KeyStore$Builder$2$1.$init$,[this, {protection:protection,provider:provider,type:type}]));
 },1);
 
 C$.$fields$=[['Z',['getCalled'],'O',['oldException','java.io.IOException','action','java.security.PrivilegedExceptionAction']]]
@@ -762,4 +762,4 @@ Clazz.newMeth(C$);
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:16:53 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:32 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

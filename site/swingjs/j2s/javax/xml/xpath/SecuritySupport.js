@@ -113,7 +113,7 @@ url=this.$finals$.cl.getResource$S(this.$finals$.name);
 }return url;
 });
 })()
-), Clazz.new_(P$.SecuritySupport$5.$init$,[this, {name:name,cl:cl}]))]);
+), Clazz.new_(P$.SecuritySupport$5.$init$,[this, {cl:cl,name:name}]))]);
 });
 
 Clazz.newMeth(C$, 'getResources$ClassLoader$S',  function (cl, name) {
@@ -163,7 +163,7 @@ ris=this.$finals$.cl.getResourceAsStream$S(this.$finals$.name);
 }return ris;
 });
 })()
-), Clazz.new_(P$.SecuritySupport$7.$init$,[this, {cl:cl,name:name}]))]);
+), Clazz.new_(P$.SecuritySupport$7.$init$,[this, {name:name,cl:cl}]))]);
 });
 
 Clazz.newMeth(C$, 'doesFileExist$java_io_File',  function (f) {
@@ -184,4 +184,4 @@ return  Boolean.from(this.$finals$.f.exists$());
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:18:16 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:44 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

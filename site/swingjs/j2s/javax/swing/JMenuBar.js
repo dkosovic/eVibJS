@@ -183,4 +183,4 @@ C$.superclazz.prototype.removeNotify$.apply(this, []);
 $I$(8).getCurrentManager$().unregisterMenuBar$javax_swing_JMenuBar(this);
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:33 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:12 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

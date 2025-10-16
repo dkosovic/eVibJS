@@ -89,7 +89,7 @@ this.$finals$.rowData[row][col]=value;
 this.fireTableCellUpdated$I$I(row, col);
 });
 })()
-), Clazz.new_($I$(16,1),[this, {rowData:rowData,columnNames:columnNames}],P$.JTable$1))]);
+), Clazz.new_($I$(16,1),[this, {columnNames:columnNames,rowData:rowData}],P$.JTable$1))]);
 }, 1);
 
 Clazz.newMeth(C$, 'addNotify$',  function () {
@@ -916,7 +916,7 @@ this.$finals$.cm.getColumn$I(i).setWidth$I(s);
 this.$finals$.cm.getColumn$I(i).setPreferredWidth$I(s);
 }});
 })()
-), Clazz.new_(P$.JTable$2.$init$,[this, {cm:cm,inverse:inverse}]));
+), Clazz.new_(P$.JTable$2.$init$,[this, {inverse:inverse,cm:cm}]));
 p$2.adjustSizes$J$javax_swing_JTable_Resizable3$Z.apply(this, [target, r, inverse]);
 }, p$2);
 
@@ -975,7 +975,7 @@ Clazz.newMeth(C$, 'setSizeAt$I$I',  function (s, i) {
 this.$finals$.cm.getColumn$I(i + this.$finals$.start).setWidth$I(s);
 });
 })()
-), Clazz.new_(P$.JTable$3.$init$,[this, {end:end,cm:cm,start:start}]));
+), Clazz.new_(P$.JTable$3.$init$,[this, {cm:cm,end:end,start:start}]));
 var totalWidth=0;
 for (var i=from; i < to; i++) {
 var aColumn=this.columnModel.getColumn$I(i);
@@ -2454,4 +2454,4 @@ Clazz.newMeth(C$, 'c$$javax_swing_JCheckBox$Z',  function (c, value) {
 Clazz.newMeth(C$);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:36 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:15 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

@@ -18,4 +18,4 @@ Clazz.newMeth(C$, 'c$$I$I$I$I$I',  function (orientation, value, visible, minimu
 ;C$.superclazz.c$$I$I$I$I$I.apply(this,[orientation, value, visible, minimum, maximum]);C$.$init$.apply(this);
 }, 1);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:16:30 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:07 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

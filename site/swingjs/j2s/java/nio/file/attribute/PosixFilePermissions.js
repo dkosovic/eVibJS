@@ -91,4 +91,4 @@ return $I$(5).unmodifiableSet$java_util_Set(this.$finals$.value);
 ), Clazz.new_(P$.PosixFilePermissions$1.$init$,[this, {value:value}]));
 }, 1);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:16:51 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:30 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

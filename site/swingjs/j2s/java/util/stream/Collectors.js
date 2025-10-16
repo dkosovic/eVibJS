@@ -209,7 +209,7 @@ Clazz.newMeth(C$, '$init$', function () {
 /*lambda_E*/
 Clazz.newMeth(C$, 'get$',  function () { return (Clazz.new_($I$(16,1).c$$CharSequence$CharSequence$CharSequence,[this.$finals$.delimiter, this.$finals$.prefix, this.$finals$.suffix]));});
 })()
-), Clazz.new_(P$.Collectors$lambda15.$init$,[this, {delimiter:delimiter,suffix:suffix,prefix:prefix}])), (function($$){((
+), Clazz.new_(P$.Collectors$lambda15.$init$,[this, {delimiter:delimiter,prefix:prefix,suffix:suffix}])), (function($$){((
 (function(){/*m*/var C$=Clazz.newClass(P$, "Collectors$lambda16", function(){Clazz.newInstance(this, arguments[0],1,C$);}, null, 'java.util.function.BiConsumer', 1);
 
 C$.$clinit$=2;
@@ -272,7 +272,7 @@ Clazz.newMeth(C$, '$init$', function () {
 /*lambda_E*/
 Clazz.newMeth(C$, 'accept$O$O',  function (r, t) { return (this.$finals$.downstreamAccumulator.accept$O$O(r, this.$finals$.mapper.apply$O.apply(this.$finals$.mapper, [t])));});
 })()
-), Clazz.new_(P$.Collectors$lambda20.$init$,[this, {mapper:mapper,downstreamAccumulator:downstreamAccumulator}])), downstream.combiner$(), downstream.finisher$(), downstream.characteristics$()],$I$(9,1).c$$java_util_function_Supplier$java_util_function_BiConsumer$java_util_function_BinaryOperator$java_util_function_Function$java_util_Set);
+), Clazz.new_(P$.Collectors$lambda20.$init$,[this, {downstreamAccumulator:downstreamAccumulator,mapper:mapper}])), downstream.combiner$(), downstream.finisher$(), downstream.characteristics$()],$I$(9,1).c$$java_util_function_Supplier$java_util_function_BiConsumer$java_util_function_BinaryOperator$java_util_function_Function$java_util_Set);
 }, 1);
 
 Clazz.newMeth(C$, 'collectingAndThen$java_util_stream_Collector$java_util_function_Function',  function (downstream, finisher) {
@@ -823,7 +823,7 @@ Clazz.newMeth(C$, 'apply$O',  function (k) { return (this.$finals$.downstreamSup
 this.$finals$.downstreamAccumulator.accept$O$O(container, t);
 });
 })()
-), Clazz.new_(P$.Collectors$lambda59.$init$,[this, {downstreamAccumulator:downstreamAccumulator,downstreamSupplier:downstreamSupplier,classifier:classifier}]));
+), Clazz.new_(P$.Collectors$lambda59.$init$,[this, {classifier:classifier,downstreamAccumulator:downstreamAccumulator,downstreamSupplier:downstreamSupplier}]));
 var merger=C$.mapMerger$java_util_function_BinaryOperator(downstream.combiner$());
 var mangledFactory=mapFactory;
 if (downstream.characteristics$().contains$O($I$(8).IDENTITY_FINISH)) {
@@ -917,7 +917,7 @@ Clazz.newMeth(C$, 'apply$O',  function (k) { return (this.$finals$.downstreamSup
 this.$finals$.downstreamAccumulator.accept$O$O(resultContainer, t);
 });
 })()
-), Clazz.new_(P$.Collectors$lambda63.$init$,[this, {classifier:classifier,downstreamAccumulator:downstreamAccumulator,downstreamSupplier:downstreamSupplier}]));
+), Clazz.new_(P$.Collectors$lambda63.$init$,[this, {downstreamSupplier:downstreamSupplier,downstreamAccumulator:downstreamAccumulator,classifier:classifier}]));
 } else {
 accumulator=((P$.Collectors$lambda64||
 (function(){/*m*/var C$=Clazz.newClass(P$, "Collectors$lambda64", function(){Clazz.newInstance(this, arguments[0],1,C$);}, null, 'java.util.function.BiConsumer', 1);
@@ -944,7 +944,7 @@ Clazz.newMeth(C$, 'apply$O',  function (k) { return (this.$finals$.downstreamSup
 this.$finals$.downstreamAccumulator.accept$O$O(resultContainer, t);
 }});
 })()
-), Clazz.new_(P$.Collectors$lambda64.$init$,[this, {classifier:classifier,downstreamAccumulator:downstreamAccumulator,downstreamSupplier:downstreamSupplier}]));
+), Clazz.new_(P$.Collectors$lambda64.$init$,[this, {downstreamSupplier:downstreamSupplier,downstreamAccumulator:downstreamAccumulator,classifier:classifier}]));
 }if (downstream.characteristics$().contains$O($I$(8).IDENTITY_FINISH)) {
 return Clazz.new_($I$(9,1).c$$java_util_function_Supplier$java_util_function_BiConsumer$java_util_function_BinaryOperator$java_util_Set,[mangledFactory, accumulator, merger, C$.CH_CONCURRENT_ID]);
 } else {
@@ -1073,7 +1073,7 @@ Clazz.newMeth(C$, '$init$', function () {
 /*lambda_E*/
 Clazz.newMeth(C$, ['accept$java_util_Map$O','accept$O$O'],  function (map, element) { return (map.merge$O$O$java_util_function_BiFunction.apply(map, [this.$finals$.keyMapper.apply$O.apply(this.$finals$.keyMapper, [element]), this.$finals$.valueMapper.apply$O.apply(this.$finals$.valueMapper, [element]), this.$finals$.mergeFunction]));});
 })()
-), Clazz.new_(P$.Collectors$lambda72.$init$,[this, {mergeFunction:mergeFunction,valueMapper:valueMapper,keyMapper:keyMapper}]));
+), Clazz.new_(P$.Collectors$lambda72.$init$,[this, {keyMapper:keyMapper,valueMapper:valueMapper,mergeFunction:mergeFunction}]));
 return Clazz.new_([mapSupplier, accumulator, C$.mapMerger$java_util_function_BinaryOperator(mergeFunction), C$.CH_ID],$I$(9,1).c$$java_util_function_Supplier$java_util_function_BiConsumer$java_util_function_BinaryOperator$java_util_Set);
 }, 1);
 
@@ -1116,7 +1116,7 @@ Clazz.newMeth(C$, '$init$', function () {
 /*lambda_E*/
 Clazz.newMeth(C$, ['accept$java_util_concurrent_ConcurrentMap$O','accept$O$O'],  function (map, element) { return (map.merge$O$O$java_util_function_BiFunction.apply(map, [this.$finals$.keyMapper.apply$O.apply(this.$finals$.keyMapper, [element]), this.$finals$.valueMapper.apply$O.apply(this.$finals$.valueMapper, [element]), this.$finals$.mergeFunction]));});
 })()
-), Clazz.new_(P$.Collectors$lambda75.$init$,[this, {valueMapper:valueMapper,mergeFunction:mergeFunction,keyMapper:keyMapper}]));
+), Clazz.new_(P$.Collectors$lambda75.$init$,[this, {valueMapper:valueMapper,keyMapper:keyMapper,mergeFunction:mergeFunction}]));
 return Clazz.new_([mapSupplier, accumulator, C$.mapMerger$java_util_function_BinaryOperator(mergeFunction), C$.CH_CONCURRENT_ID],$I$(9,1).c$$java_util_function_Supplier$java_util_function_BiConsumer$java_util_function_BinaryOperator$java_util_Set);
 }, 1);
 
@@ -1352,4 +1352,4 @@ return 2;
 Clazz.newMeth(C$);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:14 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:54 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

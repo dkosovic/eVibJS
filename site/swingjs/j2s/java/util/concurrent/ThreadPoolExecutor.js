@@ -274,7 +274,7 @@ this.$finals$.w.unlock$();
 }
 });
 })()
-), Clazz.new_(P$.ThreadPoolExecutor$1.$init$,[this, {task:task,wt:wt,w:w}]))]);
+), Clazz.new_(P$.ThreadPoolExecutor$1.$init$,[this, {wt:wt,w:w,task:task}]))]);
 }completedAbruptly=false;
 } finally {
 p$1.processWorkerExit$java_util_concurrent_ThreadPoolExecutor_Worker$Z.apply(this, [w, completedAbruptly]);
@@ -691,4 +691,4 @@ e.execute$Runnable(r);
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:10 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:50 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

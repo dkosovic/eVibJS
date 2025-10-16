@@ -239,7 +239,7 @@ throw e;
 }
 });
 })()
-), Clazz.new_(P$.ExtensionDependency$2.$init$,[this, {extName:extName,fileExt:fileExt}]))]);
+), Clazz.new_(P$.ExtensionDependency$2.$init$,[this, {fileExt:fileExt,extName:extName}]))]);
 }, p$1);
 
 Clazz.newMeth(C$, 'getExtDirs$',  function () {
@@ -375,4 +375,4 @@ e.printStackTrace$();
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:18:39 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:58 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

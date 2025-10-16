@@ -50,4 +50,4 @@ Clazz.newMeth(C$, 'add$java_awt_Component$I',  function (comp, index) {
 return C$.superclazz.prototype.add$java_awt_Component$I.apply(this, [this.秘transferFrameTo$javax_swing_JComponent(comp), index]);
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:34 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:13 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

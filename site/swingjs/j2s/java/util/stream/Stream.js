@@ -42,7 +42,7 @@ Clazz.newMeth(C$, 'next$',  function () {
 return this.t=(this.t === $I$(6).NONE ) ? this.$finals$.seed : this.$finals$.f.apply$O(this.t);
 });
 })()
-), Clazz.new_(P$.Stream$1.$init$,[this, {seed:seed,f:f}]));
+), Clazz.new_(P$.Stream$1.$init$,[this, {f:f,seed:seed}]));
 return $I$(2,"stream$java_util_Spliterator$Z",[$I$(3).spliteratorUnknownSize$java_util_Iterator$I(iterator, 1040), false]);
 }, 1);
 
@@ -71,4 +71,4 @@ return this;
 });
 };})()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:17 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:56 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

@@ -224,4 +224,4 @@ Clazz.newMeth(C$, 'syntaxError$S',  function (message) {
 return Clazz.new_(Clazz.load('javajs.util.JSONException').c$$S,[message + " for " + this.str.substring$I$I(0, Math.min(this.index, this.len)) ]);
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:20 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:00 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

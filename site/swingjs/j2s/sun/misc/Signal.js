@@ -84,7 +84,7 @@ Clazz.newMeth(C$, 'run$',  function () {
 this.$finals$.handler.handle$sun_misc_Signal(this.$finals$.sig);
 });
 })()
-), Clazz.new_(P$.Signal$1.$init$,[this, {handler:handler,sig:sig}]));
+), Clazz.new_(P$.Signal$1.$init$,[this, {sig:sig,handler:handler}]));
 if (handler != null ) {
 Clazz.new_($I$(4,1).c$$Runnable$S,[runnable, sig + " handler"]).start$();
 }}, 1);
@@ -111,4 +111,4 @@ C$.signals=Clazz.new_($I$(1,1).c$$I,[4]);
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:18:42 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:59 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

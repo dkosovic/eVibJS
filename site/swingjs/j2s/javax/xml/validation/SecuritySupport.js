@@ -129,7 +129,7 @@ enumeration=this.$finals$.cl.getResources$S(this.$finals$.name);
 }return enumeration;
 });
 })()
-), Clazz.new_(P$.SecuritySupport$6.$init$,[this, {name:name,cl:cl}]))]);
+), Clazz.new_(P$.SecuritySupport$6.$init$,[this, {cl:cl,name:name}]))]);
 } catch (e) {
 if (Clazz.exceptionOf(e,"java.security.PrivilegedActionException")){
 throw e.getException$();
@@ -178,4 +178,4 @@ return  Boolean.from(this.$finals$.f.exists$());
 
 Clazz.newMeth(C$);
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:18:16 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:44 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

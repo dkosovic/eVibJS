@@ -42,4 +42,4 @@ Clazz.newMeth(C$, 'newXMLGregorianCalendar$java_math_BigInteger$I$I$I$I$I$java_m
 return Clazz.new_($I$(2,1).c$$java_math_BigInteger$I$I$I$I$I$java_math_BigDecimal$I,[year, month, day, hour, minute, second, fractionalSecond, timezone]);
 });
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:18:19 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:37:46 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7

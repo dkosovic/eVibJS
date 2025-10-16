@@ -122,10 +122,10 @@ Clazz.newMeth(C$, 'cancellationRequested$',  function () {
 return Long.$eq(this.m,0 ) || this.downstream.cancellationRequested$() ;
 });
 })()
-), Clazz.new_($I$(11,1).c$$java_util_stream_Sink,[this, {skip:this.$finals$.skip,limit:this.$finals$.limit}, sink],P$.SliceOps$1$1));
+), Clazz.new_($I$(11,1).c$$java_util_stream_Sink,[this, {limit:this.$finals$.limit,skip:this.$finals$.skip}, sink],P$.SliceOps$1$1));
 });
 })()
-), Clazz.new_([this, {skip:skip,limit:limit}, upstream, $I$(3).REFERENCE, C$.flags$J(limit)],$I$(12,1).c$$java_util_stream_AbstractPipeline$java_util_stream_StreamShape$I,P$.SliceOps$1));
+), Clazz.new_([this, {limit:limit,skip:skip}, upstream, $I$(3).REFERENCE, C$.flags$J(limit)],$I$(12,1).c$$java_util_stream_AbstractPipeline$java_util_stream_StreamShape$I,P$.SliceOps$1));
 }, 1);
 
 Clazz.newMeth(C$, 'makeInt$java_util_stream_AbstractPipeline$J$J',  function (upstream, skip, limit) {
@@ -377,10 +377,10 @@ Clazz.newMeth(C$, 'cancellationRequested$',  function () {
 return Long.$eq(this.m,0 ) || this.downstream.cancellationRequested$() ;
 });
 })()
-), Clazz.new_($I$(20,1).c$$java_util_stream_Sink,[this, {limit:this.$finals$.limit,skip:this.$finals$.skip}, sink],P$.SliceOps$4$1));
+), Clazz.new_($I$(20,1).c$$java_util_stream_Sink,[this, {skip:this.$finals$.skip,limit:this.$finals$.limit}, sink],P$.SliceOps$4$1));
 });
 })()
-), Clazz.new_([this, {limit:limit,skip:skip}, upstream, $I$(3).DOUBLE_VALUE, C$.flags$J(limit)],$I$(21,1).c$$java_util_stream_AbstractPipeline$java_util_stream_StreamShape$I,P$.SliceOps$4));
+), Clazz.new_([this, {skip:skip,limit:limit}, upstream, $I$(3).DOUBLE_VALUE, C$.flags$J(limit)],$I$(21,1).c$$java_util_stream_AbstractPipeline$java_util_stream_StreamShape$I,P$.SliceOps$4));
 }, 1);
 
 Clazz.newMeth(C$, 'flags$J',  function (limit) {
@@ -496,4 +496,4 @@ return (Long.$ge(leftSize,target )) ? leftSize : Long.$add(leftSize,p$1.complete
 Clazz.newMeth(C$);
 })()
 })();
-;Clazz.setTVer('5.0.1-v7');//Created 2025-07-24 19:17:16 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
+;Clazz.setTVer('5.0.1-v7');//Created 2025-09-04 12:36:56 Java2ScriptVisitor version 5.0.1-v7 net.sf.j2s.core.jar version 5.0.1-v7
