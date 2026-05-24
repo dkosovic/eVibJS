@@ -91,7 +91,7 @@
 		
 	-->
 	
-    <property name="core.name" value="_eVibJS" />
+    <property name="core.name" value="_evibjs" />
 	
 	
    <property name="j2s.class.list.file" value="_j2sclasslist.txt" />	
