@@ -5,7 +5,13 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Abutment Response</title>
-
+   <script>
+   window.addEventListener('wheel', function(event) {
+    if (event.ctrlKey) {
+        event.stopImmediatePropagation();
+    }
+   }, { capture: true, passive: true });
+   </script>
    <script src="../../../site/swingjs/swingjs2.js"></script>
    <script>
    if (!self.SwingJS)alert('swingjs2.js was not found.')
