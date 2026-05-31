@@ -6,11 +6,13 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Complex eigen values</title>
    <script>
-   window.addEventListener('wheel', function(event) {
-    if (event.ctrlKey) {
-        event.stopImmediatePropagation();
+   (function () {
+    const types = ["wheel", "mousewheel", "DOMMouseScroll"];
+    function allowBrowserCtrlWheel(e) {
+     if (e.ctrlKey) e.stopImmediatePropagation();
     }
-   }, { capture: true, passive: true });
+    types.forEach(t => window.addEventListener(t, allowBrowserCtrlWheel, { capture: true }));
+   })();
    </script>
    <script src="../../../site/swingjs/swingjs2.js"></script>
    <script>
