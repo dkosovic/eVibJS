@@ -70,7 +70,7 @@ class CInputDialog extends Frame {
          if (var2.equals("OK")) {
             if (this.mSpringText != null) {
                try {
-                  Double var3 = new Double(this.mSpringText.getText());
+                  double var3 = java.lang.Double.parseDouble(this.mSpringText.getText());
                   if (var3 > 0.0) {
                      this.mSMD.mSpringConstant = var3;
                   }
@@ -79,7 +79,7 @@ class CInputDialog extends Frame {
             }
 
             try {
-               Double var6 = new Double(this.mMassText.getText());
+               double var6 = java.lang.Double.parseDouble(this.mMassText.getText());
                if (var6 > 0.0) {
                   this.mSMD.mMass = var6;
                }
