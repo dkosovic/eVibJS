@@ -1,3 +1,5 @@
+package MultiDOF.Prog6.Eigen5DOF;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

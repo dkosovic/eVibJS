@@ -1,3 +1,5 @@
+package MultiDOF.Prog3.Multiforced;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Insets;

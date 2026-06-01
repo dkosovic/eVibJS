@@ -1,3 +1,5 @@
+package MultiDOF.Prog2.Forcedresponse_2DOF;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;

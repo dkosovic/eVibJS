@@ -1,3 +1,5 @@
+package MultiDOF.Prog3.Multiforced;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Frame;

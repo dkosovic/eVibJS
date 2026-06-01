@@ -1,3 +1,5 @@
+package MultiDOF.Prog4.Forcedresponse_2DOF;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;

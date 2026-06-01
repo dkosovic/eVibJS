@@ -1,3 +1,5 @@
+package Home_info.Beam;
+
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;

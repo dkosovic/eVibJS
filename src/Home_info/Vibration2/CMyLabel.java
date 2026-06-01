@@ -1,3 +1,5 @@
+package Home_info.Vibration2;
+
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics;

@@ -1,3 +1,5 @@
+package MultiDOF.Prog6.Eigen5DOF;
+
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

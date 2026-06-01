@@ -1,3 +1,5 @@
+package MultiDOF.Prog6.Eigen5DOF;
+
 import Jama.EigenvalueDecomposition;
 import Jama.Matrix;
 import java.awt.Color;

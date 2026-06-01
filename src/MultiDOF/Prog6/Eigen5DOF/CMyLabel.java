@@ -1,3 +1,5 @@
+package MultiDOF.Prog6.Eigen5DOF;
+
 import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Label;

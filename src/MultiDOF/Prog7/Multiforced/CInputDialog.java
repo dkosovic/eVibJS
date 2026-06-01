@@ -1,3 +1,5 @@
+package MultiDOF.Prog7.Multiforced;
+
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.CheckboxGroup;

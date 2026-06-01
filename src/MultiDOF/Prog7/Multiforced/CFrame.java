@@ -1,3 +1,5 @@
+package MultiDOF.Prog7.Multiforced;
+
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
