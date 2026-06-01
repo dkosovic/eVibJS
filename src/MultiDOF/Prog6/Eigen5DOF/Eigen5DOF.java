@@ -92,7 +92,7 @@ public class Eigen5DOF extends Applet implements Runnable {
       var31.SetTextEditable(true);
       Image var32 = this.getImage(this.getCodeBase(), "m5.gif");
       new CFramePicture(this.mFramePanel, 461, 80, 0, 0, var32, false);
-      byte var34 = 85;
+      int var34 = 85;
       Image var35 = this.getImage(this.getCodeBase(), "Diagram.gif");
       new CFramePicture(this.mFramePanel, var34, 25, 0, 0, var35, false);
       Image var37 = this.getImage(this.getCodeBase(), "Add.gif");

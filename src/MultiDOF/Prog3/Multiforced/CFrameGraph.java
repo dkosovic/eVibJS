@@ -211,9 +211,9 @@ class CFrameGraph extends CFrame {
    public void DrawModeShape(Graphics var1, int var2, int var3) {
       double var9 = this.GetTime();
       var1.setColor(Color.white);
-      byte var11 = 40;
+      int var11 = 40;
       short var12 = 535;
-      byte var13 = 20;
+      int var13 = 20;
       short var14 = 450;
       short var15 = 455;
       Color var16 = new Color(0.18F, 0.58F, 0.58F);
