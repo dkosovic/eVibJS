@@ -1,7 +1,6 @@
 package MultiDOF.Prog5.Multiforced;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -102,7 +101,6 @@ public class CUtility {
    }
 
    public static int DrawString(Graphics g, String theString, int x, int y) {
-      Font font = g.getFont();
       FontMetrics fm = g.getFontMetrics();
       int wid = fm.stringWidth(theString);
       g.drawString(theString, x, y);
@@ -299,7 +297,6 @@ public class CUtility {
             return null;
          } else {
             int pixel = pixels[0];
-            int alpha = pixel >> 24 & 0xFF;
             int red = pixel >> 16 & 0xFF;
             int green = pixel >> 8 & 0xFF;
             int blue = pixel & 0xFF;

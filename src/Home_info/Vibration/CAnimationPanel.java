@@ -50,7 +50,6 @@ public class CAnimationPanel extends Panel {
       Color mass = new Color(0.18F, 0.58F, 0.58F);
       double yreal = this.mXo * 3.4 * Math.cos(this.mWn * this.mTime * 2.0 * Math.PI);
       int y = (int)yreal;
-      int springenergy = (int)(100.0 * yreal * yreal / (this.mXo * 3.4 * this.mXo * 3.4));
       this.mOffScreenGC.setColor(Color.white);
       this.mOffScreenGC.fillRect(0, 0, ww, hh);
       this.mOffScreenGC.setColor(Color.orange);

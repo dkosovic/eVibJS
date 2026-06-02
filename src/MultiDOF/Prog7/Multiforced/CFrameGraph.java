@@ -61,7 +61,6 @@ class CFrameGraph extends CFrame {
 
    public void Frame(Graphics var1) {
       int var2 = 7;
-      boolean var3 = false;
       var1.setPaintMode();
       var1.setColor(Color.black);
       CSpringMassDamper var4 = this.GetSMD(this.mDisplayXPos);

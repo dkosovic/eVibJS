@@ -208,7 +208,6 @@ class CFrameGraph extends CFrame {
    }
 
    public void DrawModeShape(Graphics var1, int var2, int var3) {
-      double var9 = this.GetTime();
       var1.setColor(Color.white);
       int var11 = 40;
       short var12 = 535;
@@ -453,7 +452,6 @@ class CFrameGraph extends CFrame {
       double var12 = var1 * 2.0 * Math.PI;
       this.receptance(var12);
       double var14 = 1.0;
-      double var16 = 0.0;
       double var22 = this.mAlpha12Real * var14;
       double var24 = this.mAlpha12Imag * var14;
       double var4 = var22 - this.mBeta12Real * var14;
@@ -494,7 +492,6 @@ class CFrameGraph extends CFrame {
          return false;
       }
 
-      boolean var3 = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       switch (var1) {
          case 0:
          case 1:

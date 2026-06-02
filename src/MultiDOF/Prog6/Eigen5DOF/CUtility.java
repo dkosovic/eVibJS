@@ -1,7 +1,6 @@
 package MultiDOF.Prog6.Eigen5DOF;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -102,7 +101,6 @@ public class CUtility {
    }
 
    public static int DrawString(Graphics var0, String var1, int var2, int var3) {
-      Font var4 = var0.getFont();
       FontMetrics var5 = var0.getFontMetrics();
       int var6 = var5.stringWidth(var1);
       var0.drawString(var1, var2, var3);
@@ -299,7 +297,6 @@ public class CUtility {
             return null;
          } else {
             int var8 = var6[0];
-            int var9 = var8 >> 24 & 0xFF;
             int var10 = var8 >> 16 & 0xFF;
             int var11 = var8 >> 8 & 0xFF;
             int var12 = var8 & 0xFF;
