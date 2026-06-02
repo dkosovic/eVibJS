@@ -15,7 +15,7 @@ class CFrameHelp extends CFrame implements Runnable {
 
    public CFrameHelp(CFramePanel thePanel, int xx, int yy, int ww, int hh, String message) {
       super(thePanel, xx, yy, ww, hh);
-      this.mMessage = new String(message);
+      this.mMessage = message;
       this.DefaultArrowPos();
    }
 

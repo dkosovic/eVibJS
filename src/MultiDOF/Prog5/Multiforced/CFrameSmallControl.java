@@ -38,7 +38,7 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
       super(thePanel, xx, yy, 0, 0, thePanel.mApplet.getImage(thePanel.mApplet.getCodeBase(), "BrianControl.gif"), false);
       this.mControlledFrame = controlThis;
       this.mCode = code;
-      this.mUnits = new String(units);
+      this.mUnits = units;
       super.width = super.mImage.getWidth(thePanel);
       super.height = super.mImage.getHeight(thePanel);
       this.mMin = min;
@@ -148,17 +148,17 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
       }
 
       if (NearlyEqual(arg, 0.0)) {
-         return new String("0");
+         return "0";
       }
 
       if (arg < 0.0) {
-         return new String("-" + nns(-arg, sig));
+         return "-" + nns(-arg, sig);
       }
 
       double oom = Math.floor(log10(arg));
       double power = Math.pow(10.0, oom - sig + 1.0);
       long intArg = Math.round(arg / power);
-      String result = new String(String.valueOf(intArg * power));
+      String result = String.valueOf(intArg * power);
 
       while (result.length() > 1 && result.indexOf(46) > -1) {
          boolean trimmed = false;
@@ -169,10 +169,10 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
          }
 
          if (trimmed) {
-            result = new String(result.substring(0, lastChar + 1));
+            result = result.substring(0, lastChar + 1);
          }
 
-         String shortStr = new String(result.substring(0, lastChar));
+         String shortStr = result.substring(0, lastChar);
 
          double newNum;
          try {
@@ -354,7 +354,7 @@ public class CFrameSmallControl extends CFramePicture implements Runnable, KeyLi
    }
 
    public String GetLabelString() {
-      return new String(nns(this.mValue) + " " + this.mUnits);
+      return nns(this.mValue) + " " + this.mUnits;
    }
 
    public void FrameValue(Graphics g) {

@@ -25,17 +25,17 @@ public class CUtility {
       }
 
       if (arg == 0.0) {
-         return new String("0");
+         return "0";
       }
 
       if (arg < 0.0) {
-         return new String("-" + nns(-arg, sig));
+         return "-" + nns(-arg, sig);
       }
 
       double oom = Math.floor(log10(arg));
       double power = Math.pow(10.0, oom - sig + 1.0);
       long intArg = Math.round(arg / power);
-      String result = new String(String.valueOf(intArg * power));
+      String result = String.valueOf(intArg * power);
       String expStr = "";
       int expPos = result.indexOf("E-");
       if (expPos > -1) {
@@ -60,10 +60,10 @@ public class CUtility {
          }
 
          if (trimmed) {
-            result = new String(result.substring(0, lastChar + 1));
+            result = result.substring(0, lastChar + 1);
          }
 
-         String shortStr = new String(result.substring(0, lastChar));
+         String shortStr = result.substring(0, lastChar);
 
          double newNum;
          try {
@@ -79,7 +79,7 @@ public class CUtility {
          result = shortStr;
       }
 
-      return new String(result + expStr);
+      return result + expStr;
    }
 
    public static String nns(double arg) {
