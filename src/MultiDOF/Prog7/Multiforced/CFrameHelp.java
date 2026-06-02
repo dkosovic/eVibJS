@@ -6,6 +6,7 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.util.StringTokenizer;
 
+@SuppressWarnings("serial")
 class CFrameHelp extends CFrame implements Runnable {
    Thread mThread;
    boolean mShowtime;

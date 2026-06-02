@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
 
+@SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
    public static final int kWanimateCode = 1;
    public static final int kDeltaTimeCode = 2;

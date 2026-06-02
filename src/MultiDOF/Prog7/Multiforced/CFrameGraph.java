@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
 
+@SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
    public static final int kEditInputCode = 1;
    public static final int kWanimateCode = 2;

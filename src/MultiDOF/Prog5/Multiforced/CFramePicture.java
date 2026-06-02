@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
 
+@SuppressWarnings("serial")
 class CFramePicture extends CFrame {
    public Image mImage;
    MediaTracker mTracker;

@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Panel;
 
+@SuppressWarnings("serial")
 class CPicturePanel extends Panel {
    public Image mImage;
    MediaTracker mTracker;

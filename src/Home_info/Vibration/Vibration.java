@@ -4,6 +4,7 @@ import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Vibration extends Applet implements Runnable {
    static final String kRunString = "Run";
    CAnimationPanel mAnimPanel;

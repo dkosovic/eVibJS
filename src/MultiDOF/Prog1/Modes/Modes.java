@@ -9,6 +9,7 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Modes extends Applet implements Runnable {
    static final double kMinm = 0.2;
    static final double kMaxm = 2.0;

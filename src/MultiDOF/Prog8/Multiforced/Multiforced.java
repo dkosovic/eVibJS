@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Multiforced extends Applet implements Runnable {
    public Frame mFeedbackWindow = null;
    public TextField answer1;

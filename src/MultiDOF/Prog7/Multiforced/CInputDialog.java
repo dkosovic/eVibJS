@@ -10,6 +10,7 @@ import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
 
+@SuppressWarnings("serial")
 class CInputDialog extends Frame {
    public CSpringMassDamper mSMD;
    CheckboxGroup mViscCheckboxGroup;

@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class CFrameSmallControl extends CFramePicture implements Runnable, KeyListener {
    public CFrame mControlledFrame;
    int mSelection;

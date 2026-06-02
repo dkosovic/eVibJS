@@ -8,6 +8,7 @@ import java.awt.Label;
 import java.awt.TextField;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Multiforced extends Applet implements Runnable {
    public Frame mFeedbackWindow = null;
    public TextField answer1;

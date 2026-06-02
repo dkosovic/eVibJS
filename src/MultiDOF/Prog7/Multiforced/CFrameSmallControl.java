@@ -6,6 +6,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class CFrameSmallControl extends CFramePicture implements Runnable {
    public CFrame mControlledFrame;
    int mSelection;

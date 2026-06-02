@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
 
+@SuppressWarnings("serial")
 public class Eigen5DOF extends Applet implements Runnable {
    static final double kMink1 = 1.0;
    static final double kMaxk1 = 100.0;

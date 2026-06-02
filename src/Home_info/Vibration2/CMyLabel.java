@@ -5,6 +5,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Label;
 
+@SuppressWarnings("serial")
 class CMyLabel extends Label {
    int mPrefWidth;
 

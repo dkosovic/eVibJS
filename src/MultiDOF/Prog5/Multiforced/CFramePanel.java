@@ -9,6 +9,7 @@ import java.awt.Panel;
 import java.awt.Point;
 import java.util.Vector;
 
+@SuppressWarnings("serial")
 public class CFramePanel extends Panel {
    public Applet mApplet;
    Vector mFrames;

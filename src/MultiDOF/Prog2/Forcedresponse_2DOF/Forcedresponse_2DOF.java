@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
 
+@SuppressWarnings("serial")
 public class Forcedresponse_2DOF extends Applet implements Runnable {
    static final double kMinm = 0.2;
    static final double kMaxm = 2.0;

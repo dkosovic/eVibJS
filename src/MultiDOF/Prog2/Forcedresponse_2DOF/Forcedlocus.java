@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
 
+@SuppressWarnings("serial")
 public class Forcedlocus extends Applet implements Runnable {
    static final double kMinXi2 = 0.04;
    static final double kMaxXi2 = 3.0;
