@@ -3,13 +3,12 @@ package MultiDOF.Prog6.Eigen5DOF;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.Panel;
+import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")
 class CPicturePanel extends Panel {
    public Image mImage;
-   MediaTracker mTracker;
 
    public CPicturePanel() {
    }
@@ -19,13 +18,12 @@ class CPicturePanel extends Panel {
    }
 
    public void LoadImage(Image var1) {
-      this.mImage = var1;
-      this.mTracker = new MediaTracker(this);
-      this.mTracker.addImage(this.mImage, 0);
-
-      try {
-         this.mTracker.waitForAll();
-      } catch (InterruptedException var2) {
+      // Use ImageIcon to ensure synchronous loading
+      if (var1 != null) {
+         ImageIcon icon = new ImageIcon(var1);
+         this.mImage = icon.getImage();
+      } else {
+         this.mImage = var1;
       }
    }
 
@@ -44,11 +42,10 @@ class CPicturePanel extends Panel {
    }
 
    public void paint(Graphics var1) {
-      if (!this.mTracker.checkAll()) {
-         var1.drawString("...", 0, 20);
-         this.repaint(200L);
-      } else {
+      if (this.mImage != null) {
          var1.drawImage(this.mImage, 0, 0, this);
+      } else {
+         var1.drawString("...", 0, 20);
       }
    }
 }
