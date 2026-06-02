@@ -45,7 +45,6 @@ public class CAnimationPanel extends Panel {
 
       int ww = this.mOffScrImage.getWidth(this);
       int hh = this.mOffScrImage.getHeight(this);
-      new Character('©');
       Color mass = new Color(0.18F, 0.58F, 0.58F);
       double yreal1 = this.mXo * 3.4 * Math.cos(0.71 * this.mWn * this.mTime * 2.0 * Math.PI)
          + this.mXo * 3.4 * Math.cos(1.23 * this.mWn * this.mTime * 2.0 * Math.PI + (Math.PI / 4));
