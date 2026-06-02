@@ -33,8 +33,8 @@ class CFrameHelp extends CFrame implements Runnable {
             var2 = this.mArrowHead;
          }
 
-         int var3 = super.mFramePanel.size().width;
-         int var4 = super.mFramePanel.size().height;
+         int var3 = super.mFramePanel.getSize().width;
+         int var4 = super.mFramePanel.getSize().height;
          int var5 = 12;
          int var6 = 5;
          int var7 = 10;
@@ -109,7 +109,7 @@ class CFrameHelp extends CFrame implements Runnable {
          return false;
       }
 
-      if (!this.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
+      if (!this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
          return false;
       }
 

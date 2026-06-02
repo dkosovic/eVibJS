@@ -36,7 +36,7 @@ public class Multiforced extends Applet implements Runnable {
       Image var8 = this.getImage(this.getCodeBase(), "w2axis.gif");
       new CFramePicture(this.mFramePanel, 530, 355, 0, 0, var8, false);
       this.mFrameGraph = new CFrameGraph(this.mFramePanel, 40, 70, 602, 280);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.size().width, 60);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
       Button var10 = new Button("Instructions");
       var1.add(var10);
       Button var11 = new Button("Edit");

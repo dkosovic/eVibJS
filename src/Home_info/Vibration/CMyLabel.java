@@ -15,7 +15,7 @@ class CMyLabel extends Label {
    }
 
    public Dimension preferredSize() {
-      Dimension oldD = super.preferredSize();
+      Dimension oldD = super.getPreferredSize();
       return new Dimension(this.mPrefWidth, oldD.height);
    }
 

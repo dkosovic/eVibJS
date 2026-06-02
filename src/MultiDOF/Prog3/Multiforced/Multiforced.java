@@ -91,7 +91,7 @@ public class Multiforced extends Applet implements Runnable {
       new CFramePicture(this.mFramePanel, 35, 345, 0, 0, var31, false);
       Image var33 = this.getImage(this.getCodeBase(), "yAxis.gif");
       new CFramePicture(this.mFramePanel, 1, 63, 0, 0, var33, false);
-      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.size().width, 60);
+      this.mAnimFrame = new CFrameAnimation(this.mFramePanel, this.mFrameGraph, 0, 385, this.getSize().width, 60);
       this.validate();
    }
 

@@ -495,7 +495,7 @@ class CFrameGraph extends CFrame {
          return false;
       }
 
-      boolean var3 = this.inside(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
+      boolean var3 = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       switch (var1) {
          case 0:
          case 1:
