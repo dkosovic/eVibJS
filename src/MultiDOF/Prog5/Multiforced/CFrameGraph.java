@@ -2,7 +2,6 @@ package MultiDOF.Prog5.Multiforced;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Vector;
 
 @SuppressWarnings("serial")
 class CFrameGraph extends CFrame {
@@ -38,7 +37,6 @@ class CFrameGraph extends CFrame {
    public static final int kResponsePoints = 481;
    double[] mRec = new double[481];
    double[][] mAmp = new double[4][3];
-   public Vector mElements;
    double mWanimate = 2.0;
    double mm = 0.2;
    double mk1 = 10.0;

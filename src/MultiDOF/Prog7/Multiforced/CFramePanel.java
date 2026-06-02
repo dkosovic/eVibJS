@@ -13,7 +13,7 @@ import java.util.Vector;
 @SuppressWarnings("serial")
 public class CFramePanel extends Panel {
    public Applet mApplet;
-   Vector mFrames;
+   Vector<CFrame> mFrames;
    Image mOffScrImage;
    Graphics mScreenGC;
    Graphics mOffScreenGC;
@@ -52,7 +52,7 @@ public class CFramePanel extends Panel {
 
    public void AddFrame(CFrame var1) {
       if (this.mFrames == null) {
-         this.mFrames = new Vector();
+         this.mFrames = new Vector<CFrame>();
       }
 
       this.mFrames.addElement(var1);
