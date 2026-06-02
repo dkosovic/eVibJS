@@ -5,10 +5,13 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.util.StringTokenizer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-class CFrameHelp extends CFrame implements Runnable {
-   Thread mThread;
+class CFrameHelp extends CFrame implements ActionListener {
+   Timer mTimer;
    boolean mShowtime;
    public String mMessage;
    public double mDelay = 1.5;
@@ -105,7 +108,7 @@ class CFrameHelp extends CFrame implements Runnable {
       }
 
       this.mShowtime = false;
-      this.mThread = null;
+      this.mTimer = null;
       if (code != 3) {
          return false;
       }
@@ -114,21 +117,13 @@ class CFrameHelp extends CFrame implements Runnable {
          return false;
       }
 
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer((int)(this.mDelay * 1000), this);
+      this.mTimer.start();
       return true;
    }
 
-   public void run() {
-      Thread oldThread = this.mThread;
-
-      try {
-         Thread.sleep((long)this.mDelay * 1000L);
-      } catch (InterruptedException var2) {
-         return;
-      }
-
-      if (this.mThread == oldThread) {
+   public void actionPerformed(ActionEvent e) {
+      if (this.mTimer != null) {
          this.mShowtime = true;
          this.repaint();
       }

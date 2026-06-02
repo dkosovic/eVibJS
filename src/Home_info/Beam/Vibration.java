@@ -3,12 +3,16 @@ package Home_info.Beam;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.util.Date;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Vibration extends Applet implements Runnable {
+public class Vibration extends Applet implements ActionListener {
    static final String kRunString = "Run";
    CAnimationPanel mAnimPanel;
-   Thread mThread = null;
+   Timer mTimer = null;
+   long mLastTime = 0;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -18,26 +22,27 @@ public class Vibration extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer(20, this);
+      this.mTimer.start();
    }
 
-   public void run() {
+   public void actionPerformed(ActionEvent var1) {
       Date ddd = new Date();
       long thisTime = ddd.getTime();
+      if (this.mLastTime == 0) {
+         this.mLastTime = thisTime;
+         return;
+      }
 
-      while (true) {
-         try {
-            Thread.sleep(20L);
-         } catch (InterruptedException var8) {
-            return;
-         }
+      double realSeconds = (thisTime - this.mLastTime) / 1000.0;
+      this.mLastTime = thisTime;
+      this.mAnimPanel.SetRealParameter(0, realSeconds);
+   }
 
-         ddd = new Date();
-         long lastTime = thisTime;
-         thisTime = ddd.getTime();
-         double realSeconds = (thisTime - lastTime) / 1000.0;
-         this.mAnimPanel.SetRealParameter(0, realSeconds);
+   public void stop() {
+      if (this.mTimer != null) {
+         this.mTimer.stop();
+         this.mTimer = null;
       }
    }
 }

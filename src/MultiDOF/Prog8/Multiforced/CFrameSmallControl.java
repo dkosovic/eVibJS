@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
+import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class CFrameSmallControl extends CFramePicture implements Runnable {
+public class CFrameSmallControl extends CFramePicture implements ActionListener {
    public CFrame mControlledFrame;
    int mSelection;
    int mCode;
@@ -19,7 +22,7 @@ public class CFrameSmallControl extends CFramePicture implements Runnable {
    public double mDeltaPerSec;
    public Point mDLabelPos;
    public String mUnits;
-   Thread mThread;
+   Timer mTimer;
    static final int kNoSelection = 0;
    static final int kUpSelection = 1;
    static final int kDownSelection = 2;
@@ -224,8 +227,8 @@ public class CFrameSmallControl extends CFramePicture implements Runnable {
                }
 
                this.NewSelection(this.GetSelection(var3.x, var3.y));
-               this.mThread = new Thread(this);
-               this.mThread.start();
+               this.mTimer = new Timer(100, this);
+               this.mTimer.start();
                return true;
             }
          case 1:
@@ -271,15 +274,9 @@ public class CFrameSmallControl extends CFramePicture implements Runnable {
       }
    }
 
-   public void run() {
-      while (this.mSelection != 0) {
+   public void actionPerformed(ActionEvent var1) {
+      if (this.mSelection != 0) {
          this.NewValue();
-
-         try {
-            Thread.sleep(100L);
-         } catch (InterruptedException var1) {
-            return;
-         }
       }
    }
 }

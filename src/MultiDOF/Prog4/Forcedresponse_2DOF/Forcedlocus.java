@@ -5,9 +5,12 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class Forcedlocus extends Applet implements Runnable {
+public class Forcedlocus extends Applet implements ActionListener {
    static final double kMinXi2 = 0.04;
    static final double kMaxXi2 = 3.0;
    static final double kMinm2m1 = 0.01;
@@ -19,7 +22,7 @@ public class Forcedlocus extends Applet implements Runnable {
    static final String kRunString = "Run";
    CFramePanel mFramePanel;
    CFrameAnimation mAnimFrame;
-   Thread mThread = null;
+   Timer mTimer = null;
 
    public void init() {
       this.setLayout(new BorderLayout());
@@ -60,17 +63,17 @@ public class Forcedlocus extends Applet implements Runnable {
    }
 
    public void start() {
-      this.mThread = new Thread(this);
-      this.mThread.start();
+      this.mTimer = new Timer(20, this);
+      this.mTimer.start();
    }
 
-   public void run() {
-      while (true) {
-         try {
-            Thread.sleep(20L);
-         } catch (InterruptedException var1) {
-            return;
-         }
+   public void actionPerformed(ActionEvent var1) {
+   }
+
+   public void stop() {
+      if (this.mTimer != null) {
+         this.mTimer.stop();
+         this.mTimer = null;
       }
    }
 }
