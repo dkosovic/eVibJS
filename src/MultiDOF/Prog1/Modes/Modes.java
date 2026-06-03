@@ -3,7 +3,6 @@ package MultiDOF.Prog1.Modes;
 import java.applet.Applet;
 import java.awt.BorderLayout;
 import java.awt.Button;
-import java.awt.Event;
 import java.awt.Image;
 import java.awt.Label;
 import java.awt.Panel;
@@ -76,8 +75,10 @@ public class Modes extends Applet implements ActionListener {
       Image var20 = this.getImage(this.getCodeBase(), "k3.gif");
       new CFramePicture(this.mFramePanel, 605, 24, 0, 0, var20, false);
       this.mAnimFrame.mStartButton = new Button("Start");
+      this.mAnimFrame.mStartButton.addActionListener(this);
       var1.add(this.mAnimFrame.mStartButton);
       this.mAnimFrame.mStopButton = new Button("Stop");
+      this.mAnimFrame.mStopButton.addActionListener(this);
       var1.add(this.mAnimFrame.mStopButton);
       this.validate();
       this.mAnimFrame.UpdateButtonAppearance();
@@ -88,21 +89,22 @@ public class Modes extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public boolean action(Event var1, Object var2) {
-      if (var1.target instanceof Button) {
-         if (var2.equals("Start") || var2.equals("Cont.")) {
+   public void actionPerformed(ActionEvent var1) {
+      // Handle button clicks
+      if (var1.getSource() instanceof Button) {
+         Button source = (Button)var1.getSource();
+         String label = source.getLabel();
+         if (label.equals("Start") || label.equals("Cont.")) {
             this.mAnimFrame.ControlMessage(1, 1.0);
-         } else if (var2.equals("Pause")) {
+         } else if (label.equals("Pause")) {
             this.mAnimFrame.ControlMessage(1, 2.0);
-         } else if (var2.equals("Stop")) {
+         } else if (label.equals("Stop")) {
             this.mAnimFrame.ControlMessage(1, 0.0);
          }
+         return;
       }
 
-      return true;
-   }
-
-   public void actionPerformed(ActionEvent var1) {
+      // Handle timer events
       Date var2 = new Date();
       long var3 = var2.getTime();
       if (this.mLastTime == 0) {
