@@ -1,136 +1,77 @@
-<html>
-<!--This file created 3/12/04 4:41 PM by Claris Home Page version 3.0-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <title>Instructions</title>
-   <meta name=GENERATOR content="Claris Home Page 3.0">
-   <x-claris-window top=42 bottom=802 left=4 right=797>
-   <x-claris-tagview mode=minimal>
-<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instructions</title>
+  <style>
+    body { font-family: sans-serif; font-size: 0.875rem; }
+    .center { text-align: center; }
+  </style>
 </head>
 <body>
-<center><font size="-1">Instructions</font></center>
+  <p class="center">Instructions</p>
 
-<p><font size="-1">This package allows you to investigate the forced
-vibration response of an axial five degree-of-freedom system with
-damping.</font></p>
+  <p>This package allows you to investigate the forced vibration response of an axial five degree-of-freedom system with damping.</p>
 
-<p><table border=1>
-   <tr>
-      <td width=75>
-         <center><img src="Abutment.gif" width=15 height=31 x-claris-useimagewidth x-claris-useimageheight align=bottom></center>
-      </td>
+  <table border="1">
+    <tr>
+      <td width="75" class="center"><img src="Abutment.gif" width="15" height="31" alt="Abutment"></td>
+      <td><p>This indicates a rigid abutment. These are fixed to earth and may be at either end of the system.</p></td>
+    </tr>
+    <tr>
+      <td width="75" class="center"><img src="Mass.gif" width="15" height="31" alt="Mass"></td>
+      <td><p>This indicates a rigid mass and you will be able to change the size of the mass in kg.</p></td>
+    </tr>
+    <tr>
+      <td width="75" height="25" class="center"><img src="Spring.gif" width="40" height="9" alt="Spring"></td>
+      <td height="25"><p>This indicates a massless spring and you will be able to change its stiffness in N/m.</p></td>
+    </tr>
+    <tr>
+      <td width="75" height="25" class="center"><img src="Viscous.gif" width="40" height="11" alt="Viscous damper"></td>
+      <td height="25"><p>This indicates a viscous damper and you will be able to change its coefficient in Ns/m.</p></td>
+    </tr>
+    <tr>
+      <td width="75" height="25" class="center"><img src="Force.gif" width="21" height="15" alt="Force position"></td>
+      <td height="25"><p>This indicates the excitation force position and you will be able to change its position by clicking above the desired mass.</p></td>
+    </tr>
+    <tr>
+      <td width="75" height="25" class="center"><img src="Displacement.gif" width="21" height="15" alt="Displacement position"></td>
+      <td height="25"><p>This indicates the measured displacement position and you will be able to change its position by clicking below the desired mass.</p></td>
+    </tr>
+  </table>
+
+  <p>When the applet is loaded the system that is shown looks like,</p>
+
+  <table border="1">
+    <tr>
+      <td width="300"><p><img src="Initial_system.gif" width="294" height="55" alt="Initial system"></p></td>
       <td>
-         <p><font size="-1">This indicates a rigid abutment. These
-         are fixed to earth and may be at either end of the
-         system.</font></p>
+        <p>The response curve for this system is shown as a graph. As a first experiment use the mouse to move the X and F positions to see how the response changes.</p>
+        <p>The animation shown under the response is for the frequency shown by the blue line. This frequency can be changed by dragging the line.</p>
       </td>
-   </tr>
-   <tr>
-      <td width=75>
-         <center><img src="Mass.gif" width=15 height=31 x-claris-useimagewidth x-claris-useimageheight align=bottom></center>
-      </td>
-      <td>
-         <p><font size="-1">This indicates a rigid mass and you will
-         be able to change the size of the mass in kg.</font></p>
-      </td>
-   </tr>
-   <tr>
-      <td width=75 height=25>
-         <center><img src="Spring.gif" width=40 height=9 x-claris-useimagewidth x-claris-useimageheight align=bottom></center>
-      </td>
-      <td height=25>
-         <p><font size="-1">This indicates a massless spring and you
-         will be able to change its stiffness in N/m.</font></p>
-      </td>
-   </tr>
-   <tr>
-      <td width=75 height=25>
-         <center><img src="Viscous.gif" width=40 height=11 x-claris-useimagewidth x-claris-useimageheight align=bottom></center>
-      </td>
-      <td height=25>
-         <p><font size="-1">This indicates a viscous damper and you
-         will be able to change its coefficient in Ns/m.</font></p>
-      </td>
-   </tr>
-   <tr>
-      <td width=75 height=25>
-         <center><img src="Force.gif" width=21 height=15 x-claris-useimagewidth x-claris-useimageheight align=bottom></center>
-      </td>
-      <td height=25>
-         <p><font size="-1">This indicates the excitation force
-         position and you will be able to change its position by
-         clicking above the desired mass.</font></p>
-      </td>
-   </tr>
-   <tr>
-      <td width=75 height=25>
-         <center><img src="Displacement.gif" width=21 height=15 x-claris-useimagewidth x-claris-useimageheight align=bottom></center>
-      </td>
-      <td height=25>
-         <p><font size="-1">This indicates the measured displacement
-         position and you will be able to change its position by
-         clicking below the desired mass.</font></p>
-      </td>
-   </tr>
-</table>
-</p>
+    </tr>
+  </table>
 
-<p><font size="-1">When the applet is loaded the system that is shown
-looks like,</font></p>
+  <p>Changing a a spring/mass/damper</p>
 
-<p><table border=1>
-   <tr>
-      <td width=300>
-         <p><img src="Initial_system.gif" width=294 height=55 x-claris-useimagewidth x-claris-useimageheight align=bottom></p>
-      </td>
-      <td>
-         <p><font size="-1">The response curve for this system is
-         shown as a graph. As a first experiment use the mouse to
-         move the X and F positions to see how the response
-         changes.</font></p>
+  <table border="1">
+    <tr>
+      <td width="300"><p><img src="Select.gif" width="293" height="59" alt="Select component"></p></td>
+      <td><p>Use the mouse to select a spring/mass/damper.</p></td>
+    </tr>
+  </table>
 
-         <p><font size="-1">The animation shown under the response is
-         for the frequency shown by the blue line. This frequency can
-         be changed by dragging the line.</font></p>
-      </td>
-   </tr>
-</table>
-</p>
+  <p>Changing parameter values.</p>
 
-<p><font size="-1">Changing a a spring/mass/damper</font></p>
+  <table border="1">
+    <tr>
+      <td width="225" class="center"><img src="Dialogue.gif" width="218" height="178" alt="Parameter dialogue"></td>
+      <td><p>When a spring/mass/damper is selected the edit button will allow parameter values to be changed using a dialogue box.</p></td>
+    </tr>
+  </table>
 
-<p><table border=1>
-   <tr>
-      <td width=300>
-         <p><img src="Select.gif" width=293 height=59 x-claris-useimagewidth x-claris-useimageheight align=bottom></p>
-      </td>
-      <td>
-         <p><font size="-1">Use the mouse to select a
-         spring/mass/damper.</font></p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><font size="-1">Changing parameter values.</font></p>
-
-<p><table border=1>
-   <tr>
-      <td width=225>
-         <center><img src="Dialogue.gif" width=218 height=178 x-claris-useimagewidth x-claris-useimageheight align=bottom></center>
-      </td>
-      <td>
-         <p><font size="-1">When a spring/mass/damper is selected the
-         edit button will allow parameter values to be changed using
-         a dialogue box.</font></p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p>&nbsp;NOTE: Even though the excitation frequency is changed on the
-graph the frequency of the animation is constant for ease of
-viewing.</p>
+  <p>NOTE: Even though the excitation frequency is changed on the graph the frequency of the animation is constant for ease of viewing.</p>
 </body>
 </html>
 
