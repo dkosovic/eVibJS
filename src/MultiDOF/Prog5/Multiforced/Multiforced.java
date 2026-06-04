@@ -100,7 +100,7 @@ public class Multiforced extends Applet implements ActionListener {
       new CFramePicture(this.mFramePanel, 695, 34, 0, 0, var31, false);
       Image var33 = this.getImage(this.getCodeBase(), "diagram.gif");
       new CFramePicture(this.mFramePanel, 480, 100, 0, 0, var33, false);
-      Image var35 = this.getImage(this.getCodeBase(), "Notes.gif");
+      Image var35 = this.getImage(this.getCodeBase(), "Notes.png");
       new CFramePicture(this.mFramePanel, 545, 182, 0, 0, var35, false);
       Image var37 = this.getImage(this.getCodeBase(), "xAxis.gif");
       new CFramePicture(this.mFramePanel, 35, 345, 0, 0, var37, false);
