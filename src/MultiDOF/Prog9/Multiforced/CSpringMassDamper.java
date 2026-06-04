@@ -107,7 +107,7 @@ public class CSpringMassDamper extends CFrame {
          case 1:
             this.mInputFrame = new CInputDialog(this, "Edit subsystem " + (this.mIndex - 1));
             this.mInputFrame.setLocation(100, 100);
-            this.mInputFrame.setSize(200, 130);
+            this.mInputFrame.pack();
             this.mInputFrame.setVisible(true);
          case 2:
          case 3:
