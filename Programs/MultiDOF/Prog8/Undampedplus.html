@@ -1,35 +1,46 @@
-<HTML>
-<!--This file created 24/12/04 11:56 AM by Claris Home Page version 3.0-->
-<HEAD>
-   <TITLE>Response of 5DOF</TITLE>
-   <META NAME=GENERATOR CONTENT="Claris Home Page 3.0">
-   <X-CLARIS-WINDOW TOP=77 BOTTOM=865 LEFT=681 RIGHT=1211>
-   <X-CLARIS-TAGVIEW MODE=minimal>
-</HEAD>
-<BODY BGCOLOR="#FFFFFF">
-<P><IMG SRC="../heading.jpg" WIDTH=520 HEIGHT=37 BORDER=0 ALIGN=bottom></P>
+<!DOCTYPE html>
+<html lang="en">
 
-<P><TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=720>
-   <TR>
-      <TD>
-         <P><FONT SIZE="+1" COLOR="#003333">Forced
-         Response.</FONT></P>
-
-         <P>The graph shows the magnitude of the forced response of
-         an undamped five degree of freedom system.</P>
-
-         <P>The animation is at the frequency shown in blue.</P>
-
-         <P><APPLET CODE="Multiforced.class" CODEBASE="Multiforced.out/" WIDTH=700 HEIGHT=480 ALIGN=bottom>
-         </APPLET><BR>
-         </P>
-      </TD>
-   </TR>
-</TABLE>
-</P>
-
-<P>&nbsp;</P>
-
-<P></P>
-</BODY>
-</HTML>
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Response of 5DOF</title>
+   <script>
+   (function () {
+    const types = ["wheel", "mousewheel", "DOMMouseScroll"];
+    function allowBrowserCtrlWheel(e) {
+     if (e.ctrlKey) e.stopImmediatePropagation();
+    }
+    types.forEach(t => window.addEventListener(t, allowBrowserCtrlWheel, { capture: true }));
+   })();
+   </script>
+   <script src="../../../site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info = {
+   code: "MultiDOF.Prog8.Multiforced.Multiforced",
+   main: null,
+   core: "_evibjs",
+   width: 700,
+   height: 480,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: '../../../site/swingjs/j2s',
+   console: window.console,
+   allowjavascript: true
+   }
+   </script>
+</head>
+<body style="background-color: #FFFFFF;">
+<p><img src="../heading.jpg" width="520" height="37" alt="Multi Degree of Freedom"></p>
+<h3>Forced Response.</h3>
+<p>The graph shows the magnitude of the forced response of
+an undamped five degree of freedom system.</p>
+<p>The animation is at the frequency shown in blue.</p>
+<p>
+<script>
+SwingJS.getApplet('MultiforcedApplet', Info)
+</script>
+</p>
+</body>
+</html>
