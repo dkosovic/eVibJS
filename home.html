@@ -49,7 +49,6 @@
          line-height: 1.4;
       }
       .applet-container {
-         font-size: 0.8em;
          text-align: center;
          margin: 20px 0;
       }
@@ -91,6 +90,55 @@
          text-decoration: underline;
       }
    </style>
+   <script>
+   (function () {
+    const types = ["wheel", "mousewheel", "DOMMouseScroll"];
+    function allowBrowserCtrlWheel(e) {
+     if (e.ctrlKey) e.stopImmediatePropagation();
+    }
+    types.forEach(t => window.addEventListener(t, allowBrowserCtrlWheel, { capture: true }));
+   })();
+   </script>
+   <script src="site/swingjs/swingjs2.js"></script>
+   <script>
+   if (!self.SwingJS)alert('swingjs2.js was not found.')
+   Info1 = {
+   code: "Home_info.Vibration.Vibration",
+   main: null,
+   core: "_evibjs",
+   width: 110,
+   height: 300,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: 'site/swingjs/j2s',
+   console: window.console,
+   allowjavascript: true
+   }
+   Info2 = {
+   code: "Home_info.Vibration2.Vibration",
+   main: null,
+   core: "_evibjs",
+   width: 70,
+   height: 260,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: 'site/swingjs/j2s',
+   console: window.console,
+   allowjavascript: true
+   }
+   Info3 = {
+   code: "Home_info.Beam.Vibration",
+   main: null,
+   core: "_evibjs",
+   width: 260,
+   height: 165,
+   readyFunction: null,
+   serverURL: null,
+   j2sPath: 'site/swingjs/j2s',
+   console: window.console,
+   allowjavascript: true
+   }
+   </script>
 </head>
 <body>
    <table>
@@ -165,31 +213,19 @@
             <div class="applet-container">
                <div class="applet-row">
                   <div>
-                     <object data="Home_info/Vibration.out/Vibration.class" type="application/x-java-applet" width="100" height="300">
-                        <param name="code" value="Vibration.class">
-                        <param name="codebase" value="Home_info/Vibration.out/">
-                        <div style="background: #f0f0f0; padding: 5px; border: 1px solid #ccc; width: 110px; height: 300px;">
-                           Java Applet: Vibration Animation
-                        </div>
-                     </object>
+                  <script>
+                  SwingJS.getApplet('Applet1', Info1)
+                  </script>
                   </div>
                   <div>
-                     <object data="Home_info/Vibration2.out/Vibration.class" type="application/x-java-applet" width="60" height="260">
-                        <param name="code" value="Vibration.class">
-                        <param name="codebase" value="Home_info/Vibration2.out/">
-                        <div style="background: #f0f0f0; padding: 5px; border: 1px solid #ccc; width: 70px; height: 260px;">
-                           Java Applet: Vibration 2
-                        </div>
-                     </object>
+                  <script>
+                  SwingJS.getApplet('Applet2', Info2)
+                  </script>
                   </div>
                   <div>
-                     <object data="Home_info/Beam.out/Vibration.class" type="application/x-java-applet" width="260" height="165">
-                        <param name="code" value="Vibration.class">
-                        <param name="codebase" value="Home_info/Beam.out/">
-                        <div style="background: #f0f0f0; padding: 5px; border: 1px solid #ccc; width: 270px; height: 165px;">
-                           Java Applet: Beam Animation
-                        </div>
-                     </object>
+                  <script>
+                  SwingJS.getApplet('Applet3', Info3)
+                  </script>
                   </div>
                </div>
             </div>
