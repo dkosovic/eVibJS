@@ -5,16 +5,26 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>eVib - Vibration and Noise Home</title>
    <style>
+      html,
       body {
+         height: 100%;
          margin: 0;
          padding: 0;
          background-color: #FFFFFF;
          font-family: "Times New Roman", Times, serif;
       }
       .navigation {
-         width: 150px;
+         width: 170px;
          vertical-align: top;
          padding: 0;
+         height: 100dvh;
+      }
+      .navigation-stack {
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         gap: 4px;
+         height: 100dvh;
       }
       .content {
          vertical-align: top;
@@ -22,15 +32,65 @@
          padding-right: 20px;
       }
       .nav-button {
-         display: block;
-         margin-bottom: 0px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         width: 150px;
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0 10px;
+         text-align: center;
+         color: #ffffff;
+         background: linear-gradient(to right, #040404 0%, #3F5C57 40%, #2E9494 100%);
+         border: 1px solid #1a4f55;
+         border-radius: 6px;
+         box-shadow: -5px 5px 0 0 #040404;
+         text-decoration: none;
+         font-family: "Times New Roman", Times, serif;
+         font-weight: bold;
       }
-      .nav-button img {
-         border: 0;
-         display: block;
+      .nav-button:hover {
+         background: linear-gradient(to right, #3aa7b5 0%, #2b818b 100%);
+         text-decoration: none;
       }
-      .nav-button:hover img {
-         opacity: 0.8;
+      .nav-button--h118 {
+         height: 118px;
+      }
+      .nav-button--h66 {
+         height: 66px;
+      }
+      .nav-button--h46 {
+         height: 46px;
+      }
+      .nav-button--h32 {
+         height: 32px;
+      }
+      .nav-button--book,
+      .nav-button--chapter {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+      }
+      .nav-button--book {
+         font-size: 1.4em;
+      }
+      .nav-subline {
+         display: block;
+         font-weight: normal;
+      }
+      .nav-subline-gap {
+         height: 0.9em;
+      }
+      .nav-button--book .nav-subline {
+         font-size: 0.8em;
+      }
+      .nav-spacer {
+         flex: 1 1 auto;
+         width: 150px;
+         min-height: 200px;
+         background: linear-gradient(to right, #040404 0%, #3F5C57 40%, #2E9494 100%);
+         border-radius: 6px 6px 0 0;
       }
       .main-title {
          font-size: 2.5em;
@@ -77,6 +137,8 @@
       table {
          border-collapse: collapse;
          width: 100%;
+         min-height: 100dvh;
+         height: 100%;
          border: 0;
       }
       td {
@@ -144,46 +206,20 @@
    <table>
       <tr>
          <td class="navigation">
-            <a href="eVib.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button01.jpg" width="118" height="119" alt="eVib">
-            </a>
-            <a href="Introduction.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button02.jpg" width="118" height="27" alt="Introduction">
-            </a>
-            <a href="OneDOF.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button03.jpg" width="118" height="40" alt="One DOF">
-            </a>
-            <a href="TwoDOF.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button04.jpg" width="118" height="42" alt="Two DOF">
-            </a>
-            <a href="Beam.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button05.jpg" width="118" height="42" alt="Beam">
-            </a>
-            <a href="Methods.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button06.jpg" width="118" height="54" alt="Methods">
-            </a>
-            <a href="MultiDOF.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button07.jpg" width="118" height="42" alt="Multi DOF">
-            </a>
-            <a href="Modal.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button08.jpg" width="118" height="42" alt="Modal">
-            </a>
-            <a href="Continuous.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button09.jpg" width="118" height="42" alt="Continuous">
-            </a>
-            <a href="Transverse.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button10.jpg" width="118" height="42" alt="Transverse">
-            </a>
-            <a href="Receptances.pdf" class="nav-button">
-               <img src="Home_info/Vib_up/button11.jpg" width="118" height="42" alt="Receptances">
-            </a>
-            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
-            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
-            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
-            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
-            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
-            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
-            <img src="Home_info/Vib_up/space.jpg" class="nav-button" width="118" height="117" alt="">
+            <div class="navigation-stack">
+               <a href="eVib.pdf" class="nav-button nav-button--h118 nav-button--book"><strong>VIBRATION</strong><span class="nav-subline nav-subline-gap" aria-hidden="true"></span><span class="nav-subline">By B. J. Stone</span><span class="nav-subline">&amp; J. Pan</span></a>
+               <a href="Introduction.pdf" class="nav-button nav-button--h32 nav-button--chapter"><strong>INTRODUCTION</strong></a>
+               <a href="OneDOF.pdf" class="nav-button nav-button--h46 nav-button--chapter"><strong>ONE</strong><span class="nav-subline">degree of freedom</span></a>
+               <a href="TwoDOF.pdf" class="nav-button nav-button--h46 nav-button--chapter"><strong>TWO</strong><span class="nav-subline">degree of freedom</span></a>
+               <a href="Beam.pdf" class="nav-button nav-button--h46 nav-button--chapter"><strong>BEAM</strong><span class="nav-subline">on springs</span></a>
+               <a href="Methods.pdf" class="nav-button nav-button--h66 nav-button--chapter"><strong>METHODS</strong><span class="nav-subline">of finding natural frequencies</span></a>
+               <a href="MultiDOF.pdf" class="nav-button nav-button--h46 nav-button--chapter"><strong>MULTI</strong><span class="nav-subline">degree of freedom</span></a>
+               <a href="Modal.pdf" class="nav-button nav-button--h46 nav-button--chapter"><strong>MODAL ANALYSIS</strong></a>
+               <a href="Continuous.pdf" class="nav-button nav-button--h46 nav-button--chapter"><strong>CONTINUOUS</strong><span class="nav-subline">axial and torsional</span></a>
+               <a href="Transverse.pdf" class="nav-button nav-button--h46 nav-button--chapter"><strong>CONTINUOUS</strong><span class="nav-subline">transverse</span></a>
+               <a href="Receptances.pdf" class="nav-button nav-button--h46 nav-button--chapter"><strong>COMPLEX</strong><span class="nav-subline">systems</span></a>
+               <div class="nav-spacer" aria-hidden="true"></div>
+            </div>
          </td>
          <td class="content">
             <div class="main-title">Vibration and Noise</div>
