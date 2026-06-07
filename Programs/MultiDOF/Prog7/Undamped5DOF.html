@@ -5,6 +5,23 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Response of 5DOF</title>
+   <style>
+   .gradient-strip {
+      display: flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 10px;
+      width: 700px;
+      box-sizing: border-box;
+      background: linear-gradient(to right, #2f9eab 0%, #ffffff 100%);
+   }
+   .gradient-strip h1 {
+      margin: 0;
+      color: white;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+   }
+   </style>
    <script>
    (function () {
     const types = ["wheel", "mousewheel", "DOMMouseScroll"];
@@ -32,7 +49,9 @@
    </script>
 </head>
 <body style="background-color: #FFFFFF;">
-<p><img src="../heading.jpg" width="520" height="37" alt="Multi Degree of Freedom"></p>
+<div class="gradient-strip">
+  <h1>MULTI DEGREE OF FREEDOM</h1>
+</div>
 <h3>Forced Response.</h3>
 <p>The graph shows the magnitude of the forced response of
 an undamped five degree of freedom system.</p>

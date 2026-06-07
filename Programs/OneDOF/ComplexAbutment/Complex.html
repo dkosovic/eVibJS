@@ -3,7 +3,24 @@
 <head>
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sinusoidal Vibration</title>
+   <title>Sinusoidal Vibration</title>
+   <style>
+   .gradient-strip {
+      display: flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 10px;
+      width: 640px;
+      box-sizing: border-box;
+      background: linear-gradient(to right, #2f9eab 0%, #ffffff 100%);
+   }
+   .gradient-strip h1 {
+      margin: 0;
+      color: white;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+   }
+   </style>
    <script>
    (function () {
     const types = ["wheel", "mousewheel", "DOMMouseScroll"];
@@ -31,19 +48,14 @@
    </script>
 </head>
 <body>
-<hr>
-<!-- TITLE -->
-<p><h3 align=CENTER>
-<span style="color: #9E2E09">
-Simulation of Sinusoidal Vibration
-</span>
-</h1></p>
-<p><h4  align=CENTER>This simulation aims to show the connection between rotating vectors and sinusoidal motion.</h3></p>
-<hr>
-<align=center>
+<div class="gradient-strip">
+  <h1>ONE DEGREE OF FREEDOM</h1>
+</div>
+<p>This simulation aims to show the connection between rotating vectors and sinusoidal motion.</p>
+<p>
 <script>
 SwingJS.getApplet('ComplexApplet', Info)
 </script>
-<hr>
+</p>
 </body>
 </html>

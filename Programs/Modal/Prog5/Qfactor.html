@@ -5,6 +5,23 @@
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Q factor</title>
+   <style>
+   .gradient-strip {
+      display: flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 10px;
+      width: 720px;
+      box-sizing: border-box;
+      background: linear-gradient(to right, #2f9eab 0%, #ffffff 100%);
+   }
+   .gradient-strip h1 {
+      margin: 0;
+      color: white;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+   }
+   </style>
    <script>
    (function () {
     const types = ["wheel", "mousewheel", "DOMMouseScroll"];
@@ -32,7 +49,9 @@
    </script>
 </head>
 <body style="background-color: #FFFFFF;">
-<p><img src="../heading.jpg" width="520" height="37" alt="Modal Analysis"></p>
+<div class="gradient-strip">
+  <h1>MODAL ANALYSIS</h1>
+</div>
 <h3>Determination of Q factor from a response curve.</h3>
 <p>This program compares the exact damping ratio with that
 obtained using the Q factor found from the response.</p>
