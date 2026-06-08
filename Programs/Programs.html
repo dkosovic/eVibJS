@@ -5,366 +5,192 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Programs</title>
+   <style>
+      body {
+         background-color: #FFFFFF;
+      }
+      .gradient-strip {
+         display: flex;
+         align-items: center;
+         padding: 0 10px;
+         box-sizing: border-box;
+      }
+      .gradient-strip.h1-strip {
+         width: 100%;
+         height: 4em;
+         background: linear-gradient(to right, #040404 0%, #3F5C57 15%, #2f9eab 40%, #BDE1E5 90%);
+      }
+      .gradient-strip.h2-strip {
+         width: 50%;
+         min-width: 600px;
+         height: 2.5em;
+         margin-top: 28px;
+         background: linear-gradient(to right, #2f9eab 0%, #ffffff 100%);
+      }
+      .gradient-strip h1 {
+         margin: 0;
+         color: white;
+         font-family: "Times New Roman", Times, serif;
+         font-size: 2em;
+      }
+      .gradient-strip h2 {
+         margin: 0;
+         color: white;
+         font-family: "Times New Roman", Times, serif;
+         font-size: 1.5em;
+      }
+      li {
+         line-height: 2em;
+      }
+   </style>
 </head>
-<body style="background-color: #FFFFFF;">
-<h1 style="color: #003333;">List of programs</h1>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Introduction</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="General/Prog1/Tension.html">Program 1</a>:
-         Simulation of mass on 2 springs in tension.</p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 1: One degree of freedom</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="OneDOF/Prog1/Undamped.html">Program 1</a>:
-         Undamped vibration of a spring/mass system without damping.</p>
-
-         <p><a href="OneDOF/Prog2/Damped.html">Program 2</a>:
-         Damped vibration of a spring/mass system with viscous damping.</p>
-
-         <p><a href="OneDOF/Prog3/Damped.html">Program 3</a>:
-         Critically damped vibration of a spring/mass system with viscous damping.</p>
-
-         <p><a href="OneDOF/Prog4/Damped.html">Program 4</a>:
-         Over-damped vibration of a spring/mass system with viscous damping.</p>
-
-         <p><a href="OneDOF/Prog5/ForcedSin.html">Program 5</a>:
-         Sinusoidal forced vibration of a one degree of freedom system.</p>
-
-         <p><a href="OneDOF/Prog6/Forcedresponse.html">Program 6</a>:
-         Forced Response of a one degree of freedom system.</p>
-
-         <p><a href="OneDOF/Prog7/Forcedlocus.html">Program 7</a>:
-         Construction of the response locus of damped system.</p>
-
-         <p><a href="OneDOF/Prog8/OOB.html">Program 8</a>:
-         Out-of-balance forced vibration of a one degree of freedom system.</p>
-
-         <p><a href="OneDOF/Prog9/OOB.html">Program 9</a>:
-         Out-of-balance forced vibration with a constant angular acceleration up to top speed.</p>
-
-         <p><a href="OneDOF/Prog10/OOBresponse.html">Program 10</a>:
-         Out-of-balance response of a one degree of freedom system.</p>
-
-         <p><a href="OneDOF/Prog11/AbutmentSin.html">Program 11</a>:
-         Sinusoidal abutment vibration of a one degree of freedom system.</p>
-
-         <p><a href="OneDOF/Prog12/Abutmentresponse.html">Program 12</a>:
-         Forced abutment response of a one degree of freedom system.</p>
-      </td>
-   </tr>
-   <tr>
-      <th style="color: #003333;border-bottom: none;">One degree of freedom Appendix</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="OneDOF/Prog13/Complex.html">Program 13</a>:
-         The connection between rotating vectors, sinusoidal motion and phase.</p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 2: Two degree of freedom</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="TwoDOF/Prog1/Modes.html">Program 1</a>:
-         Natural frequencies and mode shapes of a two degree of freedom system</p>
-
-         <p><a href="TwoDOF/Prog2/Undamped.html">Program 2</a>:
-         Transient vibration of a two degree of freedom system without damping</p>
-
-         <p><a href="TwoDOF/Prog3/Undamped.html">Program 3</a>:
-         Modal contributions to the transient vibration of a two degree of freedom
-         system</p>
-
-         <p><a href="TwoDOF/Prog4/Forcedresponse.html">Program 4</a>:
-         Forced responses of a two degree of freedom system and the modal components</p>
-
-         <p><a href="TwoDOF/Prog5/Damped.html">Program 5</a>:
-         Transient vibration of a damped two degree of freedom system.</p>
-
-         <p><a href="TwoDOF/Prog6/Forced.html">Program 6</a>:
-         Sinusoidal abutment vibration of a two degree of freedom system.</p>
-
-         <p><a href="TwoDOF/Prog7/Abutmentresponse_2DOF.html">Program 7</a>:
-         Magnitude and phase of the forced abutment response of a two degree of freedom
-         system.</p>
-
-         <p><a href="TwoDOF/Prog8/Forced.html">Program 8</a>:
-         Sinusoidal forced vibration of a two degree of freedom system.</p>
-
-         <p><a href="TwoDOF/Prog9/Forcedresponse_2DOF.html">Program 9</a>:
-         Forced Response of a two degree of freedom system.</p>
-
-         <p><a href="TwoDOF/Prog10/Abutmentresponse_2DOF.html">Program 10</a>:
-         Abutment response with a detuner.</p>
-
-         <p><a href="TwoDOF/Prog11/Detuned.html">Program 11</a>:
-         Start up transients for abutment excitation with a detuner.</p>
-
-         <p><a href="TwoDOF/Prog12/Forcedresponse_2DOF.html">Program 12</a>:
-         Forced response with a detuner.</p>
-
-         <p><a href="TwoDOF/Prog13/Detuned.html">Program 13</a>:
-         Start up transients for forced excitation with a detuner.</p>
-
-         <p><a href="TwoDOF/Prog14/Absorber_2DOF.html">Program 14</a>:
-         Forced response with an optimised vibration absorber.</p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 3: Beam</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="Beam/Prog1/Modes.html">Program 1</a>:
-         Natural frequencies and mode shapes of a beam on two springs</p>
-
-         <p><a href="Beam/Prog2/Forced.html">Program 2</a>:
-         Transient vibration of a beam on two springs without damping</p>
-
-         <p><a href="Beam/Prog3/Modes.html">Program 3</a>:
-         Modal contributions to the transient vibration of a beam on two springs</p>
-
-         <p><a href="Beam/Prog4/Forced.html">Program 4</a>:
-         Forced response of a beam on two springs</p>
-
-         <p><a href="Beam/Prog5/Forcedresponse_2DOF.html">Program 5</a>:
-         Magnitude of the forced response of a beam on two springs without damping</p>
-
-         <p><a href="Beam/Prog6/Forced.html">Program 6</a>:
-         Transient vibration of a beam on two springs with damping</p>
-
-         <p><a href="Beam/Prog7/Forcedresponse_2DOF.html">Program 7</a>:
-         Magnitude of the forced response of a beam on two springs damping</p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 4: Methods</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="Methods/Prog1/Energy.html">Program 1</a>:
-         Natural frequencies predicted from an assumed mode shape</p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 5: Multi degree of freedom</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="MultiDOF/Prog1/Modes.html">Program 1</a>:
-         Natural frequencies and mode
-         shapes of a three degree of freedom system.</p>
-
-         <p><a href="MultiDOF/Prog2/Forcedresponse.html">Program 2</a>:
-         Forced responses of an
-         undamped three degree of freedom system.</p>
-
-         <p><a href="MultiDOF/Prog3/Multiforced.html">Program 3</a>:
-         Forced response of an undamped
-         three degree of freedom system with an animation at a
-         selected frequency.</p>
-
-         <p><a href="MultiDOF/Prog4/Forcedresponse.html">Program 4</a>:
-         Forced responses of an damped
-         three degree of freedom system.</p>
-
-         <p><a href="MultiDOF/Prog5/Multiforced.html">Program 5</a>:
-         Forced response of an damped
-         three degree of freedom system with an animation at a
-         selected frequency.</p>
-
-         <p><a href="MultiDOF/Prog6/Eigen5DOF.html">Program 6</a>:
-         Natural frequencies and mode
-         shapes of a five degree of freedom system.</p>
-
-         <p><a href="MultiDOF/Prog7/Undamped5DOF.html">Program 7</a>:
-         Forced responses of an
-         undamped five degree of freedom system.</p>
-
-         <p><a href="MultiDOF/Prog8/Undampedplus.html">Program 8</a>:
-         Forced response of an undamped
-         five degree of freedom system with an animation at a
-         selected frequency.</p>
-
-         <p><a href="MultiDOF/Prog9/Multiforced.html">Program 9</a>:
-         Forced response of a damped
-         five degree of freedom system with an animation at a
-         selected frequency.</p>
-
-         <p><a href="MultiDOF/Prog10/Multiforced.html">Program 10</a>:
-         Forced response of a damped
-         system with an animation at a selected frequency.</p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 6: Modal analysis</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="Modal/Prog1/Vibration.html">Program 1</a>:
-         Transverse modes of two masses on a string in tension.</p>
-
-         <p><a href="Modal/Prog2/Eigen2DOF.html">Program 2</a>:
-         Forced response of two masses on a string in tension.</p>
-
-         <p><a href="Modal/Prog3/Eigen2DOF.html">Program 3</a>:
-         Complex eigen values of a two degree of freedom system.</p>
-
-         <p><a href="Modal/Prog4/Eigen2DOF.html">Program 4</a>:
-         Forced responce comparison: Exact and modal.</p>
-
-         <p><a href="Modal/Prog5/Qfactor.html">Program 5</a>:
-         Determination of Q factor from a response curve.</p>
-
-         <p><a href="Modal/Prog6/Qfactor.html">Program 6</a>:
-         Comparison of exact response with modal analysis response.</p>
-
-         <p><a href="Modal/Prog7/Eigen2DOF.html">Program 7</a>:
-         Transient response of a two degree of freedom system with viscous damping.</p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 7: Continuous - Axial and torsional</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="Continuous/Prog1/Vibration.html">Program 1</a>:
-         Axial modes of a free/free bar.</p>
-
-         <p><a href="Continuous/Prog2/Multiforced.html">Program 2</a>:
-         Response of a free/free bar.</p>
-
-         <p><a href="Continuous/Prog3/Multiforced.html">Program 3</a>:
-         Response of a free/free bar with an animation at a selected frequency.</p>
-
-         <p><a href="Continuous/Prog4/Vibration.html">Program 4</a>:
-         Axial modes of a clamped/free bar.</p>
-
-         <p><a href="Continuous/Prog5/Multiforced.html">Program 5</a>:
-         Tip response of a clamped/free undamped bar with an animation at a selected
-         frequency.</p>
-
-         <p><a href="Continuous/Prog6/Multiforced.html">Program 6</a>:
-         Tip response of a free/free damped bar with an animation at a selected
-         frequency.</p>
-
-         <p><a href="Continuous/Prog7/Multiforced.html">Program 7</a>:
-         Tip response of a free/free tapered bar with an animation at a selected
-         frequency.</p>
-
-         <p><a href="Continuous/Prog8/Vibration.html">Program 8</a>:
-         Torsional modes of a free/free bar.</p>
-
-         <p><a href="Continuous/Prog9/Vibration.html">Program 9</a>:
-         Torsional modes of a clamped/free bar.</p>
-      </td>
-   </tr>
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 8: Continuous - Transverse</th>
-   </tr>
-   <tr>
-      <td style="border-top: none;">
-         <p><a href="Continuous/Prog10/Vibration.html">Program 10</a>:
-         Transverse modes of a free/free bar.</p>
-
-         <p><a href="Continuous/Prog11/Vibration.html">Program 11</a>:
-         Transverse modes of a clamped/free bar.</p>
-
-         <p><a href="Continuous/Prog12/Transverse.html">Program 12</a>:
-         Tip response of a free/free bar.</p>
-
-         <p><a href="Continuous/Prog13/Transverse.html">Program 13</a>:
-         Tip response of a clamped/free bar.</p>
-
-         <p><a href="Continuous/Prog14/Transverse.html">Program 14</a>:
-         Shear and rotary inertia effects.</p>
-      </td>
-   </tr>
-</table>
-</p>
-
-<p><table border=1 cellspacing=1 style="border-collapse: collapse; border-color: #003333;">
-   <tr>
-      <th style="color: #003333;border-bottom: none;">Chapter 9: Receptances - a systems approach</th>
-   </tr>
-   <tr>
-       <td style="border-top: none;">
-         <p><a href="Complex/Prog1/Forcedresponse.html">Program 1</a>:
-         Natural frequencies of clamped/free bar attached to a spring.</p>
-
-         <p><a href="Complex/Prog2/Forcedresponse.html">Program 2</a>:
-         Natural frequencies of clamped/free bar attached to a mass.</p>
-
-         <p><a href="Complex/Prog3/Forcedresponse.html">Program 3</a>:
-         Natural frequencies of clamped/free bar attached to a spring/mass
-         system.</p>
-
-         <p><a href="Complex/Prog4/Forcedresponse.html">Program 4</a>:
-         Natural frequencies of clamped/free bar with a second bar attached.</p>
-
-         <p><a href="Complex/Prog5/Multiforced.html">Program 5</a>:
-         Forced response of a damped five degree-of-freedom system.</p>
-
-         <p><a href="Complex/Prog6/Multiforced.html">Program 6</a>:
-         Forced response of a damped system with an animation at a selected frequency.</p>
-
-         <p><a href="Complex/Prog7/Forcedresponse.html">Program 7</a>:
-         Effect of coupling stiffness on natural frequency.</p>
-
-         <p><a href="Complex/Prog8/Transverse.html">Program 8</a>:
-         Response of a clamped/free bar with a vibration absorber attached.</p>
-
-         <p><a href="Complex/Prog9/Transverse.html">Program 9</a>:
-         Optimised response of a clamped/free bar with a vibration absorber
-         attached.</p>
-
-         <p><a href="Complex/Prog10/Transverse.html">Program 10</a>:
-         Response of a clamped/free bar with an absorber bar and insert.</p>
-
-         <p><a href="Complex/Prog11/Transverse.html">Program 11</a>:
-         Optimised response of a clamped/free bar with an absorber bar and insert.</p>
-      </td>
-   </tr>
-</table>
-</p>
+<body>
+<div class="gradient-strip h1-strip">
+  <h1>List of programs</h1>
+</div>
+<div class="gradient-strip h2-strip">
+<h2>Introduction</h2>
+</div>
+<ul>
+   <li><a href="General/Prog1/Tension.html">Program 1</a>: Simulation of mass on 2 springs in tension.</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 1: One degree of freedom</h2>
+</div>
+<ul>
+   <li><a href="OneDOF/Prog1/Undamped.html">Program 1</a>: Undamped vibration of a spring/mass system without damping.</li>
+   <li><a href="OneDOF/Prog2/Damped.html">Program 2</a>: Damped vibration of a spring/mass system with viscous damping.</li>
+   <li><a href="OneDOF/Prog3/Damped.html">Program 3</a>: Critically damped vibration of a spring/mass system with viscous damping.</li>
+   <li><a href="OneDOF/Prog4/Damped.html">Program 4</a>: Over-damped vibration of a spring/mass system with viscous damping.</li>
+   <li><a href="OneDOF/Prog5/ForcedSin.html">Program 5</a>: Sinusoidal forced vibration of a one degree of freedom system.</li>
+   <li><a href="OneDOF/Prog6/Forcedresponse.html">Program 6</a>: Forced Response of a one degree of freedom system.</li>
+   <li><a href="OneDOF/Prog7/Forcedlocus.html">Program 7</a>: Construction of the response locus of damped system.</li>
+   <li><a href="OneDOF/Prog8/OOB.html">Program 8</a>: Out-of-balance forced vibration of a one degree of freedom system.</li>
+   <li><a href="OneDOF/Prog9/OOB.html">Program 9</a>: Out-of-balance forced vibration with a constant angular acceleration up to top speed.</li>
+   <li><a href="OneDOF/Prog10/OOBresponse.html">Program 10</a>: Out-of-balance response of a one degree of freedom system.</li>
+   <li><a href="OneDOF/Prog11/AbutmentSin.html">Program 11</a>: Sinusoidal abutment vibration of a one degree of freedom system.</li>
+   <li><a href="OneDOF/Prog12/Abutmentresponse.html">Program 12</a>: Forced abutment response of a one degree of freedom system.</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>One degree of freedom Appendix</h2>
+</div>
+<ul>
+   <li><a href="OneDOF/Prog13/Complex.html">Program 13</a>: The connection between rotating vectors, sinusoidal motion and phase.</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 2: Two degree of freedom</h2>
+</div>
+<ul>
+   <li><a href="TwoDOF/Prog1/Modes.html">Program 1</a>: Natural frequencies and mode shapes of a two degree of freedom system</li>
+   <li><a href="TwoDOF/Prog2/Undamped.html">Program 2</a>: Transient vibration of a two degree of freedom system without damping</li>
+   <li><a href="TwoDOF/Prog3/Undamped.html">Program 3</a>: Modal contributions to the transient vibration of a two degree of freedom system</li>
+   <li><a href="TwoDOF/Prog4/Forcedresponse.html">Program 4</a>: Forced responses of a two degree of freedom system and the modal components</li>
+   <li><a href="TwoDOF/Prog5/Damped.html">Program 5</a>: Transient vibration of a damped two degree of freedom system.</li>
+   <li><a href="TwoDOF/Prog6/Forced.html">Program 6</a>: Sinusoidal abutment vibration of a two degree of freedom system.</li>
+   <li><a href="TwoDOF/Prog7/Abutmentresponse_2DOF.html">Program 7</a>: Magnitude and phase of the forced abutment response of a two degree of freedom system.</li>
+   <li><a href="TwoDOF/Prog8/Forced.html">Program 8</a>: Sinusoidal forced vibration of a two degree of freedom system.</li>
+   <li><a href="TwoDOF/Prog9/Forcedresponse_2DOF.html">Program 9</a>: Forced Response of a two degree of freedom system.</li>
+   <li><a href="TwoDOF/Prog10/Abutmentresponse_2DOF.html">Program 10</a>: Abutment response with a detuner.</li>
+   <li><a href="TwoDOF/Prog11/Detuned.html">Program 11</a>: Start up transients for abutment excitation with a detuner.</li>
+   <li><a href="TwoDOF/Prog12/Forcedresponse_2DOF.html">Program 12</a>: Forced response with a detuner.</li>
+   <li><a href="TwoDOF/Prog13/Detuned.html">Program 13</a>: Start up transients for forced excitation with a detuner.</li>
+   <li><a href="TwoDOF/Prog14/Absorber_2DOF.html">Program 14</a>: Forced response with an optimised vibration absorber.</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 3: Beam</h2>
+</div>
+<ul>
+   <li><a href="Beam/Prog1/Modes.html">Program 1</a>: Natural frequencies and mode shapes of a beam on two springs</li>
+   <li><a href="Beam/Prog2/Forced.html">Program 2</a>: Transient vibration of a beam on two springs without damping</li>
+   <li><a href="Beam/Prog3/Modes.html">Program 3</a>: Modal contributions to the transient vibration of a beam on two springs</li>
+   <li><a href="Beam/Prog4/Forced.html">Program 4</a>: Forced response of a beam on two springs</li>
+   <li><a href="Beam/Prog5/Forcedresponse_2DOF.html">Program 5</a>: Magnitude of the forced response of a beam on two springs without damping</li>
+   <li><a href="Beam/Prog6/Forced.html">Program 6</a>: Transient vibration of a beam on two springs with damping</li>
+   <li><a href="Beam/Prog7/Forcedresponse_2DOF.html">Program 7</a>: Magnitude of the forced response of a beam on two springs damping</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 4: Methods</h2>
+</div>
+<ul>
+   <li><a href="Methods/Prog1/Energy.html">Program 1</a>: Natural frequencies predicted from an assumed mode shape</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 5: Multi degree of freedom</h2>
+</div>
+<ul>
+   <li><a href="MultiDOF/Prog1/Modes.html">Program 1</a>: Natural frequencies and mode shapes of a three degree of freedom system.</li>
+   <li><a href="MultiDOF/Prog2/Forcedresponse.html">Program 2</a>: Forced responses of an undamped three degree of freedom system.</li>
+   <li><a href="MultiDOF/Prog3/Multiforced.html">Program 3</a>: Forced response of an undamped three degree of freedom system with an animation at a selected frequency.</li>
+   <li><a href="MultiDOF/Prog4/Forcedresponse.html">Program 4</a>: Forced responses of an damped three degree of freedom system.</li>
+   <li><a href="MultiDOF/Prog5/Multiforced.html">Program 5</a>: Forced response of an damped three degree of freedom system with an animation at a selected frequency.</li>
+   <li><a href="MultiDOF/Prog6/Eigen5DOF.html">Program 6</a>: Natural frequencies and mode shapes of a five degree of freedom system.</li>
+   <li><a href="MultiDOF/Prog7/Undamped5DOF.html">Program 7</a>: Forced responses of an undamped five degree of freedom system.</li>
+   <li><a href="MultiDOF/Prog8/Undampedplus.html">Program 8</a>: Forced response of an undamped five degree of freedom system with an animation at a selected frequency.</li>
+   <li><a href="MultiDOF/Prog9/Multiforced.html">Program 9</a>: Forced response of a damped five degree of freedom system with an animation at a selected frequency.</li>
+   <li><a href="MultiDOF/Prog10/Multiforced.html">Program 10</a>: Forced response of a damped system with an animation at a selected frequency.</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 6: Modal analysis</h2>
+</div>
+<ul>
+   <li><a href="Modal/Prog1/Vibration.html">Program 1</a>: Transverse modes of two masses on a string in tension.</li>
+   <li><a href="Modal/Prog2/Eigen2DOF.html">Program 2</a>: Forced response of two masses on a string in tension.</li>
+   <li><a href="Modal/Prog3/Eigen2DOF.html">Program 3</a>: Complex eigen values of a two degree of freedom system.</li>
+   <li><a href="Modal/Prog4/Eigen2DOF.html">Program 4</a>: Forced responce comparison: Exact and modal.</li>
+   <li><a href="Modal/Prog5/Qfactor.html">Program 5</a>: Determination of Q factor from a response curve.</li>
+   <li><a href="Modal/Prog6/Qfactor.html">Program 6</a>: Comparison of exact response with modal analysis response.</li>
+   <li><a href="Modal/Prog7/Eigen2DOF.html">Program 7</a>: Transient response of a two degree of freedom system with viscous damping.</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 7: Continuous - Axial and torsional</h2>
+</div>
+<ul>
+   <li><a href="Continuous/Prog1/Vibration.html">Program 1</a>: Axial modes of a free/free bar.</li>
+   <li><a href="Continuous/Prog2/Multiforced.html">Program 2</a>: Response of a free/free bar.</li>
+   <li><a href="Continuous/Prog3/Multiforced.html">Program 3</a>: Response of a free/free bar with an animation at a selected frequency.</li>
+   <li><a href="Continuous/Prog4/Vibration.html">Program 4</a>: Axial modes of a clamped/free bar.</li>
+   <li><a href="Continuous/Prog5/Multiforced.html">Program 5</a>: Tip response of a clamped/free undamped bar with an animation at a selected frequency.</li>
+   <li><a href="Continuous/Prog6/Multiforced.html">Program 6</a>: Tip response of a free/free damped bar with an animation at a selected frequency.</li>
+   <li><a href="Continuous/Prog7/Multiforced.html">Program 7</a>: Tip response of a free/free tapered bar with an animation at a selected frequency.</li>
+   <li><a href="Continuous/Prog8/Vibration.html">Program 8</a>: Torsional modes of a free/free bar.</li>
+   <li><a href="Continuous/Prog9/Vibration.html">Program 9</a>: Torsional modes of a clamped/free bar.</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 8: Continuous - Transverse</h2>
+</div>
+<ul>
+   <li><a href="Continuous/Prog10/Vibration.html">Program 10</a>: Transverse modes of a free/free bar.</li>
+   <li><a href="Continuous/Prog11/Vibration.html">Program 11</a>: Transverse modes of a clamped/free bar.</li>
+   <li><a href="Continuous/Prog12/Transverse.html">Program 12</a>: Tip response of a free/free bar.</li>
+   <li><a href="Continuous/Prog13/Transverse.html">Program 13</a>: Tip response of a clamped/free bar.</li>
+   <li><a href="Continuous/Prog14/Transverse.html">Program 14</a>: Shear and rotary inertia effects.</li>
+</ul>
+
+<div class="gradient-strip h2-strip">
+<h2>Chapter 9: Receptances - a systems approach</h2>
+</div>
+<ul>
+   <li><a href="Complex/Prog1/Forcedresponse.html">Program 1</a>: Natural frequencies of clamped/free bar attached to a spring.</li>
+   <li><a href="Complex/Prog2/Forcedresponse.html">Program 2</a>: Natural frequencies of clamped/free bar attached to a mass.</li>
+   <li><a href="Complex/Prog3/Forcedresponse.html">Program 3</a>: Natural frequencies of clamped/free bar attached to a spring/mass system.</li>
+   <li><a href="Complex/Prog4/Forcedresponse.html">Program 4</a>: Natural frequencies of clamped/free bar with a second bar attached.</li>
+   <li><a href="Complex/Prog5/Multiforced.html">Program 5</a>: Forced response of a damped five degree-of-freedom system.</li>
+   <li><a href="Complex/Prog6/Multiforced.html">Program 6</a>: Forced response of a damped system with an animation at a selected frequency.</li>
+   <li><a href="Complex/Prog7/Forcedresponse.html">Program 7</a>: Effect of coupling stiffness on natural frequency.</li>
+   <li><a href="Complex/Prog8/Transverse.html">Program 8</a>: Response of a clamped/free bar with a vibration absorber attached.</li>
+   <li><a href="Complex/Prog9/Transverse.html">Program 9</a>: Optimised response of a clamped/free bar with a vibration absorber attached.</li>
+   <li><a href="Complex/Prog10/Transverse.html">Program 10</a>: Response of a clamped/free bar with an absorber bar and insert.</li>
+   <li><a href="Complex/Prog11/Transverse.html">Program 11</a>: Optimised response of a clamped/free bar with an absorber bar and insert.</li>
+</ul>
 </body>
 </html>
 
