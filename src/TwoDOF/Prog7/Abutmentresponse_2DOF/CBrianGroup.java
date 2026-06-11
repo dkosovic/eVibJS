@@ -10,12 +10,12 @@ import java.awt.Panel;
 class CBrianGroup extends Panel {
    public CBrianControl mCBC;
 
-   public CBrianGroup(Applet var1, String var2, double var3, double var5, double var7) {
+   public CBrianGroup(Applet app, String imgName, double min, double val, double max) {
       this.setLayout(new BorderLayout());
-      CMyLabel var9 = new CMyLabel(var1.getGraphics().getFontMetrics(), "xxxxxxxxx", 1);
-      this.mCBC = new CBrianControl(var1, var9, var3, var5, var7);
+      CMyLabel var9 = new CMyLabel(app.getGraphics().getFontMetrics(), "xxxxxxxxx", 1);
+      this.mCBC = new CBrianControl(app, var9, min, val, max);
       this.add("West", this.mCBC);
-      Image var10 = var1.getImage(var1.getCodeBase(), var2);
+      Image var10 = app.getImage(app.getCodeBase(), imgName);
       CPicturePanel var11 = new CPicturePanel(var10);
       Panel var12 = new Panel();
       var12.setLayout(new GridLayout(2, 0));

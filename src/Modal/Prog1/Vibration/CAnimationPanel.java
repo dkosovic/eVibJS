@@ -60,30 +60,30 @@ public class CAnimationPanel extends Panel {
 
       Color mass = new Color(0.18F, 0.58F, 0.58F);
 
-      for (int var8 = 1; var8 < 3; var8++) {
+      for (int j = 1; j < 3; j++) {
          this.mOffScreenGC.setColor(Color.orange);
-         this.mOffScreenGC.fillRect(100, 2 + 60 * (var8 - 1) + var8 * 10, 30, 60);
-         this.mOffScreenGC.fillRect(330, 2 + 60 * (var8 - 1) + var8 * 10, 30, 60);
+         this.mOffScreenGC.fillRect(100, 2 + 60 * (j - 1) + j * 10, 30, 60);
+         this.mOffScreenGC.fillRect(330, 2 + 60 * (j - 1) + j * 10, 30, 60);
          this.mOffScreenGC.setColor(Color.black);
 
          for (int p = 1; p < 3; p++) {
-            this.yp[p] = (int)(this.mYo * Math.sin(var8 * p * Math.PI / 3.0) * Math.sin(this.mWnFraction[var8] * this.mWn * this.mTime * 2.0 * Math.PI));
+            this.yp[p] = (int)(this.mYo * Math.sin(j * p * Math.PI / 3.0) * Math.sin(this.mWnFraction[j] * this.mWn * this.mTime * 2.0 * Math.PI));
          }
 
-         for (int var9 = 0; var9 < 3; var9++) {
+         for (int k = 0; k < 3; k++) {
             this.mOffScreenGC
                .drawLine(
-                  130 + 200 * var9 / 3,
-                  (int)(2.0 + 60.0 * (var8 - 0.5) + this.yp[var9] + var8 * 10),
-                  130 + 200 * (var9 + 1) / 3,
-                  (int)(2.0 + 60.0 * (var8 - 0.5) + this.yp[var9 + 1] + var8 * 10)
+                  130 + 200 * k / 3,
+                  (int)(2.0 + 60.0 * (j - 0.5) + this.yp[k] + j * 10),
+                  130 + 200 * (k + 1) / 3,
+                  (int)(2.0 + 60.0 * (j - 0.5) + this.yp[k + 1] + j * 10)
                );
          }
 
          this.mOffScreenGC.setColor(mass);
 
          for (int var10 = 1; var10 < 3; var10++) {
-            this.mOffScreenGC.fillArc(130 + 200 * var10 / 3 - 6, (int)(2.0 + 60.0 * (var8 - 0.5) + this.yp[var10] + var8 * 10) - 6, 13, 13, 0, 360);
+            this.mOffScreenGC.fillArc(130 + 200 * var10 / 3 - 6, (int)(2.0 + 60.0 * (j - 0.5) + this.yp[var10] + j * 10) - 6, 13, 13, 0, 360);
          }
 
          this.mOffScreenGC.setColor(Color.black);

@@ -164,7 +164,7 @@ public class Undamped extends Applet implements ActionListener {
             double newNum;
             try {
                newNum = java.lang.Double.parseDouble(shortStr);
-            } catch (NumberFormatException var15) {
+            } catch (NumberFormatException ex) {
                break;
             }
 

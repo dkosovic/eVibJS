@@ -44,22 +44,22 @@ public class CSpringMassDamper extends CFrame {
       this.mAbutment = var1;
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       Color var2 = new Color(0.18F, 0.58F, 0.58F);
       if (this.IsAbutment()) {
-         var1.setColor(Color.orange);
+         g.setColor(Color.orange);
       } else {
-         var1.setColor(var2);
+         g.setColor(var2);
       }
 
-      var1.fillRect(super.x + super.width - 15, super.y, 15, super.height);
-      var1.setColor(Color.black);
+      g.fillRect(super.x + super.width - 15, super.y, 15, super.height);
+      g.setColor(Color.black);
       if (this.mIndex > 1) {
-         this.DrawSpringAndDamper(var1);
+         this.DrawSpringAndDamper(g);
       }
 
       if (this.mFrameGraph.mSelectedSMD == this) {
-         this.DrawSelRect(var1);
+         this.DrawSelRect(g);
       }
    }
 
@@ -67,12 +67,12 @@ public class CSpringMassDamper extends CFrame {
       int var2 = super.y + 8;
       var1.drawLine(super.x, var2, super.x + 2, var2 - 2);
 
-      for (int var3 = 1; var3 < 6; var3++) {
-         var1.drawLine(super.x + 2 + (var3 - 1) * 8, var2 - 2, super.x + 2 + (var3 - 1) * 8 + 4, var2 + 2);
+      for (int i = 1; i < 6; i++) {
+         var1.drawLine(super.x + 2 + (i - 1) * 8, var2 - 2, super.x + 2 + (i - 1) * 8 + 4, var2 + 2);
       }
 
-      for (int var5 = 1; var5 < 5; var5++) {
-         var1.drawLine(super.x + 6 + (var5 - 1) * 8, var2 + 2, super.x + 6 + (var5 - 1) * 8 + 4, var2 - 2);
+      for (int j = 1; j < 5; j++) {
+         var1.drawLine(super.x + 6 + (j - 1) * 8, var2 + 2, super.x + 6 + (j - 1) * 8 + 4, var2 - 2);
       }
 
       var1.drawLine(super.x + 40 - 2, var2 + 2, super.x + 40, var2);
@@ -112,9 +112,9 @@ public class CSpringMassDamper extends CFrame {
       var1.drawString(var3, var4 + 12, var2 + 10);
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
+   public void ControlMessage(CFrame controller, int code, double val) {
       boolean var5 = false;
-      switch (var2) {
+      switch (code) {
          case 1:
             this.mInputFrame = new CInputDialog(this, "Edit subsystem " + this.mIndex);
             this.mInputFrame.setLocation(100, 100);
@@ -127,7 +127,7 @@ public class CSpringMassDamper extends CFrame {
          default:
             break;
          case 6:
-            this.mFrameGraph.ControlMessage(this, 6, var3);
+            this.mFrameGraph.ControlMessage(this, 6, val);
       }
 
       if (var5) {
@@ -135,12 +135,12 @@ public class CSpringMassDamper extends CFrame {
       }
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
+   public boolean MouseEvent(int code, boolean prevHit) {
       super.mWasHit = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       if (!super.mWasHit) {
          return false;
       } else {
-         switch (var1) {
+         switch (code) {
             case 0:
                this.mFrameGraph.SetSelection(this);
             case 1:

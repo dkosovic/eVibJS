@@ -43,23 +43,23 @@ class CFrameAnimation extends CFrame {
          }
       }
 
-      for (int var10 = 1; var10 < 6; var10++) {
-         g.drawLine(20 + var10 * 80, 163, 20 + var10 * 80, 160);
+      for (int i = 1; i < 6; i++) {
+         g.drawLine(20 + i * 80, 163, 20 + i * 80, 160);
       }
 
       g.setColor(Color.red);
       this.mRec[1] = 0.0;
 
-      for (int var11 = 1; var11 < 400; var11++) {
-         double mw = var11 * 5000.0 * 2.0 * Math.PI / 400.0;
+      for (int j = 1; j < 400; j++) {
+         double mw = j * 5000.0 * 2.0 * Math.PI / 400.0;
          double mlambda = mw * Math.sqrt(3.9E-8);
          double mArea = Math.PI * this.mD * this.mD / 4.0;
-         if (var11 == 1) {
+         if (j == 1) {
             this.mRec[1] = Math.tan(mlambda * this.mL) / (mArea * 2.0E11 * mlambda);
          } else {
-            this.mRec[var11] = Math.tan(mlambda * this.mL) / (mArea * 2.0E11 * mlambda);
-            if (!(this.mRec[var11 - 1] > 0.0 & this.mRec[var11] < 0.0) && Math.abs(this.mRec[var11 - 1]) < 1.0E-8) {
-               g.drawLine(20 + (var11 - 1), (int)(163.0 - this.mRec[var11 - 1] * 2.5E10), 20 + var11, (int)(163.0 - this.mRec[var11] * 2.5E10));
+            this.mRec[j] = Math.tan(mlambda * this.mL) / (mArea * 2.0E11 * mlambda);
+            if (!(this.mRec[j - 1] > 0.0 & this.mRec[j] < 0.0) && Math.abs(this.mRec[j - 1]) < 1.0E-8) {
+               g.drawLine(20 + (j - 1), (int)(163.0 - this.mRec[j - 1] * 2.5E10), 20 + j, (int)(163.0 - this.mRec[j] * 2.5E10));
             }
          }
       }
@@ -68,9 +68,9 @@ class CFrameAnimation extends CFrame {
       g.drawLine(20, (int)(163.0 + 1.0 / this.mk * 2.5E10), 420, (int)(163.0 + 1.0 / this.mk * 2.5E10));
       g.setColor(Color.black);
 
-      for (int var12 = 2; var12 < 400; var12++) {
-         if (this.mRec[var12 - 1] < -1.0 / this.mk & this.mRec[var12] > -1.0 / this.mk) {
-            g.drawString(CUtility.nns(var12 * 5000.0 / 400.0) + "Hz", 20 + var12 + 1, (int)(163.0 + 1.0 / this.mk * 2.5E10 + 10.0));
+      for (int k = 2; k < 400; k++) {
+         if (this.mRec[k - 1] < -1.0 / this.mk & this.mRec[k] > -1.0 / this.mk) {
+            g.drawString(CUtility.nns(k * 5000.0 / 400.0) + "Hz", 20 + k + 1, (int)(163.0 + 1.0 / this.mk * 2.5E10 + 10.0));
          }
       }
    }

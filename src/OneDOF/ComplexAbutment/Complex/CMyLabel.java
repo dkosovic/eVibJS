@@ -12,19 +12,19 @@ public class CMyLabel extends Label {
       this.mMinDim = new Dimension(40, 16);
    }
 
-   public CMyLabel(FontMetrics var1, String var2) {
-      super(var2);
-      this.setMinDim(var1, var2);
+   public CMyLabel(FontMetrics f, String s) {
+      super(s);
+      this.setMinDim(f, s);
    }
 
-   public CMyLabel(FontMetrics var1, String var2, int var3) {
-      super(var2, var3);
-      this.setMinDim(var1, var2);
+   public CMyLabel(FontMetrics f, String s, int align) {
+      super(s, align);
+      this.setMinDim(f, s);
    }
 
-   void setMinDim(FontMetrics var1, String var2) {
-      int var3 = 10 * var1.stringWidth(var2) / 9;
-      int var4 = var1.getMaxAscent() + var1.getMaxDescent();
+   void setMinDim(FontMetrics f, String s) {
+      int var3 = 10 * f.stringWidth(s) / 9;
+      int var4 = f.getMaxAscent() + f.getMaxDescent();
       this.mMinDim = new Dimension(var3, var4);
    }
 

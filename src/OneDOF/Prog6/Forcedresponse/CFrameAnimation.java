@@ -27,37 +27,37 @@ class CFrameAnimation extends CFrame {
          g.drawLine(100, 210 - p * 20, 97, 210 - p * 20);
       }
 
-      for (int var14 = 1; var14 < 7; var14++) {
-         g.drawLine(100 + var14 * 50, 210, 100 + var14 * 50, 213);
+      for (int i = 1; i < 7; i++) {
+         g.drawLine(100 + i * 50, 210, 100 + i * 50, 213);
       }
 
       g.setColor(mass);
       double mAmp1 = 1.0;
 
-      for (int var15 = 1; var15 < 150; var15++) {
-         double mr = var15 / 50.0;
+      for (int j = 1; j < 150; j++) {
+         double mr = j / 50.0;
          double mAmp2 = 1.0 / Math.sqrt((1.0 - mr * mr) * (1.0 - mr * mr) + 2.0 * mr * this.mXi * (2.0 * mr * this.mXi));
-         g.drawLine(100 + (var15 - 1) * 2, (int)(210.0 - mAmp1 * 20.0), 100 + var15 * 2, (int)(210.0 - mAmp2 * 20.0));
+         g.drawLine(100 + (j - 1) * 2, (int)(210.0 - mAmp1 * 20.0), 100 + j * 2, (int)(210.0 - mAmp2 * 20.0));
          mAmp1 = mAmp2;
       }
 
       double mPhase1 = 0.0;
       double mPhase2 = 0.0;
 
-      for (int var16 = 1; var16 < 150; var16++) {
-         double mr = var16 / 50.0;
-         if (var16 == 50) {
+      for (int k = 1; k < 150; k++) {
+         double mr = k / 50.0;
+         if (k == 50) {
             mPhase2 = 90.0;
          }
 
-         if (var16 != 50) {
+         if (k != 50) {
             mPhase2 = 180.0 * Math.atan(2.0 * mr * this.mXi / (1.0 - mr * mr)) / Math.PI;
             if (mPhase2 < 0.0) {
                mPhase2 += 180.0;
             }
          }
 
-         g.drawLine(100 + (var16 - 1) * 2, (int)(240.0 + mPhase1 / 2.0), 100 + var16 * 2, (int)(240.0 + mPhase2 / 2.0));
+         g.drawLine(100 + (k - 1) * 2, (int)(240.0 + mPhase1 / 2.0), 100 + k * 2, (int)(240.0 + mPhase2 / 2.0));
          mPhase1 = mPhase2;
       }
 

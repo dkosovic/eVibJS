@@ -8,23 +8,23 @@ import javax.swing.ImageIcon;
 class CFramePicture extends CFrame {
    public Image mImage;   public boolean mScaleImage;
 
-   public CFramePicture(CFramePanel var1, int var2, int var3, int var4, int var5, Image var6, boolean var7) {
-      super(var1, var2, var3, var4, var5);
-      this.mScaleImage = var7;
-      this.LoadImage(var6);
+   public CFramePicture(CFramePanel thePanel, int xx, int yy, int ww, int hh, Image img, boolean scale) {
+      super(thePanel, xx, yy, ww, hh);
+      this.mScaleImage = scale;
+      this.LoadImage(img);
    }
 
-   public void LoadImage(Image var1) {
+   public void LoadImage(Image img) {
       // Use ImageIcon to ensure synchronous loading
-      if (var1 != null) {
-         ImageIcon icon = new ImageIcon(var1);
+      if (img != null) {
+         ImageIcon icon = new ImageIcon(img);
          this.mImage = icon.getImage();
       } else {
-         this.mImage = var1;
+         this.mImage = img;
       }
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       if (this.mImage != null) {
          // Check if image is fully loaded before drawing
          int width = this.mImage.getWidth(super.mFramePanel);
@@ -33,9 +33,9 @@ class CFramePicture extends CFrame {
          // If width/height are -1, image is still loading
          if (width > 0 && height > 0) {
             if (this.mScaleImage) {
-               var1.drawImage(this.mImage, super.x, super.y, super.width, super.height, super.mFramePanel);
+               g.drawImage(this.mImage, super.x, super.y, super.width, super.height, super.mFramePanel);
             } else {
-               var1.drawImage(this.mImage, super.x, super.y, super.mFramePanel);
+               g.drawImage(this.mImage, super.x, super.y, super.mFramePanel);
             }
          }
          // If image is still loading, do nothing - it will repaint when ready

@@ -57,8 +57,8 @@ class CFrameAnimation extends CFrame {
       g.setColor(Color.black);
       g.drawLine(60, 47, 60, 343);
 
-      for (int var75 = 0; var75 < 7; var75++) {
-         g.drawLine(60, 50 + var75 * 45, 57, 50 + var75 * 45);
+      for (int i = 0; i < 7; i++) {
+         g.drawLine(60, 50 + i * 45, 57, 50 + i * 45);
       }
 
       Color force = new Color(0.77F, 0.38F, 0.0F);
@@ -94,8 +94,8 @@ class CFrameAnimation extends CFrame {
       double mAmp1 = (1.0 - this.mc) * mAmpL + this.mc * mAmpR;
       g.setColor(mass);
 
-      for (int var76 = 1; var76 < 481; var76++) {
-         double mWin = (Math.PI * 2) * var76 / this.mxscale;
+      for (int j = 1; j < 481; j++) {
+         double mWin = (Math.PI * 2) * j / this.mxscale;
          double mA = 12.0 * this.mk2 * (1.0 - this.mb) - this.mm * mWin * mWin * (4.0 - 6.0 * this.mb);
          double mB = 0.0;
          double mC = (4.0 * this.mk1 - this.mm * mWin * mWin) * (4.0 * this.mk2 - this.mm * mWin * mWin) - 4.0 * this.mk2 * this.mk1;
@@ -158,9 +158,9 @@ class CFrameAnimation extends CFrame {
          double mAlpha12Imag = mBeta12Imag - mImag;
          double mAmp2 = Math.sqrt(mAlpha12Real * mAlpha12Real + mAlpha12Imag * mAlpha12Imag);
          g.drawLine(
-            60 + (var76 - 1),
+            60 + (j - 1),
             (int)(95.0 - Math.log(mAmp1) / Math.log(10.0) * this.myscale),
-            60 + var76,
+            60 + j,
             (int)(95.0 - Math.log(mAmp2) / Math.log(10.0) * this.myscale)
          );
          mAmp1 = mAmp2;

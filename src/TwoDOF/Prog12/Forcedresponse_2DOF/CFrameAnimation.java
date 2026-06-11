@@ -38,8 +38,8 @@ class CFrameAnimation extends CFrame {
    double mxscale;
    double myscale;
 
-   public CFrameAnimation(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameAnimation(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
       this.mWn1 = Math.sqrt((-this.B - Math.sqrt(this.B * this.B - 4.0 * this.A * this.C)) / (2.0 * this.A)) / (Math.PI * 2);
       this.mWn2 = Math.sqrt((-this.B + Math.sqrt(this.B * this.B - 4.0 * this.A * this.C)) / (2.0 * this.A)) / (Math.PI * 2);
       this.mWmin = 0.1 * this.mWn1;
@@ -48,69 +48,69 @@ class CFrameAnimation extends CFrame {
       this.myscale = 45.0;
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       this.mAmp = new double[602];
       this.mRealAmp = new double[602];
       this.mQuadAmp = new double[602];
       this.mPhase = new double[602];
-      var1.setPaintMode();
-      var1.setColor(Color.white);
-      var1.fillRect(0, 0, super.width, super.height);
-      var1.setColor(Color.black);
-      var1.drawLine(77, 340, 563, 340);
+      g.setPaintMode();
+      g.setColor(Color.white);
+      g.fillRect(0, 0, super.width, super.height);
+      g.setColor(Color.black);
+      g.drawLine(77, 340, 563, 340);
 
-      for (int var2 = 1; var2 < 9; var2++) {
-         var1.drawLine(80 + var2 * 60, 340, 80 + var2 * 60, 343);
+      for (int i = 1; i < 9; i++) {
+         g.drawLine(80 + i * 60, 340, 80 + i * 60, 343);
       }
 
       Color var18 = new Color(0.18F, 0.58F, 0.58F);
-      var1.setColor(var18);
-      var1.drawLine(80, 47, 80, 343);
+      g.setColor(var18);
+      g.drawLine(80, 47, 80, 343);
 
-      for (int var19 = 0; var19 < 7; var19++) {
-         var1.drawLine(80, 50 + var19 * 45, 77, 50 + var19 * 45);
+      for (int j = 0; j < 7; j++) {
+         g.drawLine(80, 50 + j * 45, 77, 50 + j * 45);
       }
 
       this.mAmp[0] = 1.0 / this.mk1;
       double var3 = this.mAmp[0];
 
-      for (int var20 = 1; var20 < 481; var20++) {
-         double var7 = (Math.PI * 2) * var20 / this.mxscale;
+      for (int k = 1; k < 481; k++) {
+         double var7 = (Math.PI * 2) * k / this.mxscale;
          double var15 = this.mk2 * this.mk2;
          double var9 = this.mk2 / var15 - 1.0 / (this.mm2 * var7 * var7);
          double var11 = 0.0;
          double var13 = this.mk1 - this.mm1 * var7 * var7 + var9 / (var9 * var9 + var11 * var11);
          var15 = var7 * this.mc1 - var11 / (var9 * var9 + var11 * var11);
-         this.mRealAmp[var20] = var13 / (var13 * var13 + var15 * var15);
-         this.mQuadAmp[var20] = -var15 / (var13 * var13 + var15 * var15);
-         this.mAmp[var20] = Math.sqrt(this.mRealAmp[var20] * this.mRealAmp[var20] + this.mQuadAmp[var20] * this.mQuadAmp[var20]);
-         var1.drawLine(
-            80 + (var20 - 1),
+         this.mRealAmp[k] = var13 / (var13 * var13 + var15 * var15);
+         this.mQuadAmp[k] = -var15 / (var13 * var13 + var15 * var15);
+         this.mAmp[k] = Math.sqrt(this.mRealAmp[k] * this.mRealAmp[k] + this.mQuadAmp[k] * this.mQuadAmp[k]);
+         g.drawLine(
+            80 + (k - 1),
             (int)(140.0 - Math.log(var3) / Math.log(10.0) * this.myscale),
-            80 + var20,
-            (int)(140.0 - Math.log(this.mAmp[var20]) / Math.log(10.0) * this.myscale)
+            80 + k,
+            (int)(140.0 - Math.log(this.mAmp[k]) / Math.log(10.0) * this.myscale)
          );
-         var3 = this.mAmp[var20];
+         var3 = this.mAmp[k];
       }
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
+   public void ControlMessage(CFrame controller, int code, double val) {
       boolean var5 = false;
-      switch (var2) {
+      switch (code) {
          case 1:
-            this.mm1 = var3;
+            this.mm1 = val;
             break;
          case 2:
-            this.mk1 = var3;
+            this.mk1 = val;
             break;
          case 3:
-            this.mc1 = var3;
+            this.mc1 = val;
             break;
          case 4:
-            this.mm2 = var3;
+            this.mm2 = val;
             break;
          case 5:
-            this.mk2 = var3;
+            this.mk2 = val;
       }
 
       if (var5) {

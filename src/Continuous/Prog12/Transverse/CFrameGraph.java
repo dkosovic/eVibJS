@@ -35,121 +35,121 @@ class CFrameGraph extends CFrame {
    double mInertia;
    double mTime = 0.0;
 
-   public CFrameGraph(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameGraph(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
    }
 
-   public void Frame(Graphics var1) {
-      Color var3 = new Color(0.18F, 0.58F, 0.58F);
+   public void Frame(Graphics g) {
+      Color tealColor = new Color(0.18F, 0.58F, 0.58F);
       new Color(0.77F, 0.38F, 0.0F);
-      var1.setPaintMode();
-      var1.setColor(Color.black);
-      var1.drawLine(38, 370, 440, 370);
-      var1.drawLine(38, 371, 440, 371);
-      var1.drawLine(39, 374, 39, 15);
-      var1.drawLine(40, 374, 40, 15);
+      g.setPaintMode();
+      g.setColor(Color.black);
+      g.drawLine(38, 370, 440, 370);
+      g.drawLine(38, 371, 440, 371);
+      g.drawLine(39, 374, 39, 15);
+      g.drawLine(40, 374, 40, 15);
 
-      for (int var2 = 0; var2 < 12; var2++) {
-         var1.drawLine(40, 370 - var2 * 30, 37, 370 - var2 * 30);
+      for (int i = 0; i < 12; i++) {
+         g.drawLine(40, 370 - i * 30, 37, 370 - i * 30);
       }
 
-      for (int var5 = 1; var5 < 6; var5++) {
-         var1.drawLine(40 + var5 * 80, 370, 40 + var5 * 80, 367);
+      for (int j = 1; j < 6; j++) {
+         g.drawLine(40 + j * 80, 370, 40 + j * 80, 367);
       }
 
-      var1.setColor(var3);
+      g.setColor(tealColor);
       this.response();
 
-      for (int var6 = 2; var6 < 400; var6++) {
-         var1.drawLine(
-            40 + (var6 - 1),
-            (int)(10.0 - Math.log(Math.abs(this.mRec[var6 - 1])) / Math.log(10.0) * 30.0),
-            40 + var6,
-            (int)(10.0 - Math.log(Math.abs(this.mRec[var6])) / Math.log(10.0) * 30.0)
+      for (int k = 2; k < 400; k++) {
+         g.drawLine(
+            40 + (k - 1),
+            (int)(10.0 - Math.log(Math.abs(this.mRec[k - 1])) / Math.log(10.0) * 30.0),
+            40 + k,
+            (int)(10.0 - Math.log(Math.abs(this.mRec[k])) / Math.log(10.0) * 30.0)
          );
       }
 
-      int var7 = (int)(this.mWanimate * 400.0 / 5000.0);
-      var1.setColor(Color.blue);
-      var1.drawLine(40 + var7, 370, 40 + var7, (int)(10.0 - Math.log(Math.abs(this.mRec[var7])) / Math.log(10.0) * 30.0));
-      var1.drawLine(40 + var7, 373, 40 + var7, 368);
-      var1.drawString(this.nns(this.mWanimate) + " Hz", 40 + var7 + 2, 385);
+      int animatePixel = (int)(this.mWanimate * 400.0 / 5000.0);
+      g.setColor(Color.blue);
+      g.drawLine(40 + animatePixel, 370, 40 + animatePixel, (int)(10.0 - Math.log(Math.abs(this.mRec[animatePixel])) / Math.log(10.0) * 30.0));
+      g.drawLine(40 + animatePixel, 373, 40 + animatePixel, 368);
+      g.drawString(this.nns(this.mWanimate) + " Hz", 40 + animatePixel + 2, 385);
    }
 
-   public double log10(double var1) {
-      return Math.log(var1) / Math.log(10.0);
+   public double log10(double arg) {
+      return Math.log(arg) / Math.log(10.0);
    }
 
-   public String nns(double var1, int var3) {
-      if (var3 <= 0) {
-         var3 = 1;
+   public String nns(double arg, int sig) {
+      if (sig <= 0) {
+         sig = 1;
       }
 
-      if (var1 == 0.0) {
+      if (arg == 0.0) {
          return "0";
-      } else if (var1 < 0.0) {
-         return "-" + this.nns(-var1, var3);
+      } else if (arg < 0.0) {
+         return "-" + this.nns(-arg, sig);
       } else {
-         double var4 = Math.floor(this.log10(var1));
-         double var6 = Math.pow(10.0, var4 - var3 + 1.0);
-         long var8 = Math.round(var1 / var6);
-         String var10 = String.valueOf(var8 * var6);
+         double magnitude = Math.floor(this.log10(arg));
+         double stepSize = Math.pow(10.0, magnitude - sig + 1.0);
+         long intArg = Math.round(arg / stepSize);
+         String result = String.valueOf(intArg * stepSize);
 
-         while (var10.length() > 1 && var10.indexOf(46) > -1) {
-            boolean var11 = false;
+         while (result.length() > 1 && result.indexOf(46) > -1) {
+            boolean trimmed = false;
 
-            int var12;
-            for (var12 = var10.length() - 1; var10.charAt(var12) == '0'; var11 = true) {
-               var12--;
+            int trimIdx;
+            for (trimIdx = result.length() - 1; result.charAt(trimIdx) == '0'; trimmed = true) {
+               trimIdx--;
             }
 
-            if (var11) {
-               var10 = var10.substring(0, var12 + 1);
+            if (trimmed) {
+               result = result.substring(0, trimIdx + 1);
             }
 
-            String var13 = var10.substring(0, var12);
+            String shortStr = result.substring(0, trimIdx);
 
-            double var14;
+            double parsedDouble;
             try {
-               var14 = java.lang.Double.parseDouble(var13);
-            } catch (NumberFormatException var15) {
+               parsedDouble = java.lang.Double.parseDouble(shortStr);
+            } catch (NumberFormatException ex) {
                break;
             }
 
-            if (Math.abs(var1 - var14) > var6) {
+            if (Math.abs(arg - parsedDouble) > stepSize) {
                break;
             }
 
-            var10 = var13;
+            result = shortStr;
          }
 
-         return var10;
+         return result;
       }
    }
 
-   public String nns(double var1) {
-      return this.nns(var1, 4);
+   public String nns(double arg) {
+      return this.nns(arg, 4);
    }
 
    public void DrawModeShape(Graphics var1, int var2, int var3) {
       var1.setColor(Color.white);
       var1.fillRect(0, 390, 600, 190);
       var1.fillRect(0, 0, 450, 20);
-      int var8 = 20;
+      int blockH = 20;
       int var10 = 30;
       double var11 = 1.0472;
       short var13 = 470;
-      Color var15 = new Color(0.18F, 0.58F, 0.58F);
+      Color tealColor = new Color(0.18F, 0.58F, 0.58F);
       Color var16 = new Color(0.52F, 0.82F, 0.82F);
-      Color var17 = new Color(0.77F, 0.38F, 0.0F);
+      Color orangeColor = new Color(0.77F, 0.38F, 0.0F);
       new Color(1.0F, 1.0F, 0.4F);
       int var20 = 90;
       int var21 = (int)(var20 * Math.cos(var11) / 2.0);
       this.setOmegaDisp(this.mWanimate);
       this.mAmp[0] = 0.0;
 
-      for (int var4 = 0; var4 < 31; var4++) {
-         this.mAmp[var4] = this.mxp[var4] * Math.cos(0.7 * this.mTime * 2.0 * Math.PI);
+      for (int i = 0; i < 31; i++) {
+         this.mAmp[i] = this.mxp[i] * Math.cos(0.7 * this.mTime * 2.0 * Math.PI);
       }
 
       var1.setColor(var16);
@@ -157,120 +157,120 @@ class CFrameGraph extends CFrame {
       int var24 = (int)(250.0 * this.mB * Math.cos(var11) / 2.0);
       int var25 = (int)(250.0 * this.mB * Math.sin(var11) / 2.0);
 
-      for (int var28 = 0; var28 < 31; var28++) {
-         var23.addPoint(var8 + var10 + var21 + (int)(var28 * 250.0 * this.mL / 30.0) - var24, var13 - (int)(this.mAmp[var28] - this.mH * 250.0 / 2.0) + var25);
+      for (int j = 0; j < 31; j++) {
+         var23.addPoint(blockH + var10 + var21 + (int)(j * 250.0 * this.mL / 30.0) - var24, var13 - (int)(this.mAmp[j] - this.mH * 250.0 / 2.0) + var25);
       }
 
-      var23.addPoint(var8 + var10 + var21 + (int)(250.0 * this.mL) - var24, var13 - (int)(this.mAmp[30] + this.mH * 250.0 / 2.0) + var25);
+      var23.addPoint(blockH + var10 + var21 + (int)(250.0 * this.mL) - var24, var13 - (int)(this.mAmp[30] + this.mH * 250.0 / 2.0) + var25);
 
-      for (int var29 = 29; var29 > -1; var29--) {
-         var23.addPoint(var8 + var10 + var21 + (int)(var29 * 250.0 * this.mL / 30.0) - var24, var13 - (int)(this.mAmp[var29] + this.mH * 250.0 / 2.0) + var25);
+      for (int k = 29; k > -1; k--) {
+         var23.addPoint(blockH + var10 + var21 + (int)(k * 250.0 * this.mL / 30.0) - var24, var13 - (int)(this.mAmp[k] + this.mH * 250.0 / 2.0) + var25);
       }
 
       var1.drawPolygon(var23);
       var1.fillPolygon(var23);
-      var1.setColor(var15);
+      var1.setColor(tealColor);
       Polygon var26 = new Polygon();
 
       for (int var30 = 0; var30 < 31; var30++) {
-         var26.addPoint(var8 + var10 + var21 + (int)(var30 * 250.0 * this.mL / 30.0) - var24, var13 - (int)(this.mAmp[var30] + this.mH * 250.0 / 2.0) + var25);
+         var26.addPoint(blockH + var10 + var21 + (int)(var30 * 250.0 * this.mL / 30.0) - var24, var13 - (int)(this.mAmp[var30] + this.mH * 250.0 / 2.0) + var25);
       }
 
-      var26.addPoint(var8 + var10 + var21 + (int)(250.0 * this.mL) + var24, var13 - (int)(this.mAmp[30] + this.mH * 250.0 / 2.0) - var25);
+      var26.addPoint(blockH + var10 + var21 + (int)(250.0 * this.mL) + var24, var13 - (int)(this.mAmp[30] + this.mH * 250.0 / 2.0) - var25);
 
       for (int var31 = 29; var31 > -1; var31--) {
-         var26.addPoint(var8 + var10 + var21 + (int)(var31 * 250.0 * this.mL / 30.0) + var24, var13 - (int)(this.mAmp[var31] + this.mH * 250.0 / 2.0) - var25);
+         var26.addPoint(blockH + var10 + var21 + (int)(var31 * 250.0 * this.mL / 30.0) + var24, var13 - (int)(this.mAmp[var31] + this.mH * 250.0 / 2.0) - var25);
       }
 
       var1.drawPolygon(var26);
       var1.fillPolygon(var26);
-      var1.setColor(var15);
+      var1.setColor(tealColor);
       Polygon var27 = new Polygon();
-      var27.addPoint(var8 + var10 + var21 + (int)(250.0 * this.mL) - var24, var13 - (int)(this.mAmp[30] + this.mH * 250.0 / 2.0) + var25);
-      var27.addPoint(var8 + var10 + var21 + (int)(250.0 * this.mL) + var24, var13 - (int)(this.mAmp[30] + this.mH * 250.0 / 2.0) - var25);
-      var27.addPoint(var8 + var10 + var21 + (int)(250.0 * this.mL) + var24, var13 - (int)(this.mAmp[30] - this.mH * 250.0 / 2.0) - var25);
-      var27.addPoint(var8 + var10 + var21 + (int)(250.0 * this.mL) - var24, var13 - (int)(this.mAmp[30] - this.mH * 250.0 / 2.0) + var25);
+      var27.addPoint(blockH + var10 + var21 + (int)(250.0 * this.mL) - var24, var13 - (int)(this.mAmp[30] + this.mH * 250.0 / 2.0) + var25);
+      var27.addPoint(blockH + var10 + var21 + (int)(250.0 * this.mL) + var24, var13 - (int)(this.mAmp[30] + this.mH * 250.0 / 2.0) - var25);
+      var27.addPoint(blockH + var10 + var21 + (int)(250.0 * this.mL) + var24, var13 - (int)(this.mAmp[30] - this.mH * 250.0 / 2.0) - var25);
+      var27.addPoint(blockH + var10 + var21 + (int)(250.0 * this.mL) - var24, var13 - (int)(this.mAmp[30] - this.mH * 250.0 / 2.0) + var25);
       var1.drawPolygon(var27);
       var1.fillPolygon(var27);
-      var1.setColor(var17);
+      var1.setColor(orangeColor);
       var1.drawLine(
-         var8 + var10 + (int)(250.0 * this.mL) + var21,
+         blockH + var10 + (int)(250.0 * this.mL) + var21,
          var13 - (int)this.mAmp[30],
-         var8 + var10 + (int)(250.0 * this.mL) + var21 + 20,
+         blockH + var10 + (int)(250.0 * this.mL) + var21 + 20,
          var13 - (int)this.mAmp[30]
       );
       int var14 = (int)(20.0 * Math.cos(0.7 * this.mTime * 2.0 * Math.PI));
       if (var14 != 0) {
          if (var14 > 0) {
             var1.drawLine(
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 12,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 12,
                var13 - (int)this.mAmp[30],
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 12,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 12,
                var13 - var14 - (int)this.mAmp[30]
             );
             var1.drawLine(
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 13,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 13,
                var13 - (int)this.mAmp[30],
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 13,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 13,
                var13 - var14 - (int)this.mAmp[30] - 1
             );
             var1.drawLine(
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 14,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 14,
                var13 - (int)this.mAmp[30],
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 14,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 14,
                var13 - var14 - (int)this.mAmp[30]
             );
          }
 
          if (var14 < 0) {
             var1.drawLine(
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 12,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 12,
                var13 - (int)this.mAmp[30],
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 12,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 12,
                var13 - var14 - (int)this.mAmp[30]
             );
             var1.drawLine(
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 13,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 13,
                var13 - (int)this.mAmp[30],
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 13,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 13,
                var13 - var14 - (int)this.mAmp[30] + 1
             );
             var1.drawLine(
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 14,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 14,
                var13 - (int)this.mAmp[30],
-               var8 + var10 + (int)(250.0 * this.mL) + var21 + 14,
+               blockH + var10 + (int)(250.0 * this.mL) + var21 + 14,
                var13 - var14 - (int)this.mAmp[30]
             );
          }
       }
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
-      boolean var5 = false;
-      switch (var2) {
+   public void ControlMessage(CFrame controller, int code, double val) {
+      boolean trimmed = false;
+      switch (code) {
          case 1:
-            this.mL = var3;
+            this.mL = val;
             this.response();
             break;
          case 2:
-            this.mB = var3;
+            this.mB = val;
             this.response();
             break;
          case 3:
-            this.mH = var3;
+            this.mH = val;
             this.response();
             break;
          case 4:
-            this.mWanimate = var3;
+            this.mWanimate = val;
             this.setOmegaDisp(this.mWanimate);
-            var5 = true;
+            trimmed = true;
             break;
          case 5:
-            this.mTime += var3;
-            var5 = true;
+            this.mTime += val;
+            trimmed = true;
       }
 
-      if (var5) {
+      if (trimmed) {
          this.repaint();
       }
    }
@@ -279,19 +279,19 @@ class CFrameGraph extends CFrame {
       this.mArea = Math.PI * this.mB * this.mH;
       this.mInertia = this.mArea * this.mH * this.mH / 12.0;
 
-      for (int var1 = 1; var1 < 401; var1++) {
-         this.mw = var1 * 5000.0 * 2.0 * Math.PI / 400.0;
+      for (int i = 1; i < 401; i++) {
+         this.mw = i * 5000.0 * 2.0 * Math.PI / 400.0;
          this.mlambda = Math.sqrt(Math.sqrt(this.mw * this.mw * this.mArea * 7800.0 / (2.0E11 * this.mInertia)));
-         double var14 = this.mlambda * this.mL;
-         double var2 = Math.sin(var14);
-         double var4 = Math.cos(var14);
-         double var16 = Math.exp(var14);
+         double A = this.mlambda * this.mL;
+         double var2 = Math.sin(A);
+         double var4 = Math.cos(A);
+         double var16 = Math.exp(A);
          double var6 = (var16 - 1.0 / var16) / 2.0;
          double var8 = (var16 + 1.0 / var16) / 2.0;
          double var10 = var4 * var8 - 1.0;
          double var12 = var4 * var6 - var2 * var8;
          double var18 = 1.0 / (2.0E11 * this.mInertia * this.mL * this.mL * this.mL * var10);
-         this.mRec[var1] = -var12 * var18;
+         this.mRec[i] = -var12 * var18;
       }
 
       this.setOmegaDisp(this.mWanimate);
@@ -301,10 +301,10 @@ class CFrameGraph extends CFrame {
       this.mArea = Math.PI * this.mB * this.mH;
       this.mInertia = this.mArea * this.mH * this.mH / 12.0;
       this.mlambda = Math.sqrt(Math.sqrt(var1 * 2.0 * Math.PI * var1 * 2.0 * Math.PI * this.mArea * 7800.0 / (2.0E11 * this.mInertia)));
-      double var12 = this.mlambda * this.mL;
-      double var14 = Math.sin(var12);
-      double var16 = Math.cos(var12);
-      double var22 = Math.exp(var12);
+      double A = this.mlambda * this.mL;
+      double var14 = Math.sin(A);
+      double var16 = Math.cos(A);
+      double var22 = Math.exp(A);
       double var18 = (var22 - 1.0 / var22) / 2.0;
       double var20 = (var22 + 1.0 / var22) / 2.0;
       double var6 = var14 - var18;
@@ -313,21 +313,21 @@ class CFrameGraph extends CFrame {
       double var10 = 1.0 / (2.0E11 * this.mInertia * this.mL * this.mL * this.mL * var4);
       double var34 = 0.0;
 
-      for (int var3 = 0; var3 < 31; var3++) {
-         double var24 = this.mlambda * var3 * this.mL / 30.0;
+      for (int i = 0; i < 31; i++) {
+         double var24 = this.mlambda * i * this.mL / 30.0;
          double var26 = Math.sin(var24);
          double var28 = Math.cos(var24);
          var22 = Math.exp(var24);
          double var30 = (var22 - 1.0 / var22) / 2.0;
          double var32 = (var22 + 1.0 / var22) / 2.0;
-         this.mxp[var3] = (var6 * (var28 + var32) - var8 * (var26 + var30)) * var10;
-         if (Math.abs(this.mxp[var3]) > var34) {
-            var34 = Math.abs(this.mxp[var3]);
+         this.mxp[i] = (var6 * (var28 + var32) - var8 * (var26 + var30)) * var10;
+         if (Math.abs(this.mxp[i]) > var34) {
+            var34 = Math.abs(this.mxp[i]);
          }
       }
 
-      for (int var36 = 0; var36 < 31; var36++) {
-         this.mxp[var36] = this.mxp[var36] * 20.0 / var34;
+      for (int j = 0; j < 31; j++) {
+         this.mxp[j] = this.mxp[j] * 20.0 / var34;
       }
    }
 

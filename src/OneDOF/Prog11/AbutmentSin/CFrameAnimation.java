@@ -70,8 +70,8 @@ class CFrameAnimation extends CFrame {
    CFrameHelp mDamperHelp;
    CFrameHelp mMassHelp;
 
-   public CFrameAnimation(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameAnimation(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
       this.mFirstTime = true;
       this.mTraceClip = new Rectangle(80, 190, 400, 120);
       this.mTraceThumbnail = new Rectangle(
@@ -139,11 +139,11 @@ class CFrameAnimation extends CFrame {
       double var6 = (230 + var3 - var4 - 39 - 20) / 10.0;
       g.drawLine(517, 59 + var4, 529, (int)(59 + var4 + var6 / 2.0));
 
-      for (int var13 = 1; var13 < 10; var13++) {
-         if (var13 % 2 == 0) {
-            g.drawLine(505, (int)(59 + var4 + (2 * var13 - 1) * var6 / 2.0), 529, (int)(59 + var4 + (2 * var13 + 1) * var6 / 2.0));
+      for (int i = 1; i < 10; i++) {
+         if (i % 2 == 0) {
+            g.drawLine(505, (int)(59 + var4 + (2 * i - 1) * var6 / 2.0), 529, (int)(59 + var4 + (2 * i + 1) * var6 / 2.0));
          } else {
-            g.drawLine(529, (int)(59 + var4 + (2 * var13 - 1) * var6 / 2.0), 505, (int)(59 + var4 + (2 * var13 + 1) * var6 / 2.0));
+            g.drawLine(529, (int)(59 + var4 + (2 * i - 1) * var6 / 2.0), 505, (int)(59 + var4 + (2 * i + 1) * var6 / 2.0));
          }
       }
 
@@ -199,12 +199,12 @@ class CFrameAnimation extends CFrame {
       );
       this.mWinrads = this.mWin * 2.0 * Math.PI;
 
-      for (int var14 = 0; var14 < 1600 - var11 - 144; var14++) {
+      for (int j = 0; j < 1600 - var11 - 144; j++) {
          g.drawLine(
-            var14 * 2 / 8 + var11,
-            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 2 + yscale * this.mXin * Math.sin(this.mWinrads * 2.0 * var14 * dt) / 8.0),
-            var11 + 2 * (var14 + 1) / 8,
-            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 2 + yscale * this.mXin * Math.sin(this.mWinrads * 2.0 * (var14 + 1) * dt) / 8.0)
+            j * 2 / 8 + var11,
+            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 2 + yscale * this.mXin * Math.sin(this.mWinrads * 2.0 * j * dt) / 8.0),
+            var11 + 2 * (j + 1) / 8,
+            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 2 + yscale * this.mXin * Math.sin(this.mWinrads * 2.0 * (j + 1) * dt) / 8.0)
          );
       }
 
@@ -235,10 +235,10 @@ class CFrameAnimation extends CFrame {
       double var6 = 2.0 * dt;
       this.mT = 0.0;
 
-      for (int var1 = 0; var1 < 1599; var1++) {
-         this.mInput[var1] = this.mXin * Math.sin(this.mWinrads * (this.mT - 2.0));
+      for (int i = 0; i < 1599; i++) {
+         this.mInput[i] = this.mXin * Math.sin(this.mWinrads * (this.mT - 2.0));
          if (this.mT < 2.0) {
-            this.mInput[var1] = 0.0;
+            this.mInput[i] = 0.0;
          }
 
          this.mT += var6;
@@ -247,34 +247,34 @@ class CFrameAnimation extends CFrame {
       this.mT = 0.0;
       this.mY[0] = 0.0;
 
-      for (int var8 = 0; var8 < 1599; var8++) {
-         this.mF[var8] = -var4 * (this.mX[var8] - this.mInput[var8])
-            - 2.0 * var2 * this.mXi * (this.mY[var8] - (this.mInput[var8 + 1] - this.mInput[var8]) / var6);
-         this.mX[var8 + 1] = this.mX[var8] + this.mY[var8] * var6 / 2.0;
-         this.mY[var8 + 1] = this.mY[var8] + this.mF[var8] * var6 / 2.0;
-         this.mF[var8 + 1] = -var4 * (this.mX[var8 + 1] - this.mInput[var8 + 1])
-            - 2.0 * var2 * this.mXi * (this.mY[var8 + 1] - (this.mInput[var8 + 2] - this.mInput[var8 + 1]) / var6);
-         this.mX[var8 + 2] = this.mX[var8] + this.mY[var8 + 1] * var6 / 2.0;
-         this.mY[var8 + 2] = this.mY[var8] + this.mF[var8 + 1] * var6 / 2.0;
-         this.mF[var8 + 2] = -var4 * (this.mX[var8 + 2] - this.mInput[var8 + 2])
-            - 2.0 * var2 * this.mXi * (this.mY[var8 + 2] - (this.mInput[var8 + 3] - this.mInput[var8 + 2]) / var6);
-         this.mX[var8 + 3] = this.mX[var8] + this.mY[var8 + 2] * var6;
-         this.mY[var8 + 3] = this.mY[var8] + this.mF[var8 + 2] * var6;
-         this.mF[var8 + 3] = -var4 * (this.mX[var8 + 3] - this.mInput[var8 + 3])
-            - 2.0 * var2 * this.mXi * (this.mY[var8 + 3] - (this.mInput[var8 + 4] - this.mInput[var8 + 3]) / var6);
-         this.mX[var8 + 1] = this.mX[var8] + (this.mY[var8] + 2.0 * this.mY[var8 + 1] + 2.0 * this.mY[var8 + 2] + this.mY[var8 + 3]) * var6 / 6.0;
-         this.mY[var8 + 1] = this.mY[var8] + (this.mF[var8] + 2.0 * this.mF[var8 + 1] + 2.0 * this.mF[var8 + 2] + this.mF[var8 + 3]) * var6 / 6.0;
-         this.mDisplacement[var8 + 1] = this.mX[var8 + 1];
-         if (this.mDisplacement[var8 + 1] > 16.2) {
-            this.mDisplacement[var8 + 1] = 16.2;
-            this.mX[var8 + 1] = 16.2;
-            this.mY[var8 + 1] = -0.7 * this.mY[var8 + 1];
+      for (int j = 0; j < 1599; j++) {
+         this.mF[j] = -var4 * (this.mX[j] - this.mInput[j])
+            - 2.0 * var2 * this.mXi * (this.mY[j] - (this.mInput[j + 1] - this.mInput[j]) / var6);
+         this.mX[j + 1] = this.mX[j] + this.mY[j] * var6 / 2.0;
+         this.mY[j + 1] = this.mY[j] + this.mF[j] * var6 / 2.0;
+         this.mF[j + 1] = -var4 * (this.mX[j + 1] - this.mInput[j + 1])
+            - 2.0 * var2 * this.mXi * (this.mY[j + 1] - (this.mInput[j + 2] - this.mInput[j + 1]) / var6);
+         this.mX[j + 2] = this.mX[j] + this.mY[j + 1] * var6 / 2.0;
+         this.mY[j + 2] = this.mY[j] + this.mF[j + 1] * var6 / 2.0;
+         this.mF[j + 2] = -var4 * (this.mX[j + 2] - this.mInput[j + 2])
+            - 2.0 * var2 * this.mXi * (this.mY[j + 2] - (this.mInput[j + 3] - this.mInput[j + 2]) / var6);
+         this.mX[j + 3] = this.mX[j] + this.mY[j + 2] * var6;
+         this.mY[j + 3] = this.mY[j] + this.mF[j + 2] * var6;
+         this.mF[j + 3] = -var4 * (this.mX[j + 3] - this.mInput[j + 3])
+            - 2.0 * var2 * this.mXi * (this.mY[j + 3] - (this.mInput[j + 4] - this.mInput[j + 3]) / var6);
+         this.mX[j + 1] = this.mX[j] + (this.mY[j] + 2.0 * this.mY[j + 1] + 2.0 * this.mY[j + 2] + this.mY[j + 3]) * var6 / 6.0;
+         this.mY[j + 1] = this.mY[j] + (this.mF[j] + 2.0 * this.mF[j + 1] + 2.0 * this.mF[j + 2] + this.mF[j + 3]) * var6 / 6.0;
+         this.mDisplacement[j + 1] = this.mX[j + 1];
+         if (this.mDisplacement[j + 1] > 16.2) {
+            this.mDisplacement[j + 1] = 16.2;
+            this.mX[j + 1] = 16.2;
+            this.mY[j + 1] = -0.7 * this.mY[j + 1];
          }
 
-         if (this.mDisplacement[var8 + 1] < -16.5) {
-            this.mDisplacement[var8 + 1] = -16.5;
-            this.mX[var8 + 1] = -16.5;
-            this.mY[var8 + 1] = -0.7 * this.mY[var8 + 1];
+         if (this.mDisplacement[j + 1] < -16.5) {
+            this.mDisplacement[j + 1] = -16.5;
+            this.mX[j + 1] = -16.5;
+            this.mY[j + 1] = -0.7 * this.mY[j + 1];
          }
 
          this.mT += var6;
@@ -287,8 +287,8 @@ class CFrameAnimation extends CFrame {
       this.mTraceGC.fillRect(0, 0, 3280, 120);
       this.mTraceGC.setColor(Color.black);
 
-      for (int var1 = 0; var1 < 3280; var1 += 50) {
-         this.mTraceGC.drawLine(var1, 0, var1, 120);
+      for (int i = 0; i < 3280; i += 50) {
+         this.mTraceGC.drawLine(i, 0, i, 120);
       }
 
       this.mTraceGC.drawLine(0, 60, 3280, 60);
@@ -298,13 +298,13 @@ class CFrameAnimation extends CFrame {
       this.mTraceGC.setColor(Color.orange);
       this.mWinrads = this.mWin * 2.0 * Math.PI;
 
-      for (int var1 = (int)(1.0 / dt); var1 < 1598; var1++) {
+      for (int i = (int)(1.0 / dt); i < 1598; i++) {
          this.mTraceGC
             .drawLine(
-               var1 * 2 + 400 + 80,
-               60 + (int)(yscale * this.mXin * Math.sin(this.mWinrads * (2 * var1 * dt - 2.0))),
-               (var1 + 1) * 2 + 400 + 80,
-               60 + (int)(yscale * this.mXin * Math.sin(this.mWinrads * (2 * (var1 + 1) * dt - 2.0)))
+               i * 2 + 400 + 80,
+               60 + (int)(yscale * this.mXin * Math.sin(this.mWinrads * (2 * i * dt - 2.0))),
+               (i + 1) * 2 + 400 + 80,
+               60 + (int)(yscale * this.mXin * Math.sin(this.mWinrads * (2 * (i + 1) * dt - 2.0)))
             );
       }
    }
@@ -316,13 +316,13 @@ class CFrameAnimation extends CFrame {
       Color var2 = new Color(0.18F, 0.58F, 0.58F);
       this.mTraceThumbnailGC.setColor(var2);
 
-      for (int var1 = 0; var1 < 1598; var1++) {
+      for (int i = 0; i < 1598; i++) {
          this.mTraceThumbnailGC
             .drawLine(
-               (var1 * 2 + 400) / 8,
-               (int)(this.mTraceClip.height / 8 / 2.0 + this.mDisplacement[var1] * yscale / 8.0),
-               ((var1 + 1) * 2 + 400) / 8,
-               (int)(this.mTraceClip.height / 8 / 2.0 + this.mDisplacement[var1 + 1] * yscale / 8.0)
+               (i * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 / 2.0 + this.mDisplacement[i] * yscale / 8.0),
+               ((i + 1) * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 / 2.0 + this.mDisplacement[i + 1] * yscale / 8.0)
             );
       }
    }
@@ -332,22 +332,22 @@ class CFrameAnimation extends CFrame {
       Color var2 = new Color(0.18F, 0.58F, 0.58F);
       this.mTraceGC.setColor(var2);
 
-      for (int var1 = 0; var1 < 1598; var1++) {
+      for (int i = 0; i < 1598; i++) {
          this.mTraceGC
             .drawLine(
-               var1 * 2 + 400 + 80, 60 + (int)(yscale * this.mDisplacement[var1]), (var1 + 1) * 2 + 400 + 80, 60 + (int)(yscale * this.mDisplacement[var1 + 1])
+               i * 2 + 400 + 80, 60 + (int)(yscale * this.mDisplacement[i]), (i + 1) * 2 + 400 + 80, 60 + (int)(yscale * this.mDisplacement[i + 1])
             );
       }
 
       this.DrawForceGraph();
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
+   public void ControlMessage(CFrame controller, int code, double val) {
       boolean var5 = false;
-      switch (var2) {
+      switch (code) {
          case 0:
             if (this.mState == 1) {
-               this.mTime += var3;
+               this.mTime += val;
                this.mViewTime = this.mTime;
             }
 
@@ -355,35 +355,35 @@ class CFrameAnimation extends CFrame {
             var5 = true;
             break;
          case 1:
-            this.ChangeRunState((int)var3);
+            this.ChangeRunState((int)val);
             break;
          case 2:
             this.ChangeRunState(0);
             this.mTime = 0.0;
             this.mViewTime = 0.0;
             this.mDisplacement = null;
-            this.mWn = var3;
+            this.mWn = val;
             break;
          case 3:
             this.ChangeRunState(0);
             this.mTime = 0.0;
             this.mViewTime = 0.0;
             this.mDisplacement = null;
-            this.mXi = var3;
+            this.mXi = val;
             break;
          case 4:
             this.ChangeRunState(0);
             this.mTime = 0.0;
             this.mViewTime = 0.0;
             this.mDisplacement = null;
-            this.mXin = var3;
+            this.mXin = val;
             break;
          case 5:
             this.ChangeRunState(0);
             this.mTime = 0.0;
             this.mViewTime = 0.0;
             this.mDisplacement = null;
-            this.mWin = var3;
+            this.mWin = val;
       }
 
       if (var5) {
@@ -391,10 +391,10 @@ class CFrameAnimation extends CFrame {
       }
    }
 
-   public void ChangeRunState(int var1) {
+   public void ChangeRunState(int newState) {
       switch (this.mState) {
          case 0:
-            if (var1 == 1) {
+            if (newState == 1) {
                this.Response();
                this.DrawTraceShape();
                this.ThumbnailSketch();
@@ -405,13 +405,13 @@ class CFrameAnimation extends CFrame {
             }
             break;
          case 1:
-            if (var1 == 2 || var1 == 0) {
-               this.mState = var1;
+            if (newState == 2 || newState == 0) {
+               this.mState = newState;
             }
             break;
          case 2:
-            if (var1 == 0 || var1 == 1) {
-               this.mState = var1;
+            if (newState == 0 || newState == 1) {
+               this.mState = newState;
             }
       }
 
@@ -422,13 +422,13 @@ class CFrameAnimation extends CFrame {
       super.mFramePanel.repaint();
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
+   public boolean MouseEvent(int code, boolean prevHit) {
       boolean var3 = this.mTraceClip.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       boolean var4 = this.mTraceThumbnail.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       boolean var5 = this.mThumbRect.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       super.mWasHit = var3 || var4;
       int var6 = 0;
-      switch (var1) {
+      switch (code) {
          case 0:
             this.mDragMain = false;
             this.mDragThumb = false;
@@ -436,7 +436,7 @@ class CFrameAnimation extends CFrame {
             if (!super.mWasHit) {
                return false;
             } else {
-               if (var2) {
+               if (prevHit) {
                   return false;
                }
 
@@ -480,12 +480,12 @@ class CFrameAnimation extends CFrame {
       }
    }
 
-   public void UserDrag(int var1) {
+   public void UserDrag(int offset) {
       if (this.mState == 1) {
          this.ChangeRunState(2);
       }
 
-      this.mViewTime = this.mViewTime - var1 * dt;
+      this.mViewTime = this.mViewTime - offset * dt;
       this.LimitTimeValue();
       this.repaint();
    }

@@ -193,11 +193,11 @@ class CFrameAnimation extends CFrame {
       coil = (201 + y2 - 110 - 20 - y1) / 10.0;
       g.drawLine(508, 130 + y1, 514, (int)(130 + y1 + coil / 2.0));
 
-      for (int var16 = 1; var16 < 10; var16++) {
-         if (var16 % 2 == 0) {
-            g.drawLine(502, (int)(130 + y1 + (2 * var16 - 1) * coil / 2.0), 514, (int)(130 + y1 + (2 * var16 + 1) * coil / 2.0));
+      for (int i = 1; i < 10; i++) {
+         if (i % 2 == 0) {
+            g.drawLine(502, (int)(130 + y1 + (2 * i - 1) * coil / 2.0), 514, (int)(130 + y1 + (2 * i + 1) * coil / 2.0));
          } else {
-            g.drawLine(514, (int)(130 + y1 + (2 * var16 - 1) * coil / 2.0), 502, (int)(130 + y1 + (2 * var16 + 1) * coil / 2.0));
+            g.drawLine(514, (int)(130 + y1 + (2 * i - 1) * coil / 2.0), 502, (int)(130 + y1 + (2 * i + 1) * coil / 2.0));
          }
       }
 
@@ -238,12 +238,12 @@ class CFrameAnimation extends CFrame {
       );
       this.mWinrads = this.mWin * 2.0 * Math.PI;
 
-      for (int var17 = 0; var17 < 1600 - sub1 - 144; var17++) {
+      for (int j = 0; j < 1600 - sub1 - 144; j++) {
          g.drawLine(
-            var17 * 2 / 8 + sub1,
-            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3 + 150.0 * this.mP1 * Math.sin(this.mWinrads * 2.0 * var17 * dt) / 8.0),
-            sub1 + 2 * (var17 + 1) / 8,
-            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3 + 150.0 * this.mP1 * Math.sin(this.mWinrads * 2.0 * (var17 + 1) * dt) / 8.0)
+            j * 2 / 8 + sub1,
+            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3 + 150.0 * this.mP1 * Math.sin(this.mWinrads * 2.0 * j * dt) / 8.0),
+            sub1 + 2 * (j + 1) / 8,
+            (int)(this.mTraceThumbnail.y + this.mTraceClip.height / 8 / 3 + 150.0 * this.mP1 * Math.sin(this.mWinrads * 2.0 * (j + 1) * dt) / 8.0)
          );
       }
 
@@ -288,115 +288,115 @@ class CFrameAnimation extends CFrame {
          this.mT += mdtx2;
       }
 
-      for (int var8 = 0; var8 < 1599; var8++) {
-         this.mF1[var8] = (
-               this.mF1in[var8]
-                  - this.mk1 * this.mX1[var8]
-                  - this.mc1 * this.mY1[var8]
-                  + this.mk2 * (this.mX2[var8] - this.mX1[var8])
-                  + this.mc2 * (this.mY2[var8] - this.mY1[var8])
+      for (int i = 0; i < 1599; i++) {
+         this.mF1[i] = (
+               this.mF1in[i]
+                  - this.mk1 * this.mX1[i]
+                  - this.mc1 * this.mY1[i]
+                  + this.mk2 * (this.mX2[i] - this.mX1[i])
+                  + this.mc2 * (this.mY2[i] - this.mY1[i])
             )
             / this.mm1;
-         this.mF2[var8] = (-this.mk2 * (this.mX2[var8] - this.mX1[var8]) - this.mc2 * (this.mY2[var8] - this.mY1[var8])) / this.mm2;
-         this.mX1[var8 + 1] = this.mX1[var8] + this.mY1[var8] * mdtx2 / 2.0;
-         this.mX2[var8 + 1] = this.mX2[var8] + this.mY2[var8] * mdtx2 / 2.0;
-         this.mY1[var8 + 1] = this.mY1[var8] + this.mF1[var8] * mdtx2 / 2.0;
-         this.mY2[var8 + 1] = this.mY2[var8] + this.mF2[var8] * mdtx2 / 2.0;
-         this.mF1[var8 + 1] = (
-               this.mF1in[var8 + 1]
-                  - this.mk1 * this.mX1[var8 + 1]
-                  - this.mc1 * this.mY1[var8 + 1]
-                  + this.mk2 * (this.mX2[var8 + 1] - this.mX1[var8 + 1])
-                  + this.mc2 * (this.mY2[var8 + 1] - this.mY1[var8 + 1])
+         this.mF2[i] = (-this.mk2 * (this.mX2[i] - this.mX1[i]) - this.mc2 * (this.mY2[i] - this.mY1[i])) / this.mm2;
+         this.mX1[i + 1] = this.mX1[i] + this.mY1[i] * mdtx2 / 2.0;
+         this.mX2[i + 1] = this.mX2[i] + this.mY2[i] * mdtx2 / 2.0;
+         this.mY1[i + 1] = this.mY1[i] + this.mF1[i] * mdtx2 / 2.0;
+         this.mY2[i + 1] = this.mY2[i] + this.mF2[i] * mdtx2 / 2.0;
+         this.mF1[i + 1] = (
+               this.mF1in[i + 1]
+                  - this.mk1 * this.mX1[i + 1]
+                  - this.mc1 * this.mY1[i + 1]
+                  + this.mk2 * (this.mX2[i + 1] - this.mX1[i + 1])
+                  + this.mc2 * (this.mY2[i + 1] - this.mY1[i + 1])
             )
             / this.mm1;
-         this.mF2[var8 + 1] = (-this.mk2 * (this.mX2[var8 + 1] - this.mX1[var8 + 1]) - this.mc2 * (this.mY2[var8 + 1] - this.mY1[var8 + 1])) / this.mm2;
-         this.mX1[var8 + 2] = this.mX1[var8] + this.mY1[var8 + 1] * mdtx2 / 2.0;
-         this.mX2[var8 + 2] = this.mX2[var8] + this.mY2[var8 + 1] * mdtx2 / 2.0;
-         this.mY1[var8 + 2] = this.mY1[var8] + this.mF1[var8 + 1] * mdtx2 / 2.0;
-         this.mY2[var8 + 2] = this.mY2[var8] + this.mF2[var8 + 1] * mdtx2 / 2.0;
-         this.mF1[var8 + 2] = (
-               this.mF1in[var8 + 2]
-                  - this.mk1 * this.mX1[var8 + 2]
-                  - this.mc1 * this.mY1[var8 + 2]
-                  + this.mk2 * (this.mX2[var8 + 2] - this.mX1[var8 + 2])
-                  + this.mc2 * (this.mY2[var8 + 2] - this.mY1[var8 + 2])
+         this.mF2[i + 1] = (-this.mk2 * (this.mX2[i + 1] - this.mX1[i + 1]) - this.mc2 * (this.mY2[i + 1] - this.mY1[i + 1])) / this.mm2;
+         this.mX1[i + 2] = this.mX1[i] + this.mY1[i + 1] * mdtx2 / 2.0;
+         this.mX2[i + 2] = this.mX2[i] + this.mY2[i + 1] * mdtx2 / 2.0;
+         this.mY1[i + 2] = this.mY1[i] + this.mF1[i + 1] * mdtx2 / 2.0;
+         this.mY2[i + 2] = this.mY2[i] + this.mF2[i + 1] * mdtx2 / 2.0;
+         this.mF1[i + 2] = (
+               this.mF1in[i + 2]
+                  - this.mk1 * this.mX1[i + 2]
+                  - this.mc1 * this.mY1[i + 2]
+                  + this.mk2 * (this.mX2[i + 2] - this.mX1[i + 2])
+                  + this.mc2 * (this.mY2[i + 2] - this.mY1[i + 2])
             )
             / this.mm1;
-         this.mF2[var8 + 2] = (-this.mk2 * (this.mX2[var8 + 2] - this.mX1[var8 + 2]) - this.mc2 * (this.mY2[var8 + 2] - this.mY1[var8 + 2])) / this.mm2;
-         this.mX1[var8 + 3] = this.mX1[var8] + this.mY1[var8 + 2] * mdtx2;
-         this.mX2[var8 + 3] = this.mX2[var8] + this.mY2[var8 + 2] * mdtx2;
-         this.mY1[var8 + 3] = this.mY1[var8] + this.mF1[var8 + 2] * mdtx2;
-         this.mY2[var8 + 3] = this.mY2[var8] + this.mF2[var8 + 2] * mdtx2;
-         this.mF1[var8 + 3] = (
-               this.mF1in[var8 + 3]
-                  - this.mk1 * this.mX1[var8 + 3]
-                  - this.mc1 * this.mY1[var8 + 3]
-                  + this.mk2 * (this.mX2[var8 + 3] - this.mX1[var8 + 3])
-                  + this.mc2 * (this.mY2[var8 + 3] - this.mY1[var8 + 3])
+         this.mF2[i + 2] = (-this.mk2 * (this.mX2[i + 2] - this.mX1[i + 2]) - this.mc2 * (this.mY2[i + 2] - this.mY1[i + 2])) / this.mm2;
+         this.mX1[i + 3] = this.mX1[i] + this.mY1[i + 2] * mdtx2;
+         this.mX2[i + 3] = this.mX2[i] + this.mY2[i + 2] * mdtx2;
+         this.mY1[i + 3] = this.mY1[i] + this.mF1[i + 2] * mdtx2;
+         this.mY2[i + 3] = this.mY2[i] + this.mF2[i + 2] * mdtx2;
+         this.mF1[i + 3] = (
+               this.mF1in[i + 3]
+                  - this.mk1 * this.mX1[i + 3]
+                  - this.mc1 * this.mY1[i + 3]
+                  + this.mk2 * (this.mX2[i + 3] - this.mX1[i + 3])
+                  + this.mc2 * (this.mY2[i + 3] - this.mY1[i + 3])
             )
             / this.mm1;
-         this.mF2[var8 + 3] = (-this.mk2 * (this.mX2[var8 + 3] - this.mX1[var8 + 3]) - this.mc2 * (this.mY2[var8 + 3] - this.mY1[var8 + 3])) / this.mm2;
-         this.mX1[var8 + 1] = this.mX1[var8] + (this.mY1[var8] + 2.0 * this.mY1[var8 + 1] + 2.0 * this.mY1[var8 + 2] + this.mY1[var8 + 3]) * mdtx2 / 6.0;
-         this.mX2[var8 + 1] = this.mX2[var8] + (this.mY2[var8] + 2.0 * this.mY2[var8 + 1] + 2.0 * this.mY2[var8 + 2] + this.mY2[var8 + 3]) * mdtx2 / 6.0;
-         this.mY1[var8 + 1] = this.mY1[var8] + (this.mF1[var8] + 2.0 * this.mF1[var8 + 1] + 2.0 * this.mF1[var8 + 2] + this.mF1[var8 + 3]) * mdtx2 / 6.0;
-         this.mY2[var8 + 1] = this.mY2[var8] + (this.mF2[var8] + 2.0 * this.mF2[var8 + 1] + 2.0 * this.mF2[var8 + 2] + this.mF2[var8 + 3]) * mdtx2 / 6.0;
-         this.mDisplacement1[var8 + 1] = this.mX1[var8 + 1];
-         this.mDisplacement2[var8 + 1] = this.mX2[var8 + 1];
-         double mdelta = this.mDisplacement2[var8 + 1] - this.mDisplacement1[var8 + 1];
-         if (this.mDisplacement1[var8 + 1] > 0.0073) {
-            this.mDisplacement1[var8 + 1] = 0.007;
-            this.mX1[var8 + 1] = this.mDisplacement1[var8 + 1];
-            this.mY1[var8 + 1] = -0.5 * this.mY1[var8 + 1];
+         this.mF2[i + 3] = (-this.mk2 * (this.mX2[i + 3] - this.mX1[i + 3]) - this.mc2 * (this.mY2[i + 3] - this.mY1[i + 3])) / this.mm2;
+         this.mX1[i + 1] = this.mX1[i] + (this.mY1[i] + 2.0 * this.mY1[i + 1] + 2.0 * this.mY1[i + 2] + this.mY1[i + 3]) * mdtx2 / 6.0;
+         this.mX2[i + 1] = this.mX2[i] + (this.mY2[i] + 2.0 * this.mY2[i + 1] + 2.0 * this.mY2[i + 2] + this.mY2[i + 3]) * mdtx2 / 6.0;
+         this.mY1[i + 1] = this.mY1[i] + (this.mF1[i] + 2.0 * this.mF1[i + 1] + 2.0 * this.mF1[i + 2] + this.mF1[i + 3]) * mdtx2 / 6.0;
+         this.mY2[i + 1] = this.mY2[i] + (this.mF2[i] + 2.0 * this.mF2[i + 1] + 2.0 * this.mF2[i + 2] + this.mF2[i + 3]) * mdtx2 / 6.0;
+         this.mDisplacement1[i + 1] = this.mX1[i + 1];
+         this.mDisplacement2[i + 1] = this.mX2[i + 1];
+         double mdelta = this.mDisplacement2[i + 1] - this.mDisplacement1[i + 1];
+         if (this.mDisplacement1[i + 1] > 0.0073) {
+            this.mDisplacement1[i + 1] = 0.007;
+            this.mX1[i + 1] = this.mDisplacement1[i + 1];
+            this.mY1[i + 1] = -0.5 * this.mY1[i + 1];
             if (mdelta > 0.0073) {
-               this.mDisplacement2[var8 + 1] = 0.014;
-               this.mX2[var8 + 1] = this.mDisplacement2[var8 + 1];
-               this.mY2[var8 + 1] = -0.5 * this.mY2[var8 + 1];
+               this.mDisplacement2[i + 1] = 0.014;
+               this.mX2[i + 1] = this.mDisplacement2[i + 1];
+               this.mY2[i + 1] = -0.5 * this.mY2[i + 1];
             }
 
             if (mdelta < -0.0073) {
-               this.mDisplacement2[var8 + 1] = 0.0;
-               this.mX2[var8 + 1] = this.mDisplacement2[var8 + 1];
-               this.mY2[var8 + 1] = -0.5 * this.mY2[var8 + 1];
+               this.mDisplacement2[i + 1] = 0.0;
+               this.mX2[i + 1] = this.mDisplacement2[i + 1];
+               this.mY2[i + 1] = -0.5 * this.mY2[i + 1];
             }
          }
 
-         if (this.mDisplacement1[var8 + 1] < -0.0073) {
-            this.mDisplacement1[var8 + 1] = -0.007;
-            this.mX1[var8 + 1] = this.mDisplacement1[var8 + 1];
-            this.mY1[var8 + 1] = -0.5 * this.mY1[var8 + 1];
+         if (this.mDisplacement1[i + 1] < -0.0073) {
+            this.mDisplacement1[i + 1] = -0.007;
+            this.mX1[i + 1] = this.mDisplacement1[i + 1];
+            this.mY1[i + 1] = -0.5 * this.mY1[i + 1];
             if (mdelta > 0.0073) {
-               this.mDisplacement2[var8 + 1] = 0.0;
-               this.mX2[var8 + 1] = this.mDisplacement2[var8 + 1];
-               this.mY2[var8 + 1] = -0.5 * this.mY2[var8 + 1];
+               this.mDisplacement2[i + 1] = 0.0;
+               this.mX2[i + 1] = this.mDisplacement2[i + 1];
+               this.mY2[i + 1] = -0.5 * this.mY2[i + 1];
             }
 
             if (mdelta < -0.0073) {
-               this.mDisplacement2[var8 + 1] = -0.014;
-               this.mX2[var8 + 1] = this.mDisplacement2[var8 + 1];
-               this.mY2[var8 + 1] = -0.5 * this.mY2[var8 + 1];
+               this.mDisplacement2[i + 1] = -0.014;
+               this.mX2[i + 1] = this.mDisplacement2[i + 1];
+               this.mY2[i + 1] = -0.5 * this.mY2[i + 1];
             }
          }
 
-         mdelta = this.mDisplacement2[var8 + 1] - this.mDisplacement1[var8 + 1];
+         mdelta = this.mDisplacement2[i + 1] - this.mDisplacement1[i + 1];
          if (mdelta > 0.0073) {
-            this.mDisplacement1[var8 + 1] = this.mDisplacement1[var8 + 1] * 0.007 / mdelta;
-            this.mX1[var8 + 1] = this.mDisplacement1[var8 + 1];
-            this.mDisplacement2[var8 + 1] = this.mDisplacement2[var8 + 1] * 0.007 / mdelta;
-            this.mX2[var8 + 1] = this.mDisplacement2[var8 + 1];
-            double mv1dash = this.mm2 * (this.mY1[var8 + 1] + this.mY2[var8 + 1]) * 1.5 / (this.mm1 + this.mm2);
-            this.mY2[var8 + 1] = mv1dash - 0.5 * (this.mY1[var8 + 1] - this.mY2[var8 + 1]);
-            this.mY1[var8 + 1] = mv1dash;
+            this.mDisplacement1[i + 1] = this.mDisplacement1[i + 1] * 0.007 / mdelta;
+            this.mX1[i + 1] = this.mDisplacement1[i + 1];
+            this.mDisplacement2[i + 1] = this.mDisplacement2[i + 1] * 0.007 / mdelta;
+            this.mX2[i + 1] = this.mDisplacement2[i + 1];
+            double mv1dash = this.mm2 * (this.mY1[i + 1] + this.mY2[i + 1]) * 1.5 / (this.mm1 + this.mm2);
+            this.mY2[i + 1] = mv1dash - 0.5 * (this.mY1[i + 1] - this.mY2[i + 1]);
+            this.mY1[i + 1] = mv1dash;
          }
 
          if (mdelta < -0.0073) {
-            this.mDisplacement1[var8 + 1] = this.mDisplacement1[var8 + 1] * 0.007 / mdelta;
-            this.mX1[var8 + 1] = this.mDisplacement1[var8 + 1];
-            this.mDisplacement2[var8 + 1] = this.mDisplacement2[var8 + 1] * 0.007 / mdelta;
-            this.mX2[var8 + 1] = this.mDisplacement2[var8 + 1];
-            double mv1dash = this.mm2 * (this.mY1[var8 + 1] + this.mY2[var8 + 1]) * 1.5 / (this.mm1 + this.mm2);
-            this.mY2[var8 + 1] = mv1dash - 0.5 * (this.mY1[var8 + 1] - this.mY2[var8 + 1]);
-            this.mY1[var8 + 1] = mv1dash;
+            this.mDisplacement1[i + 1] = this.mDisplacement1[i + 1] * 0.007 / mdelta;
+            this.mX1[i + 1] = this.mDisplacement1[i + 1];
+            this.mDisplacement2[i + 1] = this.mDisplacement2[i + 1] * 0.007 / mdelta;
+            this.mX2[i + 1] = this.mDisplacement2[i + 1];
+            double mv1dash = this.mm2 * (this.mY1[i + 1] + this.mY2[i + 1]) * 1.5 / (this.mm1 + this.mm2);
+            this.mY2[i + 1] = mv1dash - 0.5 * (this.mY1[i + 1] - this.mY2[i + 1]);
+            this.mY1[i + 1] = mv1dash;
          }
 
          this.mT += mdtx2;
@@ -450,13 +450,13 @@ class CFrameAnimation extends CFrame {
             );
       }
 
-      for (int var3 = 0; var3 < 1598; var3++) {
+      for (int i = 0; i < 1598; i++) {
          this.mTraceThumbnailGC
             .drawLine(
-               (var3 * 2 + 400) / 8,
-               (int)(this.mTraceClip.height / 8 * 2.0 / 3.0 + this.mDisplacement2[var3] * yscale / 8.0),
-               ((var3 + 1) * 2 + 400) / 8,
-               (int)(this.mTraceClip.height / 8 * 2.0 / 3.0 + this.mDisplacement2[var3 + 1] * yscale / 8.0)
+               (i * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 * 2.0 / 3.0 + this.mDisplacement2[i] * yscale / 8.0),
+               ((i + 1) * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 * 2.0 / 3.0 + this.mDisplacement2[i + 1] * yscale / 8.0)
             );
       }
    }
@@ -471,13 +471,13 @@ class CFrameAnimation extends CFrame {
             .drawLine(p * 2 + 400 + 90, 60 + (int)(yscale * this.mDisplacement1[p]), (p + 1) * 2 + 400 + 90, 60 + (int)(yscale * this.mDisplacement1[p + 1]));
       }
 
-      for (int var3 = 0; var3 < 1598; var3++) {
+      for (int i = 0; i < 1598; i++) {
          this.mTraceGC
             .drawLine(
-               var3 * 2 + 400 + 90,
-               151 + (int)(yscale * this.mDisplacement2[var3]),
-               (var3 + 1) * 2 + 400 + 90,
-               151 + (int)(yscale * this.mDisplacement2[var3 + 1])
+               i * 2 + 400 + 90,
+               151 + (int)(yscale * this.mDisplacement2[i]),
+               (i + 1) * 2 + 400 + 90,
+               151 + (int)(yscale * this.mDisplacement2[i + 1])
             );
       }
 

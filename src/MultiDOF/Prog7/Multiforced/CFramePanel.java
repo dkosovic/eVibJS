@@ -24,51 +24,51 @@ public class CFramePanel extends Panel {
    public Event mMouseEvent;
    long mLastClickTime;
 
-   CFramePanel(Applet var1) {
-      this.mApplet = var1;
+   CFramePanel(Applet app) {
+      this.mApplet = app;
       this.mStartPt = new Point(0, 0);
       this.mLastPt = new Point(0, 0);
       this.mThisPt = new Point(0, 0);
    }
 
-   public void update(Graphics var1) {
-      if (var1 != null) {
-         this.mScreenGC = var1;
+   public void update(Graphics g) {
+      if (g != null) {
+         this.mScreenGC = g;
          this.paint(this.mScreenGC);
       }
    }
 
-   public void DrawAllFrames(Graphics var1) {
+   public void DrawAllFrames(Graphics g) {
       int var3 = 0;
       if (this.mFrames != null) {
          var3 = this.mFrames.size();
       }
 
-      for (int var2 = 0; var2 < var3; var2++) {
-         CFrame var4 = (CFrame)this.mFrames.elementAt(var2);
-         var4.Frame(var1);
+      for (int i = 0; i < var3; i++) {
+         CFrame var4 = (CFrame)this.mFrames.elementAt(i);
+         var4.Frame(g);
       }
    }
 
-   public void AddFrame(CFrame var1) {
+   public void AddFrame(CFrame f) {
       if (this.mFrames == null) {
          this.mFrames = new Vector<CFrame>();
       }
 
-      this.mFrames.addElement(var1);
+      this.mFrames.addElement(f);
    }
 
-   public void RemoveFrame(CFrame var1) {
+   public void RemoveFrame(CFrame f) {
       if (this.mFrames != null) {
-         this.mFrames.removeElement(var1);
+         this.mFrames.removeElement(f);
          if (this.mFrames.size() == 0) {
             this.mFrames = null;
          }
       }
    }
 
-   public void paint(Graphics var1) {
-      this.mScreenGC = var1;
+   public void paint(Graphics g) {
+      this.mScreenGC = g;
       if (this.mOffScreenGC == null) {
          this.mOffScrImage = this.createImage(this.getSize().width, this.getSize().height);
          this.mOffScreenGC = this.mOffScrImage.getGraphics();
@@ -81,28 +81,28 @@ public class CFramePanel extends Panel {
       this.mOffScreenGC.fillRect(0, 0, var2, var3);
       this.mOffScreenGC.setColor(Color.black);
       this.DrawAllFrames(this.mOffScreenGC);
-      var1.drawImage(this.mOffScrImage, 0, 0, null);
+      g.drawImage(this.mOffScrImage, 0, 0, null);
    }
 
-   public boolean mouseDown(Event var1, int var2, int var3) {
-      this.mMouseEvent = var1;
+   public boolean mouseDown(Event evt, int xx, int yy) {
+      this.mMouseEvent = evt;
       this.mButton = true;
-      this.mStartPt.x = var2;
-      this.mStartPt.y = var3;
-      this.mLastPt.x = var2;
-      this.mLastPt.y = var3;
-      this.mThisPt.x = var2;
-      this.mThisPt.y = var3;
-      Date var4 = new Date();
-      long var5 = var4.getTime();
+      this.mStartPt.x = xx;
+      this.mStartPt.y = yy;
+      this.mLastPt.x = xx;
+      this.mLastPt.y = yy;
+      this.mThisPt.x = xx;
+      this.mThisPt.y = yy;
+      Date now = new Date();
+      long currentTime = now.getTime();
       int var7;
-      if (var5 - this.mLastClickTime < 500L) {
+      if (currentTime - this.mLastClickTime < 500L) {
          var7 = 4;
       } else {
          var7 = 0;
       }
 
-      this.mLastClickTime = var5;
+      this.mLastClickTime = currentTime;
       if (this.SendMouseEvent(var7)) {
          this.repaint();
       }
@@ -110,12 +110,12 @@ public class CFramePanel extends Panel {
       return true;
    }
 
-   public boolean mouseDrag(Event var1, int var2, int var3) {
-      this.mMouseEvent = var1;
+   public boolean mouseDrag(Event evt, int xx, int yy) {
+      this.mMouseEvent = evt;
       this.mLastPt.x = this.mThisPt.x;
       this.mLastPt.y = this.mThisPt.y;
-      this.mThisPt.x = var2;
-      this.mThisPt.y = var3;
+      this.mThisPt.x = xx;
+      this.mThisPt.y = yy;
       if (this.SendMouseEvent(1)) {
          this.repaint();
       }
@@ -123,8 +123,8 @@ public class CFramePanel extends Panel {
       return true;
    }
 
-   public boolean mouseUp(Event var1, int var2, int var3) {
-      this.mMouseEvent = var1;
+   public boolean mouseUp(Event evt, int xx, int yy) {
+      this.mMouseEvent = evt;
       this.mButton = false;
       if (this.SendMouseEvent(2)) {
          this.repaint();
@@ -134,12 +134,12 @@ public class CFramePanel extends Panel {
       return true;
    }
 
-   public boolean mouseMove(Event var1, int var2, int var3) {
-      this.mMouseEvent = var1;
+   public boolean mouseMove(Event evt, int xx, int yy) {
+      this.mMouseEvent = evt;
       this.mLastPt.x = this.mThisPt.x;
       this.mLastPt.y = this.mThisPt.y;
-      this.mThisPt.x = var2;
-      this.mThisPt.y = var3;
+      this.mThisPt.x = xx;
+      this.mThisPt.y = yy;
       this.mButton = false;
       if (this.SendMouseEvent(3)) {
          this.repaint();
@@ -148,7 +148,7 @@ public class CFramePanel extends Panel {
       return true;
    }
 
-   boolean SendMouseEvent(int var1) {
+   boolean SendMouseEvent(int code) {
       int var3 = 0;
       if (this.mFrames != null) {
          var3 = this.mFrames.size();
@@ -157,9 +157,9 @@ public class CFramePanel extends Panel {
       boolean var4 = false;
       boolean var5 = false;
 
-      for (int var2 = var3 - 1; var2 >= 0; var2--) {
-         CFrame var6 = (CFrame)this.mFrames.elementAt(var2);
-         if (var6.MouseEvent(var1, var5)) {
+      for (int i = var3 - 1; i >= 0; i--) {
+         CFrame var6 = (CFrame)this.mFrames.elementAt(i);
+         if (var6.MouseEvent(code, var5)) {
             var4 = true;
          }
 

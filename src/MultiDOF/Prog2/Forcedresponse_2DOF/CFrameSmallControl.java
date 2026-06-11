@@ -77,7 +77,7 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener,
             try {
                this.mValue = java.lang.Double.parseDouble(numStr);
                break;
-            } catch (NumberFormatException var6) {
+            } catch (NumberFormatException ex) {
                if (--end <= 0) {
                   return;
                }
@@ -180,7 +180,7 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener,
          double newNum;
          try {
             newNum = java.lang.Double.parseDouble(shortStr);
-         } catch (NumberFormatException var14) {
+         } catch (NumberFormatException ex) {
             break;
          }
 
@@ -387,7 +387,7 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener,
       }
    }
 
-   public void actionPerformed(ActionEvent var1) {
+   public void actionPerformed(ActionEvent e) {
       if (this.mSelection != 0) {
          this.NewValue();
       }

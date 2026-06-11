@@ -34,38 +34,38 @@ class CFrameAnimation extends CFrame {
          g.drawLine(40, 210 - p * 20, 37, 210 - p * 20);
       }
 
-      for (int var11 = 1; var11 < 7; var11++) {
-         g.drawLine(40 + var11 * 50, 210, 40 + var11 * 50, 213);
+      for (int i = 1; i < 7; i++) {
+         g.drawLine(40 + i * 50, 210, 40 + i * 50, 213);
       }
 
       g.setColor(mass);
       this.mAmp[0] = 1.0;
       double mAmp1 = this.mAmp[0];
 
-      for (int var12 = 1; var12 < 301; var12++) {
-         double mr = var12 / 100.0;
-         this.mAmp[var12] = 1.0 / Math.sqrt((1.0 - mr * mr) * (1.0 - mr * mr) + 2.0 * mr * this.mXi * (2.0 * mr * this.mXi));
-         g.drawLine(40 + (var12 - 1), (int)(210.0 - mAmp1 * 20.0), 40 + var12, (int)(210.0 - this.mAmp[var12] * 20.0));
-         mAmp1 = this.mAmp[var12];
+      for (int j = 1; j < 301; j++) {
+         double mr = j / 100.0;
+         this.mAmp[j] = 1.0 / Math.sqrt((1.0 - mr * mr) * (1.0 - mr * mr) + 2.0 * mr * this.mXi * (2.0 * mr * this.mXi));
+         g.drawLine(40 + (j - 1), (int)(210.0 - mAmp1 * 20.0), 40 + j, (int)(210.0 - this.mAmp[j] * 20.0));
+         mAmp1 = this.mAmp[j];
       }
 
       g.setColor(mass);
       this.mPhase[0] = 0.0;
       double mPhase1 = this.mPhase[0];
 
-      for (int var13 = 1; var13 < 301; var13++) {
-         double mr = var13 / 100.0;
-         this.mPhase[var13] = 90.0;
-         if (var13 != 100) {
-            this.mPhase[var13] = 180.0 * Math.atan(2.0 * mr * this.mXi / (1.0 - mr * mr)) / Math.PI;
-            if (this.mPhase[var13] < 0.0) {
-               this.mPhase[var13] = this.mPhase[var13] + 180.0;
+      for (int k = 1; k < 301; k++) {
+         double mr = k / 100.0;
+         this.mPhase[k] = 90.0;
+         if (k != 100) {
+            this.mPhase[k] = 180.0 * Math.atan(2.0 * mr * this.mXi / (1.0 - mr * mr)) / Math.PI;
+            if (this.mPhase[k] < 0.0) {
+               this.mPhase[k] = this.mPhase[k] + 180.0;
             }
          }
 
-         g.drawLine(40 + (var13 - 1), (int)(240.0 + mPhase1 / 2.0), 40 + var13, (int)(240.0 + this.mPhase[var13] / 2.0));
-         mPhase1 = this.mPhase[var13];
-         this.mPhase[var13] = this.mPhase[var13] * Math.PI / 180.0;
+         g.drawLine(40 + (k - 1), (int)(240.0 + mPhase1 / 2.0), 40 + k, (int)(240.0 + this.mPhase[k] / 2.0));
+         mPhase1 = this.mPhase[k];
+         this.mPhase[k] = this.mPhase[k] * Math.PI / 180.0;
       }
 
       g.setColor(Color.black);

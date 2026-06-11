@@ -28,44 +28,44 @@ class CFrameGraph extends CFrame {
    double mInertia;
    double mTime = 0.0;
 
-   public CFrameGraph(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameGraph(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
    }
 
-   public void Frame(Graphics var1) {
-      Color var3 = new Color(0.18F, 0.58F, 0.58F);
+   public void Frame(Graphics g) {
+      Color tealColor = new Color(0.18F, 0.58F, 0.58F);
       new Color(0.77F, 0.38F, 0.0F);
-      var1.setPaintMode();
-      var1.setColor(Color.black);
-      var1.drawLine(38, 370, 440, 370);
-      var1.drawLine(38, 371, 440, 371);
-      var1.drawLine(39, 374, 39, 10);
-      var1.drawLine(40, 374, 40, 10);
+      g.setPaintMode();
+      g.setColor(Color.black);
+      g.drawLine(38, 370, 440, 370);
+      g.drawLine(38, 371, 440, 371);
+      g.drawLine(39, 374, 39, 10);
+      g.drawLine(40, 374, 40, 10);
 
-      for (int var2 = 0; var2 < 12; var2++) {
-         var1.drawLine(40, 370 - var2 * 40, 37, 370 - var2 * 40);
+      for (int i = 0; i < 12; i++) {
+         g.drawLine(40, 370 - i * 40, 37, 370 - i * 40);
       }
 
-      for (int var5 = 1; var5 < 6; var5++) {
-         var1.drawLine(40 + var5 * 80, 370, 40 + var5 * 80, 367);
+      for (int j = 1; j < 6; j++) {
+         g.drawLine(40 + j * 80, 370, 40 + j * 80, 367);
       }
 
-      var1.setColor(var3);
+      g.setColor(tealColor);
       this.response();
 
-      for (int var6 = 2; var6 < 400; var6++) {
-         var1.drawLine(
-            40 + (var6 - 1),
-            (int)(-150.0 - Math.log(Math.abs(this.mRec1[var6 - 1])) / Math.log(10.0) * 40.0),
-            40 + var6,
-            (int)(-150.0 - Math.log(Math.abs(this.mRec1[var6])) / Math.log(10.0) * 40.0)
+      for (int k = 2; k < 400; k++) {
+         g.drawLine(
+            40 + (k - 1),
+            (int)(-150.0 - Math.log(Math.abs(this.mRec1[k - 1])) / Math.log(10.0) * 40.0),
+            40 + k,
+            (int)(-150.0 - Math.log(Math.abs(this.mRec1[k])) / Math.log(10.0) * 40.0)
          );
       }
 
-      var1.setColor(Color.red);
+      g.setColor(Color.red);
 
       for (int var7 = 2; var7 < 400; var7++) {
-         var1.drawLine(
+         g.drawLine(
             40 + (var7 - 1),
             (int)(-150.0 - Math.log(Math.abs(this.mRec2[var7 - 1])) / Math.log(10.0) * 40.0),
             40 + var7,
@@ -73,86 +73,86 @@ class CFrameGraph extends CFrame {
          );
       }
 
-      var1.setColor(Color.orange);
-      var1.fillRect(20, 425, 30, 100);
-      var1.setColor(var3);
-      var1.drawLine(50, 475 - (int)(250.0 * this.mD / 2.0), 50 + (int)(250.0 * this.mL), 475 - (int)(250.0 * this.mD / 2.0));
-      var1.drawLine(50 + (int)(250.0 * this.mL), 475 - (int)(250.0 * this.mD / 2.0), 50 + (int)(250.0 * this.mL), 475 + (int)(250.0 * this.mD / 2.0));
-      var1.drawLine(50, 475 + (int)(250.0 * this.mD / 2.0), 50 + (int)(250.0 * this.mL), 475 + (int)(250.0 * this.mD / 2.0));
+      g.setColor(Color.orange);
+      g.fillRect(20, 425, 30, 100);
+      g.setColor(tealColor);
+      g.drawLine(50, 475 - (int)(250.0 * this.mD / 2.0), 50 + (int)(250.0 * this.mL), 475 - (int)(250.0 * this.mD / 2.0));
+      g.drawLine(50 + (int)(250.0 * this.mL), 475 - (int)(250.0 * this.mD / 2.0), 50 + (int)(250.0 * this.mL), 475 + (int)(250.0 * this.mD / 2.0));
+      g.drawLine(50, 475 + (int)(250.0 * this.mD / 2.0), 50 + (int)(250.0 * this.mL), 475 + (int)(250.0 * this.mD / 2.0));
    }
 
-   public double log10(double var1) {
-      return Math.log(var1) / Math.log(10.0);
+   public double log10(double arg) {
+      return Math.log(arg) / Math.log(10.0);
    }
 
-   public String nns(double var1, int var3) {
-      if (var3 <= 0) {
-         var3 = 1;
+   public String nns(double arg, int sig) {
+      if (sig <= 0) {
+         sig = 1;
       }
 
-      if (var1 == 0.0) {
+      if (arg == 0.0) {
          return "0";
-      } else if (var1 < 0.0) {
-         return "-" + this.nns(-var1, var3);
+      } else if (arg < 0.0) {
+         return "-" + this.nns(-arg, sig);
       } else {
-         double var4 = Math.floor(this.log10(var1));
-         double var6 = Math.pow(10.0, var4 - var3 + 1.0);
-         long var8 = Math.round(var1 / var6);
-         String var10 = String.valueOf(var8 * var6);
+         double magnitude = Math.floor(this.log10(arg));
+         double stepSize = Math.pow(10.0, magnitude - sig + 1.0);
+         long intArg = Math.round(arg / stepSize);
+         String result = String.valueOf(intArg * stepSize);
 
-         while (var10.length() > 1 && var10.indexOf(46) > -1) {
-            boolean var11 = false;
+         while (result.length() > 1 && result.indexOf(46) > -1) {
+            boolean trimmed = false;
 
-            int var12;
-            for (var12 = var10.length() - 1; var10.charAt(var12) == '0'; var11 = true) {
-               var12--;
+            int trimIdx;
+            for (trimIdx = result.length() - 1; result.charAt(trimIdx) == '0'; trimmed = true) {
+               trimIdx--;
             }
 
-            if (var11) {
-               var10 = var10.substring(0, var12 + 1);
+            if (trimmed) {
+               result = result.substring(0, trimIdx + 1);
             }
 
-            String var13 = var10.substring(0, var12);
+            String shortStr = result.substring(0, trimIdx);
 
-            double var14;
+            double parsedDouble;
             try {
-               var14 = java.lang.Double.parseDouble(var13);
-            } catch (NumberFormatException var15) {
+               parsedDouble = java.lang.Double.parseDouble(shortStr);
+            } catch (NumberFormatException ex) {
                break;
             }
 
-            if (Math.abs(var1 - var14) > var6) {
+            if (Math.abs(arg - parsedDouble) > stepSize) {
                break;
             }
 
-            var10 = var13;
+            result = shortStr;
          }
 
-         return var10;
+         return result;
       }
    }
 
-   public String nns(double var1) {
-      return this.nns(var1, 4);
+   public String nns(double arg) {
+      return this.nns(arg, 4);
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
-      boolean var5 = false;
-      switch (var2) {
+   public void ControlMessage(CFrame controller, int code, double val) {
+      boolean trimmed = false;
+      switch (code) {
          case 1:
-            this.mL = var3;
+            this.mL = val;
             this.response();
             break;
          case 2:
-            this.mD = var3;
+            this.mD = val;
             this.response();
             break;
          case 3:
-            this.mTime += var3;
-            var5 = true;
+            this.mTime += val;
+            trimmed = true;
       }
 
-      if (var5) {
+      if (trimmed) {
          this.repaint();
       }
    }
@@ -161,28 +161,28 @@ class CFrameGraph extends CFrame {
       this.mArea = Math.PI * this.mD * this.mD / 4.0;
       this.mInertia = this.mArea * this.mD * this.mD / 16.0;
 
-      for (int var1 = 1; var1 < 401; var1++) {
-         this.mw = var1 * 5000.0 * 2.0 * Math.PI / 400.0;
+      for (int i = 1; i < 401; i++) {
+         this.mw = i * 5000.0 * 2.0 * Math.PI / 400.0;
          this.mlambda = Math.sqrt(Math.sqrt(this.mw * this.mw * this.mArea * 7800.0 / (2.0E11 * this.mInertia)));
-         double var14 = this.mlambda * this.mL;
-         double var2 = Math.sin(var14);
-         double var4 = Math.cos(var14);
-         double var16 = Math.exp(var14);
+         double A = this.mlambda * this.mL;
+         double var2 = Math.sin(A);
+         double var4 = Math.cos(A);
+         double var16 = Math.exp(A);
          double var6 = (var16 - 1.0 / var16) / 2.0;
          double var8 = (var16 + 1.0 / var16) / 2.0;
          double var10 = var4 * var8 + 1.0;
          double var12 = var4 * var6 - var2 * var8;
          double var18 = 1.0 / (2.0E11 * this.mInertia * this.mlambda * this.mlambda * this.mlambda * var10);
-         this.mRec1[var1] = -var12 * var18;
+         this.mRec1[i] = -var12 * var18;
       }
 
-      for (int var118 = 1; var118 < 401; var118++) {
-         this.mw = var118 * 5000.0 * 2.0 * Math.PI / 400.0;
+      for (int j = 1; j < 401; j++) {
+         this.mw = j * 5000.0 * 2.0 * Math.PI / 400.0;
          double var80 = Math.sqrt(Math.sqrt(this.mw * this.mw * this.mArea * 7800.0 / (2.0E11 * this.mInertia)));
-         double var102;
-         double var104;
-         double var112;
-         double var114;
+         double parsedDouble;
+         double parsedDouble2;
+         double parsedDouble3;
+         double parsedDouble4;
          double var116;
          if (this.mw < Math.sqrt(var80 * 8.0E10 * this.mArea / (7800.0 * this.mInertia))) {
             double var60 = this.mw * this.mw;
@@ -216,11 +216,11 @@ class CFrameGraph extends CFrame {
             var78 = var70 / var72 - var28;
             double var98 = -(var38 * var76 - var36 * var78) * var20;
             double var100 = (var30 * (var70 / var26 - var74 / var28) + var34 * (var68 + var72)) * var20;
-            var102 = -(var50 * var76 - var48 * var78) * var20;
-            var104 = var40 * (var72 - var68) * var20;
+            parsedDouble = -(var50 * var76 - var48 * var78) * var20;
+            parsedDouble2 = var40 * (var72 - var68) * var20;
             double var106 = -(var36 * var72 * (var72 / var28 - var22) + var38 * var68 * (var68 / var26 - var24)) * var20;
-            var112 = var98;
-            var114 = -var100;
+            parsedDouble3 = var98;
+            parsedDouble4 = -var100;
             var116 = var106;
          } else {
             double var134 = this.mw * this.mw;
@@ -253,16 +253,16 @@ class CFrameGraph extends CFrame {
             var148 = var139 / var140 - var125;
             double var150 = (var130 * var144 + var129 * var148) * var120;
             double var151 = (var126 * (var139 / var124 + var141 / var125) + var128 * (var138 + var140)) * var120;
-            var102 = (var52 * var144 + var132 * var148) * var120;
-            var104 = -var131 * (var140 - var138) * var120;
+            parsedDouble = (var52 * var144 + var132 * var148) * var120;
+            parsedDouble2 = -var131 * (var140 - var138) * var120;
             double var152 = (var129 * var140 * (var122 - var140 / var125) + var130 * var138 * (var123 - var138 / var124)) * var120;
-            var112 = var150;
-            var114 = -var151;
+            parsedDouble3 = var150;
+            parsedDouble4 = -var151;
             var116 = var152;
          }
 
-         double var121 = var112 * var116 - var114 * var114;
-         this.mRec2[var118] = var112 + (var102 * (var104 * var114 - var102 * var116) + var104 * (var102 * var114 - var104 * var112)) / var121;
+         double var121 = parsedDouble3 * var116 - parsedDouble4 * parsedDouble4;
+         this.mRec2[j] = parsedDouble3 + (parsedDouble * (parsedDouble2 * parsedDouble4 - parsedDouble * var116) + parsedDouble2 * (parsedDouble * parsedDouble4 - parsedDouble2 * parsedDouble3)) / var121;
       }
    }
 

@@ -108,7 +108,7 @@ public class CBrianControl extends CPicturePanel {
             double newNum;
             try {
                newNum = java.lang.Double.parseDouble(shortStr);
-            } catch (NumberFormatException var14) {
+            } catch (NumberFormatException ex) {
                break;
             }
 

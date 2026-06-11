@@ -259,30 +259,30 @@ class CFrameAnimation extends CFrame {
 
       this.mT = 0.0;
 
-      for (int var10 = 0; var10 < 1599; var10++) {
-         this.mF[var10] = this.mFin[var10] - mW2 * this.mX[var10] - 2.0 * mW * this.mXi * this.mY[var10];
-         this.mX[var10 + 1] = this.mX[var10] + this.mY[var10] * mdtx2 / 2.0;
-         this.mY[var10 + 1] = this.mY[var10] + this.mF[var10] * mdtx2 / 2.0;
-         this.mF[var10 + 1] = this.mFin[var10 + 1] - mW2 * this.mX[var10 + 1] - 2.0 * mW * this.mXi * this.mY[var10 + 1];
-         this.mX[var10 + 2] = this.mX[var10] + this.mY[var10 + 1] * mdtx2 / 2.0;
-         this.mY[var10 + 2] = this.mY[var10] + this.mF[var10 + 1] * mdtx2 / 2.0;
-         this.mF[var10 + 2] = this.mFin[var10 + 2] - mW2 * this.mX[var10 + 2] - 2.0 * mW * this.mXi * this.mY[var10 + 2];
-         this.mX[var10 + 3] = this.mX[var10] + this.mY[var10 + 2] * mdtx2;
-         this.mY[var10 + 3] = this.mY[var10] + this.mF[var10 + 2] * mdtx2;
-         this.mF[var10 + 3] = this.mFin[var10 + 3] - mW2 * this.mX[var10 + 3] - 2.0 * mW * this.mXi * this.mY[var10 + 3];
-         this.mX[var10 + 1] = this.mX[var10] + (this.mY[var10] + 2.0 * this.mY[var10 + 1] + 2.0 * this.mY[var10 + 2] + this.mY[var10 + 3]) * mdtx2 / 6.0;
-         this.mY[var10 + 1] = this.mY[var10] + (this.mF[var10] + 2.0 * this.mF[var10 + 1] + 2.0 * this.mF[var10 + 2] + this.mF[var10 + 3]) * mdtx2 / 6.0;
-         this.mDisplacement[var10 + 1] = this.mX[var10 + 1];
-         if (this.mDisplacement[var10 + 1] > 16.2) {
-            this.mDisplacement[var10 + 1] = 16.2;
-            this.mX[var10 + 1] = 16.2;
-            this.mY[var10 + 1] = -0.7 * this.mY[var10 + 1];
+      for (int i = 0; i < 1599; i++) {
+         this.mF[i] = this.mFin[i] - mW2 * this.mX[i] - 2.0 * mW * this.mXi * this.mY[i];
+         this.mX[i + 1] = this.mX[i] + this.mY[i] * mdtx2 / 2.0;
+         this.mY[i + 1] = this.mY[i] + this.mF[i] * mdtx2 / 2.0;
+         this.mF[i + 1] = this.mFin[i + 1] - mW2 * this.mX[i + 1] - 2.0 * mW * this.mXi * this.mY[i + 1];
+         this.mX[i + 2] = this.mX[i] + this.mY[i + 1] * mdtx2 / 2.0;
+         this.mY[i + 2] = this.mY[i] + this.mF[i + 1] * mdtx2 / 2.0;
+         this.mF[i + 2] = this.mFin[i + 2] - mW2 * this.mX[i + 2] - 2.0 * mW * this.mXi * this.mY[i + 2];
+         this.mX[i + 3] = this.mX[i] + this.mY[i + 2] * mdtx2;
+         this.mY[i + 3] = this.mY[i] + this.mF[i + 2] * mdtx2;
+         this.mF[i + 3] = this.mFin[i + 3] - mW2 * this.mX[i + 3] - 2.0 * mW * this.mXi * this.mY[i + 3];
+         this.mX[i + 1] = this.mX[i] + (this.mY[i] + 2.0 * this.mY[i + 1] + 2.0 * this.mY[i + 2] + this.mY[i + 3]) * mdtx2 / 6.0;
+         this.mY[i + 1] = this.mY[i] + (this.mF[i] + 2.0 * this.mF[i + 1] + 2.0 * this.mF[i + 2] + this.mF[i + 3]) * mdtx2 / 6.0;
+         this.mDisplacement[i + 1] = this.mX[i + 1];
+         if (this.mDisplacement[i + 1] > 16.2) {
+            this.mDisplacement[i + 1] = 16.2;
+            this.mX[i + 1] = 16.2;
+            this.mY[i + 1] = -0.7 * this.mY[i + 1];
          }
 
-         if (this.mDisplacement[var10 + 1] < -16.5) {
-            this.mDisplacement[var10 + 1] = -16.5;
-            this.mX[var10 + 1] = -16.5;
-            this.mY[var10 + 1] = -0.7 * this.mY[var10 + 1];
+         if (this.mDisplacement[i + 1] < -16.5) {
+            this.mDisplacement[i + 1] = -16.5;
+            this.mX[i + 1] = -16.5;
+            this.mY[i + 1] = -0.7 * this.mY[i + 1];
          }
 
          this.mT += mdtx2;

@@ -47,8 +47,8 @@ class CFrameGraph extends CFrame {
    boolean mClickedAboveSystem;
    CFrameSmallControl mWControl;
 
-   public CFrameGraph(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameGraph(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
       this.AddElement(0, 1.0, 0.0, 0.0, false, true);
       this.AddElement(1, 1.5, 1.6, 0.0, true, false);
       this.AddElement(1, 1.6, 1.5, 0.0, true, false);
@@ -59,114 +59,114 @@ class CFrameGraph extends CFrame {
       this.SetSMDPositions();
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       int var2 = 7;
-      var1.setPaintMode();
-      var1.setColor(Color.black);
+      g.setPaintMode();
+      g.setColor(Color.black);
       CSpringMassDamper var4 = this.GetSMD(this.mDisplayXPos);
       if (var4 != null) {
-         var4.DrawSmallArrow(var1, 5, "X");
+         var4.DrawSmallArrow(g, 5, "X");
       }
 
       var4 = this.GetSMD(this.mDisplayFPos);
       if (var4 != null) {
-         var4.DrawSmallArrow(var1, 47, "F");
+         var4.DrawSmallArrow(g, 47, "F");
       }
 
-      var1.setColor(Color.lightGray);
-      var1.drawRect(super.x, super.y, super.width, super.height);
-      var1.setColor(Color.black);
+      g.setColor(Color.lightGray);
+      g.drawRect(super.x, super.y, super.width, super.height);
+      g.setColor(Color.black);
       int var6 = 3;
       if (this.mMax == this.mMin) {
-         var1.drawString("Please wait, calculating...", super.x + 10, super.y + 10);
+         g.drawString("Please wait, calculating...", super.x + 10, super.y + 10);
       } else {
          this.mScale = 15.0;
-         var1.drawLine(super.x, super.y, super.x, super.y + super.height);
-         var1.drawLine(super.x, super.y + super.height, super.x + super.width, super.y + super.height);
+         g.drawLine(super.x, super.y, super.x, super.y + super.height);
+         g.drawLine(super.x, super.y + super.height, super.x + super.width, super.y + super.height);
 
-         for (int var5 = 0; var5 < 8; var5++) {
-            if ((int)(var5 * Math.log(10.0) * this.mScale) < super.height) {
-               int var7 = super.y + 6 + (int)(var5 * Math.log(10.0) * this.mScale);
-               var1.drawLine(super.x, var7, super.x - var6, var7);
+         for (int i = 0; i < 8; i++) {
+            if ((int)(i * Math.log(10.0) * this.mScale) < super.height) {
+               int var7 = super.y + 6 + (int)(i * Math.log(10.0) * this.mScale);
+               g.drawLine(super.x, var7, super.x - var6, var7);
             }
          }
 
-         for (int var11 = 1; var11 < 7; var11++) {
-            var1.drawLine(super.x + var11 * 100, super.y + super.height, super.x + var11 * 100, super.y + super.height + var6);
+         for (int j = 1; j < 7; j++) {
+            g.drawLine(super.x + j * 100, super.y + super.height, super.x + j * 100, super.y + super.height + var6);
          }
 
-         Color var13 = new Color(0.18F, 0.58F, 0.58F);
-         var1.setColor(var13);
+         Color tealColor = new Color(0.18F, 0.58F, 0.58F);
+         g.setColor(tealColor);
          int var8 = (int)(super.y + 5 - (this.mAmp[9] - var2) * this.mScale);
 
-         for (int var12 = 10; var12 < 601; var12++) {
+         for (int k = 10; k < 601; k++) {
             int var9 = var8;
-            var8 = (int)(super.y + 5 - (this.mAmp[var12] - var2) * this.mScale);
-            var1.drawLine(super.x + (var12 - 1), var9, super.x + var12, var8);
+            var8 = (int)(super.y + 5 - (this.mAmp[k] - var2) * this.mScale);
+            g.drawLine(super.x + (k - 1), var9, super.x + k, var8);
          }
       }
    }
 
-   public double log10(double var1) {
-      return Math.log(var1) / Math.log(10.0);
+   public double log10(double arg) {
+      return Math.log(arg) / Math.log(10.0);
    }
 
-   public String nns(double var1, int var3) {
-      if (var3 <= 0) {
-         var3 = 1;
+   public String nns(double arg, int sig) {
+      if (sig <= 0) {
+         sig = 1;
       }
 
-      if (var1 == 0.0) {
+      if (arg == 0.0) {
          return "0";
       }
 
-      if (var1 < 0.0) {
-         return "-" + this.nns(-var1, var3);
+      if (arg < 0.0) {
+         return "-" + this.nns(-arg, sig);
       }
 
-      double var4 = Math.floor(this.log10(var1));
-      double var6 = Math.pow(10.0, var4 - var3 + 1.0);
-      long var8 = Math.round(var1 / var6);
-      String var10 = String.valueOf(var8 * var6);
+      double magnitude = Math.floor(this.log10(arg));
+      double stepSize = Math.pow(10.0, magnitude - sig + 1.0);
+      long intArg = Math.round(arg / stepSize);
+      String result = String.valueOf(intArg * stepSize);
 
-      while (var10.length() > 1 && var10.indexOf(46) > -1) {
-         boolean var11 = false;
+      while (result.length() > 1 && result.indexOf(46) > -1) {
+         boolean trimmed = false;
 
-         int var12;
-         for (var12 = var10.length() - 1; var10.charAt(var12) == '0'; var11 = true) {
-            var12--;
+         int trimIdx;
+         for (trimIdx = result.length() - 1; result.charAt(trimIdx) == '0'; trimmed = true) {
+            trimIdx--;
          }
 
-         if (var11) {
-            var10 = var10.substring(0, var12 + 1);
+         if (trimmed) {
+            result = result.substring(0, trimIdx + 1);
          }
 
-         String var13 = var10.substring(0, var12);
+         String shortStr = result.substring(0, trimIdx);
 
-         double var14;
+         double parsedDouble;
          try {
-            var14 = java.lang.Double.parseDouble(var13);
-         } catch (NumberFormatException var15) {
+            parsedDouble = java.lang.Double.parseDouble(shortStr);
+         } catch (NumberFormatException ex) {
             break;
          }
 
-         if (Math.abs(var1 - var14) > var6) {
+         if (Math.abs(arg - parsedDouble) > stepSize) {
             break;
          }
 
-         var10 = var13;
+         result = shortStr;
       }
 
-      return var10;
+      return result;
    }
 
-   public String nns(double var1) {
-      return this.nns(var1, 4);
+   public String nns(double arg) {
+      return this.nns(arg, 4);
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
-      boolean var5 = false;
-      switch (var2) {
+   public void ControlMessage(CFrame controller, int code, double val) {
+      boolean trimmed = false;
+      switch (code) {
          case 1:
             if (this.mSelectedSMD != null) {
                this.mSelectedSMD.ControlMessage(this, 1, 0.0);
@@ -176,8 +176,8 @@ class CFrameGraph extends CFrame {
          default:
             break;
          case 3:
-            this.mTime += var3;
-            var5 = true;
+            this.mTime += val;
+            trimmed = true;
             break;
          case 5:
             int var6 = 99999;
@@ -193,10 +193,10 @@ class CFrameGraph extends CFrame {
          case 6:
             this.ForceReasonableSystem();
             this.response();
-            var5 = true;
+            trimmed = true;
       }
 
-      if (var5) {
+      if (trimmed) {
          this.repaint();
       }
    }
@@ -214,16 +214,16 @@ class CFrameGraph extends CFrame {
       this.mMax = 0.0;
       this.mMin = 0.0;
 
-      for (int var1 = 1; var1 < 601; var1++) {
-         double var4 = var1 * 0.005;
+      for (int i = 1; i < 601; i++) {
+         double var4 = i * 0.005;
          this.receptances(var4);
-         this.mAmp[var1] = Math.log(this.mAReal[var3][var2] * this.mAReal[var3][var2] + this.mAImag[var3][var2] * this.mAImag[var3][var2]) / 2.0;
-         if (this.mAmp[var1] > this.mMax) {
-            this.mMax = this.mAmp[var1];
+         this.mAmp[i] = Math.log(this.mAReal[var3][var2] * this.mAReal[var3][var2] + this.mAImag[var3][var2] * this.mAImag[var3][var2]) / 2.0;
+         if (this.mAmp[i] > this.mMax) {
+            this.mMax = this.mAmp[i];
          }
 
-         if (this.mAmp[var1] < this.mMin) {
-            this.mMin = this.mAmp[var1];
+         if (this.mAmp[i] < this.mMin) {
+            this.mMin = this.mAmp[i];
          }
       }
 
@@ -243,95 +243,95 @@ class CFrameGraph extends CFrame {
          this.mAImag[1][1] = 0.0;
       }
 
-      for (int var29 = 2; var29 < var32 + 1; var29++) {
-         var33 = this.GetSMD(var29);
+      for (int i = 2; i < var32 + 1; i++) {
+         var33 = this.GetSMD(i);
          double var34 = var33.mSpringConstant;
          double var36 = var33.mDampingConstant;
          if (!var33.IsAbutment()) {
-            this.mBReal[var29][var29] = -1.0 / (var33.mMass * var1 * var1);
-            this.mBImag[var29][var29] = 0.0;
-            this.mBReal[var29 - 1][var29] = this.mBReal[var29][var29];
-            this.mBImag[var29 - 1][var29] = this.mBImag[var29][var29];
-            double var13;
-            double var15;
+            this.mBReal[i][i] = -1.0 / (var33.mMass * var1 * var1);
+            this.mBImag[i][i] = 0.0;
+            this.mBReal[i - 1][i] = this.mBReal[i][i];
+            this.mBImag[i - 1][i] = this.mBImag[i][i];
+            double parsedDouble;
+            double parsedDouble2;
             if (var33.mViscous) {
-               var13 = var34 / (var34 * var34 + var36 * var36 * var1 * var1);
-               var15 = -var1 * var36 / (var34 * var34 + var36 * var36 * var1 * var1);
+               parsedDouble = var34 / (var34 * var34 + var36 * var36 * var1 * var1);
+               parsedDouble2 = -var1 * var36 / (var34 * var34 + var36 * var36 * var1 * var1);
             } else {
-               var13 = var34 / (var34 * var34 + var36 * var36);
-               var15 = -var36 / (var34 * var34 + var36 * var36);
+               parsedDouble = var34 / (var34 * var34 + var36 * var36);
+               parsedDouble2 = -var36 / (var34 * var34 + var36 * var36);
             }
 
-            this.mBReal[var29 - 1][var29 - 1] = var13 + this.mBReal[var29][var29];
-            this.mBImag[var29 - 1][var29 - 1] = var15 + this.mBImag[var29][var29];
+            this.mBReal[i - 1][i - 1] = parsedDouble + this.mBReal[i][i];
+            this.mBImag[i - 1][i - 1] = parsedDouble2 + this.mBImag[i][i];
          } else {
-            this.mBReal[var29][var29] = 0.0;
-            this.mBImag[var29][var29] = 0.0;
-            this.mBReal[var29 - 1][var29] = this.mBReal[var29][var29];
-            this.mBImag[var29 - 1][var29] = this.mBImag[var29][var29];
-            double var46;
-            double var50;
+            this.mBReal[i][i] = 0.0;
+            this.mBImag[i][i] = 0.0;
+            this.mBReal[i - 1][i] = this.mBReal[i][i];
+            this.mBImag[i - 1][i] = this.mBImag[i][i];
+            double parsedDouble3;
+            double parsedDouble4;
             if (var33.mViscous) {
-               var46 = var34 / (var34 * var34 + var36 * var36 * var1 * var1);
-               var50 = -var1 * var36 / (var34 * var34 + var36 * var36 * var1 * var1);
+               parsedDouble3 = var34 / (var34 * var34 + var36 * var36 * var1 * var1);
+               parsedDouble4 = -var1 * var36 / (var34 * var34 + var36 * var36 * var1 * var1);
             } else {
-               var46 = var34 / (var34 * var34 + var36 * var36);
-               var50 = -var36 / (var34 * var34 + var36 * var36);
+               parsedDouble3 = var34 / (var34 * var34 + var36 * var36);
+               parsedDouble4 = -var36 / (var34 * var34 + var36 * var36);
             }
 
-            this.mBReal[var29 - 1][var29 - 1] = var46;
-            this.mBImag[var29 - 1][var29 - 1] = var50;
+            this.mBReal[i - 1][i - 1] = parsedDouble3;
+            this.mBImag[i - 1][i - 1] = parsedDouble4;
          }
 
-         for (int var31 = 1; var31 < var29; var31++) {
-            for (int var30 = 1; var30 < var31 + 1; var30++) {
-               this.mCReal[var30][var31] = this.mAReal[var30][var31];
-               this.mCImag[var30][var31] = this.mAImag[var30][var31];
+         for (int j = 1; j < i; j++) {
+            for (int k = 1; k < j + 1; k++) {
+               this.mCReal[k][j] = this.mAReal[k][j];
+               this.mCImag[k][j] = this.mAImag[k][j];
             }
          }
 
-         double var25 = this.mBReal[var29 - 1][var29 - 1] + this.mCReal[var29 - 1][var29 - 1];
-         double var27 = this.mBImag[var29 - 1][var29 - 1] + this.mCImag[var29 - 1][var29 - 1];
+         double var25 = this.mBReal[i - 1][i - 1] + this.mCReal[i - 1][i - 1];
+         double var27 = this.mBImag[i - 1][i - 1] + this.mCImag[i - 1][i - 1];
 
-         for (int var64 = 1; var64 < var29 + 1; var64++) {
+         for (int var64 = 1; var64 < i + 1; var64++) {
             var3[var64] = 0.0;
             var4[var64] = 0.0;
          }
 
-         for (int var65 = 1; var65 < var29 + 1; var65++) {
+         for (int var65 = 1; var65 < i + 1; var65++) {
             for (int var63 = 1; var63 < var65 + 1; var63++) {
                var3[var65] = 1.0;
-               if (var65 < var29 - 1) {
-                  double var17 = this.mCReal[var65][var29 - 1] * var3[var65] - this.mCImag[var65][var29 - 1] * var4[var65];
-                  double var19 = this.mCReal[var65][var29 - 1] * var4[var65] + this.mCImag[var65][var29 - 1] * var3[var65];
-                  double var47 = var25 * var25 + var27 * var27;
-                  double var5 = (var17 * var25 + var19 * var27) / var47;
-                  double var7 = (var19 * var25 - var17 * var27) / var47;
+               if (var65 < i - 1) {
+                  double var17 = this.mCReal[var65][i - 1] * var3[var65] - this.mCImag[var65][i - 1] * var4[var65];
+                  double var19 = this.mCReal[var65][i - 1] * var4[var65] + this.mCImag[var65][i - 1] * var3[var65];
+                  double mC = var25 * var25 + var27 * var27;
+                  double var5 = (var17 * var25 + var19 * var27) / mC;
+                  double var7 = (var19 * var25 - var17 * var27) / mC;
                   double var9 = -var5;
                   double var11 = -var7;
-                  var17 = this.mCReal[var63][var29 - 1] * var9 - this.mCImag[var63][var29 - 1] * var11;
-                  var19 = this.mCReal[var63][var29 - 1] * var11 + this.mCImag[var63][var29 - 1] * var9;
+                  var17 = this.mCReal[var63][i - 1] * var9 - this.mCImag[var63][i - 1] * var11;
+                  var19 = this.mCReal[var63][i - 1] * var11 + this.mCImag[var63][i - 1] * var9;
                   double var21 = this.mCReal[var63][var65] * var3[var65] - this.mCImag[var63][var65] * var4[var65];
                   double var23 = this.mCReal[var63][var65] * var4[var65] + this.mCImag[var63][var65] * var3[var65];
                   this.mAReal[var63][var65] = var17 + var21;
                   this.mAImag[var63][var65] = var19 + var23;
                }
 
-               if (var65 == var29 - 1) {
-                  double var52 = this.mCReal[var29 - 1][var29 - 1] * var3[var29 - 1] - this.mCImag[var29 - 1][var29 - 1] * var4[var29 - 1];
-                  double var57 = this.mCReal[var29 - 1][var29 - 1] * var4[var29 - 1] + this.mCImag[var29 - 1][var29 - 1] * var3[var29 - 1];
+               if (var65 == i - 1) {
+                  double var52 = this.mCReal[i - 1][i - 1] * var3[i - 1] - this.mCImag[i - 1][i - 1] * var4[i - 1];
+                  double var57 = this.mCReal[i - 1][i - 1] * var4[i - 1] + this.mCImag[i - 1][i - 1] * var3[i - 1];
                   double var48 = var25 * var25 + var27 * var27;
                   double var38 = (var52 * var25 + var57 * var27) / var48;
                   double var40 = (var57 * var25 - var52 * var27) / var48;
-                  double var42 = var3[var29 - 1] - var38;
-                  double var44 = var4[var29 - 1] - var40;
-                  this.mAReal[var63][var65] = this.mCReal[var63][var29 - 1] * var42 - this.mCImag[var63][var29 - 1] * var44;
-                  this.mAImag[var63][var65] = this.mCImag[var63][var29 - 1] * var42 + this.mCReal[var63][var29 - 1] * var44;
+                  double var42 = var3[i - 1] - var38;
+                  double var44 = var4[i - 1] - var40;
+                  this.mAReal[var63][var65] = this.mCReal[var63][i - 1] * var42 - this.mCImag[var63][i - 1] * var44;
+                  this.mAImag[var63][var65] = this.mCImag[var63][i - 1] * var42 + this.mCReal[var63][i - 1] * var44;
                }
 
-               if (var65 == var29) {
-                  double var53 = this.mBReal[var29 - 1][var65] * var3[var65] - this.mBImag[var29 - 1][var65] * var4[var65];
-                  double var58 = this.mBReal[var29 - 1][var65] * var4[var65] + this.mBImag[var29 - 1][var65] * var3[var65];
+               if (var65 == i) {
+                  double var53 = this.mBReal[i - 1][var65] * var3[var65] - this.mBImag[i - 1][var65] * var4[var65];
+                  double var58 = this.mBReal[i - 1][var65] * var4[var65] + this.mBImag[i - 1][var65] * var3[var65];
                   var53 = -var53;
                   var58 = -var58;
                   double var49 = var25 * var25 + var27 * var27;
@@ -339,12 +339,12 @@ class CFrameGraph extends CFrame {
                   double var41 = (var58 * var25 - var53 * var27) / var49;
                   double var43 = -var39;
                   double var45 = -var41;
-                  if (var63 < var29) {
-                     this.mAReal[var63][var65] = this.mCReal[var63][var29 - 1] * var43 - this.mCImag[var63][var29 - 1] * var45;
-                     this.mAImag[var63][var65] = this.mCReal[var63][var29 - 1] * var45 + this.mCImag[var63][var29 - 1] * var43;
+                  if (var63 < i) {
+                     this.mAReal[var63][var65] = this.mCReal[var63][i - 1] * var43 - this.mCImag[var63][i - 1] * var45;
+                     this.mAImag[var63][var65] = this.mCReal[var63][i - 1] * var45 + this.mCImag[var63][i - 1] * var43;
                   } else {
-                     var53 = this.mBReal[var29 - 1][var63] * var39 - this.mBImag[var29 - 1][var63] * var41;
-                     var58 = this.mBReal[var29 - 1][var63] * var41 + this.mBImag[var29 - 1][var63] * var39;
+                     var53 = this.mBReal[i - 1][var63] * var39 - this.mBImag[i - 1][var63] * var41;
+                     var58 = this.mBReal[i - 1][var63] * var41 + this.mBImag[i - 1][var63] * var39;
                      double var61 = this.mBReal[var63][var65] * var3[var65] - this.mBImag[var63][var65] * var4[var65];
                      double var62 = this.mBReal[var63][var65] * var4[var65] + this.mBImag[var63][var65] * var3[var65];
                      this.mAReal[var63][var65] = var53 + var61;
@@ -361,31 +361,31 @@ class CFrameGraph extends CFrame {
    public void setOmegaDisp(double var1) {
       this.mWanimate = var1;
       this.receptances(this.mWanimate);
-      int var4 = 0;
+      int n = 0;
       if (this.mElements != null) {
-         var4 = this.mElements.size();
+         n = this.mElements.size();
       }
 
-      for (int var3 = 1; var3 <= this.mFPos; var3++) {
-         CSpringMassDamper var5 = this.GetSMD(var3);
+      for (int i = 1; i <= this.mFPos; i++) {
+         CSpringMassDamper var5 = this.GetSMD(i);
          var5.mMassAmp = Math.sqrt(
-            this.mAReal[var3][this.mFPos] * this.mAReal[var3][this.mFPos] + this.mAImag[var3][this.mFPos] * this.mAImag[var3][this.mFPos]
+            this.mAReal[i][this.mFPos] * this.mAReal[i][this.mFPos] + this.mAImag[i][this.mFPos] * this.mAImag[i][this.mFPos]
          );
-         var5.mMassPhase = Math.atan2(this.mAImag[var3][this.mFPos], this.mAReal[var3][this.mFPos]);
+         var5.mMassPhase = Math.atan2(this.mAImag[i][this.mFPos], this.mAReal[i][this.mFPos]);
       }
 
-      for (int var6 = this.mFPos + 1; var6 <= var4; var6++) {
-         CSpringMassDamper var8 = this.GetSMD(var6);
+      for (int j = this.mFPos + 1; j <= n; j++) {
+         CSpringMassDamper var8 = this.GetSMD(j);
          var8.mMassAmp = Math.sqrt(
-            this.mAReal[this.mFPos][var6] * this.mAReal[this.mFPos][var6] + this.mAImag[this.mFPos][var6] * this.mAImag[this.mFPos][var6]
+            this.mAReal[this.mFPos][j] * this.mAReal[this.mFPos][j] + this.mAImag[this.mFPos][j] * this.mAImag[this.mFPos][j]
          );
-         var8.mMassPhase = Math.atan2(this.mAImag[this.mFPos][var6], this.mAReal[this.mFPos][var6]);
+         var8.mMassPhase = Math.atan2(this.mAImag[this.mFPos][j], this.mAReal[this.mFPos][j]);
       }
 
       this.mMaxMassAmp = 0.0;
 
-      for (int var7 = 1; var7 <= var4; var7++) {
-         CSpringMassDamper var9 = this.GetSMD(var7);
+      for (int k = 1; k <= n; k++) {
+         CSpringMassDamper var9 = this.GetSMD(k);
          if (var9.mMassAmp > this.mMaxMassAmp) {
             this.mMaxMassAmp = var9.mMassAmp;
          }
@@ -425,20 +425,20 @@ class CFrameGraph extends CFrame {
    }
 
    public boolean ForceReasonableSystem() {
-      int var2 = 0;
+      int n = 0;
       if (this.mElements != null) {
-         var2 = this.mElements.size();
+         n = this.mElements.size();
       }
 
       CSpringMassDamper var3 = null;
 
-      for (int var1 = 2; var1 < var2; var1++) {
-         var3 = this.GetSMD(var1);
+      for (int i = 2; i < n; i++) {
+         var3 = this.GetSMD(i);
          var3.SetAbutment(false);
       }
 
       int var4 = 1;
-      int var5 = var2;
+      int var5 = n;
       if (var5 < 2) {
          return false;
       }
@@ -448,7 +448,7 @@ class CFrameGraph extends CFrame {
          var4++;
       }
 
-      var3 = this.GetSMD(var2);
+      var3 = this.GetSMD(n);
       if (var3.IsAbutment()) {
          var5--;
       }
@@ -475,27 +475,27 @@ class CFrameGraph extends CFrame {
    }
 
    public void SetSMDPositions() {
-      int var2 = 0;
+      int n = 0;
       if (this.mElements != null) {
-         var2 = this.mElements.size();
+         n = this.mElements.size();
       }
 
-      int var3 = 40;
+      int xo = 40;
       int var4 = 15;
 
-      for (int var1 = 1; var1 <= var2; var1++) {
-         CSpringMassDamper var5 = this.GetSMD(var1);
-         var5.mIndex = var1;
-         var5.x = var3;
+      for (int i = 1; i <= n; i++) {
+         CSpringMassDamper var5 = this.GetSMD(i);
+         var5.mIndex = i;
+         var5.x = xo;
          var5.y = var4;
          var5.height = 30;
-         if (var1 == 1) {
+         if (i == 1) {
             var5.width = 15;
          } else {
             var5.width = 55;
          }
 
-         var3 += var5.width;
+         xo += var5.width;
       }
    }
 
@@ -550,18 +550,18 @@ class CFrameGraph extends CFrame {
       return true;
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
-      if (var2) {
+   public boolean MouseEvent(int code, boolean prevHit) {
+      if (prevHit) {
          return false;
       }
 
       boolean var3 = this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y);
       if (!var3) {
-         return this.MouseEventOutside(var1, var2);
+         return this.MouseEventOutside(code, prevHit);
       }
 
       super.mWasHit = false;
-      switch (var1) {
+      switch (code) {
          case 0:
          case 1:
             double var4 = (super.mFramePanel.mThisPt.x - super.x) * 0.005;
@@ -583,10 +583,10 @@ class CFrameGraph extends CFrame {
 
       int var3 = this.mElements.size();
 
-      for (int var2 = 1; var2 <= var3; var2++) {
-         CSpringMassDamper var4 = this.GetSMD(var2);
+      for (int i = 1; i <= var3; i++) {
+         CSpringMassDamper var4 = this.GetSMD(i);
          if (var4.InVerticalBand(var1)) {
-            return var2;
+            return i;
          }
       }
 

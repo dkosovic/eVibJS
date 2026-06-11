@@ -43,23 +43,23 @@ class CFrameAnimation extends CFrame {
          g.drawLine(20, 313 - p * 50, 17, 313 - p * 50);
       }
 
-      for (int var9 = 1; var9 < 6; var9++) {
-         g.drawLine(20 + var9 * 80, 313, 20 + var9 * 80, 317);
+      for (int i = 1; i < 6; i++) {
+         g.drawLine(20 + i * 80, 313, 20 + i * 80, 317);
       }
 
       g.setColor(Color.red);
       this.mRec1[1] = 0.0;
 
-      for (int var10 = 1; var10 < 400; var10++) {
-         double mw = var10 * 5000.0 * 2.0 * Math.PI / 400.0;
+      for (int j = 1; j < 400; j++) {
+         double mw = j * 5000.0 * 2.0 * Math.PI / 400.0;
          double mlambda = mw * Math.sqrt(3.9E-8);
          double mArea = Math.PI * this.mD * this.mD / 4.0;
-         if (var10 == 1) {
+         if (j == 1) {
             this.mRec1[1] = Math.tan(mlambda * this.mL) / (mArea * 2.0E11 * mlambda);
          } else {
-            this.mRec1[var10] = Math.tan(mlambda * this.mL) / (mArea * 2.0E11 * mlambda);
-            if (this.mRec1[var10] > this.mRec1[var10 - 1] & Math.abs(this.mRec1[var10 - 1]) < 1.2E-8) {
-               g.drawLine(20 + (var10 - 1), (int)(313.0 - this.mRec1[var10 - 1] * 2.5E10), 20 + var10, (int)(313.0 - this.mRec1[var10] * 2.5E10));
+            this.mRec1[j] = Math.tan(mlambda * this.mL) / (mArea * 2.0E11 * mlambda);
+            if (this.mRec1[j] > this.mRec1[j - 1] & Math.abs(this.mRec1[j - 1]) < 1.2E-8) {
+               g.drawLine(20 + (j - 1), (int)(313.0 - this.mRec1[j - 1] * 2.5E10), 20 + j, (int)(313.0 - this.mRec1[j] * 2.5E10));
             }
          }
       }
@@ -67,14 +67,14 @@ class CFrameAnimation extends CFrame {
       g.setColor(Color.blue);
       this.mRec2[1] = 0.0;
 
-      for (int var11 = 1; var11 < 400; var11++) {
-         double mw = var11 * 5000.0 * 2.0 * Math.PI / 400.0;
-         if (var11 == 1) {
+      for (int k = 1; k < 400; k++) {
+         double mw = k * 5000.0 * 2.0 * Math.PI / 400.0;
+         if (k == 1) {
             this.mRec2[1] = -1.0 / (this.mm * mw * mw);
          } else {
-            this.mRec2[var11] = -1.0 / (this.mm * mw * mw);
-            if (-this.mRec2[var11 - 1] < 5.0E-8) {
-               g.drawLine(20 + (var11 - 1), (int)(313.0 + this.mRec2[var11 - 1] * 2.5E10), 20 + var11, (int)(313.0 + this.mRec2[var11] * 2.5E10));
+            this.mRec2[k] = -1.0 / (this.mm * mw * mw);
+            if (-this.mRec2[k - 1] < 5.0E-8) {
+               g.drawLine(20 + (k - 1), (int)(313.0 + this.mRec2[k - 1] * 2.5E10), 20 + k, (int)(313.0 + this.mRec2[k] * 2.5E10));
             }
          }
       }

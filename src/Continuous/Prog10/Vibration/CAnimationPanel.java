@@ -97,23 +97,23 @@ public class CAnimationPanel extends Panel {
          }
       }
 
-      for (int var6 = 0; var6 < 31; var6++) {
-         this.mxp[var6] = this.mxp[var6] * 20.0 / this.mMax;
+      for (int i = 0; i < 31; i++) {
+         this.mxp[i] = this.mxp[i] * 20.0 / this.mMax;
       }
 
-      for (int var7 = 0; var7 < 31; var7++) {
-         this.mAmp[var7] = this.mxp[var7] * Math.cos(this.mWn * this.mTime * 22.37);
+      for (int j = 0; j < 31; j++) {
+         this.mAmp[j] = this.mxp[j] * Math.cos(this.mWn * this.mTime * 22.37);
       }
 
       this.kyaxis = 30;
 
-      for (int var8 = 0; var8 < 30; var8++) {
+      for (int k = 0; k < 30; k++) {
          this.mOffScreenGC
             .drawLine(
-               20 + (int)(var8 * 250.0 / 30.0),
-               this.kyaxis - (int)this.mAmp[var8],
-               20 + (int)((var8 + 1) * 250.0 / 30.0),
-               this.kyaxis - (int)this.mAmp[var8 + 1]
+               20 + (int)(k * 250.0 / 30.0),
+               this.kyaxis - (int)this.mAmp[k],
+               20 + (int)((k + 1) * 250.0 / 30.0),
+               this.kyaxis - (int)this.mAmp[k + 1]
             );
       }
 

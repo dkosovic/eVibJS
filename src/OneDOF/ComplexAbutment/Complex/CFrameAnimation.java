@@ -38,12 +38,12 @@ class CFrameAnimation extends CFrame {
    CFrameHelp mDamperHelp;
    CFrameHelp mMassHelp;
 
-   public CFrameAnimation(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameAnimation(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
       this.mFirstTime = true;
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       if (this.mFirstTime) {
          this.mFirstTime = false;
          this.mTime = 0.0;
@@ -51,89 +51,89 @@ class CFrameAnimation extends CFrame {
       }
 
       Color var8 = new Color(0.18F, 0.58F, 0.58F);
-      var1.setPaintMode();
-      var1.setColor(Color.white);
-      var1.fillRect(0, 0, super.width, super.height);
-      var1.setColor(Color.lightGray);
-      var1.drawLine(10, 160, 350, 160);
-      var1.drawLine(360, 160, 510, 160);
-      var1.drawLine(500, 150, 500, 170);
-      var1.setColor(Color.green);
+      g.setPaintMode();
+      g.setColor(Color.white);
+      g.fillRect(0, 0, super.width, super.height);
+      g.setColor(Color.lightGray);
+      g.drawLine(10, 160, 350, 160);
+      g.drawLine(360, 160, 510, 160);
+      g.drawLine(500, 150, 500, 170);
+      g.setColor(Color.green);
       int var3 = (int)(this.mW * this.mTime * 360.0 + 20.0);
-      var1.fillArc(485, 145, 30, 30, var3, (int)this.mPhi);
-      var1.setColor(Color.white);
-      var1.fillArc(487, 147, 26, 26, var3, (int)this.mPhi);
-      var1.setColor(Color.orange);
+      g.fillArc(485, 145, 30, 30, var3, (int)this.mPhi);
+      g.setColor(Color.white);
+      g.fillArc(487, 147, 26, 26, var3, (int)this.mPhi);
+      g.setColor(Color.orange);
       int var5 = (int)(this.mXo * Math.cos(this.mW * this.mTime * 2.0 * Math.PI + (Math.PI / 9)));
       int var4 = (int)(-this.mXo * Math.sin(this.mW * this.mTime * 2.0 * Math.PI + (Math.PI / 9)));
-      var1.drawLine(500, 160, 500 + var5, 160 + var4);
-      var1.drawLine(500 + var5, 160 + var4, 350, 160 + var4);
+      g.drawLine(500, 160, 500 + var5, 160 + var4);
+      g.drawLine(500 + var5, 160 + var4, 350, 160 + var4);
 
-      for (int var2 = 0; var2 < 170; var2++) {
-         var1.drawLine(
-            350 - var2 * 2,
-            160 + (int)(-this.mXo * Math.sin(this.mW * (this.mTime - var2 * 0.025) * 2.0 * Math.PI + (Math.PI / 9))),
-            350 - (var2 + 1) * 2,
-            160 + (int)(-this.mXo * Math.sin(this.mW * (this.mTime - (var2 + 1) * 0.025) * 2.0 * Math.PI + (Math.PI / 9)))
+      for (int i = 0; i < 170; i++) {
+         g.drawLine(
+            350 - i * 2,
+            160 + (int)(-this.mXo * Math.sin(this.mW * (this.mTime - i * 0.025) * 2.0 * Math.PI + (Math.PI / 9))),
+            350 - (i + 1) * 2,
+            160 + (int)(-this.mXo * Math.sin(this.mW * (this.mTime - (i + 1) * 0.025) * 2.0 * Math.PI + (Math.PI / 9)))
          );
       }
 
-      var1.setColor(var8);
+      g.setColor(var8);
       int var7 = (int)(this.mX * Math.cos(this.mW * this.mTime * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0));
       int var6 = (int)(-this.mX * Math.sin(this.mW * this.mTime * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0));
-      var1.drawLine(500, 160, 500 + var7, 160 + var6);
-      var1.drawLine(500 + var7, 160 + var6, 350, 160 + var6);
+      g.drawLine(500, 160, 500 + var7, 160 + var6);
+      g.drawLine(500 + var7, 160 + var6, 350, 160 + var6);
 
-      for (int var9 = 0; var9 < 170; var9++) {
-         var1.drawLine(
-            350 - var9 * 2,
-            160 + (int)(-this.mX * Math.sin(this.mW * (this.mTime - var9 * 0.025) * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0)),
-            350 - (var9 + 1) * 2,
-            160 + (int)(-this.mX * Math.sin(this.mW * (this.mTime - (var9 + 1) * 0.025) * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0))
+      for (int j = 0; j < 170; j++) {
+         g.drawLine(
+            350 - j * 2,
+            160 + (int)(-this.mX * Math.sin(this.mW * (this.mTime - j * 0.025) * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0)),
+            350 - (j + 1) * 2,
+            160 + (int)(-this.mX * Math.sin(this.mW * (this.mTime - (j + 1) * 0.025) * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0))
          );
       }
 
-      var1.setColor(Color.black);
-      var1.drawRect(10, 50, 340, 220);
+      g.setColor(Color.black);
+      g.drawRect(10, 50, 340, 220);
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
+   public void ControlMessage(CFrame controller, int code, double val) {
       boolean var5 = false;
-      switch (var2) {
+      switch (code) {
          case 0:
             if (this.mState == 1) {
-               this.mTime += var3;
+               this.mTime += val;
                this.mViewTime = this.mTime;
             }
 
             var5 = true;
             break;
          case 1:
-            this.ChangeRunState((int)var3);
+            this.ChangeRunState((int)val);
             break;
          case 2:
             this.ChangeRunState(0);
             this.mTime = 0.0;
             this.mViewTime = 0.0;
-            this.mW = var3;
+            this.mW = val;
             break;
          case 3:
             this.ChangeRunState(0);
             this.mTime = 0.0;
             this.mViewTime = 0.0;
-            this.mXo = var3;
+            this.mXo = val;
             break;
          case 4:
             this.ChangeRunState(0);
             this.mTime = 0.0;
             this.mViewTime = 0.0;
-            this.mX = var3;
+            this.mX = val;
             break;
          case 5:
             this.ChangeRunState(0);
             this.mTime = 0.0;
             this.mViewTime = 0.0;
-            this.mPhi = var3;
+            this.mPhi = val;
       }
 
       if (var5) {
@@ -141,10 +141,10 @@ class CFrameAnimation extends CFrame {
       }
    }
 
-   public void ChangeRunState(int var1) {
+   public void ChangeRunState(int newState) {
       switch (this.mState) {
          case 0:
-            if (var1 == 1) {
+            if (newState == 1) {
                this.mTime = 0.0;
                this.mViewTime = 0.0;
                this.mFirstTime = true;
@@ -152,8 +152,8 @@ class CFrameAnimation extends CFrame {
             }
             break;
          case 1:
-            if (var1 == 0) {
-               this.mState = var1;
+            if (newState == 0) {
+               this.mState = newState;
             }
       }
 

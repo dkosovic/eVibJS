@@ -112,8 +112,8 @@ public class CAnimationPanel extends Panel {
          this.mOffScreenGC.drawArc(460 + p - (int)(30.0 * Math.cos(1.0472) / 2.0), offset + 40 - 15, 15, 30, 20 - 5 * p, 180);
       }
 
-      for (int var12 = 1; var12 < 4; var12++) {
-         this.mOffScreenGC.drawArc(464 + var12 - (int)(30.0 * Math.cos(1.0472) / 2.0), offset + 40 - 15, 15, 30, 5 * var12, 180);
+      for (int i = 1; i < 4; i++) {
+         this.mOffScreenGC.drawArc(464 + i - (int)(30.0 * Math.cos(1.0472) / 2.0), offset + 40 - 15, 15, 30, 5 * i, 180);
       }
 
       int var19 = 130;
@@ -128,30 +128,30 @@ public class CAnimationPanel extends Panel {
       this.mOffScreenGC.setColor(mass);
       this.mtheta[0] = 0.0;
 
-      for (int var16 = 1; var16 < 19; var16++) {
-         this.mbeta = Math.PI - Math.PI * (var16 - 1) / 9.0;
+      for (int j = 1; j < 19; j++) {
+         this.mbeta = Math.PI - Math.PI * (j - 1) / 9.0;
 
-         for (int var13 = 1; var13 < 41; var13++) {
-            this.mtheta[var13] = this.mXo
-               * Math.sin(this.mWn1Fraction * Math.PI / 2.0 * var13 / 40.0)
+         for (int k = 1; k < 41; k++) {
+            this.mtheta[k] = this.mXo
+               * Math.sin(this.mWn1Fraction * Math.PI / 2.0 * k / 40.0)
                * Math.cos(this.mWn1Fraction * this.mWn * this.mTime * 2.0 * Math.PI);
-            if (var13 == 40) {
+            if (k == 40) {
                this.mOffScreenGC
                   .drawLine(
                      450,
                      var19 + 40,
-                     50 + var13 * 10 - (int)(30.0 * Math.cos(this.mbeta + this.mtheta[var13]) * Math.cos(1.0472)),
-                     var19 + 40 + (int)(30.0 * Math.sin(this.mbeta + this.mtheta[var13]))
+                     50 + k * 10 - (int)(30.0 * Math.cos(this.mbeta + this.mtheta[k]) * Math.cos(1.0472)),
+                     var19 + 40 + (int)(30.0 * Math.sin(this.mbeta + this.mtheta[k]))
                   );
             }
 
-            if (this.mbeta + this.mtheta[var13] < Math.PI / 2 & this.mbeta + this.mtheta[var13] > -Math.PI / 2) {
+            if (this.mbeta + this.mtheta[k] < Math.PI / 2 & this.mbeta + this.mtheta[k] > -Math.PI / 2) {
                this.mOffScreenGC
                   .drawLine(
-                     50 + (var13 - 1) * 10 - (int)(30.0 * Math.cos(this.mbeta + this.mtheta[var13 - 1]) * Math.cos(1.0472)),
-                     var19 + 40 + (int)(30.0 * Math.sin(this.mbeta + this.mtheta[var13 - 1])),
-                     50 + var13 * 10 - (int)(30.0 * Math.cos(this.mbeta + this.mtheta[var13]) * Math.cos(1.0472)),
-                     var19 + 40 + (int)(30.0 * Math.sin(this.mbeta + this.mtheta[var13]))
+                     50 + (k - 1) * 10 - (int)(30.0 * Math.cos(this.mbeta + this.mtheta[k - 1]) * Math.cos(1.0472)),
+                     var19 + 40 + (int)(30.0 * Math.sin(this.mbeta + this.mtheta[k - 1])),
+                     50 + k * 10 - (int)(30.0 * Math.cos(this.mbeta + this.mtheta[k]) * Math.cos(1.0472)),
+                     var19 + 40 + (int)(30.0 * Math.sin(this.mbeta + this.mtheta[k]))
                   );
             }
          }

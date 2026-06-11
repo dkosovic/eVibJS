@@ -95,7 +95,7 @@ public class Forcedresponse_2DOF extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public void actionPerformed(ActionEvent var1) {
+   public void actionPerformed(ActionEvent e) {
    }
 
    public void stop() {

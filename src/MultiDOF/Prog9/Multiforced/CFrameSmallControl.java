@@ -28,29 +28,29 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
    static final int kDownSelection = 2;
    static final double kNearlyZero = 1.0E-10;
 
-   public CFrameSmallControl(CFramePanel var1, CFrame var2, int var3, int var4, int var5, double var6, double var8, double var10, String var12) {
-      super(var1, var4, var5, 0, 0, var1.mApplet.getImage(var1.mApplet.getCodeBase(), "BrianControl.gif"), false);
-      this.mControlledFrame = var2;
-      this.mCode = var3;
-      this.mUnits = var12;
-      super.width = super.mImage.getWidth(var1);
-      super.height = super.mImage.getHeight(var1);
-      this.mMin = var6;
-      this.mValue = var8;
-      this.mMax = var10;
+   public CFrameSmallControl(CFramePanel thePanel, CFrame controlThis, int code, int xx, int yy, double min, double val, double max, String units) {
+      super(thePanel, xx, yy, 0, 0, thePanel.mApplet.getImage(thePanel.mApplet.getCodeBase(), "BrianControl.gif"), false);
+      this.mControlledFrame = controlThis;
+      this.mCode = code;
+      this.mUnits = units;
+      super.width = super.mImage.getWidth(thePanel);
+      super.height = super.mImage.getHeight(thePanel);
+      this.mMin = min;
+      this.mValue = val;
+      this.mMax = max;
       this.BroadcastValue();
    }
 
-   public void SetLabelOffset(int var1, int var2) {
-      this.mDLabelPos = new Point(var1, var2);
+   public void SetLabelOffset(int dx, int dy) {
+      this.mDLabelPos = new Point(dx, dy);
       this.repaint();
    }
 
-   public Rectangle GridToRect(int var1) {
+   public Rectangle GridToRect(int which) {
       super.width = super.mImage.getWidth(super.mFramePanel);
       super.height = super.mImage.getHeight(super.mFramePanel);
       if (super.width >= 0 && super.height >= 0) {
-         switch (var1) {
+         switch (which) {
             case 1:
                return new Rectangle(0, 0, super.width, super.height / 2);
             case 2:
@@ -63,44 +63,44 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
       }
    }
 
-   public int GetSelection(Point var1) {
-      for (int var2 = 1; var2 <= 2; var2++) {
-         Rectangle var3 = this.GridToRect(var2);
-         if (var3 == null) {
+   public int GetSelection(Point p) {
+      for (int i = 1; i <= 2; i++) {
+         Rectangle selectionRect = this.GridToRect(i);
+         if (selectionRect == null) {
             return 0;
          }
 
-         if (var3.contains(var1.x, var1.y)) {
-            return var2;
+         if (selectionRect.contains(p.x, p.y)) {
+            return i;
          }
       }
 
       return 0;
    }
 
-   public int GetSelection(int var1, int var2) {
-      Point var3 = new Point(var1, var2);
-      return this.GetSelection(var3);
+   public int GetSelection(int xx, int yy) {
+      Point point = new Point(xx, yy);
+      return this.GetSelection(point);
    }
 
-   public static boolean NearlyEqual(double var0, double var2) {
-      return Math.abs(var2 - var0) < 1.0E-10;
+   public static boolean NearlyEqual(double d1, double d2) {
+      return Math.abs(d2 - d1) < 1.0E-10;
    }
 
-   public static String nns(double var0, int var2) {
-      if (var2 <= 0) {
-         var2 = 1;
+   public static String nns(double arg, int sig) {
+      if (sig <= 0) {
+         sig = 1;
       }
 
-      if (NearlyEqual(var0, 0.0)) {
+      if (NearlyEqual(arg, 0.0)) {
          return "0";
-      } else if (var0 < 0.0) {
-         return "-" + nns(-var0, var2);
+      } else if (arg < 0.0) {
+         return "-" + nns(-arg, sig);
       } else {
-         double var3 = Math.floor(log10(var0));
-         double var5 = Math.pow(10.0, var3 - var2 + 1.0);
-         long var7 = Math.round(var0 / var5);
-         String var9 = String.valueOf(var7 * var5);
+         double magnitude = Math.floor(log10(arg));
+         double stepSize = Math.pow(10.0, magnitude - sig + 1.0);
+         long var7 = Math.round(arg / stepSize);
+         String var9 = String.valueOf(var7 * stepSize);
 
          while (var9.length() > 1 && var9.indexOf(46) > -1) {
             boolean var10 = false;
@@ -119,11 +119,11 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
             double var13;
             try {
                var13 = java.lang.Double.parseDouble(var12);
-            } catch (NumberFormatException var14) {
+            } catch (NumberFormatException ex) {
                break;
             }
 
-            if (Math.abs(var0 - var13) > var5) {
+            if (Math.abs(arg - var13) > stepSize) {
                break;
             }
 
@@ -134,23 +134,23 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
       }
    }
 
-   public static String nns(double var0) {
-      return nns(var0, 4);
+   public static String nns(double arg) {
+      return nns(arg, 4);
    }
 
-   public static double log10(double var0) {
-      return Math.log(var0) / Math.log(10.0);
+   public static double log10(double arg) {
+      return Math.log(arg) / Math.log(10.0);
    }
 
-   public void NewSelection(int var1) {
-      this.mSelection = var1;
+   public void NewSelection(int newSel) {
+      this.mSelection = newSel;
       this.mSelStart = new Date();
       this.mOldValue = this.mValue;
       if (this.mSelection == 0) {
          this.mDeltaPerSec = 0.0;
       } else {
-         double var2 = Math.floor(log10(Math.abs(this.mMax - this.mMin)));
-         this.mDeltaPerSec = Math.pow(10.0, var2 - 2.0);
+         double magnitude = Math.floor(log10(Math.abs(this.mMax - this.mMin)));
+         this.mDeltaPerSec = Math.pow(10.0, magnitude - 2.0);
          if (this.mSelection == 2) {
             this.mDeltaPerSec = -this.mDeltaPerSec;
          }
@@ -164,17 +164,17 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
    void NewValue() {
       if (this.mSelStart != null) {
          long var1 = this.mSelStart.getTime();
-         Date var3 = new Date();
-         long var4 = var3.getTime();
-         double var6 = (var4 - var1) / 1000.0;
-         boolean var8 = var6 > 1.0;
+         Date now = new Date();
+         long currentTime = now.getTime();
+         double elapsedSeconds = (currentTime - var1) / 1000.0;
+         boolean var8 = elapsedSeconds > 1.0;
          double var9;
          double var11;
          if (var8) {
-            var9 = this.mDeltaPerSec * 10.0 * var6;
+            var9 = this.mDeltaPerSec * 10.0 * elapsedSeconds;
             var11 = this.mDeltaPerSec;
          } else {
-            var9 = this.mDeltaPerSec * var6;
+            var9 = this.mDeltaPerSec * elapsedSeconds;
             var11 = this.mDeltaPerSec / 10.0;
          }
 
@@ -195,12 +195,12 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
       this.BroadcastValue();
    }
 
-   public static double MyRound(double var0, double var2) {
-      if (var2 == 0.0) {
-         return var0;
+   public static double MyRound(double val, double quant) {
+      if (quant == 0.0) {
+         return val;
       } else {
-         var2 = Math.abs(var2);
-         return Math.round(var0 / var2) * var2;
+         quant = Math.abs(quant);
+         return Math.round(val / quant) * quant;
       }
    }
 
@@ -212,19 +212,19 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
       this.repaint();
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
-      super.MouseEvent(var1, var2);
-      Point var3 = this.GlobalToLocal(super.mFramePanel.mThisPt);
-      switch (var1) {
+   public boolean MouseEvent(int code, boolean prevHit) {
+      super.MouseEvent(code, prevHit);
+      Point localPoint = this.GlobalToLocal(super.mFramePanel.mThisPt);
+      switch (code) {
          case 0:
             if (!super.mWasHit) {
                return false;
             } else {
-               if (var2) {
+               if (prevHit) {
                   return false;
                }
 
-               this.NewSelection(this.GetSelection(var3.x, var3.y));
+               this.NewSelection(this.GetSelection(localPoint.x, localPoint.y));
                this.mTimer = new Timer(100, this);
                this.mTimer.start();
                return true;
@@ -236,7 +236,7 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
             } else if (this.mSelection == 0) {
                return false;
             } else {
-               int var4 = this.GetSelection(var3.x, var3.y);
+               int var4 = this.GetSelection(localPoint.x, localPoint.y);
                if (var4 == this.mSelection) {
                   return false;
                }
@@ -252,23 +252,23 @@ public class CFrameSmallControl extends CFramePicture implements ActionListener 
       }
    }
 
-   public void Frame(Graphics var1) {
-      super.Frame(var1);
+   public void Frame(Graphics g) {
+      super.Frame(g);
       if (this.mSelection != 0) {
-         var1.setXORMode(Color.black);
-         Rectangle var2 = this.LocalToGlobalR(this.GridToRect(this.mSelection));
-         var1.fillRect(var2.x, var2.y, var2.width, var2.height);
-         var1.setPaintMode();
+         g.setXORMode(Color.black);
+         Rectangle globalRect = this.LocalToGlobalR(this.GridToRect(this.mSelection));
+         g.fillRect(globalRect.x, globalRect.y, globalRect.width, globalRect.height);
+         g.setPaintMode();
       }
 
-      this.FrameValue(var1);
+      this.FrameValue(g);
    }
 
-   public void FrameValue(Graphics var1) {
+   public void FrameValue(Graphics g) {
       if (this.mDLabelPos != null) {
-         Point var2 = this.LocalToGlobal(this.mDLabelPos);
-         var1.setColor(Color.black);
-         var1.drawString(nns(this.mValue) + " " + this.mUnits, var2.x, var2.y);
+         Point globalPoint = this.LocalToGlobal(this.mDLabelPos);
+         g.setColor(Color.black);
+         g.drawString(nns(this.mValue) + " " + this.mUnits, globalPoint.x, globalPoint.y);
       }
    }
 

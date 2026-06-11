@@ -26,7 +26,7 @@ public class Vibration extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public void actionPerformed(ActionEvent var1) {
+   public void actionPerformed(ActionEvent e) {
       Date ddd = new Date();
       long thisTime = ddd.getTime();
       if (this.mLastTime == 0) {

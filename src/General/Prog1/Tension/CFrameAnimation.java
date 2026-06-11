@@ -87,8 +87,8 @@ class CFrameAnimation extends CFrame {
 
       this.Spring(40.0 + 100.0 * (1.0 + this.mDelta / 100.0) + this.mXpos, 160.0 + this.mYpos, 40.0 + 200.0 * (1.0 + this.mDelta / 100.0), 160.0);
 
-      for (int var14 = 1; var14 < this.mspringpoints; var14++) {
-         g.drawLine((int)this.mXspring[var14], (int)this.mYspring[var14], (int)this.mXspring[var14 + 1], (int)this.mYspring[var14 + 1]);
+      for (int i = 1; i < this.mspringpoints; i++) {
+         g.drawLine((int)this.mXspring[i], (int)this.mYspring[i], (int)this.mXspring[i + 1], (int)this.mYspring[i + 1]);
       }
 
       g.setColor(mass);
@@ -101,11 +101,11 @@ class CFrameAnimation extends CFrame {
       double mf = 100.0 * (1.0 + this.mDelta / 100.0) / Math.cos(malpha) - 100.0 - this.mMass * 9.81 / (2.0 * this.mK * Math.sin(malpha));
       double mylast = mf;
 
-      for (int var16 = 2; var16 < 100; var16++) {
-         malpha = (Math.PI / 2) - Math.PI * var16 / 200.0;
+      for (int j = 2; j < 100; j++) {
+         malpha = (Math.PI / 2) - Math.PI * j / 200.0;
          mf = 100.0 * (1.0 + this.mDelta / 100.0) / Math.cos(malpha) - 100.0 - this.mMass * 9.81 / (2.0 * this.mK * Math.sin(malpha));
          if (mylast * mf < 0.0) {
-            malphasol = (Math.PI / 2) - Math.PI * (var16 - 0.5) / 200.0;
+            malphasol = (Math.PI / 2) - Math.PI * (j - 0.5) / 200.0;
             this.mYe = 160 + (int)(100.0 * (1.0 + this.mDelta / 100.0) * Math.tan(malphasol));
             g.drawLine(this.mXe - 2, this.mYe - 2, this.mXe + 2, this.mYe + 2);
             g.drawLine(this.mXe - 2, this.mYe + 2, this.mXe + 2, this.mYe - 2);
@@ -119,11 +119,11 @@ class CFrameAnimation extends CFrame {
       mf = 100.0 * (1.0 + this.mDelta / 100.0) / Math.cos(malpha) - 100.0 - this.mMass * 9.81 / (2.0 * this.mK * Math.sin(malpha));
       mylast = mf;
 
-      for (int var18 = 2; var18 < 100; var18++) {
-         malpha = -Math.PI * var18 / 200.0;
+      for (int k = 2; k < 100; k++) {
+         malpha = -Math.PI * k / 200.0;
          mf = 100.0 * (1.0 + this.mDelta / 100.0) / Math.cos(malpha) - 100.0 - this.mMass * 9.81 / (2.0 * this.mK * Math.sin(malpha));
          if (mylast * mf < 0.0) {
-            malphasol = -Math.PI * (var18 - 0.5) / 200.0;
+            malphasol = -Math.PI * (k - 0.5) / 200.0;
          }
 
          mylast = mf;

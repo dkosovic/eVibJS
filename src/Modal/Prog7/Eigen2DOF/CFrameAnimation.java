@@ -76,8 +76,8 @@ class CFrameAnimation extends CFrame {
    double m1;
    double m2;
 
-   public CFrameAnimation(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameAnimation(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
       this.mm1 = 1.0;
       this.mc1 = 0.4;
       this.mk2 = 10.0;
@@ -92,20 +92,20 @@ class CFrameAnimation extends CFrame {
       this.myscale = 10.0;
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       this.mx11 = new double[500];
       this.mx12 = new double[500];
       this.mx21 = new double[500];
       this.mx22 = new double[500];
       this.mx_exact1 = new double[500];
       this.mx_exact2 = new double[500];
-      var1.setPaintMode();
+      g.setPaintMode();
       this.u1 = new double[2];
       this.u2 = new double[2];
       new Color(0.18F, 0.58F, 0.58F);
-      var1.setColor(Color.white);
-      var1.fillRect(0, 0, super.width, super.height);
-      var1.setColor(Color.black);
+      g.setColor(Color.white);
+      g.fillRect(0, 0, super.width, super.height);
+      g.setColor(Color.black);
       double[][] var16 = new double[2][2];
       var16[0][0] = this.mm1;
       var16[0][1] = 0.0;
@@ -175,40 +175,40 @@ class CFrameAnimation extends CFrame {
       this.wn2 = this.lambda_imag[2] / Math.sqrt(1.0 - this.Xi2 * this.Xi2);
       this.Eigenvalues(this.M, this.K);
 
-      for (int var3 = 0; var3 < 2; var3++) {
-         this.Eigenvector(this.M, this.K, this.lambda[var3]);
+      for (int i = 0; i < 2; i++) {
+         this.Eigenvector(this.M, this.K, this.lambda[i]);
 
-         for (int var4 = 0; var4 < 2; var4++) {
-            if (var3 == 0) {
-               this.u1[var4] = this.u[var4];
+         for (int j = 0; j < 2; j++) {
+            if (i == 0) {
+               this.u1[j] = this.u[j];
             } else {
-               this.u2[var4] = this.u[var4];
+               this.u2[j] = this.u[j];
             }
          }
       }
 
       this.m1 = this.mm1 * this.u1[0] * this.u1[0] + this.mm2 * this.u1[1] * this.u1[1];
       this.m2 = this.mm1 * this.u2[0] * this.u2[0] + this.mm2 * this.u2[1] * this.u2[1];
-      var1.setColor(Color.black);
+      g.setColor(Color.black);
 
-      for (int var47 = 1; var47 < 5; var47++) {
-         var1.drawLine(27, 100 * var47, 513, 100 * var47);
+      for (int k = 1; k < 5; k++) {
+         g.drawLine(27, 100 * k, 513, 100 * k);
 
          for (int var2 = 1; var2 < 10; var2++) {
-            var1.drawLine(30 + var2 * 50, 100 * var47 - 2, 30 + var2 * 50, 100 * var47 + 2);
+            g.drawLine(30 + var2 * 50, 100 * k - 2, 30 + var2 * 50, 100 * k + 2);
          }
 
-         var1.drawLine(30, 100 * var47 - 42, 30, 100 * var47 + 42);
+         g.drawLine(30, 100 * k - 42, 30, 100 * k + 42);
 
          for (int var38 = 1; var38 < 10; var38++) {
-            var1.drawLine(30, 100 * var47 - 10 * (var38 - 5), 27, 100 * var47 - 10 * (var38 - 5));
+            g.drawLine(30, 100 * k - 10 * (var38 - 5), 27, 100 * k - 10 * (var38 - 5));
          }
       }
 
-      var1.drawLine(27, 480, 513, 480);
+      g.drawLine(27, 480, 513, 480);
 
       for (int var39 = 0; var39 < 10; var39++) {
-         var1.drawLine(30 + var39 * 50, 478, 30 + var39 * 50, 482);
+         g.drawLine(30 + var39 * 50, 478, 30 + var39 * 50, 482);
       }
 
       double var22 = (this.mm1 * this.u1[0] * this.mx10 + this.mm2 * this.u1[1] * this.mx20) / this.m1;
@@ -219,7 +219,7 @@ class CFrameAnimation extends CFrame {
       double var32 = Math.atan2(var24 + this.mXi1w1 * var22, this.mwd1 * var22);
       double var34 = Math.sqrt(var26 * var26 + (var28 + this.mXi2w2 * var26) * (var28 + this.mXi2w2 * var26) / this.mwd2 / this.mwd2);
       double var36 = Math.atan2(var28 + this.mXi2w2 * var26, this.mwd2 * var26);
-      var1.setColor(Color.blue);
+      g.setColor(Color.blue);
 
       for (int var40 = 0; var40 < 481; var40++) {
          this.mt = var40 * this.mdt;
@@ -227,11 +227,11 @@ class CFrameAnimation extends CFrame {
          if (var40 == 0) {
             this.mAmp1 = this.mx11[var40];
          } else {
-            var1.drawLine(30 + (var40 - 1), (int)(100.0 - this.mx11[var40 - 1] * this.myscale), 30 + var40, (int)(100.0 - this.mx11[var40] * this.myscale));
+            g.drawLine(30 + (var40 - 1), (int)(100.0 - this.mx11[var40 - 1] * this.myscale), 30 + var40, (int)(100.0 - this.mx11[var40] * this.myscale));
          }
       }
 
-      var1.setColor(Color.green);
+      g.setColor(Color.green);
 
       for (int var41 = 0; var41 < 481; var41++) {
          this.mt = var41 * this.mdt;
@@ -239,20 +239,20 @@ class CFrameAnimation extends CFrame {
          if (var41 == 0) {
             this.mAmp1 = this.mx12[var41];
          } else {
-            var1.drawLine(30 + (var41 - 1), (int)(200.0 - this.mx12[var41 - 1] * this.myscale), 30 + var41, (int)(200.0 - this.mx12[var41] * this.myscale));
+            g.drawLine(30 + (var41 - 1), (int)(200.0 - this.mx12[var41 - 1] * this.myscale), 30 + var41, (int)(200.0 - this.mx12[var41] * this.myscale));
          }
       }
 
-      var1.setColor(Color.red);
+      g.setColor(Color.red);
 
       for (int var42 = 2; var42 < 481; var42 += 2) {
-         var1.drawLine(
+         g.drawLine(
             30 + (var42 - 1),
             (int)(301.0 - (this.mx11[var42] + this.mx12[var42]) * this.myscale),
             30 + var42 + 1,
             (int)(299.0 - (this.mx11[var42] + this.mx12[var42]) * this.myscale)
          );
-         var1.drawLine(
+         g.drawLine(
             30 + (var42 - 1),
             (int)(299.0 - (this.mx11[var42] + this.mx12[var42]) * this.myscale),
             30 + var42 + 1,
@@ -260,30 +260,30 @@ class CFrameAnimation extends CFrame {
          );
       }
 
-      var1.setColor(Color.orange);
+      g.setColor(Color.orange);
 
       for (int var43 = 0; var43 < 481; var43++) {
          this.mt = var43 * this.mdt;
          this.mx21[var43] = var30 * Math.cos(this.mwd1 * this.mt - var32) * this.u1[1] * Math.exp(-this.mXi1w1 * this.mt);
       }
 
-      var1.setColor(Color.green);
+      g.setColor(Color.green);
 
       for (int var44 = 0; var44 < 481; var44++) {
          this.mt = var44 * this.mdt;
          this.mx22[var44] = var34 * Math.cos(this.mwd2 * this.mt - var36) * this.u2[1] * Math.exp(-this.mXi2w2 * this.mt);
       }
 
-      var1.setColor(Color.red);
+      g.setColor(Color.red);
 
       for (int var45 = 0; var45 < 481; var45 += 2) {
-         var1.drawLine(
+         g.drawLine(
             30 + (var45 - 1),
             (int)(401.0 - (this.mx21[var45] + this.mx22[var45]) * this.myscale),
             30 + var45 + 1,
             (int)(399.0 - (this.mx21[var45] + this.mx22[var45]) * this.myscale)
          );
-         var1.drawLine(
+         g.drawLine(
             30 + (var45 - 1),
             (int)(399.0 - (this.mx21[var45] + this.mx22[var45]) * this.myscale),
             30 + var45 + 1,
@@ -291,14 +291,14 @@ class CFrameAnimation extends CFrame {
          );
       }
 
-      var1.setColor(Color.black);
+      g.setColor(Color.black);
       this.Response();
 
       for (int var46 = 0; var46 < 481; var46++) {
          if (var46 == 0) {
             this.mAmp1 = 0.0;
          } else {
-            var1.drawLine(
+            g.drawLine(
                30 + (var46 - 1), (int)(300.0 - this.mx_exact1[var46 - 1] * this.myscale), 30 + var46, (int)(300.0 - this.mx_exact1[var46] * this.myscale)
             );
          }
@@ -306,7 +306,7 @@ class CFrameAnimation extends CFrame {
          if (var46 == 0) {
             this.mAmp1 = 0.0;
          } else {
-            var1.drawLine(
+            g.drawLine(
                30 + (var46 - 1), (int)(400.0 - this.mx_exact2[var46 - 1] * this.myscale), 30 + var46, (int)(400.0 - this.mx_exact2[var46] * this.myscale)
             );
          }
@@ -329,54 +329,54 @@ class CFrameAnimation extends CFrame {
       var10[0] = this.mv20;
       this.mx_exact2[0] = var9[0];
 
-      for (int var1 = 0; var1 < 481; var1++) {
-         var8[var1] = (-this.mk1 * var6[var1] - this.mc1 * var7[var1] + this.mk2 * (var9[var1] - var6[var1]) + this.mc2 * (var10[var1] - var7[var1]))
+      for (int i = 0; i < 481; i++) {
+         var8[i] = (-this.mk1 * var6[i] - this.mc1 * var7[i] + this.mk2 * (var9[i] - var6[i]) + this.mc2 * (var10[i] - var7[i]))
             / this.mm1;
-         var11[var1] = (-this.mk2 * (var9[var1] - var6[var1]) - this.mc2 * (var10[var1] - var7[var1])) / this.mm2;
-         var6[var1 + 1] = var6[var1] + var7[var1] * this.mdt / 2.0;
-         var9[var1 + 1] = var9[var1] + var10[var1] * this.mdt / 2.0;
-         var7[var1 + 1] = var7[var1] + var8[var1] * this.mdt / 2.0;
-         var10[var1 + 1] = var10[var1] + var11[var1] * this.mdt / 2.0;
-         var8[var1 + 1] = (
-               -this.mk1 * var6[var1 + 1]
-                  - this.mc1 * var7[var1 + 1]
-                  + this.mk2 * (var9[var1 + 1] - var6[var1 + 1])
-                  + this.mc2 * (var10[var1 + 1] - var7[var1 + 1])
+         var11[i] = (-this.mk2 * (var9[i] - var6[i]) - this.mc2 * (var10[i] - var7[i])) / this.mm2;
+         var6[i + 1] = var6[i] + var7[i] * this.mdt / 2.0;
+         var9[i + 1] = var9[i] + var10[i] * this.mdt / 2.0;
+         var7[i + 1] = var7[i] + var8[i] * this.mdt / 2.0;
+         var10[i + 1] = var10[i] + var11[i] * this.mdt / 2.0;
+         var8[i + 1] = (
+               -this.mk1 * var6[i + 1]
+                  - this.mc1 * var7[i + 1]
+                  + this.mk2 * (var9[i + 1] - var6[i + 1])
+                  + this.mc2 * (var10[i + 1] - var7[i + 1])
             )
             / this.mm1;
-         var11[var1 + 1] = (-this.mk2 * (var9[var1 + 1] - var6[var1 + 1]) - this.mc2 * (var10[var1 + 1] - var7[var1 + 1])) / this.mm2;
-         var6[var1 + 2] = var6[var1] + var7[var1 + 1] * this.mdt / 2.0;
-         var9[var1 + 2] = var9[var1] + var10[var1 + 1] * this.mdt / 2.0;
-         var7[var1 + 2] = var7[var1] + var8[var1 + 1] * this.mdt / 2.0;
-         var10[var1 + 2] = var10[var1] + var11[var1 + 1] * this.mdt / 2.0;
-         var8[var1 + 2] = (
-               -this.mk1 * var6[var1 + 2]
-                  - this.mc1 * var7[var1 + 2]
-                  + this.mk2 * (var9[var1 + 2] - var6[var1 + 2])
-                  + this.mc2 * (var10[var1 + 2] - var7[var1 + 2])
+         var11[i + 1] = (-this.mk2 * (var9[i + 1] - var6[i + 1]) - this.mc2 * (var10[i + 1] - var7[i + 1])) / this.mm2;
+         var6[i + 2] = var6[i] + var7[i + 1] * this.mdt / 2.0;
+         var9[i + 2] = var9[i] + var10[i + 1] * this.mdt / 2.0;
+         var7[i + 2] = var7[i] + var8[i + 1] * this.mdt / 2.0;
+         var10[i + 2] = var10[i] + var11[i + 1] * this.mdt / 2.0;
+         var8[i + 2] = (
+               -this.mk1 * var6[i + 2]
+                  - this.mc1 * var7[i + 2]
+                  + this.mk2 * (var9[i + 2] - var6[i + 2])
+                  + this.mc2 * (var10[i + 2] - var7[i + 2])
             )
             / this.mm1;
-         var11[var1 + 2] = (-this.mk2 * (var9[var1 + 2] - var6[var1 + 2]) - this.mc2 * (var10[var1 + 2] - var7[var1 + 2])) / this.mm2;
-         var6[var1 + 3] = var6[var1] + var7[var1 + 2] * this.mdt;
-         var9[var1 + 3] = var9[var1] + var10[var1 + 2] * this.mdt;
-         var7[var1 + 3] = var7[var1] + var8[var1 + 2] * this.mdt;
-         var10[var1 + 3] = var10[var1] + var11[var1 + 2] * this.mdt;
-         var8[var1 + 3] = (
-               -this.mk1 * var6[var1 + 3]
-                  - this.mc1 * var7[var1 + 3]
-                  + this.mk2 * (var9[var1 + 3] - var6[var1 + 3])
-                  + this.mc2 * (var10[var1 + 3] - var7[var1 + 3])
+         var11[i + 2] = (-this.mk2 * (var9[i + 2] - var6[i + 2]) - this.mc2 * (var10[i + 2] - var7[i + 2])) / this.mm2;
+         var6[i + 3] = var6[i] + var7[i + 2] * this.mdt;
+         var9[i + 3] = var9[i] + var10[i + 2] * this.mdt;
+         var7[i + 3] = var7[i] + var8[i + 2] * this.mdt;
+         var10[i + 3] = var10[i] + var11[i + 2] * this.mdt;
+         var8[i + 3] = (
+               -this.mk1 * var6[i + 3]
+                  - this.mc1 * var7[i + 3]
+                  + this.mk2 * (var9[i + 3] - var6[i + 3])
+                  + this.mc2 * (var10[i + 3] - var7[i + 3])
             )
             / this.mm1;
-         var11[var1 + 3] = (-this.mk2 * (var9[var1 + 3] - var6[var1 + 3]) - this.mc2 * (var10[var1 + 3] - var7[var1 + 3])) / this.mm2;
-         var6[var1 + 1] = var6[var1] + (var7[var1] + 2.0 * var7[var1 + 1] + 2.0 * var7[var1 + 2] + var7[var1 + 3]) * this.mdt / 6.0;
-         var9[var1 + 1] = var9[var1] + (var10[var1] + 2.0 * var10[var1 + 1] + 2.0 * var10[var1 + 2] + var10[var1 + 3]) * this.mdt / 6.0;
-         var7[var1 + 1] = var7[var1] + (var8[var1] + 2.0 * var8[var1 + 1] + 2.0 * var8[var1 + 2] + var8[var1 + 3]) * this.mdt / 6.0;
-         var10[var1 + 1] = var10[var1] + (var11[var1] + 2.0 * var11[var1 + 1] + 2.0 * var11[var1 + 2] + var11[var1 + 3]) * this.mdt / 6.0;
-         var4[var1 + 1] = var6[var1 + 1];
-         var5[var1 + 1] = var9[var1 + 1];
-         this.mx_exact1[var1 + 1] = var4[var1 + 1];
-         this.mx_exact2[var1 + 1] = var5[var1 + 1];
+         var11[i + 3] = (-this.mk2 * (var9[i + 3] - var6[i + 3]) - this.mc2 * (var10[i + 3] - var7[i + 3])) / this.mm2;
+         var6[i + 1] = var6[i] + (var7[i] + 2.0 * var7[i + 1] + 2.0 * var7[i + 2] + var7[i + 3]) * this.mdt / 6.0;
+         var9[i + 1] = var9[i] + (var10[i] + 2.0 * var10[i + 1] + 2.0 * var10[i + 2] + var10[i + 3]) * this.mdt / 6.0;
+         var7[i + 1] = var7[i] + (var8[i] + 2.0 * var8[i + 1] + 2.0 * var8[i + 2] + var8[i + 3]) * this.mdt / 6.0;
+         var10[i + 1] = var10[i] + (var11[i] + 2.0 * var11[i + 1] + 2.0 * var11[i + 2] + var11[i + 3]) * this.mdt / 6.0;
+         var4[i + 1] = var6[i + 1];
+         var5[i + 1] = var9[i + 1];
+         this.mx_exact1[i + 1] = var4[i + 1];
+         this.mx_exact2[i + 1] = var5[i + 1];
       }
    }
 
@@ -387,12 +387,12 @@ class CFrameAnimation extends CFrame {
       EigenvalueDecomposition var9 = new EigenvalueDecomposition(this.D);
       this.lambda = var9.getRealEigenvalues();
 
-      for (int var5 = 0; var5 < var3 - 1; var5++) {
-         for (int var4 = 1; var4 < var3; var4++) {
-            if (this.lambda[var4] < this.lambda[var4 - 1]) {
-               double var6 = this.lambda[var4 - 1];
-               this.lambda[var4 - 1] = this.lambda[var4];
-               this.lambda[var4] = var6;
+      for (int i = 0; i < var3 - 1; i++) {
+         for (int j = 1; j < var3; j++) {
+            if (this.lambda[j] < this.lambda[j - 1]) {
+               double var6 = this.lambda[j - 1];
+               this.lambda[j - 1] = this.lambda[j];
+               this.lambda[j] = var6;
             }
          }
       }
@@ -407,16 +407,16 @@ class CFrameAnimation extends CFrame {
       Matrix var10 = var1.times(var3);
       Matrix var11 = var2.minus(var10);
 
-      for (int var6 = 0; var6 < var5 - 1; var6++) {
-         for (int var7 = 0; var7 < var5 - 1; var7++) {
-            var8[var6][var7] = var11.get(var6, var7);
+      for (int i = 0; i < var5 - 1; i++) {
+         for (int j = 0; j < var5 - 1; j++) {
+            var8[i][j] = var11.get(i, j);
          }
       }
 
       Matrix var12 = new Matrix(var8);
 
-      for (int var15 = 0; var15 < var5 - 1; var15++) {
-         var9[var15][0] = -var11.get(var15, var5 - 1);
+      for (int k = 0; k < var5 - 1; k++) {
+         var9[k][0] = -var11.get(k, var5 - 1);
       }
 
       Matrix var13 = new Matrix(var9);
@@ -427,38 +427,38 @@ class CFrameAnimation extends CFrame {
       }
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
+   public void ControlMessage(CFrame controller, int code, double val) {
       boolean var5 = false;
-      switch (var2) {
+      switch (code) {
          case 1:
-            this.mk1 = var3;
+            this.mk1 = val;
             break;
          case 2:
-            this.mm1 = var3;
+            this.mm1 = val;
             break;
          case 3:
-            this.mc1 = var3;
+            this.mc1 = val;
             break;
          case 4:
-            this.mk2 = var3;
+            this.mk2 = val;
             break;
          case 5:
-            this.mm2 = var3;
+            this.mm2 = val;
             break;
          case 6:
-            this.mc2 = var3;
+            this.mc2 = val;
             break;
          case 7:
-            this.mx10 = var3;
+            this.mx10 = val;
             break;
          case 8:
-            this.mv10 = var3;
+            this.mv10 = val;
             break;
          case 9:
-            this.mx20 = var3;
+            this.mx20 = val;
             break;
          case 10:
-            this.mv20 = var3;
+            this.mv20 = val;
       }
 
       if (var5) {

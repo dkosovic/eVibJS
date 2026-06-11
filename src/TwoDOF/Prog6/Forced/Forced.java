@@ -127,17 +127,17 @@ public class Forced extends Applet implements ActionListener {
 
       // Handle timer events
       if (this.mTimer != null) {
-         Date var1 = new Date();
-         long var4 = var1.getTime();
+         Date now = new Date();
+         long currentTime = now.getTime();
 
          // Calculate time delta for animation
          if (this.mLastTime == 0) {
-            this.mLastTime = var4;
+            this.mLastTime = currentTime;
          }
-         double var6 = (var4 - this.mLastTime) / 1000.0;
-         this.mLastTime = var4;
+         double elapsedSeconds = (currentTime - this.mLastTime) / 1000.0;
+         this.mLastTime = currentTime;
 
-         this.mAnimFrame.ControlMessage(0, var6);
+         this.mAnimFrame.ControlMessage(0, elapsedSeconds);
       }
    }
 

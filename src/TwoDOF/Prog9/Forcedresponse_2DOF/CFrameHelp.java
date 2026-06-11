@@ -17,9 +17,9 @@ class CFrameHelp extends CFrame implements ActionListener {
    public double mDelay = 1.5;
    public Point mArrowHead;
 
-   public CFrameHelp(CFramePanel var1, int var2, int var3, int var4, int var5, String var6) {
-      super(var1, var2, var3, var4, var5);
-      this.mMessage = var6;
+   public CFrameHelp(CFramePanel thePanel, int xx, int yy, int ww, int hh, String message) {
+      super(thePanel, xx, yy, ww, hh);
+      this.mMessage = message;
       this.DefaultArrowPos();
    }
 
@@ -27,8 +27,8 @@ class CFrameHelp extends CFrame implements ActionListener {
       this.mArrowHead = new Point(super.x + super.width / 2, super.y + super.height / 2);
    }
 
-   public void Frame(Graphics var1) {
-      var1.setPaintMode();
+   public void Frame(Graphics g) {
+      g.setPaintMode();
       if (this.mShowtime) {
          Point var2;
          if (this.mArrowHead == null) {
@@ -49,7 +49,7 @@ class CFrameHelp extends CFrame implements ActionListener {
 
          while (var11.hasMoreTokens()) {
             var10 += var5;
-            int var12 = var1.getFontMetrics().stringWidth(var11.nextToken());
+            int var12 = g.getFontMetrics().stringWidth(var11.nextToken());
             if (var12 > var9) {
                var9 = var12;
             }
@@ -74,10 +74,10 @@ class CFrameHelp extends CFrame implements ActionListener {
          var14.addPoint(var2.x + var20 * (var7 + var9), var2.y + var13 * var7);
          var14.addPoint(var2.x + var20 * var8, var2.y + var13 * var7);
          var14.addPoint(var2.x, var2.y);
-         var1.setColor(Color.white);
-         var1.fillPolygon(var14);
-         var1.setColor(Color.black);
-         var1.drawPolygon(var14);
+         g.setColor(Color.white);
+         g.fillPolygon(var14);
+         g.setColor(Color.black);
+         g.drawPolygon(var14);
          int var15;
          if (var20 > 0) {
             var15 = var2.x + 2 * var7;
@@ -96,12 +96,12 @@ class CFrameHelp extends CFrame implements ActionListener {
          var11 = new StringTokenizer(this.mMessage, "\n");
 
          while (var11.hasMoreTokens()) {
-            var1.drawString(var11.nextToken(), var15, var16 + ++var17 * var5);
+            g.drawString(var11.nextToken(), var15, var16 + ++var17 * var5);
          }
       }
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
+   public boolean MouseEvent(int code, boolean prevHit) {
       super.mWasHit = false;
       if (this.mShowtime) {
          this.repaint();
@@ -112,7 +112,7 @@ class CFrameHelp extends CFrame implements ActionListener {
          this.mTimer.stop();
          this.mTimer = null;
       }
-      if (var1 != 3) {
+      if (code != 3) {
          return false;
       } else if (!this.contains(super.mFramePanel.mThisPt.x, super.mFramePanel.mThisPt.y)) {
          return false;

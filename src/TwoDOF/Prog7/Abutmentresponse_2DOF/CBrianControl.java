@@ -25,25 +25,25 @@ public class CBrianControl extends CPicturePanel {
    static final int kDownSelection = 2;
    static final double kNearlyZero = 1.0E-10;
 
-   public CBrianControl(Applet var1, Label var2, double var3, double var5, double var7) {
-      this.mApplet = var1;
-      this.mLabel = var2;
+   public CBrianControl(Applet app, Label lab, double min, double val, double max) {
+      this.mApplet = app;
+      this.mLabel = lab;
       this.LoadImage(this.mApplet.getImage(this.mApplet.getCodeBase(), "BrianControl.gif"));
-      this.mMin = var3;
-      this.mValue = var5;
-      this.mMax = var7;
+      this.mMin = min;
+      this.mValue = val;
+      this.mMax = max;
       this.BroadcastValue();
    }
 
-   public Rectangle GridToRect(int var1) {
-      int var2 = super.mImage.getWidth(this);
-      int var3 = super.mImage.getHeight(this);
-      if (var2 >= 0 && var3 >= 0) {
-         switch (var1) {
+   public Rectangle GridToRect(int which) {
+      int imageWidth = super.mImage.getWidth(this);
+      int imageHeight = super.mImage.getHeight(this);
+      if (imageWidth >= 0 && imageHeight >= 0) {
+         switch (which) {
             case 1:
-               return new Rectangle(0, 0, var2, var3 / 2);
+               return new Rectangle(0, 0, imageWidth, imageHeight / 2);
             case 2:
-               return new Rectangle(0, var3 / 2, var2, var3);
+               return new Rectangle(0, imageHeight / 2, imageWidth, imageHeight);
             default:
                return null;
          }
@@ -52,44 +52,44 @@ public class CBrianControl extends CPicturePanel {
       }
    }
 
-   public int GetSelection(Point var1) {
-      for (int var2 = 1; var2 <= 2; var2++) {
-         Rectangle var3 = this.GridToRect(var2);
-         if (var3 == null) {
+   public int GetSelection(Point p) {
+      for (int i = 1; i <= 2; i++) {
+         Rectangle selectionRect = this.GridToRect(i);
+         if (selectionRect == null) {
             return 0;
          }
 
-         if (var3.contains(var1.x, var1.y)) {
-            return var2;
+         if (selectionRect.contains(p.x, p.y)) {
+            return i;
          }
       }
 
       return 0;
    }
 
-   public int GetSelection(int var1, int var2) {
-      Point var3 = new Point(var1, var2);
-      return this.GetSelection(var3);
+   public int GetSelection(int xx, int yy) {
+      Point point = new Point(xx, yy);
+      return this.GetSelection(point);
    }
 
-   public static boolean NearlyEqual(double var0, double var2) {
-      return Math.abs(var2 - var0) < 1.0E-10;
+   public static boolean NearlyEqual(double d1, double d2) {
+      return Math.abs(d2 - d1) < 1.0E-10;
    }
 
-   public static String nns(double var0, int var2) {
-      if (var2 <= 0) {
-         var2 = 1;
+   public static String nns(double arg, int sig) {
+      if (sig <= 0) {
+         sig = 1;
       }
 
-      if (NearlyEqual(var0, 0.0)) {
+      if (NearlyEqual(arg, 0.0)) {
          return "0";
-      } else if (var0 < 0.0) {
-         return "-" + nns(-var0, var2);
+      } else if (arg < 0.0) {
+         return "-" + nns(-arg, sig);
       } else {
-         double var3 = Math.floor(log10(var0));
-         double var5 = Math.pow(10.0, var3 - var2 + 1.0);
-         long var7 = Math.round(var0 / var5);
-         String var9 = String.valueOf(var7 * var5);
+         double magnitude = Math.floor(log10(arg));
+         double stepSize = Math.pow(10.0, magnitude - sig + 1.0);
+         long var7 = Math.round(arg / stepSize);
+         String var9 = String.valueOf(var7 * stepSize);
 
          while (var9.length() > 1 && var9.indexOf(46) > -1) {
             boolean var10 = false;
@@ -108,11 +108,11 @@ public class CBrianControl extends CPicturePanel {
             double var13;
             try {
                var13 = java.lang.Double.parseDouble(var12);
-            } catch (NumberFormatException var14) {
+            } catch (NumberFormatException ex) {
                break;
             }
 
-            if (Math.abs(var0 - var13) > var5) {
+            if (Math.abs(arg - var13) > stepSize) {
                break;
             }
 
@@ -123,23 +123,23 @@ public class CBrianControl extends CPicturePanel {
       }
    }
 
-   public static String nns(double var0) {
-      return nns(var0, 4);
+   public static String nns(double arg) {
+      return nns(arg, 4);
    }
 
-   public static double log10(double var0) {
-      return Math.log(var0) / Math.log(10.0);
+   public static double log10(double arg) {
+      return Math.log(arg) / Math.log(10.0);
    }
 
-   public void NewSelection(int var1) {
-      this.mSelection = var1;
+   public void NewSelection(int newSel) {
+      this.mSelection = newSel;
       this.mSelStart = new Date();
       this.mOldValue = this.mValue;
       if (this.mSelection == 0) {
          this.mDeltaPerSec = 0.0;
       } else {
-         double var2 = Math.floor(log10(Math.abs(this.mMax - this.mMin)));
-         this.mDeltaPerSec = Math.pow(10.0, var2 - 2.0);
+         double magnitude = Math.floor(log10(Math.abs(this.mMax - this.mMin)));
+         this.mDeltaPerSec = Math.pow(10.0, magnitude - 2.0);
          if (this.mSelection == 2) {
             this.mDeltaPerSec = -this.mDeltaPerSec;
          }
@@ -153,17 +153,17 @@ public class CBrianControl extends CPicturePanel {
    void NewValue() {
       if (this.mSelStart != null) {
          long var1 = this.mSelStart.getTime();
-         Date var3 = new Date();
-         long var4 = var3.getTime();
-         double var6 = (var4 - var1) / 1000.0;
-         boolean var8 = var6 > 1.0;
+         Date now = new Date();
+         long currentTime = now.getTime();
+         double elapsedSeconds = (currentTime - var1) / 1000.0;
+         boolean var8 = elapsedSeconds > 1.0;
          double var9;
          double var11;
          if (var8) {
-            var9 = this.mDeltaPerSec * 10.0 * var6;
+            var9 = this.mDeltaPerSec * 10.0 * elapsedSeconds;
             var11 = this.mDeltaPerSec;
          } else {
-            var9 = this.mDeltaPerSec * var6;
+            var9 = this.mDeltaPerSec * elapsedSeconds;
             var11 = this.mDeltaPerSec / 10.0;
          }
 
@@ -179,12 +179,12 @@ public class CBrianControl extends CPicturePanel {
       }
    }
 
-   public static double MyRound(double var0, double var2) {
-      if (var2 == 0.0) {
-         return var0;
+   public static double MyRound(double val, double quant) {
+      if (quant == 0.0) {
+         return val;
       } else {
-         var2 = Math.abs(var2);
-         return Math.round(var0 / var2) * var2;
+         quant = Math.abs(quant);
+         return Math.round(val / quant) * quant;
       }
    }
 
@@ -193,17 +193,17 @@ public class CBrianControl extends CPicturePanel {
          this.mLabel.setText(nns(this.mValue));
       }
 
-      Event var1 = new Event(this.mApplet, Event.SCROLL_ABSOLUTE, this);
-      this.postEvent(var1);
+      Event event = new Event(this.mApplet, Event.SCROLL_ABSOLUTE, this);
+      this.postEvent(event);
    }
 
-   public boolean mouseDown(Event var1, int var2, int var3) {
-      this.NewSelection(this.GetSelection(var2, var3));
+   public boolean mouseDown(Event evt, int xx, int yy) {
+      this.NewSelection(this.GetSelection(xx, yy));
       return true;
    }
 
-   public boolean mouseDrag(Event var1, int var2, int var3) {
-      int var4 = this.GetSelection(var2, var3);
+   public boolean mouseDrag(Event evt, int xx, int yy) {
+      int var4 = this.GetSelection(xx, yy);
       if (var4 != this.mSelection) {
          this.NewSelection(var4);
       }
@@ -211,19 +211,19 @@ public class CBrianControl extends CPicturePanel {
       return true;
    }
 
-   public boolean mouseUp(Event var1, int var2, int var3) {
+   public boolean mouseUp(Event evt, int xx, int yy) {
       this.NewSelection(0);
       return true;
    }
 
-   public void paint(Graphics var1) {
-      super.paint(var1);
+   public void paint(Graphics g) {
+      super.paint(g);
       if (this.mSelection != 0) {
          this.NewValue();
-         var1.setXORMode(Color.black);
-         Rectangle var2 = this.GridToRect(this.mSelection);
-         var1.fillRect(var2.x, var2.y, var2.width, var2.height);
-         var1.setPaintMode();
+         g.setXORMode(Color.black);
+         Rectangle selectionRect = this.GridToRect(this.mSelection);
+         g.fillRect(selectionRect.x, selectionRect.y, selectionRect.width, selectionRect.height);
+         g.setPaintMode();
          this.repaint(100L);
       }
    }

@@ -81,7 +81,7 @@ class CInputDialog extends JFrame implements ActionListener {
                   if (var3 > 0.0) {
                      this.mSMD.mSpringConstant = var3;
                   }
-               } catch (NumberFormatException var5) {
+               } catch (NumberFormatException ex) {
                }
             }
 
@@ -90,7 +90,7 @@ class CInputDialog extends JFrame implements ActionListener {
                if (var6 > 0.0) {
                   this.mSMD.mMass = var6;
                }
-            } catch (NumberFormatException var4) {
+            } catch (NumberFormatException ex) {
             }
 
             this.mSMD.ControlMessage(null, 6, 0.0);

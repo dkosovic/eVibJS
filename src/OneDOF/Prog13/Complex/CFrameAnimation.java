@@ -85,12 +85,12 @@ class CFrameAnimation extends CFrame {
       g.drawLine(500, 160, 500 + mxforX, 160 + myforX);
       g.drawLine(500 + mxforX, 160 + myforX, 350, 160 + myforX);
 
-      for (int var10 = 0; var10 < 170; var10++) {
+      for (int i = 0; i < 170; i++) {
          g.drawLine(
-            350 - var10 * 2,
-            160 + (int)(-this.mX * Math.sin(this.mW * (this.mTime - var10 * 0.025) * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0)),
-            350 - (var10 + 1) * 2,
-            160 + (int)(-this.mX * Math.sin(this.mW * (this.mTime - (var10 + 1) * 0.025) * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0))
+            350 - i * 2,
+            160 + (int)(-this.mX * Math.sin(this.mW * (this.mTime - i * 0.025) * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0)),
+            350 - (i + 1) * 2,
+            160 + (int)(-this.mX * Math.sin(this.mW * (this.mTime - (i + 1) * 0.025) * 2.0 * Math.PI + (this.mPhi + 20.0) * Math.PI / 180.0))
          );
       }
 

@@ -30,9 +30,9 @@ class CPicturePanel extends Panel {
       if (this.mImage == null) {
          return new Dimension(20, 24);
       } else {
-         int var1 = this.mImage.getWidth(this);
-         int var2 = this.mImage.getHeight(this);
-         return var1 >= 0 && var2 >= 0 ? new Dimension(var1, var2) : new Dimension(20, 24);
+         int width = this.mImage.getWidth(this);
+         int height = this.mImage.getHeight(this);
+         return width >= 0 && height >= 0 ? new Dimension(width, height) : new Dimension(20, 24);
       }
    }
 
@@ -40,11 +40,11 @@ class CPicturePanel extends Panel {
       return this.minimumSize();
    }
 
-   public void paint(Graphics var1) {
+   public void paint(Graphics g) {
       if (this.mImage != null) {
-         var1.drawImage(this.mImage, 0, 0, this);
+         g.drawImage(this.mImage, 0, 0, this);
       } else {
-         var1.drawString("...", 0, 20);
+         g.drawString("...", 0, 20);
       }
    }
 }

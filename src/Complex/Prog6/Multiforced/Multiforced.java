@@ -73,7 +73,7 @@ public class Multiforced extends Applet implements ActionListener {
             try {
                var4 = new URL(var3);
                this.getAppletContext().showDocument((URL)var4, "_blank");
-            } catch (MalformedURLException var5) {
+            } catch (MalformedURLException ex) {
                System.out.println("Malformed URL exception");
             }
          }

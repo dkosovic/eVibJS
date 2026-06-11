@@ -104,7 +104,7 @@ class CInputDialog extends JFrame implements ActionListener {
                   if (var3 >= 0.0) {
                      this.mSMD.mDampingConstant = var3;
                   }
-               } catch (NumberFormatException var6) {
+               } catch (NumberFormatException ex) {
                }
             }
 
@@ -114,7 +114,7 @@ class CInputDialog extends JFrame implements ActionListener {
                   if (var7 > 0.0) {
                      this.mSMD.mSpringConstant = var7;
                   }
-               } catch (NumberFormatException var5) {
+               } catch (NumberFormatException ex) {
                }
             }
 

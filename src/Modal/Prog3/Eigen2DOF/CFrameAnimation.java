@@ -42,16 +42,16 @@ class CFrameAnimation extends CFrame {
    double Xi1;
    double Xi2;
 
-   public CFrameAnimation(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameAnimation(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
    }
 
-   public void Frame(Graphics var1) {
-      var1.setPaintMode();
+   public void Frame(Graphics g) {
+      g.setPaintMode();
       new Color(0.18F, 0.58F, 0.58F);
-      var1.setColor(Color.white);
-      var1.fillRect(0, 0, super.width, super.height);
-      var1.setColor(Color.black);
+      g.setColor(Color.white);
+      g.fillRect(0, 0, super.width, super.height);
+      g.setColor(Color.black);
       double[][] var17 = new double[2][2];
       var17[0][0] = this.mm1;
       var17[0][1] = 0.0;
@@ -111,26 +111,26 @@ class CFrameAnimation extends CFrame {
 
       short var4 = 40;
       short var5 = 25;
-      var1.drawString(CUtility.nns(this.lambda_real[0]) + " + i" + CUtility.nns(this.lambda_imag[0]), var4, var5);
+      g.drawString(CUtility.nns(this.lambda_real[0]) + " + i" + CUtility.nns(this.lambda_imag[0]), var4, var5);
       var5 = (int)55;
-      var1.drawString(CUtility.nns(this.lambda_real[1]) + " - i" + CUtility.nns(Math.abs(this.lambda_imag[1])), var4, var5);
+      g.drawString(CUtility.nns(this.lambda_real[1]) + " - i" + CUtility.nns(Math.abs(this.lambda_imag[1])), var4, var5);
       var4 = 260;
       var5 = (int)25;
-      var1.drawString(CUtility.nns(this.lambda_real[2]) + " + i" + CUtility.nns(this.lambda_imag[2]), var4, var5);
+      g.drawString(CUtility.nns(this.lambda_real[2]) + " + i" + CUtility.nns(this.lambda_imag[2]), var4, var5);
       var5 = (int)55;
-      var1.drawString(CUtility.nns(this.lambda_real[2]) + " - i" + CUtility.nns(Math.abs(this.lambda_imag[2])), var4, var5);
+      g.drawString(CUtility.nns(this.lambda_real[2]) + " - i" + CUtility.nns(Math.abs(this.lambda_imag[2])), var4, var5);
       short var24 = 126;
       var5 = (int)109;
-      var1.drawString(CUtility.nns(this.lambda_imag[0]) + " rad/s", var24, var5);
+      g.drawString(CUtility.nns(this.lambda_imag[0]) + " rad/s", var24, var5);
       var24 = (int)54;
       var5 = 140;
-      var1.drawString(CUtility.nns(this.lambda_real[0]) + " rad/s", var24, var5);
+      g.drawString(CUtility.nns(this.lambda_real[0]) + " rad/s", var24, var5);
       var24 = 346;
       short var37 = 109;
-      var1.drawString(CUtility.nns(this.lambda_imag[2]) + " rad/s", var24, var37);
+      g.drawString(CUtility.nns(this.lambda_imag[2]) + " rad/s", var24, var37);
       var24 = 274;
       var37 = 140;
-      var1.drawString(CUtility.nns(this.lambda_real[2]) + " rad/s", var24, var37);
+      g.drawString(CUtility.nns(this.lambda_real[2]) + " rad/s", var24, var37);
       this.store = this.lambda_imag[0] / this.lambda_real[0];
       this.Xi1 = Math.sqrt(1.0 / (1.0 + this.store * this.store));
       this.wn1 = this.lambda_imag[0] / Math.sqrt(1.0 - this.Xi1 * this.Xi1);
@@ -139,19 +139,19 @@ class CFrameAnimation extends CFrame {
       this.wn2 = this.lambda_imag[2] / Math.sqrt(1.0 - this.Xi2 * this.Xi2);
       short var28 = 50;
       var37 = 189;
-      var1.drawString(CUtility.nns(this.wn1) + " rad/s", var28, var37);
+      g.drawString(CUtility.nns(this.wn1) + " rad/s", var28, var37);
       var28 = (int)34;
       var37 = 211;
-      var1.drawString(CUtility.nns(this.Xi1), var28, var37);
+      g.drawString(CUtility.nns(this.Xi1), var28, var37);
       var28 = 270;
       var37 = 189;
-      var1.drawString(CUtility.nns(this.wn2) + " rad/s", var28, var37);
+      g.drawString(CUtility.nns(this.wn2) + " rad/s", var28, var37);
       var28 = 254;
       var37 = 211;
-      var1.drawString(CUtility.nns(this.Xi2), var28, var37);
+      g.drawString(CUtility.nns(this.Xi2), var28, var37);
       this.Eigenvalues(this.M, this.K);
-      var1.drawString(CUtility.nns(Math.sqrt(this.lambda[0])) + " rad/s", 50, 279);
-      var1.drawString(CUtility.nns(Math.sqrt(this.lambda[1])) + " rad/s", 270, 279);
+      g.drawString(CUtility.nns(Math.sqrt(this.lambda[0])) + " rad/s", 50, 279);
+      g.drawString(CUtility.nns(Math.sqrt(this.lambda[1])) + " rad/s", 270, 279);
    }
 
    public void Eigenvalues(Matrix var1, Matrix var2) {
@@ -161,37 +161,37 @@ class CFrameAnimation extends CFrame {
       EigenvalueDecomposition var9 = new EigenvalueDecomposition(this.D);
       this.lambda = var9.getRealEigenvalues();
 
-      for (int var5 = 0; var5 < var3 - 1; var5++) {
-         for (int var4 = 1; var4 < var3; var4++) {
-            if (this.lambda[var4] < this.lambda[var4 - 1]) {
-               double var6 = this.lambda[var4 - 1];
-               this.lambda[var4 - 1] = this.lambda[var4];
-               this.lambda[var4] = var6;
+      for (int i = 0; i < var3 - 1; i++) {
+         for (int j = 1; j < var3; j++) {
+            if (this.lambda[j] < this.lambda[j - 1]) {
+               double var6 = this.lambda[j - 1];
+               this.lambda[j - 1] = this.lambda[j];
+               this.lambda[j] = var6;
             }
          }
       }
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
+   public void ControlMessage(CFrame controller, int code, double val) {
       boolean var5 = false;
-      switch (var2) {
+      switch (code) {
          case 1:
-            this.mk1 = var3;
+            this.mk1 = val;
             break;
          case 2:
-            this.mm1 = var3;
+            this.mm1 = val;
             break;
          case 3:
-            this.mc1 = var3;
+            this.mc1 = val;
             break;
          case 4:
-            this.mk2 = var3;
+            this.mk2 = val;
             break;
          case 5:
-            this.mm2 = var3;
+            this.mm2 = val;
             break;
          case 6:
-            this.mc2 = var3;
+            this.mc2 = val;
       }
 
       if (var5) {

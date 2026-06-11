@@ -181,11 +181,11 @@ class CFrameAnimation extends CFrame {
       coil = (201 + y2 - 110 - 20 - y1) / 10.0;
       g.drawLine(517, 130 + y1, 523, (int)(130 + y1 + coil / 2.0));
 
-      for (int var23 = 1; var23 < 10; var23++) {
-         if (var23 % 2 == 0) {
-            g.drawLine(511, (int)(130 + y1 + (2 * var23 - 1) * coil / 2.0), 523, (int)(130 + y1 + (2 * var23 + 1) * coil / 2.0));
+      for (int i = 1; i < 10; i++) {
+         if (i % 2 == 0) {
+            g.drawLine(511, (int)(130 + y1 + (2 * i - 1) * coil / 2.0), 523, (int)(130 + y1 + (2 * i + 1) * coil / 2.0));
          } else {
-            g.drawLine(523, (int)(130 + y1 + (2 * var23 - 1) * coil / 2.0), 511, (int)(130 + y1 + (2 * var23 + 1) * coil / 2.0));
+            g.drawLine(523, (int)(130 + y1 + (2 * i - 1) * coil / 2.0), 511, (int)(130 + y1 + (2 * i + 1) * coil / 2.0));
          }
       }
 
@@ -201,11 +201,11 @@ class CFrameAnimation extends CFrame {
       coil = (110 + y1mode1 - 19 - 20) / 10.0;
       g.drawLine(577, 39, 583, (int)(39.0 + coil / 2.0));
 
-      for (int var24 = 1; var24 < 10; var24++) {
-         if (var24 % 2 == 0) {
-            g.drawLine(571, (int)(39.0 + (2 * var24 - 1) * coil / 2.0), 583, (int)(39.0 + (2 * var24 + 1) * coil / 2.0));
+      for (int j = 1; j < 10; j++) {
+         if (j % 2 == 0) {
+            g.drawLine(571, (int)(39.0 + (2 * j - 1) * coil / 2.0), 583, (int)(39.0 + (2 * j + 1) * coil / 2.0));
          } else {
-            g.drawLine(583, (int)(39.0 + (2 * var24 - 1) * coil / 2.0), 571, (int)(39.0 + (2 * var24 + 1) * coil / 2.0));
+            g.drawLine(583, (int)(39.0 + (2 * j - 1) * coil / 2.0), 571, (int)(39.0 + (2 * j + 1) * coil / 2.0));
          }
       }
 
@@ -216,11 +216,11 @@ class CFrameAnimation extends CFrame {
       coil = (201 + y2mode1 - 110 - 20 - y1mode1) / 10.0;
       g.drawLine(577, 130 + y1mode1, 583, (int)(130 + y1mode1 + coil / 2.0));
 
-      for (int var25 = 1; var25 < 10; var25++) {
-         if (var25 % 2 == 0) {
-            g.drawLine(571, (int)(130 + y1mode1 + (2 * var25 - 1) * coil / 2.0), 583, (int)(130 + y1mode1 + (2 * var25 + 1) * coil / 2.0));
+      for (int k = 1; k < 10; k++) {
+         if (k % 2 == 0) {
+            g.drawLine(571, (int)(130 + y1mode1 + (2 * k - 1) * coil / 2.0), 583, (int)(130 + y1mode1 + (2 * k + 1) * coil / 2.0));
          } else {
-            g.drawLine(583, (int)(130 + y1mode1 + (2 * var25 - 1) * coil / 2.0), 571, (int)(130 + y1mode1 + (2 * var25 + 1) * coil / 2.0));
+            g.drawLine(583, (int)(130 + y1mode1 + (2 * k - 1) * coil / 2.0), 571, (int)(130 + y1mode1 + (2 * k + 1) * coil / 2.0));
          }
       }
 
@@ -349,13 +349,13 @@ class CFrameAnimation extends CFrame {
             );
       }
 
-      for (int var3 = 0; var3 < 1598; var3++) {
+      for (int i = 0; i < 1598; i++) {
          this.mTraceThumbnailGC
             .drawLine(
-               (var3 * 2 + 400) / 8,
-               (int)(this.mTraceClip.height / 8 * 0.7 + this.mDisplacement2[var3] * yscale / 8.0),
-               ((var3 + 1) * 2 + 400) / 8,
-               (int)(this.mTraceClip.height / 8 * 0.7 + this.mDisplacement2[var3 + 1] * yscale / 8.0)
+               (i * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 * 0.7 + this.mDisplacement2[i] * yscale / 8.0),
+               ((i + 1) * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 * 0.7 + this.mDisplacement2[i + 1] * yscale / 8.0)
             );
       }
    }
@@ -370,35 +370,35 @@ class CFrameAnimation extends CFrame {
             .drawLine(p * 2 + 400 + 90, 60 + (int)(yscale * this.mDisplacement1[p]), (p + 1) * 2 + 400 + 90, 60 + (int)(yscale * this.mDisplacement1[p + 1]));
       }
 
-      for (int var3 = 0; var3 < 1598; var3++) {
+      for (int i = 0; i < 1598; i++) {
          this.mTraceGC
             .drawLine(
-               var3 * 2 + 400 + 90,
-               151 + (int)(yscale * this.mDisplacement2[var3]),
-               (var3 + 1) * 2 + 400 + 90,
-               151 + (int)(yscale * this.mDisplacement2[var3 + 1])
+               i * 2 + 400 + 90,
+               151 + (int)(yscale * this.mDisplacement2[i]),
+               (i + 1) * 2 + 400 + 90,
+               151 + (int)(yscale * this.mDisplacement2[i + 1])
             );
       }
 
       this.mTraceGC.setColor(Color.blue);
 
-      for (int var4 = 0; var4 < 1598; var4++) {
+      for (int j = 0; j < 1598; j++) {
          this.mTraceGC
             .drawLine(
-               var4 * 2 + 400 + 90,
-               60 + (int)(yscale * this.mMode1Displacement1[var4]),
-               (var4 + 1) * 2 + 400 + 90,
-               60 + (int)(yscale * this.mMode1Displacement1[var4 + 1])
+               j * 2 + 400 + 90,
+               60 + (int)(yscale * this.mMode1Displacement1[j]),
+               (j + 1) * 2 + 400 + 90,
+               60 + (int)(yscale * this.mMode1Displacement1[j + 1])
             );
       }
 
-      for (int var5 = 0; var5 < 1598; var5++) {
+      for (int k = 0; k < 1598; k++) {
          this.mTraceGC
             .drawLine(
-               var5 * 2 + 400 + 90,
-               151 + (int)(yscale * this.mMode1Displacement2[var5]),
-               (var5 + 1) * 2 + 400 + 90,
-               151 + (int)(yscale * this.mMode1Displacement2[var5 + 1])
+               k * 2 + 400 + 90,
+               151 + (int)(yscale * this.mMode1Displacement2[k]),
+               (k + 1) * 2 + 400 + 90,
+               151 + (int)(yscale * this.mMode1Displacement2[k + 1])
             );
       }
 

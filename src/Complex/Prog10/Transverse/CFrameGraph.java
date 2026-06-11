@@ -39,135 +39,135 @@ class CFrameGraph extends CFrame {
    double mInertia2;
    double mTime;
 
-   public CFrameGraph(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameGraph(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
    }
 
-   public void Frame(Graphics var1) {
-      Color var5 = new Color(0.18F, 0.58F, 0.58F);
+   public void Frame(Graphics g) {
+      Color tealColor = new Color(0.18F, 0.58F, 0.58F);
       new Color(0.77F, 0.38F, 0.0F);
-      var1.setPaintMode();
-      var1.setColor(Color.black);
-      var1.drawLine(38, 370, 440, 370);
-      var1.drawLine(38, 371, 440, 371);
-      var1.drawLine(39, 374, 39, 15);
-      var1.drawLine(40, 374, 40, 15);
+      g.setPaintMode();
+      g.setColor(Color.black);
+      g.drawLine(38, 370, 440, 370);
+      g.drawLine(38, 371, 440, 371);
+      g.drawLine(39, 374, 39, 15);
+      g.drawLine(40, 374, 40, 15);
 
-      for (int var2 = 0; var2 < 8; var2++) {
-         var1.drawLine(40, 370 - var2 * 50, 37, 370 - var2 * 50);
+      for (int i = 0; i < 8; i++) {
+         g.drawLine(40, 370 - i * 50, 37, 370 - i * 50);
       }
 
-      for (int var7 = 1; var7 < 5; var7++) {
-         var1.drawLine(40 + var7 * 100, 370, 40 + var7 * 100, 374);
+      for (int j = 1; j < 5; j++) {
+         g.drawLine(40 + j * 100, 370, 40 + j * 100, 374);
       }
 
       this.response();
-      var1.setColor(Color.red);
+      g.setColor(Color.red);
 
-      for (int var8 = 2; var8 < 400; var8++) {
-         var1.drawLine(40 + (var8 - 1), (int)(370.0 - Math.abs(this.mRec1[var8 - 1] * 1.0E8)), 40 + var8, (int)(370.0 - Math.abs(this.mRec1[var8] * 1.0E8)));
+      for (int k = 2; k < 400; k++) {
+         g.drawLine(40 + (k - 1), (int)(370.0 - Math.abs(this.mRec1[k - 1] * 1.0E8)), 40 + k, (int)(370.0 - Math.abs(this.mRec1[k] * 1.0E8)));
       }
 
-      var1.setColor(Color.blue);
+      g.setColor(Color.blue);
 
       for (int var9 = 2; var9 < 400; var9++) {
          int var3 = (int)(370.0 - Math.abs(this.mRec2[var9 - 1] * 1.0E8));
          int var4 = (int)(370.0 - Math.abs(this.mRec2[var9] * 1.0E8));
          if (var3 > 0 & var4 > 0) {
-            var1.drawLine(40 + (var9 - 1), var3, 40 + var9, var4);
+            g.drawLine(40 + (var9 - 1), var3, 40 + var9, var4);
          }
       }
 
-      var1.setColor(var5);
+      g.setColor(tealColor);
 
       for (int var10 = 2; var10 < 400; var10++) {
-         var1.drawLine(40 + (var10 - 1), (int)(370.0 - this.mRec3[var10 - 1] * 1.0E8), 40 + var10, (int)(370.0 - this.mRec3[var10] * 1.0E8));
+         g.drawLine(40 + (var10 - 1), (int)(370.0 - this.mRec3[var10 - 1] * 1.0E8), 40 + var10, (int)(370.0 - this.mRec3[var10] * 1.0E8));
       }
 
-      var1.setColor(Color.white);
-      var1.fillRect(0, 0, 440, 20);
+      g.setColor(Color.white);
+      g.fillRect(0, 0, 440, 20);
    }
 
-   public double log10(double var1) {
-      return Math.log(var1) / Math.log(10.0);
+   public double log10(double arg) {
+      return Math.log(arg) / Math.log(10.0);
    }
 
-   public String nns(double var1, int var3) {
-      if (var3 <= 0) {
-         var3 = 1;
+   public String nns(double arg, int sig) {
+      if (sig <= 0) {
+         sig = 1;
       }
 
-      if (var1 == 0.0) {
+      if (arg == 0.0) {
          return "0";
-      } else if (var1 < 0.0) {
-         return "-" + this.nns(-var1, var3);
+      } else if (arg < 0.0) {
+         return "-" + this.nns(-arg, sig);
       } else {
-         double var4 = Math.floor(this.log10(var1));
-         double var6 = Math.pow(10.0, var4 - var3 + 1.0);
-         long var8 = Math.round(var1 / var6);
-         String var10 = String.valueOf(var8 * var6);
+         double magnitude = Math.floor(this.log10(arg));
+         double stepSize = Math.pow(10.0, magnitude - sig + 1.0);
+         long intArg = Math.round(arg / stepSize);
+         String result = String.valueOf(intArg * stepSize);
 
-         while (var10.length() > 1 && var10.indexOf(46) > -1) {
-            boolean var11 = false;
+         while (result.length() > 1 && result.indexOf(46) > -1) {
+            boolean trimmed = false;
 
-            int var12;
-            for (var12 = var10.length() - 1; var10.charAt(var12) == '0'; var11 = true) {
-               var12--;
+            int trimIdx;
+            for (trimIdx = result.length() - 1; result.charAt(trimIdx) == '0'; trimmed = true) {
+               trimIdx--;
             }
 
-            if (var11) {
-               var10 = var10.substring(0, var12 + 1);
+            if (trimmed) {
+               result = result.substring(0, trimIdx + 1);
             }
 
-            String var13 = var10.substring(0, var12);
+            String shortStr = result.substring(0, trimIdx);
 
-            double var14;
+            double parsedDouble;
             try {
-               var14 = java.lang.Double.parseDouble(var13);
-            } catch (NumberFormatException var15) {
+               parsedDouble = java.lang.Double.parseDouble(shortStr);
+            } catch (NumberFormatException ex) {
                break;
             }
 
-            if (Math.abs(var1 - var14) > var6) {
+            if (Math.abs(arg - parsedDouble) > stepSize) {
                break;
             }
 
-            var10 = var13;
+            result = shortStr;
          }
 
-         return var10;
+         return result;
       }
    }
 
-   public String nns(double var1) {
-      return this.nns(var1, 4);
+   public String nns(double arg) {
+      return this.nns(arg, 4);
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
-      boolean var5 = false;
-      switch (var2) {
+   public void ControlMessage(CFrame controller, int code, double val) {
+      boolean trimmed = false;
+      switch (code) {
          case 1:
-            this.mL = var3;
+            this.mL = val;
             this.response();
             break;
          case 2:
-            this.mD1 = var3;
+            this.mD1 = val;
             this.response();
             break;
          case 3:
-            this.mD2 = var3;
+            this.mD2 = val;
             this.response();
             break;
          case 4:
-            this.mk = var3;
+            this.mk = val;
             this.response();
             break;
          case 5:
-            this.malpha = var3;
+            this.malpha = val;
             this.response();
       }
 
-      if (var5) {
+      if (trimmed) {
          this.repaint();
       }
    }
@@ -178,21 +178,21 @@ class CFrameGraph extends CFrame {
       this.mArea2 = Math.PI * this.mD2 * this.mD2 / 4.0;
       this.mInertia2 = this.mArea2 * this.mD2 * this.mD2 / 16.0;
 
-      for (int var1 = 1; var1 < 401; var1++) {
-         this.mw = var1 * 200.0 * 2.0 * Math.PI / 400.0;
+      for (int i = 1; i < 401; i++) {
+         this.mw = i * 200.0 * 2.0 * Math.PI / 400.0;
          this.mlambda1 = Math.sqrt(Math.sqrt(this.mw * this.mw * this.mArea1 * 7800.0 / (2.0E11 * this.mInertia1)));
          this.mlambda2 = Math.sqrt(Math.sqrt(this.mw * this.mw * this.mArea2 * 7800.0 / (2.0E11 * this.mInertia2)));
-         double var14 = this.mlambda1 * this.mL;
+         double A = this.mlambda1 * this.mL;
          double var16 = this.mlambda2 * this.mL;
-         double var2 = Math.sin(var14);
-         double var4 = Math.cos(var14);
-         double var18 = Math.exp(var14);
+         double var2 = Math.sin(A);
+         double var4 = Math.cos(A);
+         double var18 = Math.exp(A);
          double var6 = (var18 - 1.0 / var18) / 2.0;
          double var8 = (var18 + 1.0 / var18) / 2.0;
          double var10 = var4 * var8 + 1.0;
          double var12 = var4 * var6 - var2 * var8;
          double var20 = 1.0 / (2.0E11 * this.mInertia1 * this.mlambda1 * this.mlambda1 * this.mlambda1 * var10);
-         this.mRec1[var1] = -var12 * var20;
+         this.mRec1[i] = -var12 * var20;
          var2 = Math.sin(var16);
          var4 = Math.cos(var16);
          var18 = Math.exp(var16);
@@ -201,12 +201,12 @@ class CFrameGraph extends CFrame {
          var10 = var4 * var8 + 1.0;
          var12 = var4 * var6 - var2 * var8;
          var20 = 1.0 / (2.0E11 * this.mInertia2 * this.mlambda2 * this.mlambda2 * this.mlambda2 * var10);
-         this.mRec2[var1] = -var12 * var20;
-         double var22 = this.mRec2[var1] + 1.0 / this.mk / (1.0 + this.malpha * this.malpha);
+         this.mRec2[i] = -var12 * var20;
+         double var22 = this.mRec2[i] + 1.0 / this.mk / (1.0 + this.malpha * this.malpha);
          double var24 = -this.malpha / this.mk / (1.0 + this.malpha * this.malpha);
-         double var26 = 1.0 / this.mRec1[var1] + var22 / (var22 * var22 + var24 * var24);
-         double var28 = -var24 / (var22 * var22 + var24 * var24);
-         this.mRec3[var1] = 1.0 / Math.sqrt(var26 * var26 + var28 * var28);
+         double var26 = 1.0 / this.mRec1[i] + var22 / (var22 * var22 + var24 * var24);
+         double mQuad = -var24 / (var22 * var22 + var24 * var24);
+         this.mRec3[i] = 1.0 / Math.sqrt(var26 * var26 + mQuad * mQuad);
       }
    }
 

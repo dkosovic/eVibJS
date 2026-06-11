@@ -41,7 +41,7 @@ public class CUtility {
 
             try {
                arg = java.lang.Double.parseDouble(result);
-            } catch (NumberFormatException var16) {
+            } catch (NumberFormatException ex) {
             }
          } else if (result.indexOf("E") > -1) {
             return result;
@@ -64,7 +64,7 @@ public class CUtility {
             double newNum;
             try {
                newNum = java.lang.Double.parseDouble(shortStr);
-            } catch (NumberFormatException var17) {
+            } catch (NumberFormatException ex) {
                break;
             }
 
@@ -282,7 +282,7 @@ public class CUtility {
 
             try {
                pg.grabPixels();
-            } catch (InterruptedException var13) {
+            } catch (InterruptedException ex) {
                System.err.println("interrupted waiting for pixels!");
                return null;
             }

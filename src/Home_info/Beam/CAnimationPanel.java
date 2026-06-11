@@ -74,11 +74,11 @@ public class CAnimationPanel extends Panel {
       double coil2 = (63 + y2 - 135) / 10.0;
       this.mOffScreenGC.drawLine(230, 135, 224, (int)(135.0 + coil2 / 2.0));
 
-      for (int var17 = 1; var17 < 10; var17++) {
-         if (var17 % 2 == 0) {
-            this.mOffScreenGC.drawLine(236, (int)(135.0 + (2 * var17 - 1) * coil2 / 2.0), 224, (int)(135.0 + (2 * var17 + 1) * coil2 / 2.0));
+      for (int i = 1; i < 10; i++) {
+         if (i % 2 == 0) {
+            this.mOffScreenGC.drawLine(236, (int)(135.0 + (2 * i - 1) * coil2 / 2.0), 224, (int)(135.0 + (2 * i + 1) * coil2 / 2.0));
          } else {
-            this.mOffScreenGC.drawLine(224, (int)(135.0 + (2 * var17 - 1) * coil2 / 2.0), 236, (int)(135.0 + (2 * var17 + 1) * coil2 / 2.0));
+            this.mOffScreenGC.drawLine(224, (int)(135.0 + (2 * i - 1) * coil2 / 2.0), 236, (int)(135.0 + (2 * i + 1) * coil2 / 2.0));
          }
       }
 

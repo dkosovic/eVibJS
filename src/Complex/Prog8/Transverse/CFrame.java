@@ -14,54 +14,54 @@ class CFrame extends Rectangle {
    public boolean mWasHit;
    CFramePanel mFramePanel;
 
-   public CFrame(CFramePanel var1) {
+   public CFrame(CFramePanel thePanel) {
       super(0, 0, 0, 0);
-      this.mFramePanel = var1;
+      this.mFramePanel = thePanel;
       this.mFramePanel.AddFrame(this);
    }
 
-   public CFrame(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var2, var3, var4, var5);
-      this.mFramePanel = var1;
+   public CFrame(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(xx, yy, ww, hh);
+      this.mFramePanel = thePanel;
       this.mFramePanel.AddFrame(this);
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
    }
 
-   public boolean MouseEvent(int var1, boolean var2) {
+   public boolean MouseEvent(int code, boolean prevHit) {
       this.mWasHit = this.contains(this.mFramePanel.mThisPt.x, this.mFramePanel.mThisPt.y);
       return false;
    }
 
-   public Point GlobalToLocal(Point var1) {
-      return var1 == null ? null : new Point(var1.x - super.x, var1.y - super.y);
+   public Point GlobalToLocal(Point glob) {
+      return glob == null ? null : new Point(glob.x - super.x, glob.y - super.y);
    }
 
-   public Rectangle GlobalToLocalR(Rectangle var1) {
-      return var1 == null ? null : new Rectangle(var1.x - super.x, var1.y - super.y, var1.width, var1.height);
+   public Rectangle GlobalToLocalR(Rectangle glob) {
+      return glob == null ? null : new Rectangle(glob.x - super.x, glob.y - super.y, glob.width, glob.height);
    }
 
-   public Point LocalToGlobal(Point var1) {
-      return var1 == null ? null : new Point(var1.x + super.x, var1.y + super.y);
+   public Point LocalToGlobal(Point loc) {
+      return loc == null ? null : new Point(loc.x + super.x, loc.y + super.y);
    }
 
-   public Rectangle LocalToGlobalR(Rectangle var1) {
-      return var1 == null ? null : new Rectangle(var1.x + super.x, var1.y + super.y, var1.width, var1.height);
+   public Rectangle LocalToGlobalR(Rectangle loc) {
+      return loc == null ? null : new Rectangle(loc.x + super.x, loc.y + super.y, loc.width, loc.height);
    }
 
    public void repaint() {
       this.mFramePanel.repaint();
    }
 
-   public void repaint(long var1) {
-      this.mFramePanel.repaint(var1);
+   public void repaint(long delay) {
+      this.mFramePanel.repaint(delay);
    }
 
-   public void ControlMessage(int var1, double var2) {
-      this.ControlMessage(null, var1, var2);
+   public void ControlMessage(int code, double val) {
+      this.ControlMessage(null, code, val);
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
+   public void ControlMessage(CFrame controller, int code, double val) {
    }
 }

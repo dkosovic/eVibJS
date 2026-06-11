@@ -60,8 +60,8 @@ class CFrameAnimation extends CFrame {
    double m1;
    double m2;
 
-   public CFrameAnimation(CFramePanel var1, int var2, int var3, int var4, int var5) {
-      super(var1, var2, var3, var4, var5);
+   public CFrameAnimation(CFramePanel thePanel, int xx, int yy, int ww, int hh) {
+      super(thePanel, xx, yy, ww, hh);
       this.mm1 = 1.0;
       this.mc1 = 0.4;
       this.mk2 = 10.0;
@@ -71,18 +71,18 @@ class CFrameAnimation extends CFrame {
       this.myscale = 45.0;
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       this.mAmp = new double[602];
       this.mRealAmp = new double[602];
       this.mQuadAmp = new double[602];
       this.mPhase = new double[602];
-      var1.setPaintMode();
+      g.setPaintMode();
       this.u1 = new double[2];
       this.u2 = new double[2];
       Color var21 = new Color(0.18F, 0.58F, 0.58F);
-      var1.setColor(Color.white);
-      var1.fillRect(0, 0, super.width, super.height);
-      var1.setColor(Color.black);
+      g.setColor(Color.white);
+      g.fillRect(0, 0, super.width, super.height);
+      g.setColor(Color.black);
       double[][] var22 = new double[2][2];
       var22[0][0] = this.mm1;
       var22[0][1] = 0.0;
@@ -148,35 +148,35 @@ class CFrameAnimation extends CFrame {
       this.wn2 = this.lambda_imag[2] / Math.sqrt(1.0 - this.Xi2 * this.Xi2);
       this.Eigenvalues(this.M, this.K);
 
-      for (int var3 = 0; var3 < 2; var3++) {
-         this.Eigenvector(this.M, this.K, this.lambda[var3]);
+      for (int i = 0; i < 2; i++) {
+         this.Eigenvector(this.M, this.K, this.lambda[i]);
 
-         for (int var4 = 0; var4 < 2; var4++) {
-            if (var3 == 0) {
-               this.u1[var4] = this.u[var4];
+         for (int j = 0; j < 2; j++) {
+            if (i == 0) {
+               this.u1[j] = this.u[j];
             } else {
-               this.u2[var4] = this.u[var4];
+               this.u2[j] = this.u[j];
             }
          }
       }
 
       this.m1 = this.mm1 * this.u1[0] * this.u1[0] + this.mm2 * this.u1[1] * this.u1[1];
       this.m2 = this.mm1 * this.u2[0] * this.u2[0] + this.mm2 * this.u2[1] * this.u2[1];
-      var1.setColor(Color.black);
-      var1.drawLine(57, 340, 543, 340);
+      g.setColor(Color.black);
+      g.drawLine(57, 340, 543, 340);
 
-      for (int var2 = 1; var2 < 9; var2++) {
-         var1.drawLine(60 + var2 * 60, 340, 60 + var2 * 60, 343);
+      for (int k = 1; k < 9; k++) {
+         g.drawLine(60 + k * 60, 340, 60 + k * 60, 343);
       }
 
-      var1.setColor(var21);
-      var1.drawLine(60, 47, 60, 343);
+      g.setColor(var21);
+      g.drawLine(60, 47, 60, 343);
 
       for (int var29 = 0; var29 < 7; var29++) {
-         var1.drawLine(60, 50 + var29 * 45, 57, 50 + var29 * 45);
+         g.drawLine(60, 50 + var29 * 45, 57, 50 + var29 * 45);
       }
 
-      var1.setColor(Color.black);
+      g.setColor(Color.black);
       this.mAmp[0] = 1.0 / this.mk1;
       double var7 = this.mAmp[0];
 
@@ -193,7 +193,7 @@ class CFrameAnimation extends CFrame {
          if (var30 == 1) {
             var7 = this.mAmp[var30];
          } else {
-            var1.drawLine(
+            g.drawLine(
                60 + (var30 - 1),
                (int)(140.0 - Math.log(var7) / Math.log(10.0) * this.myscale),
                60 + var30,
@@ -204,7 +204,7 @@ class CFrameAnimation extends CFrame {
       }
 
       Color var28 = new Color(0.77F, 0.38F, 0.0F);
-      var1.setColor(var28);
+      g.setColor(var28);
       this.mPhase[0] = 0.0;
       double var9 = this.mPhase[0];
 
@@ -214,18 +214,18 @@ class CFrameAnimation extends CFrame {
             this.mPhase[var31] = this.mPhase[var31] - 180.0;
          }
 
-         var1.drawLine(60 + (var31 - 1), (int)(130.0 - var9 / 2.0), 60 + var31, (int)(130.0 - this.mPhase[var31] / 2.0));
+         g.drawLine(60 + (var31 - 1), (int)(130.0 - var9 / 2.0), 60 + var31, (int)(130.0 - this.mPhase[var31] / 2.0));
          var9 = this.mPhase[var31];
          this.mPhase[var31] = this.mPhase[var31] * Math.PI / 180.0;
       }
 
-      var1.drawLine(540, 127, 540, 343);
+      g.drawLine(540, 127, 540, 343);
 
       for (int var32 = 0; var32 < 9; var32++) {
-         var1.drawLine(540, 130 + (int)(var32 * 22.5), 543, 130 + (int)(var32 * 22.5));
+         g.drawLine(540, 130 + (int)(var32 * 22.5), 543, 130 + (int)(var32 * 22.5));
       }
 
-      var1.setColor(Color.red);
+      g.setColor(Color.red);
 
       for (int var33 = 2; var33 < 481; var33 += 4) {
          double var41 = (Math.PI * 2) * var33 / this.mxscale;
@@ -238,13 +238,13 @@ class CFrameAnimation extends CFrame {
          this.mQuadAmp[var33] = -var43 / (var42 * var42 + var43 * var43) * this.u1[0] * this.u1[0] / this.m1
             - var46 / (var44 * var44 + var46 * var46) * this.u2[0] * this.u2[0] / this.m2;
          this.mAmp[var33] = Math.sqrt(this.mRealAmp[var33] * this.mRealAmp[var33] + this.mQuadAmp[var33] * this.mQuadAmp[var33]);
-         var1.drawLine(
+         g.drawLine(
             60 + (var33 - 1),
             (int)(141.0 - Math.log(this.mAmp[var33]) / Math.log(10.0) * this.myscale),
             60 + var33 + 1,
             (int)(139.0 - Math.log(this.mAmp[var33]) / Math.log(10.0) * this.myscale)
          );
-         var1.drawLine(
+         g.drawLine(
             60 + (var33 - 1),
             (int)(139.0 - Math.log(this.mAmp[var33]) / Math.log(10.0) * this.myscale),
             60 + var33 + 1,
@@ -252,7 +252,7 @@ class CFrameAnimation extends CFrame {
          );
       }
 
-      var1.setColor(Color.blue);
+      g.setColor(Color.blue);
 
       for (int var34 = 2; var34 < 481; var34 += 4) {
          this.mPhase[var34] = 180.0 * Math.atan(this.mQuadAmp[var34] / this.mRealAmp[var34]) / Math.PI;
@@ -260,8 +260,8 @@ class CFrameAnimation extends CFrame {
             this.mPhase[var34] = this.mPhase[var34] - 180.0;
          }
 
-         var1.drawLine(60 + (var34 - 1), (int)(131.0 - this.mPhase[var34] / 2.0), 60 + var34 + 1, (int)(129.0 - this.mPhase[var34] / 2.0));
-         var1.drawLine(60 + (var34 - 1), (int)(129.0 - this.mPhase[var34] / 2.0), 60 + var34 + 1, (int)(131.0 - this.mPhase[var34] / 2.0));
+         g.drawLine(60 + (var34 - 1), (int)(131.0 - this.mPhase[var34] / 2.0), 60 + var34 + 1, (int)(129.0 - this.mPhase[var34] / 2.0));
+         g.drawLine(60 + (var34 - 1), (int)(129.0 - this.mPhase[var34] / 2.0), 60 + var34 + 1, (int)(131.0 - this.mPhase[var34] / 2.0));
       }
    }
 
@@ -272,12 +272,12 @@ class CFrameAnimation extends CFrame {
       EigenvalueDecomposition var9 = new EigenvalueDecomposition(this.D);
       this.lambda = var9.getRealEigenvalues();
 
-      for (int var5 = 0; var5 < var3 - 1; var5++) {
-         for (int var4 = 1; var4 < var3; var4++) {
-            if (this.lambda[var4] < this.lambda[var4 - 1]) {
-               double var6 = this.lambda[var4 - 1];
-               this.lambda[var4 - 1] = this.lambda[var4];
-               this.lambda[var4] = var6;
+      for (int i = 0; i < var3 - 1; i++) {
+         for (int j = 1; j < var3; j++) {
+            if (this.lambda[j] < this.lambda[j - 1]) {
+               double var6 = this.lambda[j - 1];
+               this.lambda[j - 1] = this.lambda[j];
+               this.lambda[j] = var6;
             }
          }
       }
@@ -292,16 +292,16 @@ class CFrameAnimation extends CFrame {
       Matrix var10 = var1.times(var3);
       Matrix var11 = var2.minus(var10);
 
-      for (int var6 = 0; var6 < var5 - 1; var6++) {
-         for (int var7 = 0; var7 < var5 - 1; var7++) {
-            var8[var6][var7] = var11.get(var6, var7);
+      for (int i = 0; i < var5 - 1; i++) {
+         for (int j = 0; j < var5 - 1; j++) {
+            var8[i][j] = var11.get(i, j);
          }
       }
 
       Matrix var12 = new Matrix(var8);
 
-      for (int var15 = 0; var15 < var5 - 1; var15++) {
-         var9[var15][0] = -var11.get(var15, var5 - 1);
+      for (int k = 0; k < var5 - 1; k++) {
+         var9[k][0] = -var11.get(k, var5 - 1);
       }
 
       Matrix var13 = new Matrix(var9);
@@ -312,26 +312,26 @@ class CFrameAnimation extends CFrame {
       }
    }
 
-   public void ControlMessage(CFrame var1, int var2, double var3) {
+   public void ControlMessage(CFrame controller, int code, double val) {
       boolean var5 = false;
-      switch (var2) {
+      switch (code) {
          case 1:
-            this.mk1 = var3;
+            this.mk1 = val;
             break;
          case 2:
-            this.mm1 = var3;
+            this.mm1 = val;
             break;
          case 3:
-            this.mc1 = var3;
+            this.mc1 = val;
             break;
          case 4:
-            this.mk2 = var3;
+            this.mk2 = val;
             break;
          case 5:
-            this.mm2 = var3;
+            this.mm2 = val;
             break;
          case 6:
-            this.mc2 = var3;
+            this.mc2 = val;
       }
 
       if (var5) {

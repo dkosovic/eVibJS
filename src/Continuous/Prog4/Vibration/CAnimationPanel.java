@@ -83,12 +83,12 @@ public class CAnimationPanel extends Panel {
       this.mOffScreenGC.drawLine(50, offset + 40 + 30, 450 + (int)this.mxp, offset + 40 + 30);
       this.mOffScreenGC.setColor(force);
 
-      for (int var10 = 1; var10 < 5; var10++) {
-         this.mOffScreenGC.drawLine(451, 56 + var10, 470 + var10, 56 + var10);
+      for (int i = 1; i < 5; i++) {
+         this.mOffScreenGC.drawLine(451, 56 + i, 470 + i, 56 + i);
       }
 
-      for (int var11 = 1; var11 < 4; var11++) {
-         this.mOffScreenGC.drawLine(451, 60 + var11, 474 - var11, 60 + var11);
+      for (int j = 1; j < 4; j++) {
+         this.mOffScreenGC.drawLine(451, 60 + j, 474 - j, 60 + j);
       }
 
       this.mOffScreenGC.fillArc(450, 57, 4, 7, 0, 360);
@@ -103,9 +103,9 @@ public class CAnimationPanel extends Panel {
       this.mOffScreenGC.fillRect(50, var15 + 40 - 30, 100, 60);
       this.mOffScreenGC.setColor(mass);
 
-      for (int var12 = 1; var12 < 21; var12++) {
-         this.mxp = this.mXo * Math.sin(this.mWn1Fraction * Math.PI / 2.0 * var12 / 20.0) * Math.cos(this.mWn1Fraction * this.mWn * this.mTime * 2.0 * Math.PI);
-         this.mOffScreenGC.drawArc(50 + var12 * 20 - (int)(30.0 * Math.cos(1.0472) - this.mxp), var15 + 40 - 30, 30, 60, 90, 180);
+      for (int k = 1; k < 21; k++) {
+         this.mxp = this.mXo * Math.sin(this.mWn1Fraction * Math.PI / 2.0 * k / 20.0) * Math.cos(this.mWn1Fraction * this.mWn * this.mTime * 2.0 * Math.PI);
+         this.mOffScreenGC.drawArc(50 + k * 20 - (int)(30.0 * Math.cos(1.0472) - this.mxp), var15 + 40 - 30, 30, 60, 90, 180);
       }
 
       this.mOffScreenGC.drawArc(450 - (int)(30.0 * Math.cos(1.0472) - this.mxp), var15 + 40 - 30, 30, 60, 0, 360);

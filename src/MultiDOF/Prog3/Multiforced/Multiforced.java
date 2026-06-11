@@ -105,17 +105,17 @@ public class Multiforced extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public void actionPerformed(ActionEvent var1) {
-      Date var2 = new Date();
-      long var4 = var2.getTime();
+   public void actionPerformed(ActionEvent e) {
+      Date now = new Date();
+      long currentTime = now.getTime();
       if (this.mLastTime == 0) {
-         this.mLastTime = var4;
+         this.mLastTime = currentTime;
          return;
       }
 
-      double var6 = (var4 - this.mLastTime) / 1000.0;
-      this.mLastTime = var4;
-      this.mFrameGraph.ControlMessage(2, var6);
+      double elapsedSeconds = (currentTime - this.mLastTime) / 1000.0;
+      this.mLastTime = currentTime;
+      this.mFrameGraph.ControlMessage(2, elapsedSeconds);
    }
 
    public void stop() {

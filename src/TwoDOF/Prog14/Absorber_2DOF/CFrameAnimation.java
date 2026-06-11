@@ -58,21 +58,21 @@ class CFrameAnimation extends CFrame {
       g.setColor(mass);
       g.drawLine(80, 47, 80, 343);
 
-      for (int var9 = 0; var9 < 7; var9++) {
-         g.drawLine(80, 50 + var9 * 45, 77, 50 + var9 * 45);
+      for (int i = 0; i < 7; i++) {
+         g.drawLine(80, 50 + i * 45, 77, 50 + i * 45);
       }
 
       this.Optimise();
       double mAmp1 = this.mAmp[0];
 
-      for (int var10 = 1; var10 < 481; var10++) {
+      for (int j = 1; j < 481; j++) {
          g.drawLine(
-            80 + (var10 - 1),
+            80 + (j - 1),
             (int)(140.0 - Math.log(mAmp1) / Math.log(10.0) * this.myscale),
-            80 + var10,
-            (int)(140.0 - Math.log(this.mAmp[var10]) / Math.log(10.0) * this.myscale)
+            80 + j,
+            (int)(140.0 - Math.log(this.mAmp[j]) / Math.log(10.0) * this.myscale)
          );
-         mAmp1 = this.mAmp[var10];
+         mAmp1 = this.mAmp[j];
       }
 
       g.setColor(Color.black);

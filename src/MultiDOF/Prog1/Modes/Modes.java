@@ -89,10 +89,10 @@ public class Modes extends Applet implements ActionListener {
       this.mTimer.start();
    }
 
-   public void actionPerformed(ActionEvent var1) {
+   public void actionPerformed(ActionEvent e) {
       // Handle button clicks
-      if (var1.getSource() instanceof Button) {
-         Button source = (Button)var1.getSource();
+      if (e.getSource() instanceof Button) {
+         Button source = (Button)e.getSource();
          String label = source.getLabel();
          if (label.equals("Start") || label.equals("Cont.")) {
             this.mAnimFrame.ControlMessage(1, 1.0);
@@ -105,16 +105,16 @@ public class Modes extends Applet implements ActionListener {
       }
 
       // Handle timer events
-      Date var2 = new Date();
-      long var3 = var2.getTime();
+      Date now = new Date();
+      long currentTime = now.getTime();
       if (this.mLastTime == 0) {
-         this.mLastTime = var3;
+         this.mLastTime = currentTime;
          return;
       }
 
-      double var5 = (var3 - this.mLastTime) / 1000.0;
-      this.mLastTime = var3;
-      this.mAnimFrame.ControlMessage(0, var5);
+      double elapsedSeconds = (currentTime - this.mLastTime) / 1000.0;
+      this.mLastTime = currentTime;
+      this.mAnimFrame.ControlMessage(0, elapsedSeconds);
    }
 
    public void stop() {

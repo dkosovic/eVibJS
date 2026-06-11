@@ -49,8 +49,8 @@ class CFrameAnimation extends CFrame {
       g.setColor(Color.black);
       g.drawLine(80, 47, 80, 343);
 
-      for (int var18 = 0; var18 < 7; var18++) {
-         g.drawLine(80, 50 + var18 * 45, 77, 50 + var18 * 45);
+      for (int i = 0; i < 7; i++) {
+         g.drawLine(80, 50 + i * 45, 77, 50 + i * 45);
       }
 
       Color force = new Color(0.77F, 0.38F, 0.0F);
@@ -67,32 +67,32 @@ class CFrameAnimation extends CFrame {
       this.mX2overF[0] = this.mb / this.mk2;
       double mAmp2 = this.mX2overF[0];
 
-      for (int var19 = 1; var19 < 481; var19++) {
+      for (int j = 1; j < 481; j++) {
          g.setColor(Color.red);
-         double mWin = (Math.PI * 2) * var19 / this.mxscale;
+         double mWin = (Math.PI * 2) * j / this.mxscale;
          double mA = 12.0 * this.mk2 * (1.0 - this.mb) - this.mm * mWin * mWin * (4.0 - 6.0 * this.mb);
          double mB = 0.0;
          double mC = (4.0 * this.mk1 - this.mm * mWin * mWin) * (4.0 * this.mk2 - this.mm * mWin * mWin) - 4.0 * this.mk2 * this.mk1;
          double mD = 0.0;
-         this.mX1overF[var19] = Math.sqrt((mA * mA + mB * mB) / (mC * mC + mD * mD));
+         this.mX1overF[j] = Math.sqrt((mA * mA + mB * mB) / (mC * mC + mD * mD));
          g.drawLine(
-            80 + (var19 - 1),
+            80 + (j - 1),
             (int)(95.0 - Math.log(mAmp1) / Math.log(10.0) * this.myscale),
-            80 + var19,
-            (int)(95.0 - Math.log(this.mX1overF[var19]) / Math.log(10.0) * this.myscale)
+            80 + j,
+            (int)(95.0 - Math.log(this.mX1overF[j]) / Math.log(10.0) * this.myscale)
          );
-         mAmp1 = this.mX1overF[var19];
+         mAmp1 = this.mX1overF[j];
          g.setColor(Color.blue);
          mA = 12.0 * this.mk1 * this.mb + this.mm * mWin * mWin * (2.0 - 6.0 * this.mb);
          mB = 0.0;
-         this.mX2overF[var19] = Math.sqrt((mA * mA + mB * mB) / (mC * mC + mD * mD));
+         this.mX2overF[j] = Math.sqrt((mA * mA + mB * mB) / (mC * mC + mD * mD));
          g.drawLine(
-            80 + (var19 - 1),
+            80 + (j - 1),
             (int)(95.0 - Math.log(mAmp2) / Math.log(10.0) * this.myscale),
-            80 + var19,
-            (int)(95.0 - Math.log(this.mX2overF[var19]) / Math.log(10.0) * this.myscale)
+            80 + j,
+            (int)(95.0 - Math.log(this.mX2overF[j]) / Math.log(10.0) * this.myscale)
          );
-         mAmp2 = this.mX2overF[var19];
+         mAmp2 = this.mX2overF[j];
       }
    }
 

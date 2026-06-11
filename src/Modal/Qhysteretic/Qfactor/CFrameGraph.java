@@ -71,8 +71,8 @@ class CFrameGraph extends CFrame {
          g.drawLine(40, 410 - p * 50, 37, 410 - p * 50);
       }
 
-      for (int var5 = 1; var5 < 5; var5++) {
-         g.drawLine(40 + var5 * 100, 410, 40 + var5 * 100, 414);
+      for (int i = 1; i < 5; i++) {
+         g.drawLine(40 + i * 100, 410, 40 + i * 100, 414);
       }
 
       this.response();
@@ -81,17 +81,17 @@ class CFrameGraph extends CFrame {
       this.Modesum();
       g.setColor(Color.orange);
 
-      for (int var6 = 2; var6 < 400; var6++) {
+      for (int j = 2; j < 400; j++) {
          g.drawLine(
-            40 + (var6 - 1), (int)(410.0 - Math.abs(this.mRec1[(var6 - 1) * 4] * 1.0E7)), 40 + var6, (int)(410.0 - Math.abs(this.mRec1[var6 * 4] * 1.0E7))
+            40 + (j - 1), (int)(410.0 - Math.abs(this.mRec1[(j - 1) * 4] * 1.0E7)), 40 + j, (int)(410.0 - Math.abs(this.mRec1[j * 4] * 1.0E7))
          );
       }
 
       g.setColor(Color.green);
 
-      for (int var7 = 2; var7 < 400; var7++) {
+      for (int k = 2; k < 400; k++) {
          g.drawLine(
-            40 + (var7 - 1), (int)(410.0 - Math.abs(this.mRec2[(var7 - 1) * 4] * 1.0E7)), 40 + var7, (int)(410.0 - Math.abs(this.mRec2[var7 * 4] * 1.0E7))
+            40 + (k - 1), (int)(410.0 - Math.abs(this.mRec2[(k - 1) * 4] * 1.0E7)), 40 + k, (int)(410.0 - Math.abs(this.mRec2[k * 4] * 1.0E7))
          );
       }
 
@@ -188,7 +188,7 @@ class CFrameGraph extends CFrame {
             double newNum;
             try {
                newNum = java.lang.Double.parseDouble(shortStr);
-            } catch (NumberFormatException var15) {
+            } catch (NumberFormatException ex) {
                break;
             }
 
@@ -276,17 +276,17 @@ class CFrameGraph extends CFrame {
       this.w11 = 0.0;
       this.w12 = 200.0;
 
-      for (int var3 = this.s1max; var3 > 0; var3--) {
-         if (this.mRec[var3] < this.recpt1max / Math.sqrt(2.0) & this.mRec[var3 + 1] > this.recpt1max / Math.sqrt(2.0)) {
-            this.w11 = var3 * 200.0 * 2.0 * Math.PI / 1600.0
-               + (Math.PI / 4) * (this.recpt1max / Math.sqrt(2.0) - this.mRec[var3]) / (this.mRec[var3 + 1] - this.mRec[var3]);
+      for (int i = this.s1max; i > 0; i--) {
+         if (this.mRec[i] < this.recpt1max / Math.sqrt(2.0) & this.mRec[i + 1] > this.recpt1max / Math.sqrt(2.0)) {
+            this.w11 = i * 200.0 * 2.0 * Math.PI / 1600.0
+               + (Math.PI / 4) * (this.recpt1max / Math.sqrt(2.0) - this.mRec[i]) / (this.mRec[i + 1] - this.mRec[i]);
          }
       }
 
-      for (int var4 = this.s1max; var4 < this.s2max; var4++) {
-         if (this.mRec[var4] < this.recpt1max / Math.sqrt(2.0) & this.mRec[var4 - 1] > this.recpt1max / Math.sqrt(2.0)) {
-            this.w12 = var4 * 200.0 * 2.0 * Math.PI / 1600.0
-               - (Math.PI / 4) * (this.recpt1max / Math.sqrt(2.0) - this.mRec[var4]) / (this.mRec[var4 - 1] - this.mRec[var4]);
+      for (int j = this.s1max; j < this.s2max; j++) {
+         if (this.mRec[j] < this.recpt1max / Math.sqrt(2.0) & this.mRec[j - 1] > this.recpt1max / Math.sqrt(2.0)) {
+            this.w12 = j * 200.0 * 2.0 * Math.PI / 1600.0
+               - (Math.PI / 4) * (this.recpt1max / Math.sqrt(2.0) - this.mRec[j]) / (this.mRec[j - 1] - this.mRec[j]);
          }
       }
 
@@ -295,10 +295,10 @@ class CFrameGraph extends CFrame {
       this.w21 = 0.0;
       this.w22 = 200.0;
 
-      for (int var5 = this.s2max; var5 > this.s1max; var5--) {
-         if (this.mRec[var5] < this.recpt2max / Math.sqrt(2.0) & this.mRec[var5 + 1] > this.recpt2max / Math.sqrt(2.0)) {
-            this.w21 = var5 * 200.0 * 2.0 * Math.PI / 1600.0
-               + (Math.PI / 4) * (this.recpt2max / Math.sqrt(2.0) - this.mRec[var5]) / (this.mRec[var5 + 1] - this.mRec[var5]);
+      for (int k = this.s2max; k > this.s1max; k--) {
+         if (this.mRec[k] < this.recpt2max / Math.sqrt(2.0) & this.mRec[k + 1] > this.recpt2max / Math.sqrt(2.0)) {
+            this.w21 = k * 200.0 * 2.0 * Math.PI / 1600.0
+               + (Math.PI / 4) * (this.recpt2max / Math.sqrt(2.0) - this.mRec[k]) / (this.mRec[k + 1] - this.mRec[k]);
          }
       }
 

@@ -47,16 +47,16 @@ class CFrameGraph extends CFrame {
          g.drawLine(40, 370 - p * 50, 37, 370 - p * 50);
       }
 
-      for (int var5 = 1; var5 < 5; var5++) {
-         g.drawLine(40 + var5 * 100, 370, 40 + var5 * 100, 374);
+      for (int i = 1; i < 5; i++) {
+         g.drawLine(40 + i * 100, 370, 40 + i * 100, 374);
       }
 
       this.response();
       g.setColor(mass);
 
-      for (int var6 = 2; var6 < 400; var6++) {
+      for (int j = 2; j < 400; j++) {
          g.drawLine(
-            40 + (var6 - 1), (int)(370.0 - Math.abs(this.mRec1[(var6 - 1) * 4] * 1.0E7)), 40 + var6, (int)(370.0 - Math.abs(this.mRec1[var6 * 4] * 1.0E7))
+            40 + (j - 1), (int)(370.0 - Math.abs(this.mRec1[(j - 1) * 4] * 1.0E7)), 40 + j, (int)(370.0 - Math.abs(this.mRec1[j * 4] * 1.0E7))
          );
       }
 
@@ -120,7 +120,7 @@ class CFrameGraph extends CFrame {
             double newNum;
             try {
                newNum = java.lang.Double.parseDouble(shortStr);
-            } catch (NumberFormatException var15) {
+            } catch (NumberFormatException ex) {
                break;
             }
 
@@ -183,17 +183,17 @@ class CFrameGraph extends CFrame {
       this.w1 = 0.0;
       this.w2 = 200.0;
 
-      for (int var4 = this.smax; var4 > 0; var4--) {
-         if (this.mRec1[var4] < max / Math.sqrt(2.0) & this.mRec1[var4 + 1] > max / Math.sqrt(2.0)) {
-            this.w1 = var4 * 200.0 * 2.0 * Math.PI / 1600.0
-               + (Math.PI / 4) * (max / Math.sqrt(2.0) - this.mRec1[var4]) / (this.mRec1[var4 + 1] - this.mRec1[var4]);
+      for (int i = this.smax; i > 0; i--) {
+         if (this.mRec1[i] < max / Math.sqrt(2.0) & this.mRec1[i + 1] > max / Math.sqrt(2.0)) {
+            this.w1 = i * 200.0 * 2.0 * Math.PI / 1600.0
+               + (Math.PI / 4) * (max / Math.sqrt(2.0) - this.mRec1[i]) / (this.mRec1[i + 1] - this.mRec1[i]);
          }
       }
 
-      for (int var5 = this.smax; var5 < 1601; var5++) {
-         if (this.mRec1[var5] < max / Math.sqrt(2.0) & this.mRec1[var5 - 1] > max / Math.sqrt(2.0)) {
-            this.w2 = var5 * 200.0 * 2.0 * Math.PI / 1600.0
-               - (Math.PI / 4) * (max / Math.sqrt(2.0) - this.mRec1[var5]) / (this.mRec1[var5 - 1] - this.mRec1[var5]);
+      for (int j = this.smax; j < 1601; j++) {
+         if (this.mRec1[j] < max / Math.sqrt(2.0) & this.mRec1[j - 1] > max / Math.sqrt(2.0)) {
+            this.w2 = j * 200.0 * 2.0 * Math.PI / 1600.0
+               - (Math.PI / 4) * (max / Math.sqrt(2.0) - this.mRec1[j]) / (this.mRec1[j - 1] - this.mRec1[j]);
          }
       }
 

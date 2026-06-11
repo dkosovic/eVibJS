@@ -9,32 +9,32 @@ class CFramePicture extends CFrame {
    public Image mImage;
    public boolean mScaleImage;
 
-   public CFramePicture(CFramePanel var1, int var2, int var3, int var4, int var5, Image var6, boolean var7) {
-      super(var1, var2, var3, var4, var5);
-      this.mScaleImage = var7;
-      this.LoadImage(var6);
+   public CFramePicture(CFramePanel thePanel, int xx, int yy, int ww, int hh, Image img, boolean scale) {
+      super(thePanel, xx, yy, ww, hh);
+      this.mScaleImage = scale;
+      this.LoadImage(img);
    }
 
-   public void LoadImage(Image var1) {
+   public void LoadImage(Image img) {
       // Use ImageIcon to ensure synchronous loading, with Java2script error handling
-      if (var1 != null) {
+      if (img != null) {
          try {
-            ImageIcon icon = new ImageIcon(var1);
+            ImageIcon icon = new ImageIcon(img);
             this.mImage = icon.getImage();
          } catch (Exception e) {
             // Fallback to original image if ImageIcon fails
-            this.mImage = var1;
+            this.mImage = img;
          }
       } else {
          this.mImage = null;
       }
    }
 
-   public void Frame(Graphics var1) {
+   public void Frame(Graphics g) {
       if (this.mScaleImage) {
-         var1.drawImage(this.mImage, super.x, super.y, super.width, super.height, super.mFramePanel);
+         g.drawImage(this.mImage, super.x, super.y, super.width, super.height, super.mFramePanel);
       } else {
-         var1.drawImage(this.mImage, super.x, super.y, super.mFramePanel);
+         g.drawImage(this.mImage, super.x, super.y, super.mFramePanel);
       }
    }
 }

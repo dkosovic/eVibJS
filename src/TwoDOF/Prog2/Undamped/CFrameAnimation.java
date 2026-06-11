@@ -155,11 +155,11 @@ class CFrameAnimation extends CFrame {
       coil = (201 + y2 - 110 - 20 - y1) / 10.0;
       g.drawLine(517, 130 + y1, 523, (int)(130 + y1 + coil / 2.0));
 
-      for (int var13 = 1; var13 < 10; var13++) {
-         if (var13 % 2 == 0) {
-            g.drawLine(511, (int)(130 + y1 + (2 * var13 - 1) * coil / 2.0), 523, (int)(130 + y1 + (2 * var13 + 1) * coil / 2.0));
+      for (int i = 1; i < 10; i++) {
+         if (i % 2 == 0) {
+            g.drawLine(511, (int)(130 + y1 + (2 * i - 1) * coil / 2.0), 523, (int)(130 + y1 + (2 * i + 1) * coil / 2.0));
          } else {
-            g.drawLine(523, (int)(130 + y1 + (2 * var13 - 1) * coil / 2.0), 511, (int)(130 + y1 + (2 * var13 + 1) * coil / 2.0));
+            g.drawLine(523, (int)(130 + y1 + (2 * i - 1) * coil / 2.0), 511, (int)(130 + y1 + (2 * i + 1) * coil / 2.0));
          }
       }
 
@@ -296,13 +296,13 @@ class CFrameAnimation extends CFrame {
             );
       }
 
-      for (int var3 = 0; var3 < 1598; var3++) {
+      for (int i = 0; i < 1598; i++) {
          this.mTraceThumbnailGC
             .drawLine(
-               (var3 * 2 + 400) / 8,
-               (int)(this.mTraceClip.height / 8 * 0.7 + this.mDisplacement2[var3] * yscale / 8.0),
-               ((var3 + 1) * 2 + 400) / 8,
-               (int)(this.mTraceClip.height / 8 * 0.7 + this.mDisplacement2[var3 + 1] * yscale / 8.0)
+               (i * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 * 0.7 + this.mDisplacement2[i] * yscale / 8.0),
+               ((i + 1) * 2 + 400) / 8,
+               (int)(this.mTraceClip.height / 8 * 0.7 + this.mDisplacement2[i + 1] * yscale / 8.0)
             );
       }
    }
@@ -317,13 +317,13 @@ class CFrameAnimation extends CFrame {
             .drawLine(p * 2 + 400 + 90, 60 + (int)(yscale * this.mDisplacement1[p]), (p + 1) * 2 + 400 + 90, 60 + (int)(yscale * this.mDisplacement1[p + 1]));
       }
 
-      for (int var3 = 0; var3 < 1598; var3++) {
+      for (int i = 0; i < 1598; i++) {
          this.mTraceGC
             .drawLine(
-               var3 * 2 + 400 + 90,
-               151 + (int)(yscale * this.mDisplacement2[var3]),
-               (var3 + 1) * 2 + 400 + 90,
-               151 + (int)(yscale * this.mDisplacement2[var3 + 1])
+               i * 2 + 400 + 90,
+               151 + (int)(yscale * this.mDisplacement2[i]),
+               (i + 1) * 2 + 400 + 90,
+               151 + (int)(yscale * this.mDisplacement2[i + 1])
             );
       }
    }

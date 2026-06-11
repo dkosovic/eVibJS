@@ -78,23 +78,23 @@ class CFrameAnimation extends CFrame {
          }
       }
 
-      for (int var12 = 1; var12 < 6; var12++) {
-         g.drawLine(20 + var12 * 80, 163, 20 + var12 * 80, 160);
+      for (int i = 1; i < 6; i++) {
+         g.drawLine(20 + i * 80, 163, 20 + i * 80, 160);
       }
 
       g.setColor(Color.red);
       this.mRecb[1] = 0.0;
 
-      for (int var13 = 1; var13 < 400; var13++) {
-         double mw = var13 * 5000.0 * 2.0 * Math.PI / 400.0;
+      for (int j = 1; j < 400; j++) {
+         double mw = j * 5000.0 * 2.0 * Math.PI / 400.0;
          double mlambda = mw * Math.sqrt(3.9E-8);
          double mAreab = Math.PI * this.mDb * this.mDb / 4.0;
-         if (var13 == 1) {
+         if (j == 1) {
             this.mRecb[1] = Math.tan(mlambda * this.mLb) / (mAreab * 2.0E11 * mlambda);
          } else {
-            this.mRecb[var13] = Math.tan(mlambda * this.mLb) / (mAreab * 2.0E11 * mlambda);
-            if (!(this.mRecb[var13 - 1] > 0.0 & this.mRecb[var13] < 0.0) && Math.abs(this.mRecb[var13 - 1]) < 1.0E-8) {
-               g.drawLine(20 + (var13 - 1), (int)(163.0 - this.mRecb[var13 - 1] * 2.5E10), 20 + var13, (int)(163.0 - this.mRecb[var13] * 2.5E10));
+            this.mRecb[j] = Math.tan(mlambda * this.mLb) / (mAreab * 2.0E11 * mlambda);
+            if (!(this.mRecb[j - 1] > 0.0 & this.mRecb[j] < 0.0) && Math.abs(this.mRecb[j - 1]) < 1.0E-8) {
+               g.drawLine(20 + (j - 1), (int)(163.0 - this.mRecb[j - 1] * 2.5E10), 20 + j, (int)(163.0 - this.mRecb[j] * 2.5E10));
             }
          }
       }
@@ -102,16 +102,16 @@ class CFrameAnimation extends CFrame {
       g.setColor(Color.blue);
       this.mRecc[1] = 0.0;
 
-      for (int var14 = 1; var14 < 400; var14++) {
-         double mw = var14 * 5000.0 * 2.0 * Math.PI / 400.0;
+      for (int k = 1; k < 400; k++) {
+         double mw = k * 5000.0 * 2.0 * Math.PI / 400.0;
          double mlambda = mw * Math.sqrt(3.9E-8);
          double mAreac = Math.PI * this.mDc * this.mDc / 4.0;
-         if (var14 == 1) {
+         if (k == 1) {
             this.mRecc[1] = -1.0 / (mAreac * 2.0E11 * mlambda * Math.tan(mlambda * this.mLc));
          } else {
-            this.mRecc[var14] = -1.0 / (mAreac * 2.0E11 * mlambda * Math.tan(mlambda * this.mLc));
-            if (!(this.mRecc[var14 - 1] > 0.0 & this.mRecc[var14] < 0.0) && Math.abs(this.mRecc[var14 - 1]) < 1.0E-8) {
-               g.drawLine(20 + (var14 - 1), (int)(163.0 + this.mRecc[var14 - 1] * 2.5E10), 20 + var14, (int)(163.0 + this.mRecc[var14] * 2.5E10));
+            this.mRecc[k] = -1.0 / (mAreac * 2.0E11 * mlambda * Math.tan(mlambda * this.mLc));
+            if (!(this.mRecc[k - 1] > 0.0 & this.mRecc[k] < 0.0) && Math.abs(this.mRecc[k - 1]) < 1.0E-8) {
+               g.drawLine(20 + (k - 1), (int)(163.0 + this.mRecc[k - 1] * 2.5E10), 20 + k, (int)(163.0 + this.mRecc[k] * 2.5E10));
             }
          }
       }

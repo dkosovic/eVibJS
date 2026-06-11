@@ -41,19 +41,19 @@ class CFrameAnimation extends CFrame {
          g.drawLine(40, 160 - (int)(p * 50.0), 37, 160 - (int)(p * 50.0));
       }
 
-      for (int var30 = 1; var30 < 6; var30++) {
-         g.drawLine(40 + var30 * 60, 160, 40 + var30 * 60, 157);
+      for (int i = 1; i < 6; i++) {
+         g.drawLine(40 + i * 60, 160, 40 + i * 60, 157);
       }
 
       g.drawLine(40, 327, 40, 633);
       g.drawLine(37, 480, 343, 480);
 
-      for (int var31 = -3; var31 < 4; var31++) {
-         g.drawLine(40, 480 - (int)(var31 * 50.0), 37, 480 - (int)(var31 * 50.0));
+      for (int j = -3; j < 4; j++) {
+         g.drawLine(40, 480 - (int)(j * 50.0), 37, 480 - (int)(j * 50.0));
       }
 
-      for (int var32 = 1; var32 < 6; var32++) {
-         g.drawLine(40 + var32 * 60, 480, 40 + var32 * 60, 477);
+      for (int k = 1; k < 6; k++) {
+         g.drawLine(40 + k * 60, 480, 40 + k * 60, 477);
       }
 
       this.mAmp1[0] = 1.0;
