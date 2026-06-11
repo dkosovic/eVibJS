@@ -1,4 +1,4 @@
-package TwoDOF.Abutmentgeneral_2DOF.Forced;
+package TwoDOF.Abutmentgeneral_2DOF;
 
 import java.awt.Color;
 import java.awt.Graphics;

@@ -1,4 +1,4 @@
-package Continuous.Prog5.Multiforced;
+package Continuous.Prog5;
 
 import java.awt.Color;
 import java.awt.Graphics;

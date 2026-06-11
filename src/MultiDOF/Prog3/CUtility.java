@@ -1,4 +1,4 @@
-package MultiDOF.Prog3.Multiforced;
+package MultiDOF.Prog3;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

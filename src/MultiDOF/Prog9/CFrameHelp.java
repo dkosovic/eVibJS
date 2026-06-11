@@ -1,4 +1,4 @@
-package MultiDOF.Prog9.Multiforced;
+package MultiDOF.Prog9;
 
 import java.awt.Color;
 import java.awt.Graphics;

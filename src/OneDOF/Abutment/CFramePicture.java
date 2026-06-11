@@ -1,4 +1,4 @@
-package OneDOF.Abutment.Abutment;
+package OneDOF.Abutment;
 
 import java.awt.Graphics;
 import java.awt.Image;

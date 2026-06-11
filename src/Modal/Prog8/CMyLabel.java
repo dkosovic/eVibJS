@@ -1,4 +1,4 @@
-package Modal.Prog8.Vibration;
+package Modal.Prog8;
 
 import java.awt.Dimension;
 import java.awt.FontMetrics;

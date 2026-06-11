@@ -1,4 +1,4 @@
-package MultiDOF.Prog8.Multiforced;
+package MultiDOF.Prog8;
 
 import java.awt.Button;
 import java.awt.Color;

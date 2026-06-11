@@ -1,4 +1,4 @@
-package Continuous.Prog4.Vibration;
+package Continuous.Prog4;
 
 import java.awt.Color;
 import java.awt.Graphics;

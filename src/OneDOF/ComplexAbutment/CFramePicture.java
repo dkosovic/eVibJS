@@ -1,4 +1,4 @@
-package OneDOF.ComplexAbutment.Complex;
+package OneDOF.ComplexAbutment;
 
 import java.awt.Graphics;
 import java.awt.Image;

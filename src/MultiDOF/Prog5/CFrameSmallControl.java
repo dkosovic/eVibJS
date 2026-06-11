@@ -1,4 +1,4 @@
-package MultiDOF.Prog5.Multiforced;
+package MultiDOF.Prog5;
 
 import java.awt.Color;
 import java.awt.Graphics;

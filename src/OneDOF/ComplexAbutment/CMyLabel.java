@@ -1,4 +1,4 @@
-package OneDOF.ComplexAbutment.Complex;
+package OneDOF.ComplexAbutment;
 
 import java.awt.Dimension;
 import java.awt.FontMetrics;

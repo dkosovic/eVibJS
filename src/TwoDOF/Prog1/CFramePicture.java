@@ -1,4 +1,4 @@
-package TwoDOF.Prog1.Modes;
+package TwoDOF.Prog1;
 
 import java.awt.Graphics;
 import java.awt.Image;

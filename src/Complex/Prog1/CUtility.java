@@ -1,4 +1,4 @@
-package Complex.Prog1.Forcedresponse;
+package Complex.Prog1;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

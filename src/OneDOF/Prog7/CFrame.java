@@ -1,4 +1,4 @@
-package OneDOF.Prog7.Forcedlocus;
+package OneDOF.Prog7;
 
 import java.awt.Graphics;
 import java.awt.Point;

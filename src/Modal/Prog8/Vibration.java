@@ -1,4 +1,4 @@
-package Modal.Prog8.Vibration;
+package Modal.Prog8;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

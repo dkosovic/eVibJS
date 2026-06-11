@@ -1,4 +1,4 @@
-package TwoDOF.Prog2.Undamped;
+package TwoDOF.Prog2;
 
 import java.awt.Color;
 import java.awt.Graphics;

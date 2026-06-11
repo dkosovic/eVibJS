@@ -1,4 +1,4 @@
-package OneDOF.Prog5.ForcedSin;
+package OneDOF.Prog5;
 
 import java.awt.Graphics;
 import java.awt.Image;

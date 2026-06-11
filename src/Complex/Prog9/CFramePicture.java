@@ -1,4 +1,4 @@
-package Complex.Prog9.Transverse;
+package Complex.Prog9;
 
 import java.awt.Graphics;
 import java.awt.Image;

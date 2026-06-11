@@ -1,4 +1,4 @@
-package Continuous.Prog8.Vibration;
+package Continuous.Prog8;
 
 import java.awt.Dimension;
 import java.awt.FontMetrics;

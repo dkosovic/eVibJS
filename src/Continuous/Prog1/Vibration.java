@@ -1,4 +1,4 @@
-package Continuous.Prog1.Vibration;
+package Continuous.Prog1;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

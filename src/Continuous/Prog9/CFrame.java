@@ -1,4 +1,4 @@
-package Continuous.Prog9.Vibration;
+package Continuous.Prog9;
 
 import java.awt.Graphics;
 import java.awt.Point;

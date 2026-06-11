@@ -1,4 +1,4 @@
-package Complex.Prog10.Transverse;
+package Complex.Prog10;
 
 import java.awt.Graphics;
 import java.awt.Point;

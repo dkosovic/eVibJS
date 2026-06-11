@@ -1,4 +1,4 @@
-package TwoDOF.Prog7.Abutmentresponse_2DOF;
+package TwoDOF.Prog7;
 
 import java.awt.Graphics;
 import java.awt.Image;

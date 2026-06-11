@@ -1,4 +1,4 @@
-package Complex.Prog8.Transverse;
+package Complex.Prog8;
 
 import java.awt.Color;
 import java.awt.Graphics;

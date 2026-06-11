@@ -1,4 +1,4 @@
-package TwoDOF.Prog6.Forced;
+package TwoDOF.Prog6;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

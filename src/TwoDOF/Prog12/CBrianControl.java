@@ -1,4 +1,4 @@
-package TwoDOF.Prog12.Forcedresponse_2DOF;
+package TwoDOF.Prog12;
 
 import java.applet.Applet;
 import java.awt.Color;

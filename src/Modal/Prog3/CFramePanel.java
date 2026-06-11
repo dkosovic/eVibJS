@@ -1,4 +1,4 @@
-package Modal.Prog3.Eigen2DOF;
+package Modal.Prog3;
 
 import java.applet.Applet;
 import java.awt.Color;

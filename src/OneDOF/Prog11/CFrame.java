@@ -1,4 +1,4 @@
-package OneDOF.Prog11.AbutmentSin;
+package OneDOF.Prog11;
 
 import java.awt.Graphics;
 import java.awt.Point;

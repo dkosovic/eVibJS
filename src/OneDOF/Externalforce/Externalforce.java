@@ -1,4 +1,4 @@
-package OneDOF.Externalforce.Externalforce;
+package OneDOF.Externalforce;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

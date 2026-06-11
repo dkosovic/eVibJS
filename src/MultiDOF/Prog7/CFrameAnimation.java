@@ -1,4 +1,4 @@
-package MultiDOF.Prog7.Multiforced;
+package MultiDOF.Prog7;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

@@ -1,4 +1,4 @@
-package Methods.Prog1.Energy;
+package Methods.Prog1;
 
 import java.awt.Graphics;
 import java.awt.Point;

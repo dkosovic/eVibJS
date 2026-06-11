@@ -1,4 +1,4 @@
-package TwoDOF.Prog3.Undamped;
+package TwoDOF.Prog3;
 
 import java.awt.Button;
 import java.awt.Color;

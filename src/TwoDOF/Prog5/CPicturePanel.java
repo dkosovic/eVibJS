@@ -1,4 +1,4 @@
-package TwoDOF.Prog5.Damped;
+package TwoDOF.Prog5;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

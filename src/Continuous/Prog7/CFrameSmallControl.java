@@ -1,4 +1,4 @@
-package Continuous.Prog7.Multiforced;
+package Continuous.Prog7;
 
 import java.awt.Color;
 import java.awt.Graphics;

@@ -1,4 +1,4 @@
-package Beam.Prog5.Forcedresponse_2DOF;
+package Beam.Prog5;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

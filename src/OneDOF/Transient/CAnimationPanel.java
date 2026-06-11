@@ -1,4 +1,4 @@
-package OneDOF.Transient.Transient;
+package OneDOF.Transient;
 
 import java.awt.Color;
 import java.awt.Graphics;

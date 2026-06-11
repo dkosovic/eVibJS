@@ -1,4 +1,4 @@
-package OneDOF.Abutment.Abutment;
+package OneDOF.Abutment;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

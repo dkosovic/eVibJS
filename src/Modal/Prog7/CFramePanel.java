@@ -1,4 +1,4 @@
-package Modal.Prog7.Eigen2DOF;
+package Modal.Prog7;
 
 import java.applet.Applet;
 import java.awt.Color;

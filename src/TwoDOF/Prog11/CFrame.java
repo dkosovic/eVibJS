@@ -1,4 +1,4 @@
-package TwoDOF.Prog11.Detuned;
+package TwoDOF.Prog11;
 
 import java.awt.Graphics;
 import java.awt.Point;

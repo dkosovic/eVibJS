@@ -1,4 +1,4 @@
-package MultiDOF.Prog6.Eigen5DOF;
+package MultiDOF.Prog6;
 
 import jama.EigenvalueDecomposition;
 import jama.Matrix;

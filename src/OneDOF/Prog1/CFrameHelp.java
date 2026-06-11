@@ -1,4 +1,4 @@
-package OneDOF.Prog1.Undamped;
+package OneDOF.Prog1;
 
 import java.awt.Color;
 import java.awt.Graphics;

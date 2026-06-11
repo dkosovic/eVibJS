@@ -1,4 +1,4 @@
-package Complex.Prog10.Transverse;
+package Complex.Prog10;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

@@ -1,4 +1,4 @@
-package Modal.Prog6.Qfactor;
+package Modal.Prog6;
 
 import java.applet.Applet;
 import java.awt.Color;

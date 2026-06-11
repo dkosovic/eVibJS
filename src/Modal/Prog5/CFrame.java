@@ -1,4 +1,4 @@
-package Modal.Prog5.Qfactor;
+package Modal.Prog5;
 
 import java.awt.Graphics;
 import java.awt.Point;

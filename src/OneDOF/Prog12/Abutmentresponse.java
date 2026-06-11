@@ -1,4 +1,4 @@
-package OneDOF.Prog12.Abutmentresponse;
+package OneDOF.Prog12;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

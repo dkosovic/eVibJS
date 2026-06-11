@@ -1,4 +1,4 @@
-package TwoDOF.Prog7.Abutmentresponse_2DOF;
+package TwoDOF.Prog7;
 
 import java.awt.Dimension;
 import java.awt.FontMetrics;

@@ -1,4 +1,4 @@
-package TwoDOF.Prog8.Forced;
+package TwoDOF.Prog8;
 
 import java.applet.Applet;
 import java.awt.Color;

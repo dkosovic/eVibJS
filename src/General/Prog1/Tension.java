@@ -1,4 +1,4 @@
-package General.Prog1.Tension;
+package General.Prog1;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

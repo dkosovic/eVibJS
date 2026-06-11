@@ -1,4 +1,4 @@
-package TwoDOF.Prog12.Forcedresponse_2DOF;
+package TwoDOF.Prog12;
 
 import java.awt.Graphics;
 import java.awt.Image;

@@ -1,4 +1,4 @@
-package Modal.Prog5.Qfactor;
+package Modal.Prog5;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

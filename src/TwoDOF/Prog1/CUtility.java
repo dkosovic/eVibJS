@@ -1,4 +1,4 @@
-package TwoDOF.Prog1.Modes;
+package TwoDOF.Prog1;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

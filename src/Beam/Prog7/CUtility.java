@@ -1,4 +1,4 @@
-package Beam.Prog7.Forcedresponse_2DOF;
+package Beam.Prog7;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

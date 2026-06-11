@@ -1,4 +1,4 @@
-package OneDOF.Prog4.Damped;
+package OneDOF.Prog4;
 
 import java.awt.Color;
 import java.awt.Graphics;

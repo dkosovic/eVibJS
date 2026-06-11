@@ -1,4 +1,4 @@
-package Beam.Prog1.Modes;
+package Beam.Prog1;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

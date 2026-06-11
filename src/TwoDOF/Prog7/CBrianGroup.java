@@ -1,4 +1,4 @@
-package TwoDOF.Prog7.Abutmentresponse_2DOF;
+package TwoDOF.Prog7;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

@@ -1,4 +1,4 @@
-package TwoDOF.Prog5.Damped;
+package TwoDOF.Prog5;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

@@ -1,4 +1,4 @@
-package MultiDOF.Prog7.Multiforced;
+package MultiDOF.Prog7;
 
 import java.awt.Graphics;
 import java.awt.Point;

@@ -1,4 +1,4 @@
-package Beam.Prog6.Forced;
+package Beam.Prog6;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

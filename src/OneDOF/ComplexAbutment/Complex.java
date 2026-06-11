@@ -1,4 +1,4 @@
-package OneDOF.ComplexAbutment.Complex;
+package OneDOF.ComplexAbutment;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

@@ -1,4 +1,4 @@
-package OneDOF.Prog13.Complex;
+package OneDOF.Prog13;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

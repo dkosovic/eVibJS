@@ -1,4 +1,4 @@
-package TwoDOF.Prog9.Forcedresponse_2DOF;
+package TwoDOF.Prog9;
 
 import java.awt.Graphics;
 import java.awt.Point;

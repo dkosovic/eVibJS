@@ -1,4 +1,4 @@
-package TwoDOF.Prog4.Forcedresponse;
+package TwoDOF.Prog4;
 
 import java.awt.Color;
 import java.awt.Graphics;

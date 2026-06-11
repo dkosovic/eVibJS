@@ -1,4 +1,4 @@
-package TwoDOF.Prog14.Absorber_2DOF;
+package TwoDOF.Prog14;
 
 import java.awt.Graphics;
 import java.awt.Image;

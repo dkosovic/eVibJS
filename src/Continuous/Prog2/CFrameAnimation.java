@@ -1,4 +1,4 @@
-package Continuous.Prog2.Multiforced;
+package Continuous.Prog2;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

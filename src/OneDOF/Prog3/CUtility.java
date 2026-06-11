@@ -1,4 +1,4 @@
-package OneDOF.Prog3.Damped;
+package OneDOF.Prog3;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

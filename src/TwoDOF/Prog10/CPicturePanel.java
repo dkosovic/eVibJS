@@ -1,4 +1,4 @@
-package TwoDOF.Prog10.Abutmentresponse_2DOF;
+package TwoDOF.Prog10;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

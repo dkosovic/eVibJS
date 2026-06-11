@@ -1,4 +1,4 @@
-package Complex.Prog5.Multiforced;
+package Complex.Prog5;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

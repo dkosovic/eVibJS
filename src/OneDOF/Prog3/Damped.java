@@ -1,4 +1,4 @@
-package OneDOF.Prog3.Damped;
+package OneDOF.Prog3;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

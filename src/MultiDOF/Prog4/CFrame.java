@@ -1,4 +1,4 @@
-package MultiDOF.Prog4.Forcedresponse_2DOF;
+package MultiDOF.Prog4;
 
 import java.awt.Graphics;
 import java.awt.Point;

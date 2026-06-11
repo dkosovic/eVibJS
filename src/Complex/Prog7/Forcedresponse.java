@@ -1,4 +1,4 @@
-package Complex.Prog7.Forcedresponse;
+package Complex.Prog7;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

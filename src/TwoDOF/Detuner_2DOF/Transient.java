@@ -1,4 +1,4 @@
-package TwoDOF.Detuner_2DOF.Transient;
+package TwoDOF.Detuner_2DOF;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

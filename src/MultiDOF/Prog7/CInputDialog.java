@@ -1,4 +1,4 @@
-package MultiDOF.Prog7.Multiforced;
+package MultiDOF.Prog7;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

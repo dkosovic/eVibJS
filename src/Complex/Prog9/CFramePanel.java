@@ -1,4 +1,4 @@
-package Complex.Prog9.Transverse;
+package Complex.Prog9;
 
 import java.applet.Applet;
 import java.awt.Color;

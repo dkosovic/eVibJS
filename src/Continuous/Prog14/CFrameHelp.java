@@ -1,4 +1,4 @@
-package Continuous.Prog14.Transverse;
+package Continuous.Prog14;
 
 import java.awt.Color;
 import java.awt.Graphics;

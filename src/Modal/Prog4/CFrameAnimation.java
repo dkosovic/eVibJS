@@ -1,4 +1,4 @@
-package Modal.Prog4.Eigen2DOF;
+package Modal.Prog4;
 
 import jama.EigenvalueDecomposition;
 import jama.Matrix;

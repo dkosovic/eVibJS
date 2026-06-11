@@ -1,4 +1,4 @@
-package Beam.Prog4.Forced;
+package Beam.Prog4;
 
 import java.awt.Button;
 import java.awt.Color;

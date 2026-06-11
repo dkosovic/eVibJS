@@ -1,4 +1,4 @@
-package OneDOF.Forced.Forced;
+package OneDOF.Forced;
 
 import java.awt.Dimension;
 import java.awt.FontMetrics;

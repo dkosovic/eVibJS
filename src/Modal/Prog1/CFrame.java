@@ -1,4 +1,4 @@
-package Modal.Prog1.Vibration;
+package Modal.Prog1;
 
 import java.awt.Graphics;
 import java.awt.Point;

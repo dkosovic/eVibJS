@@ -1,4 +1,4 @@
-package OneDOF.Prog9.OOB;
+package OneDOF.Prog9;
 
 import java.awt.Graphics;
 import java.awt.Image;

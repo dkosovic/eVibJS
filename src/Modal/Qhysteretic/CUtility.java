@@ -1,4 +1,4 @@
-package Modal.Qhysteretic.Qfactor;
+package Modal.Qhysteretic;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

@@ -1,4 +1,4 @@
-package Beam.Prog3.Modes;
+package Beam.Prog3;
 
 import java.awt.Graphics;
 import java.awt.Image;

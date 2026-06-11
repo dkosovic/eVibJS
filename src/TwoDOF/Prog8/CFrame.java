@@ -1,4 +1,4 @@
-package TwoDOF.Prog8.Forced;
+package TwoDOF.Prog8;
 
 import java.awt.Graphics;
 import java.awt.Point;

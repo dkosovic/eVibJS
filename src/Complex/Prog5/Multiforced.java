@@ -1,4 +1,4 @@
-package Complex.Prog5.Multiforced;
+package Complex.Prog5;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

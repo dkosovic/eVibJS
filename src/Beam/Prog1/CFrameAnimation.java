@@ -1,4 +1,4 @@
-package Beam.Prog1.Modes;
+package Beam.Prog1;
 
 import java.awt.Button;
 import java.awt.Color;

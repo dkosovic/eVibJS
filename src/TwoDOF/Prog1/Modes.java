@@ -1,4 +1,4 @@
-package TwoDOF.Prog1.Modes;
+package TwoDOF.Prog1;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

@@ -1,4 +1,4 @@
-package Modal.Qhysteretic.Qfactor;
+package Modal.Qhysteretic;
 
 @SuppressWarnings("serial")
 class CFrameAnimation extends CFrame {

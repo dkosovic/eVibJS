@@ -1,4 +1,4 @@
-package OneDOF.Prog8.OOB;
+package OneDOF.Prog8;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

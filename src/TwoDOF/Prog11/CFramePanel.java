@@ -1,4 +1,4 @@
-package TwoDOF.Prog11.Detuned;
+package TwoDOF.Prog11;
 
 import java.applet.Applet;
 import java.awt.Color;

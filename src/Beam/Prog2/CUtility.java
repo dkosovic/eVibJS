@@ -1,4 +1,4 @@
-package Beam.Prog2.Forced;
+package Beam.Prog2;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

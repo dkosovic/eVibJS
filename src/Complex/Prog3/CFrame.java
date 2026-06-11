@@ -1,4 +1,4 @@
-package Complex.Prog3.Forcedresponse;
+package Complex.Prog3;
 
 import java.awt.Graphics;
 import java.awt.Point;

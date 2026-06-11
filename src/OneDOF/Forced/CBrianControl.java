@@ -1,4 +1,4 @@
-package OneDOF.Forced.Forced;
+package OneDOF.Forced;
 
 import java.applet.Applet;
 import java.awt.Color;

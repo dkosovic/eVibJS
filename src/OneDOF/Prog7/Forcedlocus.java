@@ -1,4 +1,4 @@
-package OneDOF.Prog7.Forcedlocus;
+package OneDOF.Prog7;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

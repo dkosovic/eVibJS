@@ -1,4 +1,4 @@
-package OneDOF.Prog2.Damped;
+package OneDOF.Prog2;
 
 import java.awt.Graphics;
 import java.awt.Point;

@@ -1,4 +1,4 @@
-package Complex.Prog3.Forcedresponse;
+package Complex.Prog3;
 
 import java.applet.Applet;
 import java.awt.Color;

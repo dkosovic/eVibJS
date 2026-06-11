@@ -1,4 +1,4 @@
-package OneDOF.Prog2.Damped;
+package OneDOF.Prog2;
 
 import java.awt.Button;
 import java.awt.Color;

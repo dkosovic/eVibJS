@@ -1,4 +1,4 @@
-package MultiDOF.Prog3.Multiforced;
+package MultiDOF.Prog3;
 
 import java.applet.Applet;
 import java.awt.BorderLayout;

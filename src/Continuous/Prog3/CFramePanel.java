@@ -1,4 +1,4 @@
-package Continuous.Prog3.Multiforced;
+package Continuous.Prog3;
 
 import java.applet.Applet;
 import java.awt.Color;

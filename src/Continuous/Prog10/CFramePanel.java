@@ -1,4 +1,4 @@
-package Continuous.Prog10.Vibration;
+package Continuous.Prog10;
 
 import java.applet.Applet;
 import java.awt.Color;

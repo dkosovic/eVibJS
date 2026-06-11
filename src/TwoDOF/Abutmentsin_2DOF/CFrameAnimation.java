@@ -1,4 +1,4 @@
-package TwoDOF.Abutmentsin_2DOF.Forced;
+package TwoDOF.Abutmentsin_2DOF;
 
 import java.awt.Button;
 import java.awt.Color;

@@ -1,4 +1,4 @@
-package Modal.Prog3.Eigen2DOF;
+package Modal.Prog3;
 
 import java.awt.Color;
 import java.awt.FontMetrics;

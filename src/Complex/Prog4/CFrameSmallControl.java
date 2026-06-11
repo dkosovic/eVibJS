@@ -1,4 +1,4 @@
-package Complex.Prog4.Forcedresponse;
+package Complex.Prog4;
 
 import java.awt.Color;
 import java.awt.Graphics;

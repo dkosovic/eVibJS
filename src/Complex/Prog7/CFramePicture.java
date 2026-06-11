@@ -1,4 +1,4 @@
-package Complex.Prog7.Forcedresponse;
+package Complex.Prog7;
 
 import java.awt.Graphics;
 import java.awt.Image;

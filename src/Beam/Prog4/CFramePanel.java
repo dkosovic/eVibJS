@@ -1,4 +1,4 @@
-package Beam.Prog4.Forced;
+package Beam.Prog4;
 
 import java.applet.Applet;
 import java.awt.Color;
