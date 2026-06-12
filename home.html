@@ -134,6 +134,32 @@
          flex: 1;
          line-height: 1.4;
       }
+      .info-section {
+         margin-top: 30px;
+      }
+      .info-box {
+         margin-top: 30px;
+         border: 1px solid;
+         border-radius: 5px;
+         padding: 10px;
+         margin: 10px 0;
+         width: auto;
+         box-sizing: border-box;
+         display: flex;
+         align-items: flex-start;
+         gap: 25px;
+         border-color: #2E9494;
+         background-color: #E8F0ED;
+      }
+      .info-box-icon {
+         width: 40px;
+         height: 40px;
+         flex: 0 0 auto;
+         align-self: center;
+      }
+      .info-box-content {
+         flex: 1;
+      }
       table {
          border-collapse: collapse;
          width: 100%;
@@ -301,6 +327,24 @@
                   </div>
                </div>
             </div>
+         <div class="info-section">
+            <div class="info-box">
+               <img src="Home_info/info-icon.svg" class="info-box-icon">
+               <div class="info-box-content">
+                  <p>This site was originally hosted at the following location up until 2008:</p>
+                  <p><a href="https://web.archive.org/web/20080000000000*/http://www.mech.uwa.edu.au/bjs/eVib/">http://www.mech.uwa.edu.au/bjs/eVib/</a></p>
+                  <p>Accessing the original site required Adobe Flash for the introductory page and Oracle Java 1.8 (or earlier) to run the 78 Java applet based simulations.</p>
+                  <p></p>
+                  <p>In order to accommodate modern web browsers, this site has been updated to use HTML5 and JavaScript. The
+                   <a href="index.html">introductory Flash page</a>
+                   was converted using Adobe Animate and the
+                   <a href="Programs/Programs.html">78 Java applet simulations</a>
+                   were transpilled with
+                   <a href="https://github.com/BobHanson/java2script">Java2script</a>
+                   and now run on the SwingJS runtime.</p>
+               </div>
+            </div>
+         </div>
          </td>
       </tr>
    </table>
