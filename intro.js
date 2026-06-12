@@ -831,7 +831,7 @@ if (reversed == null) { reversed = false; }
 		function fl_ClickToGoToWebPage() {
 			window.open("home.html", "_self");
 		}
-		createjs.Sound.registerSound("intro/sounds/dropletSound.mp3", "dropletSound");
+		createjs.Sound.registerSound("sounds/dropletSound.mp3", "dropletSound");
 		
 		const droplet = new lib.droplet();
 		
@@ -923,8 +923,8 @@ lib.properties = {
 	color: "#000000",
 	opacity: 1.00,
 	manifest: [
-		{src:"intro/images/intro_atlas_1.png", id:"intro_atlas_1"},
-		{src:"intro/sounds/dropletSound.mp3", id:"dropletSound"}
+		{src:"images/intro_atlas_1.png", id:"intro_atlas_1"},
+		{src:"sounds/dropletSound.mp3", id:"dropletSound"}
 	],
 	preloads: []
 };
