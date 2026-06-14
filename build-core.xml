@@ -117,7 +117,7 @@
         <concat>
           <filterchain>
             <tokenfilter>
-              <stringtokenizer delims="${line.separator}" />
+              <linetokenizer/>
             </tokenfilter>
           </filterchain>
           <propertyresource name="coreclasses" />
